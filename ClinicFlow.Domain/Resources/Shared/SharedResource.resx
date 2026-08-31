@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+	<!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,119 +59,278 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="Accounting" xml:space="preserve">
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="Accounting" xml:space="preserve">
     <value>Accounting</value>
   </data>
-  <data name="Accounts" xml:space="preserve">
+	<data name="Accounts" xml:space="preserve">
     <value>Chart of Accounts</value>
   </data>
-  <data name="Appointments" xml:space="preserve">
+	<data name="Appointments" xml:space="preserve">
     <value>Appointments</value>
   </data>
-  <data name="BondCategories" xml:space="preserve">
+	<data name="BondCategories" xml:space="preserve">
     <value>Bond Categories</value>
   </data>
-  <data name="Bonds" xml:space="preserve">
+	<data name="Bonds" xml:space="preserve">
     <value>Bonds</value>
   </data>
-  <data name="Dashboard" xml:space="preserve">
+	<data name="Dashboard" xml:space="preserve">
     <value>Dashboard</value>
   </data>
-  <data name="Doctors" xml:space="preserve">
+	<data name="Doctors" xml:space="preserve">
     <value>Doctors</value>
   </data>
-  <data name="Invoices" xml:space="preserve">
+	<data name="Invoices" xml:space="preserve">
     <value>Invoices</value>
   </data>
-  <data name="JournalEntries" xml:space="preserve">
+	<data name="JournalEntries" xml:space="preserve">
     <value>Journal Entries</value>
   </data>
-  <data name="LabCategories" xml:space="preserve">
+	<data name="LabCategories" xml:space="preserve">
     <value>Lab Categories</value>
   </data>
-  <data name="Laboratory" xml:space="preserve">
+	<data name="Laboratory" xml:space="preserve">
     <value>Laboratory</value>
   </data>
-  <data name="LabOrders" xml:space="preserve">
+	<data name="LabOrders" xml:space="preserve">
     <value>Lab Orders</value>
   </data>
-  <data name="LabResults" xml:space="preserve">
+	<data name="LabResults" xml:space="preserve">
     <value>Lab Results</value>
   </data>
-  <data name="LabTests" xml:space="preserve">
+	<data name="LabTests" xml:space="preserve">
     <value>Lab Tests</value>
   </data>
-  <data name="Patients" xml:space="preserve">
+	<data name="Patients" xml:space="preserve">
     <value>Patients</value>
   </data>
-  <data name="PaymentMethods" xml:space="preserve">
+	<data name="PaymentMethods" xml:space="preserve">
     <value>Payment Methods</value>
   </data>
-  <data name="Prescriptions" xml:space="preserve">
+	<data name="Prescriptions" xml:space="preserve">
     <value>Prescriptions</value>
   </data>
-  <data name="Queue" xml:space="preserve">
+	<data name="Queue" xml:space="preserve">
     <value>Queue</value>
   </data>
-  <data name="Visits" xml:space="preserve">
+	<data name="Visits" xml:space="preserve">
     <value>Visits</value>
   </data>
+	<data name="Patients" xml:space="preserve">
+  <value>Patients</value>
+</data>
+	<data name="Allergies" xml:space="preserve">
+  <value>Allergies</value>
+</data>
+
+	<data name="ChronicConditions" xml:space="preserve">
+  <value>Chronic Conditions</value>
+</data>
+
+	<data name="FullName" xml:space="preserve">
+  <value>Full Name</value>
+</data>
+
+	<data name="PhoneNumber" xml:space="preserve">
+  <value>Phone Number</value>
+</data>
+
+	<data name="Email" xml:space="preserve">
+  <value>Email</value>
+</data>
+
+	<data name="Gender" xml:space="preserve">
+  <value>Gender</value>
+</data>
+
+	<data name="NationalId" xml:space="preserve">
+  <value>National ID</value>
+</data>
+
+	<data name="Address" xml:space="preserve">
+  <value>Address</value>
+</data>
+
+	<data name="DateOfBirth" xml:space="preserve">
+  <value>Date of Birth</value>
+</data>
+
+	<data name="BloodType" xml:space="preserve">
+  <value>Blood Type</value>
+</data>
+
+	<data name="Description" xml:space="preserve">
+  <value>Description</value>
+</data>
+
+	<data name="Notes" xml:space="preserve">
+  <value>Notes</value>
+</data>
+
+	<data name="IdentifiedAt" xml:space="preserve">
+  <value>Identified At</value>
+</data>
+
+	<data name="DiagnosedAt" xml:space="preserve">
+  <value>Diagnosed At</value>
+</data>
+
+	<data name="IsActive" xml:space="preserve">
+  <value>Active</value>
+</data>
+
+	<data name="Male" xml:space="preserve">
+  <value>Male</value>
+</data>
+
+	<data name="Female" xml:space="preserve">
+  <value>Female</value>
+</data>
+
+	<data name="Other" xml:space="preserve">
+  <value>Other</value>
+</data>
+
+	<data name="Unknown" xml:space="preserve">
+  <value>Unknown</value>
+</data>
+
+	<data name="APositive" xml:space="preserve">
+  <value>A+</value>
+</data>
+
+	<data name="ANegative" xml:space="preserve">
+  <value>A-</value>
+</data>
+
+	<data name="BPositive" xml:space="preserve">
+  <value>B+</value>
+</data>
+
+	<data name="BNegative" xml:space="preserve">
+  <value>B-</value>
+</data>
+
+	<data name="ABPositive" xml:space="preserve">
+  <value>AB+</value>
+</data>
+
+	<data name="ABNegative" xml:space="preserve">
+  <value>AB-</value>
+</data>
+
+	<data name="OPositive" xml:space="preserve">
+  <value>O+</value>
+</data>
+
+	<data name="ONegative" xml:space="preserve">
+  <value>O-</value>
+</data>
+
+	<data name="Allergy" xml:space="preserve">
+  <value>Allergy</value>
+</data>
+
+	<data name="NameEn" xml:space="preserve">
+  <value>English Name</value>
+</data>
+
+	<data name="NameAr" xml:space="preserve">
+  <value>Arabic Name</value>
+</data>
+
+	<data name="DescriptionEn" xml:space="preserve">
+  <value>English Description</value>
+</data>
+
+	<data name="DescriptionAr" xml:space="preserve">
+  <value>Arabic Description</value>
+</data>
+
+	<data name="IsActive" xml:space="preserve">
+  <value>Active</value>
+</data>
+
+	<data name="PatientAllergies" xml:space="preserve">
+  <value>Patients with this Allergy</value>
+</data>
+
+	<data name="ChronicCondition" xml:space="preserve">
+  <value>Chronic Condition</value>
+</data>
+
+	<data name="PatientChronicConditions" xml:space="preserve">
+  <value>Patients with this Condition</value>
+</data>
+
+	<data name="IsActive" xml:space="preserve">
+  <value>Active Status</value>
+</data>
+
+	<data name="Active" xml:space="preserve">
+  <value>Active</value>
+</data>
+
+	<data name="Inactive" xml:space="preserve">
+  <value>Inactive</value>
+</data>
+
 </root>

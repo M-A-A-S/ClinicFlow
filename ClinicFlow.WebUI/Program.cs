@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Localization;
 using System.Globalization;
+using ClinicFlow.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +31,8 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
     };
 
 });
+
+builder.Services.AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
 

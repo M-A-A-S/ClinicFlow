@@ -78,8 +78,32 @@
 								{
 								Key = "Patients",
 								Icon = "fa-user-injured",
-								Controller = "Patients",
-								Action = "Index"
+								Controller = "",
+								Action = "",
+								Children =
+								{
+									new()
+									{
+										Key = "Patients",
+				Icon = "fa-users",
+				Controller = "Patients",
+										Action = "Index"
+									},
+									new()
+									{
+										Key = "Allergies",
+				Icon = "fa-triangle-exclamation",
+				Controller = "Allergies",
+										Action = "Index"
+									},
+									new()
+									{
+				Key = "ChronicConditions",
+				Icon = "fa-notes-medical",
+				Controller = "ChronicConditions",
+										Action = "Index"
+									}
+								}
 								},
 
 								new()
