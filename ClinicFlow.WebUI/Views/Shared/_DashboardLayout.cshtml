@@ -1,0 +1,406 @@
+﻿@using ClinicFlow.Domain.Utilities
+
+
+<!DOCTYPE html>
+<html lang="@CultureInfo.CurrentUICulture.Name"
+	  dir="@(CultureInfo.CurrentUICulture.Name == "en" ? "ltr" : "rtl")"
+	  data-theme="light"
+	  data-bs-theme="light">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - ClinicFlow</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	@* <link rel="stylesheet" *@
+	@* href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> *@
+	<link rel="stylesheet"
+		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body data-bs-theme="light">
+	@* Navbar *@
+	<header>
+		<nav class="navbar">
+			<button class="burger-btn" id="openSidebarBtn"><i class="fa-solid fa-bars"></i></button>
+			<div>
+				<button id="themeToggle" class="link"><i class="fa-solid fa-sun"></i></button>
+				@* <button><i class="fa-solid fa-globe"></i> @(CultureInfo.CurrentUICulture.Name == "en" ? "AR" : "EN")</button> *@
+				<a asp-controller="Language"
+				   asp-action="SetLanguage"
+				   asp-route-culture="@(CultureInfo.CurrentUICulture.Name == "en" ? "ar" : "en")"
+				   asp-route-returnUrl="@(Context.Request.Path + Context.Request.QueryString)"
+				   class="link">
+
+					<i class="fa-solid fa-globe"></i>
+					@(CultureInfo.CurrentUICulture.Name == "en" ? "AR" : "EN")
+				</a>
+
+			</div>
+			<a class="navbar-brand" href="#">ClinicFlow</a>
+			@* <div>
+				@await Component.InvokeAsync("SystemSetting")
+			</div> *@
+		</nav>
+	</header>
+
+	@* Sidebar *@
+	<aside class="sidebar close" id="sidebar">
+		@* Top *@
+		<div class="sidebar-top">
+			<div class="logo">ClinicFlow</div>
+			@* @await Component.InvokeAsync("SystemSetting") *@
+			@* <button onClick={onClose}> *@
+			<button id="closeSidebarBtn">
+				<i class="fa-solid fa-xmark"></i>
+			</button>
+		</div>
+		@* Links *@
+		<nav class="sidebar-links">
+
+			<ul>
+
+
+				@{
+
+					var menuItems = new List<MenuItem>
+								{
+								new()
+								{
+								Key = "Dashboard",
+								Icon = "fa-chart-pie",
+								Controller = "Home",
+								Action = "Index"
+								},
+
+								new()
+								{
+								Key = "Patients",
+								Icon = "fa-user-injured",
+								Controller = "Patients",
+								Action = "Index"
+								},
+
+								new()
+								{
+								Key = "Appointments",
+								Icon = "fa-calendar-days",
+								Controller = "Appointments",
+								Action = "Index"
+								},
+
+								new()
+								{
+								Key = "Queue",
+								Icon = "fa-user-clock",
+								Controller = "Queue",
+								Action = "Index"
+								},
+
+								new()
+								{
+								Key = "Visits",
+								Icon = "fa-stethoscope",
+								Controller = "Visits",
+								Action = "Index"
+								},
+
+								new()
+								{
+								Key = "Laboratory",
+								Icon = "fa-flask",
+								Controller = "",
+								Action = "",
+								Children = 
+								{
+									new()
+									{
+				Key = "LabOrders",
+				Icon = "fa-file-medical",
+				Controller = "LabOrders",
+									Action = "Index"
+									},
+
+									new()
+									{
+									Key = "LabResults",
+				Icon = "fa-vial-circle-check",
+				Controller = "LabResults",
+									Action = "Index"
+									},
+
+				new()
+				{
+				Key = "LabTests",
+				Icon = "fa-flask-vial",
+				Controller = "LabTests",
+				Action = "Index"
+				},
+
+				new()
+				{
+				Key = "LabCategories",
+				Icon = "fa-layer-group",
+				Controller = "LabCategories",
+				Action = "Index"
+				},
+
+								},
+
+				
+
+				
+
+								},
+
+				new()
+				{
+								Key = "Prescriptions",
+								Icon = "fa-file-prescription",
+								Controller = "Prescriptions",
+				Action = "Index"
+				},
+
+				new()
+				{
+				Key = "Invoices",
+								Icon = "fa-file-invoice",
+								Controller = "Invoices",
+				Action = "Index"
+				},
+
+				new()
+				{
+								Key = "Accounting",
+								Icon = "fa-calculator",
+				Controller = "",
+				Action = "",
+				Children = {
+
+					new()
+				{
+				Key = "Bonds",
+								Icon = "fa-receipt",
+								Controller = "Bonds",
+				Action = "Index"
+				},
+
+				new()
+				{
+								Key = "Accounts",
+								Icon = "fa-building-columns",
+								Controller = "Accounts",
+				Action = "Index"
+				},
+
+								new()
+								{
+								Key = "JournalEntries",
+								Icon = "fa-book",
+								Controller = "JournalEntries",
+								Action = "Index"
+								},
+
+								new()
+								{
+								Key = "BondCategories",
+								Icon = "fa-tags",
+								Controller = "BondCategories",
+								Action = "Index"
+								},
+
+				}
+				},
+
+				new()
+				{
+								Key = "Doctors",
+								Icon = "fa-user-doctor",
+								Controller = "Doctors",
+				Action = "Index"
+				},
+
+								new()
+								{
+								Key = "PaymentMethods",
+								Icon = "fa-credit-card",
+								Controller = "PaymentMethods",
+								Action = "Index"
+								},
+
+
+								};
+				}
+
+				@foreach (var item in menuItems)
+				{
+					<li class="menu-item @(item.HasChildren ? "has-children" : "")">
+
+						@if (item.HasChildren)
+						{
+							<button type="button" class="menu-toggle">
+
+								<span class="left">
+
+									<span class="icon">
+										<i class="fa-solid @item.Icon"></i>
+									</span>
+
+									<span class="text">
+										@Localizer[item.Key]
+									</span>
+
+								</span>
+
+								<i class="fa-solid fa-chevron-down arrow"></i>
+
+							</button>
+
+							<ul class="submenu">
+
+								@foreach (var child in item.Children)
+								{
+									<li>
+
+										<a asp-controller="@child.Controller"
+										   asp-action="@child.Action">
+
+											<span class="icon">
+												<i class="fa-solid @child.Icon"></i>
+											</span>
+
+											<span class="text">
+												@Localizer[child.Key]
+											</span>
+
+										</a>
+
+									</li>
+								}
+
+							</ul>
+						}
+						else
+						{
+							<a asp-controller="@item.Controller"
+							   asp-action="@item.Action">
+
+								<span class="icon">
+									<i class="fa-solid @item.Icon"></i>
+								</span>
+
+								<span class="text">
+									@Localizer[item.Key]
+								</span>
+
+							</a>
+						}
+
+					</li>
+				}
+
+			</ul>
+		</nav>
+	</aside>
+
+
+
+	<div class="container">
+		<main role="main" class="pb-3 main">
+			@* <partial name="_Notification" /> *@
+
+			@RenderBody()
+		</main>
+	</div>
+
+	<footer class="border-top footer text-muted">
+		<div class="container">
+			&copy; 2026 - ClinicFlow - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+		</div>
+	</footer>
+
+	<script>
+
+		// Sidebar
+
+		const sidebar = document.getElementById("sidebar");
+
+		document
+			.getElementById("openSidebarBtn")
+			.addEventListener("click", function () {
+
+				sidebar.classList.remove("close");
+			});
+
+		document
+			.getElementById("closeSidebarBtn")
+			.addEventListener("click", function () {
+
+				sidebar.classList.add("close");
+			});
+
+				document.querySelectorAll(".menu-toggle")
+		.forEach(btn => {
+
+			btn.addEventListener("click", function () {
+
+				this.parentElement.classList.toggle("open");
+
+			});
+
+		});
+
+
+			// Theme
+
+		(function () {
+
+			const html = document.documentElement;
+			const btn = document.getElementById("themeToggle");
+
+			function updateIcon(theme) {
+
+				btn.innerHTML = theme === "dark"
+					? '<i class="fa-solid fa-sun"></i>'
+					: '<i class="fa-solid fa-moon"></i>';
+			}
+
+			let theme = localStorage.getItem("ClinicFlow-theme") || "light";
+
+			html.setAttribute("data-theme", theme);
+			html.setAttribute("data-bs-theme", theme);
+
+			updateIcon(theme);
+
+			btn.addEventListener("click", function () {
+
+				let current = html.getAttribute("data-theme");
+
+				let next = current === "dark"
+					? "light"
+					: "dark";
+
+				html.setAttribute("data-theme", next);
+				html.setAttribute("data-bs-theme", next);
+
+				localStorage.setItem("ClinicFlow-theme", next);
+
+				updateIcon(next);
+			});
+
+		})();
+	</script>
+
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+	@* <script src="~/js/member-subscription.js"></script> *@
+	<script src="~/js/member-subscription.js" asp-append-version="true"></script>
+	@* <script src="~/js/purchase-invoice.js" asp-append-version="true"></script> *@
+	@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
