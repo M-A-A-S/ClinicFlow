@@ -363,4 +363,10 @@
   <data name="NoRecordsFound" xml:space="preserve">
     <value>لم يتم العثور على سجلات</value>
   </data>
+  <data name="Save" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>إلغاء</value>
+  </data>
 </root>

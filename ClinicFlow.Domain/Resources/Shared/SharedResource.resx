@@ -363,4 +363,10 @@
   <data name="NoRecordsFound" xml:space="preserve">
     <value>No records found</value>
   </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
 </root>
