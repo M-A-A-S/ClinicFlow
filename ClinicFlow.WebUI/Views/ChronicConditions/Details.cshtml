@@ -1,0 +1,33 @@
+﻿@using ClinicFlow.Domain.DTOs.ChronicCondition
+@model ChronicConditionDTO
+
+<div class="card shadow-sm">
+
+    <div class="card-header text-white">
+        <h5>
+            @Localizer["Details"] @Localizer["ChronicCondition"]
+        </h5>
+    </div>
+
+    <div class="card-body">
+
+        <partial name="Partials/_ChronicConditionDetails" model="Model" />
+
+    </div>
+
+    <div class="card-footer">
+
+        <a asp-action="Edit"
+           asp-route-id="@Model.Id"
+           class="btn btn-primary">
+            @Localizer["Edit"]
+        </a>
+
+        <a href="javascript:history.back()"
+           class="btn btn-secondary">
+            @Localizer["GoBack"]
+        </a>
+
+    </div>
+
+</div>
