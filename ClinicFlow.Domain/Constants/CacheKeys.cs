@@ -10,6 +10,7 @@ namespace ClinicFlow.Domain.Constants
     {
         public const string AllergySelect = "AllergySelect";
         public const string ChronicConditionSelect = "ChronicConditionSelect";
+        public const string PatientSelect = "PatientSelect";
 
     }
 }

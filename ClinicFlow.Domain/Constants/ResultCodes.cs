@@ -11,6 +11,7 @@ namespace ClinicFlow.Domain.Constants
         public const string ServerError = "ServerError";
         public const string NotFound = "NotFound";
         public const string InvalidData = "InvalidData";
+        public const string InvalidDate = "InvalidDate";
 
         public const string CreatedSuccessfully = "CreatedSuccessfully";
         public const string UpdatedSuccessfully = "UpdatedSuccessfully";
@@ -22,6 +23,13 @@ namespace ClinicFlow.Domain.Constants
 
         public const string NameEnExists = "NameEnExists";
         public const string NameArExists = "NameArExists";
+        public const string PhoneNumberAlreadyExists = "PhoneNumberAlreadyExists";
+        public const string EmailAlreadyExists = "EmailAlreadyExists";
+        public const string NationalIdAlreadyExists = "NationalIdAlreadyExists";
+        public const string DuplicateAllergy = "DuplicateAllergy";
+        public const string InvalidAllergy = "InvalidAllergy";
+        public const string DuplicateChronicCondition = "DuplicateChronicCondition";
+        public const string InvalidChronicCondition = "InvalidChronicCondition";
 
     }
 }

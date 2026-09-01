@@ -304,6 +304,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Date of birth cannot be in the future..
+        /// </summary>
+        public static string DateOfBirthCannotBeInFuture {
+            get {
+                return ResourceManager.GetString("DateOfBirthCannotBeInFuture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         public static string Delete {
@@ -385,6 +394,24 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Duplicate allergies are not allowed..
+        /// </summary>
+        public static string DuplicateAllergy {
+            get {
+                return ResourceManager.GetString("DuplicateAllergy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Duplicate chronic conditions are not allowed..
+        /// </summary>
+        public static string DuplicateChronicCondition {
+            get {
+                return ResourceManager.GetString("DuplicateChronicCondition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit.
         /// </summary>
         public static string Edit {
@@ -399,6 +426,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string Email {
             get {
                 return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email already exists..
+        /// </summary>
+        public static string EmailAlreadyExists {
+            get {
+                return ResourceManager.GetString("EmailAlreadyExists", resourceCulture);
             }
         }
         
@@ -466,11 +502,38 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to One or more selected allergies are invalid..
+        /// </summary>
+        public static string InvalidAllergy {
+            get {
+                return ResourceManager.GetString("InvalidAllergy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to One or more selected chronic conditions are invalid..
+        /// </summary>
+        public static string InvalidChronicCondition {
+            get {
+                return ResourceManager.GetString("InvalidChronicCondition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid data.
         /// </summary>
         public static string InvalidData {
             get {
                 return ResourceManager.GetString("InvalidData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The date is invalid..
+        /// </summary>
+        public static string InvalidDate {
+            get {
+                return ResourceManager.GetString("InvalidDate", resourceCulture);
             }
         }
         
@@ -601,6 +664,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to National ID already exists..
+        /// </summary>
+        public static string NationalIdAlreadyExists {
+            get {
+                return ResourceManager.GetString("NationalIdAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Next.
         /// </summary>
         public static string Next {
@@ -664,6 +736,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Patient.
+        /// </summary>
+        public static string Patient {
+            get {
+                return ResourceManager.GetString("Patient", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Patients with this Allergy.
         /// </summary>
         public static string PatientAllergies {
@@ -714,6 +795,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string PhoneNumber {
             get {
                 return ResourceManager.GetString("PhoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone number already exists..
+        /// </summary>
+        public static string PhoneNumberAlreadyExists {
+            get {
+                return ResourceManager.GetString("PhoneNumberAlreadyExists", resourceCulture);
             }
         }
         

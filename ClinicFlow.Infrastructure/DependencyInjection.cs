@@ -20,6 +20,7 @@ namespace ClinicFlow.Infrastructure
             IConfiguration configuration)
         {
 
+            services.AddScoped<IPatientService, PatientService>();
             services.AddScoped<IChronicConditionService, ChronicConditionService>();
             services.AddScoped<IAllergyService, AllergyService>();
 
