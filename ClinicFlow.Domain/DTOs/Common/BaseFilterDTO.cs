@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ClinicFlow.Domain.DTOs.Common
 {
-    public class BaseFilterDTO
+    public abstract class BaseFilterDTO
     {
         public int PageNumber { get; set; } = 1;
         public int PageSize { get; set; } = 3;

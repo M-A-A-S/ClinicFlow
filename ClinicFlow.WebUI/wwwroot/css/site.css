@@ -158,7 +158,16 @@ body[data-bs-theme="light"] {
     background-color: #f8f9fa;
 }*/
 
-
+.table-responsive
+{
+    box-shadow: var(--shadow-1);
+    border-radius: var(--border-radius);
+    margin-bottom: 0.5rem;
+    transition: var(--transition);
+}
+.table-responsive:hover {
+    box-shadow: var(--shadow-2);
+}
 .table {
     background-color: var(--card-background);
 }

@@ -1,4 +1,6 @@
-﻿using ClinicFlow.Infrastructure.Data;
+﻿using ClinicFlow.Application.Services;
+using ClinicFlow.Infrastructure.Data;
+using ClinicFlow.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +19,8 @@ namespace ClinicFlow.Infrastructure
             this IServiceCollection services,
             IConfiguration configuration)
         {
+
+            services.AddScoped<IAllergyService, AllergyService>();
 
             services.AddScoped<IAppDbContext>(provider => provider.GetService<AppDbContext>());
 

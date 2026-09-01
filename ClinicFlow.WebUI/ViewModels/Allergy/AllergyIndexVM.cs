@@ -5,7 +5,7 @@ namespace ClinicFlow.WebUI.ViewModels.Allergy
 {
     public class AllergyIndexVM
     {
-        public PagedResult<AllergyDTO> PagedResult { get; set; }
-        public AllergyFilterDTO Filter { get; set; }
+        public PagedResult<AllergyDTO> PagedResult { get; set; } = new();
+        public AllergyFilterDTO Filter { get; set; } = new();
     }
 }

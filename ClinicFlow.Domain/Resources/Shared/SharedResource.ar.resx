@@ -315,19 +315,52 @@
   <data name="UnexpectedError" xml:space="preserve">
     <value>حدث خطأ غير متوقع</value>
   </data>
-	<data name="NameArExists" xml:space="preserve">
-  <value>الاسم باللغة العربية موجود بالفعل.</value>
-</data>
-	<data name="PhoneExists" xml:space="preserve">
-  <value>رقم الهاتف موجود بالفعل.</value>
-</data>
-	<data name="EmailExists" xml:space="preserve">
-  <value>البريد الإلكتروني موجود بالفعل.</value>
-</data>
-	<data name="NameEnExists" xml:space="preserve">
-  <value>الاسم باللغة الإنجليزية موجود بالفعل.</value>
-</data>
-	<data name="NameArExists" xml:space="preserve">
-  <value>الاسم باللغة العربية موجود بالفعل.</value>
-</data>
+  <data name="NameArExists" xml:space="preserve">
+    <value>الاسم باللغة العربية موجود بالفعل.</value>
+  </data>
+  <data name="PhoneExists" xml:space="preserve">
+    <value>رقم الهاتف موجود بالفعل.</value>
+  </data>
+  <data name="EmailExists" xml:space="preserve">
+    <value>البريد الإلكتروني موجود بالفعل.</value>
+  </data>
+  <data name="NameEnExists" xml:space="preserve">
+    <value>الاسم باللغة الإنجليزية موجود بالفعل.</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>بحث</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>مسح</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>إضافة</value>
+  </data>
+  <data name="CreateNew" xml:space="preserve">
+    <value>إضافة جديد</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="DeleteConfirmationMessage" xml:space="preserve">
+    <value>هل أنت متأكد من الحذف؟</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>تفاصيل</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>التالي</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>السابق</value>
+  </data>
+  <data name="ShowingRecords" xml:space="preserve">
+    <value>عرض {0} - {1} من أصل {2} سجل</value>
+  </data>
+  <data name="NoRecordsFound" xml:space="preserve">
+    <value>لم يتم العثور على سجلات</value>
+  </data>
 </root>
