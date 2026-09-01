@@ -7,12 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Constants\" />
-    <Folder Include="Extensions\" />
-    <Folder Include="DTOs\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="Resources\Shared\SharedResource.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

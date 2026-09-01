@@ -174,161 +174,160 @@
   <data name="Visits" xml:space="preserve">
     <value>الزيارات</value>
   </data>
-
-	<data name="Allergies" xml:space="preserve">
-  <value>الحساسيات</value>
+  <data name="Allergies" xml:space="preserve">
+    <value>الحساسيات</value>
+  </data>
+  <data name="ChronicConditions" xml:space="preserve">
+    <value>الأمراض المزمنة</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>الاسم الكامل</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>رقم الهاتف</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>الجنس</value>
+  </data>
+  <data name="NationalId" xml:space="preserve">
+    <value>الرقم الوطني</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>العنوان</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>تاريخ الميلاد</value>
+  </data>
+  <data name="BloodType" xml:space="preserve">
+    <value>فصيلة الدم</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>الوصف</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>ملاحظات</value>
+  </data>
+  <data name="IdentifiedAt" xml:space="preserve">
+    <value>تاريخ اكتشاف الحساسية</value>
+  </data>
+  <data name="DiagnosedAt" xml:space="preserve">
+    <value>تاريخ التشخيص</value>
+  </data>
+  <data name="IsActive" xml:space="preserve">
+    <value>حالة التفعيل</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>ذكر</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>أنثى</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>آخر</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>غير معروف</value>
+  </data>
+  <data name="APositive" xml:space="preserve">
+    <value>A+</value>
+  </data>
+  <data name="ANegative" xml:space="preserve">
+    <value>A-</value>
+  </data>
+  <data name="BPositive" xml:space="preserve">
+    <value>B+</value>
+  </data>
+  <data name="BNegative" xml:space="preserve">
+    <value>B-</value>
+  </data>
+  <data name="ABPositive" xml:space="preserve">
+    <value>AB+</value>
+  </data>
+  <data name="ABNegative" xml:space="preserve">
+    <value>AB-</value>
+  </data>
+  <data name="OPositive" xml:space="preserve">
+    <value>O+</value>
+  </data>
+  <data name="ONegative" xml:space="preserve">
+    <value>O-</value>
+  </data>
+  <data name="Allergy" xml:space="preserve">
+    <value>الحساسية</value>
+  </data>
+  <data name="NameEn" xml:space="preserve">
+    <value>الاسم بالإنجليزية</value>
+  </data>
+  <data name="NameAr" xml:space="preserve">
+    <value>الاسم بالعربية</value>
+  </data>
+  <data name="DescriptionEn" xml:space="preserve">
+    <value>الوصف بالإنجليزية</value>
+  </data>
+  <data name="DescriptionAr" xml:space="preserve">
+    <value>الوصف بالعربية</value>
+  </data>
+  <data name="PatientAllergies" xml:space="preserve">
+    <value>المرضى الذين لديهم هذه الحساسية</value>
+  </data>
+  <data name="ChronicCondition" xml:space="preserve">
+    <value>الحالة المرضية المزمنة</value>
+  </data>
+  <data name="PatientChronicConditions" xml:space="preserve">
+    <value>المرضى الذين لديهم هذا المرض</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>نشط</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>غير نشط</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>هذا الحقل مطلوب</value>
+  </data>
+  <data name="ServerError" xml:space="preserve">
+    <value>حدث خطأ في الخادم</value>
+  </data>
+  <data name="NotFound" xml:space="preserve">
+    <value>السجل غير موجود</value>
+  </data>
+  <data name="InvalidData" xml:space="preserve">
+    <value>بيانات غير صالحة</value>
+  </data>
+  <data name="CreatedSuccessfully" xml:space="preserve">
+    <value>تم الإنشاء بنجاح</value>
+  </data>
+  <data name="DeletedSuccessfully" xml:space="preserve">
+    <value>تم الحذف بنجاح</value>
+  </data>
+  <data name="UpdatedSuccessfully" xml:space="preserve">
+    <value>تم التحديث بنجاح</value>
+  </data>
+  <data name="AlreadyExists" xml:space="preserve">
+    <value>موجود مسبقاً</value>
+  </data>
+  <data name="ValidationError" xml:space="preserve">
+    <value>خطأ في التحقق من البيانات</value>
+  </data>
+  <data name="UnexpectedError" xml:space="preserve">
+    <value>حدث خطأ غير متوقع</value>
+  </data>
+	<data name="NameArExists" xml:space="preserve">
+  <value>الاسم باللغة العربية موجود بالفعل.</value>
 </data>
-
-	<data name="ChronicConditions" xml:space="preserve">
-  <value>الأمراض المزمنة</value>
+	<data name="PhoneExists" xml:space="preserve">
+  <value>رقم الهاتف موجود بالفعل.</value>
 </data>
-
-	<data name="FullName" xml:space="preserve">
-  <value>الاسم الكامل</value>
+	<data name="EmailExists" xml:space="preserve">
+  <value>البريد الإلكتروني موجود بالفعل.</value>
 </data>
-
-	<data name="PhoneNumber" xml:space="preserve">
-  <value>رقم الهاتف</value>
+	<data name="NameEnExists" xml:space="preserve">
+  <value>الاسم باللغة الإنجليزية موجود بالفعل.</value>
 </data>
-
-	<data name="Email" xml:space="preserve">
-  <value>البريد الإلكتروني</value>
+	<data name="NameArExists" xml:space="preserve">
+  <value>الاسم باللغة العربية موجود بالفعل.</value>
 </data>
-
-	<data name="Gender" xml:space="preserve">
-  <value>الجنس</value>
-</data>
-
-	<data name="NationalId" xml:space="preserve">
-  <value>الرقم الوطني</value>
-</data>
-
-	<data name="Address" xml:space="preserve">
-  <value>العنوان</value>
-</data>
-
-	<data name="DateOfBirth" xml:space="preserve">
-  <value>تاريخ الميلاد</value>
-</data>
-
-	<data name="BloodType" xml:space="preserve">
-  <value>فصيلة الدم</value>
-</data>
-
-	<data name="Description" xml:space="preserve">
-  <value>الوصف</value>
-</data>
-
-	<data name="Notes" xml:space="preserve">
-  <value>ملاحظات</value>
-</data>
-
-	<data name="IdentifiedAt" xml:space="preserve">
-  <value>تاريخ اكتشاف الحساسية</value>
-</data>
-
-	<data name="DiagnosedAt" xml:space="preserve">
-  <value>تاريخ التشخيص</value>
-</data>
-
-	<data name="IsActive" xml:space="preserve">
-  <value>نشط</value>
-</data>
-
-	<data name="Male" xml:space="preserve">
-  <value>ذكر</value>
-</data>
-
-	<data name="Female" xml:space="preserve">
-  <value>أنثى</value>
-</data>
-
-	<data name="Other" xml:space="preserve">
-  <value>آخر</value>
-</data>
-
-	<data name="Unknown" xml:space="preserve">
-  <value>غير معروف</value>
-</data>
-
-	<data name="APositive" xml:space="preserve">
-  <value>A+</value>
-</data>
-
-	<data name="ANegative" xml:space="preserve">
-  <value>A-</value>
-</data>
-
-	<data name="BPositive" xml:space="preserve">
-  <value>B+</value>
-</data>
-
-	<data name="BNegative" xml:space="preserve">
-  <value>B-</value>
-</data>
-
-	<data name="ABPositive" xml:space="preserve">
-  <value>AB+</value>
-</data>
-
-	<data name="ABNegative" xml:space="preserve">
-  <value>AB-</value>
-</data>
-
-	<data name="OPositive" xml:space="preserve">
-  <value>O+</value>
-</data>
-
-	<data name="ONegative" xml:space="preserve">
-  <value>O-</value>
-</data>
-
-	<data name="Allergy" xml:space="preserve">
-  <value>الحساسية</value>
-</data>
-
-	<data name="NameEn" xml:space="preserve">
-  <value>الاسم بالإنجليزية</value>
-</data>
-
-	<data name="NameAr" xml:space="preserve">
-  <value>الاسم بالعربية</value>
-</data>
-
-	<data name="DescriptionEn" xml:space="preserve">
-  <value>الوصف بالإنجليزية</value>
-</data>
-
-	<data name="DescriptionAr" xml:space="preserve">
-  <value>الوصف بالعربية</value>
-</data>
-
-	<data name="IsActive" xml:space="preserve">
-  <value>نشط</value>
-</data>
-
-	<data name="PatientAllergies" xml:space="preserve">
-  <value>المرضى الذين لديهم هذه الحساسية</value>
-</data>
-
-	<data name="PatientChronicConditions" xml:space="preserve">
-  <value>المرضى الذين لديهم هذا المرض</value>
-</data>
-
-	<data name="ChronicCondition" xml:space="preserve">
-  <value>الحالة المرضية المزمنة</value>
-</data>
-
-	<data name="IsActive" xml:space="preserve">
-  <value>حالة التفعيل</value>
-</data>
-
-	<data name="Active" xml:space="preserve">
-  <value>نشط</value>
-</data>
-
-	<data name="Inactive" xml:space="preserve">
-  <value>غير نشط</value>
-</data>
-	
 </root>
