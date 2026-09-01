@@ -73,6 +73,7 @@ namespace ClinicFlow.Domain.Extensions
             Entity.NameAr = DTO.NameAr;
             Entity.DescriptionEn = DTO.DescriptionEn;
             Entity.DescriptionAr = DTO.DescriptionAr;
+            Entity.IsActive = DTO.IsActive;
 
             Entity.UpdatedAt = DateTime.UtcNow;
 
