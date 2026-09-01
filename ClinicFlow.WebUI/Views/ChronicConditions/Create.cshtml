@@ -1,0 +1,32 @@
+﻿@using ClinicFlow.Domain.DTOs.ChronicCondition
+@model ChronicConditionDTO
+
+
+<div class="card shadow-sm">
+
+    <div class="card-header">
+        <h5>@Localizer["Create"] @Localizer["ChronicCondition"]</h5>
+    </div>
+
+    <div class="card-body">
+
+        <form asp-action="Create" method="post">
+
+            <partial name="Partials/_ChronicConditionForm" model="Model" />
+
+            <button type="submit" class="btn btn-success">
+                @Localizer["Save"]
+            </button>
+
+            <a asp-action="Index" class="btn btn-secondary">
+                @Localizer["Cancel"]
+            </a>
+
+        </form>
+
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
