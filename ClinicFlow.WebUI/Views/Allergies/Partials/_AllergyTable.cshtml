@@ -92,7 +92,11 @@ else
 
                         <td>@item.DescriptionAr</td>
 
-                        <td class=" fw-bolder @(item.IsActive ? "text-success" : "text-danger")">@(item.IsActive? Localizer["Active"] : Localizer["Inactive"])</td>
+                        <td>
+                            <span class="badge @(item.IsActive ? "bg-success" : "bg-danger")"> 
+                                @(item.IsActive? Localizer["Active"] : Localizer["Inactive"]) 
+                            </span>
+                        </td>
 
                         <td class="d-flex align-items-center gap-1">
                             <partial name="Partials/_Actions"

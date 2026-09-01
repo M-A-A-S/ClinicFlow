@@ -369,4 +369,10 @@
   <data name="Cancel" xml:space="preserve">
     <value>إلغاء</value>
   </data>
+  <data name="GoBack" xml:space="preserve">
+    <value>رجوع</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>رجوع</value>
+  </data>
 </root>
