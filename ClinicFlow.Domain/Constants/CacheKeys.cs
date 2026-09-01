@@ -9,6 +9,7 @@ namespace ClinicFlow.Domain.Constants
     public static class CacheKeys
     {
         public const string AllergySelect = "AllergySelect";
+        public const string ChronicConditionSelect = "ChronicConditionSelect";
 
     }
 }
