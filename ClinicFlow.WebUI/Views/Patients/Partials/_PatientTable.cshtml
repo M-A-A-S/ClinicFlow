@@ -1,0 +1,140 @@
+﻿@using ClinicFlow.WebUI.ViewModels.Common
+@using ClinicFlow.WebUI.ViewModels.Patient;
+@model PatientIndexVM
+
+@{
+    var routes = Model.Filter.ToRouteDictionary();
+
+    var columns = new List<TableColumnVM>
+    {
+        new TableColumnVM
+        {
+            Column = "FullName",
+            Title = Localizer["FullName"]
+        },
+        new TableColumnVM
+        {
+            Column = "PhoneNumber",
+            Title = Localizer["PhoneNumber"]
+        },
+        new TableColumnVM
+        {
+            Column = "Email",
+            Title = Localizer["Email"]
+        },
+        new TableColumnVM
+        {
+            Column = "Gender",
+            Title = Localizer["Gender"],
+            IsSortable = false
+        },
+        new TableColumnVM
+        {
+            Column = "NationalId",
+            Title = Localizer["NationalId"],
+        },
+        new TableColumnVM
+        {
+            Column = "Address",
+            Title = Localizer["Address"],
+        },
+        new TableColumnVM
+        {
+            Column = "DateOfBirth",
+            Title = Localizer["DateOfBirth"],
+        },
+        new TableColumnVM
+        {
+            Column = "BloodType",
+            Title = Localizer["BloodType"],
+			IsSortable = false
+        },
+        new TableColumnVM
+        {
+            Column = string.Empty,
+            Title = Localizer["Actions"],
+            IsSortable = false
+        }
+    };
+
+}
+
+@if (!Model.PagedResult.Items.Any())
+{
+    <div class="alert alert-info">
+        @Localizer["NoRecordsFound"]
+    </div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    @foreach (var column in columns)
+                    {
+                        <th>
+                            @if (column.IsSortable)
+                            {
+                                <partial name="Partials/_SortableHeader"
+                                         model='new SortHeaderVM
+                                         {
+                                             Column = column.Column,
+                                             Title = column.Title,
+                                             Filter = Model.Filter,
+                                             Routes = routes
+                                         }' />
+                                        }
+                            else
+                            {
+                                @column.Title
+                            }
+                        </th>
+                    }
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model.PagedResult.Items)
+                {
+                    <tr>
+                        <td>@item.FullName</td>
+
+                        <td>@item.PhoneNumber</td>
+
+                        <td>@item.Email</td>
+
+                        <td>@Localizer[item.Gender.ToString()]</td>
+
+                        <td>@item.NationalId</td>
+
+                        <td>@item.Address</td>
+
+                        <td>@item.DateOfBirth</td>
+
+                        <td>
+                            @(item.BloodType.HasValue
+                                ? Localizer[item.BloodType.Value.ToString()]
+                                                : Localizer["NotSpecified"])
+                        </td>
+
+                        <td>
+                            <span class="badge @(item.IsActive ? "bg-success" : "bg-danger")">
+                                @(item.IsActive? Localizer["Active"] : Localizer["Inactive"])
+                            </span>
+                        </td>
+
+                        <td class="d-flex align-items-center gap-1">
+                            <partial name="Partials/_Actions"
+                                     model='new ActionButtonsVM
+                                     {
+                                         Controller = "Allergies",
+                                         Id = item.Id
+                                     }' />
+                </td>
+            </tr>
+                        }
+            </tbody>
+        </table>
+    </div>
+}

@@ -378,41 +378,34 @@
   <data name="Patient" xml:space="preserve">
     <value>مريض</value>
   </data>
-
-	<data name="InvalidDate" xml:space="preserve">
+  <data name="InvalidDate" xml:space="preserve">
     <value>التاريخ غير صالح.</value>
   </data>
-
-	<data name="DateOfBirthCannotBeInFuture" xml:space="preserve">
+  <data name="DateOfBirthCannotBeInFuture" xml:space="preserve">
     <value>لا يمكن أن يكون تاريخ الميلاد في المستقبل.</value>
   </data>
-
-	<data name="PhoneNumberAlreadyExists" xml:space="preserve">
+  <data name="PhoneNumberAlreadyExists" xml:space="preserve">
     <value>رقم الهاتف موجود بالفعل.</value>
   </data>
-
-	<data name="EmailAlreadyExists" xml:space="preserve">
+  <data name="EmailAlreadyExists" xml:space="preserve">
     <value>البريد الإلكتروني موجود بالفعل.</value>
   </data>
-
-	<data name="NationalIdAlreadyExists" xml:space="preserve">
+  <data name="NationalIdAlreadyExists" xml:space="preserve">
     <value>الرقم الوطني موجود بالفعل.</value>
   </data>
-
-	<data name="DuplicateAllergy" xml:space="preserve">
+  <data name="DuplicateAllergy" xml:space="preserve">
     <value>لا يسمح بتكرار الحساسية.</value>
   </data>
-
-	<data name="InvalidAllergy" xml:space="preserve">
+  <data name="InvalidAllergy" xml:space="preserve">
     <value>واحدة أو أكثر من الحساسيات المحددة غير صالحة.</value>
   </data>
-
-	<data name="DuplicateChronicCondition" xml:space="preserve">
+  <data name="DuplicateChronicCondition" xml:space="preserve">
     <value>لا يسمح بتكرار الحالات المزمنة.</value>
   </data>
-
-	<data name="InvalidChronicCondition" xml:space="preserve">
+  <data name="InvalidChronicCondition" xml:space="preserve">
     <value>واحدة أو أكثر من الحالات المزمنة المحددة غير صالحة.</value>
   </data>
-
+  <data name="NotSpecified" xml:space="preserve">
+    <value>غير محدد</value>
+  </data>
 </root>
