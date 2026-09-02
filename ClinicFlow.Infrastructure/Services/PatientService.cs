@@ -143,7 +143,9 @@ namespace ClinicFlow.Infrastructure.Services
                 var item = await _appDbContext.Patients
                     .AsNoTracking()
                     .Include(x => x.PatientAllergies)
+                        .ThenInclude(x => x.Allergy)
                     .Include(x => x.PatientChronicConditions)
+                        .ThenInclude(x => x.ChronicCondition)
                     .FirstOrDefaultAsync(x => x.Id == id);
 
                 if (item == null)

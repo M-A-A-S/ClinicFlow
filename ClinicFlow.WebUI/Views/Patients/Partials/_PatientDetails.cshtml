@@ -1,0 +1,250 @@
+﻿@using ClinicFlow.Domain.DTOs.Patient
+@model PatientDTO
+
+
+<div class="row">
+
+    @* ================= FullName ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["FullName"]</div>
+        <div>@Model.FullName</div>
+    </div>
+
+    @* ================= PhoneNumber ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["PhoneNumber"]</div>
+        <div>
+            @(string.IsNullOrWhiteSpace(Model.PhoneNumber) ? "-" : Model.PhoneNumber)
+            </div>
+    </div>
+
+    @* ================= Email ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["Email"]</div>
+        <div>
+            @(string.IsNullOrWhiteSpace(Model.Email) ? "-" : Model.Email)
+        </div>
+    </div>
+
+    @* ================= NationalId ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["NationalId"]</div>
+        <div>
+            @(string.IsNullOrWhiteSpace(Model.NationalId) ? "-" : Model.NationalId)
+        </div>
+    </div>
+
+    @* ================= Address ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["Address"]</div>
+        <div>
+            @(string.IsNullOrWhiteSpace(Model.Address) ? "-" : Model.Address)
+        </div>
+    </div>
+
+    @* ================= DateOfBirth ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["DateOfBirth"]</div>
+        <div>
+            @(Model.DateOfBirth == null ? "-" : Model.DateOfBirth)
+        </div>
+    </div>
+
+    @* ================= Gender ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["Gender"]</div>
+        <div>
+            @Localizer[Model.Gender.ToString()]
+        </div>
+    </div>
+
+    @* ================= BloodType ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["BloodType"]</div>
+        <div>
+            @(Model.BloodType.HasValue
+                        ? Localizer[Model.BloodType.Value.ToString()]
+                        : Localizer["NotSpecified"])
+        </div>
+    </div>
+
+    @* ================= IsActive ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["IsActive"]</div>
+        <div>
+            @if (Model.IsActive)
+            {
+                <span class="badge bg-success">
+                    @Localizer["Active"]
+                </span>
+            }
+            else
+            {
+                <span class="badge bg-danger">
+                    @Localizer["Inactive"]
+                </span>
+            }
+        </div>
+    </div>
+</div>
+
+@* ========================================================= *@
+@* ==================== Allergies =========================== *@
+@* ========================================================= *@
+
+<div class="card mt-4">
+
+    <div class="card-header">
+        <h5 class="mb-0">
+            <i class="fa fa-allergies me-1"></i>
+            @Localizer["Allergies"]
+        </h5>
+    </div>
+
+    <div class="card-body">
+
+        @if (Model.PatientAllergies != null &&
+                Model.PatientAllergies.Any())
+        {
+            <div class="table-responsive">
+                <table class="table">
+
+                    <thead>
+                        <tr>
+                            <th>
+                                @Localizer["Allergy"]
+                            </th>
+                            <th>
+                                @Localizer["Notes"]
+                            </th>
+                            <th>
+                                @Localizer["IdentifiedAt"]
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model.PatientAllergies)
+                        {
+                            <tr>
+                                <td>
+                                    @(item.Allergy != null
+                                                                ? (
+                                                                string.IsNullOrWhiteSpace(item.Allergy.NameEn)
+                                                                ? item.Allergy.NameAr
+                                                                : item.Allergy.NameEn
+                                                                )
+                                                                : "-")
+                                                                  </td>
+
+                                <td>
+                                    @(string.IsNullOrWhiteSpace(item.Notes)
+                                                                ? "-"
+                                                                : item.Notes)
+                                                                         </td>
+
+                                <td>
+                                    @(item.IdentifiedAt.HasValue
+                                                                ? item.IdentifiedAt.Value.ToString("yyyy-MM-dd")
+                                                                : "-")
+                        </td>
+
+
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+        }
+        else
+        {
+            <div class="text-muted">
+                @Localizer["NoAllergies"]
+            </div>
+        }
+
+    </div>
+</div>
+
+
+@* ========================================================= *@
+@* ============== Chronic Conditions ======================== *@
+@* ========================================================= *@
+
+<div class="card mt-4">
+
+    <div class="card-header">
+        <h5 class="mb-0">
+            <i class="fa fa-notes-medical me-1"></i>
+            @Localizer["ChronicConditions"]
+        </h5>
+    </div>
+
+    <div class="card-body">
+
+        @if (Model.PatientChronicConditions != null &&
+                Model.PatientChronicConditions.Any())
+        {
+            <div class="table-responsive">
+                <table class="table">
+
+                    <thead>
+                        <tr>
+                            <th>
+                                @Localizer["ChronicCondition"]
+                            </th>
+                            <th>
+                                @Localizer["Notes"]
+                            </th>
+                            <th>
+                                @Localizer["DiagnosedAt"]
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model.PatientChronicConditions)
+                        {
+                            <tr>
+                                <td>
+                                    @(item.ChronicCondition != null
+                                                                ? (
+                                                                string.IsNullOrWhiteSpace(
+                                                                item.ChronicCondition.NameEn)
+                                                                ? item.ChronicCondition.NameAr
+                                                                : item.ChronicCondition.NameEn
+                                                                )
+                                                                : "-")
+                                                                  </td>
+
+                                <td>
+                                    @(string.IsNullOrWhiteSpace(item.Notes)
+                                                                ? "-"
+                                                                : item.Notes)
+                                                                         </td>
+
+                                <td>
+                                    @(item.DiagnosedAt.HasValue
+                                                                ? item.DiagnosedAt.Value.ToString("yyyy-MM-dd")
+                                                                : "-")
+                        </td>
+
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+        }
+        else
+        {
+            <div class="text-muted">
+                @Localizer["NoChronicConditions"]
+            </div>
+        }
+
+    </div>
+</div>
+
+

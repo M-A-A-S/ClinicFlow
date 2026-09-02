@@ -1,4 +1,6 @@
-﻿using ClinicFlow.Domain.DTOs.Patient;
+﻿using ClinicFlow.Domain.DTOs.Allergy;
+using ClinicFlow.Domain.DTOs.ChronicCondition;
+using ClinicFlow.Domain.DTOs.Patient;
 using ClinicFlow.Domain.DTOs.PatientAllergy;
 using ClinicFlow.Domain.DTOs.PatientChronicCondition;
 using ClinicFlow.Domain.Entities;
@@ -56,6 +58,12 @@ namespace ClinicFlow.Domain.Extensions
                     AllergyId = x.AllergyId,
                     IdentifiedAt = x.IdentifiedAt,
                     Notes = x.Notes,
+                    Allergy = new AllergyDTO
+                    {
+                        Id = x.Allergy.Id,
+                        NameEn = x.Allergy.NameEn,
+                        NameAr = x.Allergy.NameAr,
+                    }
                 }).ToList(),
 
                 PatientChronicConditions = Entity.PatientChronicConditions.Select(x => new PatientChronicConditionDTO
@@ -65,6 +73,12 @@ namespace ClinicFlow.Domain.Extensions
                     ChronicConditionId = x.ChronicConditionId,
                     DiagnosedAt = x.DiagnosedAt,
                     Notes = x.Notes,
+                    ChronicCondition = new ChronicConditionDTO
+                    {
+                        Id = x.ChronicCondition.Id,
+                        NameEn = x.ChronicCondition.NameEn,
+                        NameAr = x.ChronicCondition.NameAr,
+                    }
                 }).ToList()
             };
         }

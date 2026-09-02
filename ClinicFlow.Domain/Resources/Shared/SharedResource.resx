@@ -423,4 +423,11 @@
 	<data name="PleaseSelectChronicCondition" xml:space="preserve">
     <value>Please select a chronic condition.</value>
 </data>
+	<data name="NoAllergies" xml:space="preserve">
+    <value>No allergies found.</value>
+</data>
+
+	<data name="NoChronicConditions" xml:space="preserve">
+    <value>No chronic conditions found.</value>
+</data>
 </root>

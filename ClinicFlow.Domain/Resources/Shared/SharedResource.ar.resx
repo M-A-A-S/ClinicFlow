@@ -427,4 +427,11 @@
 	<data name="PleaseSelectChronicCondition" xml:space="preserve">
     <value>يرجى اختيار حالة مزمنة.</value>
 </data>
+	<data name="NoAllergies" xml:space="preserve">
+    <value>لا توجد حساسية.</value>
+</data>
+
+	<data name="NoChronicConditions" xml:space="preserve">
+    <value>لا توجد حالات مزمنة.</value>
+</data>
 </root>
