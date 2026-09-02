@@ -408,4 +408,23 @@
   <data name="NotSpecified" xml:space="preserve">
     <value>غير محدد</value>
   </data>
+	<data name="Select" xml:space="preserve">
+    <value>اختر</value>
+</data>
+
+	<data name="Add" xml:space="preserve">
+    <value>إضافة</value>
+</data>
+
+	<data name="Remove" xml:space="preserve">
+    <value>حذف</value>
+</data>
+
+	<data name="PleaseSelectAllergy" xml:space="preserve">
+    <value>يرجى اختيار حساسية.</value>
+</data>
+
+	<data name="PleaseSelectChronicCondition" xml:space="preserve">
+    <value>يرجى اختيار حالة مزمنة.</value>
+</data>
 </root>

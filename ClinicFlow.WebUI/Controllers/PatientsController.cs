@@ -4,7 +4,9 @@ using ClinicFlow.Domain.Resources.Shared;
 using ClinicFlow.Domain.Utilities;
 using ClinicFlow.WebUI.ViewModels.Patient;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Localization;
+using System.Globalization;
 
 namespace ClinicFlow.WebUI.Controllers
 {
@@ -13,15 +15,22 @@ namespace ClinicFlow.WebUI.Controllers
 
         #region ========================= Fields & Properties =========================
         private readonly IPatientService _service;
+        private readonly IAllergyService _allergyService;
+        private readonly IChronicConditionService _chronicConditionService;
         #endregion
 
         #region ========================= Constructors =========================
         public PatientsController(
-            IPatientService allergyService,
-            IStringLocalizer<SharedResource> localizer
+            IPatientService service,
+            IStringLocalizer<SharedResource> localizer,
+            IAllergyService allergyService,
+            IChronicConditionService chronicConditionService
+
             ) : base(localizer)
         {
-            _service = allergyService;
+            _service = service;
+            _allergyService = allergyService;
+            _chronicConditionService = chronicConditionService;
         }
         #endregion
 
@@ -67,6 +76,8 @@ namespace ClinicFlow.WebUI.Controllers
         #region ========================= Create =========================
         public async Task<IActionResult> Create()
         {
+            await LoadPatientFormData();
+
             return View(new PatientDTO());
         }
 
@@ -76,6 +87,8 @@ namespace ClinicFlow.WebUI.Controllers
         {
             if (InvalidModel())
             {
+                await LoadPatientFormData();
+
                 return View(DTO);
             }
 
@@ -84,6 +97,7 @@ namespace ClinicFlow.WebUI.Controllers
             if (!addResult.IsSuccess)
             {
                 Error(addResult.Code);
+                await LoadPatientFormData();
                 return View(DTO);
             }
 
@@ -102,6 +116,8 @@ namespace ClinicFlow.WebUI.Controllers
                 return NotFound();
             }
 
+            await LoadPatientFormData();
+
             return View(item);
         }
 
@@ -111,6 +127,7 @@ namespace ClinicFlow.WebUI.Controllers
         {
             if (InvalidModel())
             {
+                await LoadPatientFormData();
                 return View(DTO);
             }
 
@@ -118,6 +135,7 @@ namespace ClinicFlow.WebUI.Controllers
             if (!updateResult.IsSuccess)
             {
                 Error(updateResult.Code);
+                await LoadPatientFormData();
                 return View(DTO);
             }
 
@@ -161,6 +179,31 @@ namespace ClinicFlow.WebUI.Controllers
             Success(deleteResult.Code);
             return RedirectToAction(nameof(Index));
         }
+        #endregion
+
+        #region ========================= Helpers =========================
+
+        private async Task LoadPatientFormData()
+        {
+            var allergiesResult = await _allergyService.GetForSelectAsync();
+            var chronicConditionsResult = await _chronicConditionService.GetForSelectAsync();
+
+            var isArabic =
+                CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+
+            ViewBag.Allergies = allergiesResult.Data.Select(x => new SelectListItem
+            {
+                Value = x.Id.ToString(),
+                Text = isArabic ? x.NameAr : x.NameEn
+            });
+
+            ViewBag.ChronicConditions = chronicConditionsResult.Data.Select(x => new SelectListItem
+            {
+                Value = x.Id.ToString(),
+                Text = isArabic ? x.NameAr : x.NameEn
+            });
+        }
+
         #endregion
 
     }

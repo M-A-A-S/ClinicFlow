@@ -408,4 +408,19 @@
   <data name="NotSpecified" xml:space="preserve">
     <value>Not specified</value>
   </data>
+	<data name="Select" xml:space="preserve">
+    <value>Select</value>
+</data>
+	<data name="Add" xml:space="preserve">
+    <value>Add</value>
+</data>
+	<data name="Remove" xml:space="preserve">
+    <value>Remove</value>
+</data>
+	<data name="PleaseSelectAllergy" xml:space="preserve">
+    <value>Please select an allergy.</value>
+</data>
+	<data name="PleaseSelectChronicCondition" xml:space="preserve">
+    <value>Please select a chronic condition.</value>
+</data>
 </root>

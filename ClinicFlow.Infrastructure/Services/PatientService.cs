@@ -142,6 +142,8 @@ namespace ClinicFlow.Infrastructure.Services
             {
                 var item = await _appDbContext.Patients
                     .AsNoTracking()
+                    .Include(x => x.PatientAllergies)
+                    .Include(x => x.PatientChronicConditions)
                     .FirstOrDefaultAsync(x => x.Id == id);
 
                 if (item == null)
@@ -290,6 +292,10 @@ namespace ClinicFlow.Infrastructure.Services
                 }
 
                 item.UpdateEntity(DTO);
+
+                UpdatePatientAllergies(item, DTO);
+
+                UpdatePatientChronicConditions(item, DTO);
 
                 await _appDbContext.SaveChangesAsync();
                 _cache.Remove(CacheKeys.PatientSelect);
@@ -528,6 +534,48 @@ namespace ClinicFlow.Infrastructure.Services
             IQueryable<Patient> query)
         {
             return query.Select(PatientExtensions.ToDTOExpression);
+        }
+
+        private void UpdatePatientAllergies(Patient Entity, PatientDTO DTO)
+        {
+            _appDbContext.PatientAllergies
+                .RemoveRange(Entity.PatientAllergies);
+
+            Entity.PatientAllergies.Clear();
+
+            foreach (var allergy in DTO.PatientAllergies)
+            {
+                Entity.PatientAllergies.Add(new PatientAllergy
+                {
+                    AllergyId = allergy.AllergyId,
+                    Notes = allergy.Notes,
+                    IdentifiedAt =
+                        allergy.IdentifiedAt ?? DateTime.UtcNow,
+                });
+            }
+        }
+
+        private void UpdatePatientChronicConditions(Patient Entity, PatientDTO DTO)
+        {
+            _appDbContext.PatientChronicConditions
+                .RemoveRange(Entity.PatientChronicConditions);
+
+            Entity.PatientChronicConditions.Clear();
+
+            foreach (var condition in DTO.PatientChronicConditions)
+            {
+                Entity.PatientChronicConditions.Add(
+                    new PatientChronicCondition
+                    {
+                        ChronicConditionId =
+                            condition.ChronicConditionId,
+
+                        Notes = condition.Notes,
+
+                        DiagnosedAt =
+                            condition.DiagnosedAt ?? DateTime.UtcNow,
+                    });
+            }
         }
 
         #endregion

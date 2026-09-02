@@ -1,4 +1,6 @@
 ﻿using ClinicFlow.Domain.DTOs.Patient;
+using ClinicFlow.Domain.DTOs.PatientAllergy;
+using ClinicFlow.Domain.DTOs.PatientChronicCondition;
 using ClinicFlow.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -45,7 +47,25 @@ namespace ClinicFlow.Domain.Extensions
                 Address = Entity.Address,
                 DateOfBirth = Entity.DateOfBirth,
                 BloodType = Entity.BloodType,
-                IsActive = Entity.IsActive
+                IsActive = Entity.IsActive,
+
+                PatientAllergies = Entity.PatientAllergies.Select(x => new PatientAllergyDTO
+                {
+                    Id = x.Id,
+                    PatientId = x.PatientId,
+                    AllergyId = x.AllergyId,
+                    IdentifiedAt = x.IdentifiedAt,
+                    Notes = x.Notes,
+                }).ToList(),
+
+                PatientChronicConditions = Entity.PatientChronicConditions.Select(x => new PatientChronicConditionDTO
+                {
+                    Id = x.Id,
+                    PatientId = x.PatientId,
+                    ChronicConditionId = x.ChronicConditionId,
+                    DiagnosedAt = x.DiagnosedAt,
+                    Notes = x.Notes,
+                }).ToList()
             };
         }
 
@@ -87,7 +107,9 @@ namespace ClinicFlow.Domain.Extensions
             };
         }
 
-        public static void UpdateEntity(this Patient Entity, PatientDTO DTO)
+        public static void UpdateEntity(
+            this Patient Entity, 
+            PatientDTO DTO)
         {
 
             ArgumentNullException.ThrowIfNull(Entity);
@@ -104,31 +126,6 @@ namespace ClinicFlow.Domain.Extensions
             Entity.IsActive = DTO.IsActive;
 
             Entity.UpdatedAt = DateTime.UtcNow;
-
-            Entity.PatientAllergies.Clear();
-
-            foreach (var allergy in DTO.PatientAllergies)
-            {
-                Entity.PatientAllergies.Add(new PatientAllergy
-                {
-                    AllergyId = allergy.AllergyId,
-                    Notes = allergy.Notes,
-                    IdentifiedAt = allergy.IdentifiedAt
-                });
-            }
-
-            Entity.PatientChronicConditions.Clear();
-
-            foreach (var condition in DTO.PatientChronicConditions)
-            {
-                Entity.PatientChronicConditions.Add(new PatientChronicCondition
-                {
-                    ChronicConditionId = condition.ChronicConditionId,
-                    Notes = condition.Notes,
-                    DiagnosedAt = condition.DiagnosedAt
-                });
-            }
-
         }
 
     }

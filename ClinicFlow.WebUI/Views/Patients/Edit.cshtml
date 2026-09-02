@@ -1,0 +1,83 @@
+﻿@using ClinicFlow.Domain.DTOs.Patient
+@using System.Text.Json
+@model PatientDTO
+
+<div class="card shadow-sm">
+
+    <div class="card-header">
+        <h5>@Localizer["Edit"] @Localizer["Patient"]</h5>
+    </div>
+
+    <div class="card-body">
+
+        <form asp-action="Edit">
+
+            <input type="hidden" asp-for="Id" />
+
+            <partial name="Partials/_PatientForm" model="Model" />
+
+            <button type="submit" class="btn btn-primary">
+                @Localizer["Edit"]
+            </button>
+
+            <a asp-action="Index" class="btn btn-secondary">
+                @Localizer["Cancel"]
+            </a>
+
+        </form>
+
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+
+        window.patientExistingAllergies =
+            @Html.Raw(JsonSerializer.Serialize(
+                Model.PatientAllergies.Select(x => new
+                {
+                        id = x.Id,
+                        allergyId = x.AllergyId,
+                        allergyText = x.Allergy != null
+                                ? x.Allergy.NameEn
+                                : "",
+                        notes = x.Notes,
+                        identifiedAt = x.IdentifiedAt
+                })
+                ));
+
+
+    window.patientExistingChronicConditions =
+        @Html.Raw(JsonSerializer.Serialize(
+                        Model.PatientChronicConditions.Select(x => new
+                        {
+                                id = x.Id,
+                                chronicConditionId = x.ChronicConditionId,
+                                conditionText = x.ChronicCondition != null
+                                        ? x.ChronicCondition.NameEn
+                                        : "",
+                                notes = x.Notes,
+                                diagnosedAt = x.DiagnosedAt
+                        })
+                ));
+
+                window.patientFormMessages = {
+
+            selectAllergy:
+                @Html.Raw(JsonSerializer.Serialize(
+                                        Localizer["PleaseSelectAllergy"].Value
+                                                )),
+
+        selectChronicCondition:
+            @Html.Raw(JsonSerializer.Serialize(
+                                                                Localizer["PleaseSelectChronicCondition"].Value
+                                                ))
+
+    };
+
+</script>
+
+    <script src="~/js/patient-form.js" asp-append-version="true"></script>
+}
