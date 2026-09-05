@@ -17,6 +17,10 @@ namespace ClinicFlow.Infrastructure.Data
         public DbSet<PatientChronicCondition> PatientChronicConditions { get; set; }
         public DbSet<Patient> Patients { get; set; }
 
+        public DbSet<Specialty> Specialties { get; set; }
+        public DbSet<Doctor> Doctors { get; set; }
+        public DbSet<DoctorSpecialty> DoctorSpecialties { get; set; }
+
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
         int SaveChanges();
         Task<IDbContextTransaction> BeginTransactionAsync(CancellationToken cancellationToken = default);

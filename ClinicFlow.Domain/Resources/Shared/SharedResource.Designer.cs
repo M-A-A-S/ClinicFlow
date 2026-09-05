@@ -268,6 +268,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Consultation Fee.
+        /// </summary>
+        public static string ConsultationFee {
+            get {
+                return ResourceManager.GetString("ConsultationFee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create.
         /// </summary>
         public static string Create {
@@ -394,11 +403,38 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Doctor.
+        /// </summary>
+        public static string Doctor {
+            get {
+                return ResourceManager.GetString("Doctor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Doctors.
         /// </summary>
         public static string Doctors {
             get {
                 return ResourceManager.GetString("Doctors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Doctor Specialties.
+        /// </summary>
+        public static string DoctorSpecialties {
+            get {
+                return ResourceManager.GetString("DoctorSpecialties", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Doctor Specialty.
+        /// </summary>
+        public static string DoctorSpecialty {
+            get {
+                return ResourceManager.GetString("DoctorSpecialty", resourceCulture);
             }
         }
         
@@ -948,6 +984,24 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string ShowingRecords {
             get {
                 return ResourceManager.GetString("ShowingRecords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Specialties.
+        /// </summary>
+        public static string Specialties {
+            get {
+                return ResourceManager.GetString("Specialties", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Specialty.
+        /// </summary>
+        public static string Specialty {
+            get {
+                return ResourceManager.GetString("Specialty", resourceCulture);
             }
         }
         

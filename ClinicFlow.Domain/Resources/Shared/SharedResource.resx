@@ -430,4 +430,30 @@
 	<data name="NoChronicConditions" xml:space="preserve">
     <value>No chronic conditions found.</value>
 </data>
+
+
+	<data name="Doctor" xml:space="preserve">
+    <value>Doctor</value>
+  </data>
+	<data name="Doctors" xml:space="preserve">
+    <value>Doctors</value>
+  </data>
+
+	<data name="ConsultationFee" xml:space="preserve">
+    <value>Consultation Fee</value>
+  </data>
+	<data name="Specialty" xml:space="preserve">
+    <value>Specialty</value>
+  </data>
+	<data name="Specialties" xml:space="preserve">
+    <value>Specialties</value>
+  </data>
+
+	<data name="DoctorSpecialty" xml:space="preserve">
+    <value>Doctor Specialty</value>
+  </data>
+	<data name="DoctorSpecialties" xml:space="preserve">
+    <value>Doctor Specialties</value>
+  </data>
+	
 </root>

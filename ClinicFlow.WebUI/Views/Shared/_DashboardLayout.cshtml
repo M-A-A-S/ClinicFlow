@@ -108,6 +108,31 @@
 
 								new()
 								{
+								Key = "Doctors",
+								Icon = "fa-user-doctor",
+								Controller = "",
+								Action = "",
+								Children =
+								{
+								new()
+								{
+								Key = "Doctors",
+								Icon = "fa-user-doctor",
+								Controller = "Doctors",
+								Action = "Index"
+								},
+								new()
+								{
+								Key = "Specialties",
+								Icon = "fa-stethoscope",
+								Controller = "Specialties",
+								Action = "Index"
+								}
+								}
+								},
+
+								new()
+								{
 								Key = "Appointments",
 								Icon = "fa-calendar-days",
 								Controller = "Appointments",
@@ -237,13 +262,7 @@
 				}
 				},
 
-				new()
-				{
-								Key = "Doctors",
-								Icon = "fa-user-doctor",
-								Controller = "Doctors",
-				Action = "Index"
-				},
+								
 
 								new()
 								{
