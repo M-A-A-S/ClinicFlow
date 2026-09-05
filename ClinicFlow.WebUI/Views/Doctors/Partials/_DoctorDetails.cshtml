@@ -1,0 +1,130 @@
+﻿@using ClinicFlow.Domain.DTOs.Doctor
+@model DoctorDTO
+
+
+@{
+	var isArabic = CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "ar";
+}
+
+<div class="row">
+
+    @* ================= FullName ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["FullName"]</div>
+        <div>@Model.FullName</div>
+    </div>
+
+    @* ================= PhoneNumber ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["PhoneNumber"]</div>
+        <div>
+            @(string.IsNullOrWhiteSpace(Model.PhoneNumber) 
+                ? "-" : 
+                Model.PhoneNumber)
+        </div>
+    </div>
+
+    @* ================= Email ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["Email"]</div>
+        <div>
+            @(string.IsNullOrWhiteSpace(Model.Email) 
+                ? "-" : 
+                Model.Email)
+        </div>
+    </div>
+
+    @* ================= ConsultationFee ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["ConsultationFee"]</div>
+        <div>@Model.ConsultationFee</div>
+    </div>
+
+    @* ================= IsActive ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["IsActive"]</div>
+        <div>
+            @if (Model.IsActive)
+            {
+                <span class="badge bg-success">
+                    @Localizer["Active"]
+                </span>
+            }
+            else
+            {
+                <span class="badge bg-danger">
+                    @Localizer["Inactive"]
+                </span>
+            }
+        </div>
+    </div>
+</div>
+
+@* ========================================================= *@
+@* ==================== Specialties =========================== *@
+@* ========================================================= *@
+
+<div class="card mt-4">
+
+    <div class="card-header">
+        <h5 class="mb-0">
+            <i class="fa fa-stethoscope me-1"></i>
+            @Localizer["Specialties"]
+        </h5>
+    </div>
+
+    <div class="card-body">
+
+        @if (Model.DoctorSpecialties != null &&
+                Model.DoctorSpecialties.Any())
+        {
+            <div class="table-responsive">
+                <table class="table">
+
+                    <thead>
+                        <tr>
+                            <th>
+                                @Localizer["Specialty"]
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model.DoctorSpecialties)
+                        {
+                            <tr>
+                                <td>
+                                    @if (item.Specialty != null)
+                                    {
+                                        @(isArabic
+											? item.Specialty.NameAr
+                                                : item.Specialty.NameEn)
+
+                                    }
+                                    else
+                                    {
+                                        @:-
+                                    }
+                                </td>
+
+
+                            </tr>
+                                        }
+                    </tbody>
+
+                </table>
+            </div>
+        }
+        else
+        {
+            <div class="text-muted">
+                @* @Localizer["NoSpecialties"] *@
+                @Localizer["NoItemsFound"]
+            </div>
+        }
+
+    </div>
+</div>
+
+
+

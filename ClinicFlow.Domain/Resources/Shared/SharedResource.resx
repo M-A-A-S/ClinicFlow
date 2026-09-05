@@ -459,4 +459,10 @@
   <data name="PleaseSelectSpecialty" xml:space="preserve">
     <value>Please select a specialty</value>
   </data>
+  <data name="NoSpecialties" xml:space="preserve">
+    <value>No specialties assigned</value>
+  </data>
+  <data name="NoItemsFound" xml:space="preserve">
+    <value>No items found</value>
+  </data>
 </root>

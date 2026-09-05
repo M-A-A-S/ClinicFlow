@@ -459,4 +459,10 @@
   <data name="PleaseSelectSpecialty" xml:space="preserve">
     <value>يرجى اختيار تخصص</value>
   </data>
+  <data name="NoSpecialties" xml:space="preserve">
+    <value>لا توجد تخصصات مضافة</value>
+  </data>
+  <data name="NoItemsFound" xml:space="preserve">
+    <value>لم يتم العثور على أي عناصر</value>
+  </data>
 </root>

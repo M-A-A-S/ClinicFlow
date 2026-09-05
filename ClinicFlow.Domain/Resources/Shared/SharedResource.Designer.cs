@@ -772,11 +772,29 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No items found.
+        /// </summary>
+        public static string NoItemsFound {
+            get {
+                return ResourceManager.GetString("NoItemsFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No records found.
         /// </summary>
         public static string NoRecordsFound {
             get {
                 return ResourceManager.GetString("NoRecordsFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No specialties assigned.
+        /// </summary>
+        public static string NoSpecialties {
+            get {
+                return ResourceManager.GetString("NoSpecialties", resourceCulture);
             }
         }
         
