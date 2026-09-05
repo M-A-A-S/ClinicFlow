@@ -1,8 +1,11 @@
 ﻿@using ClinicFlow.WebUI.ViewModels.Common
-@using ClinicFlow.WebUI.ViewModels.Patient;
-@model PatientIndexVM
+@using ClinicFlow.WebUI.ViewModels.Doctor;
+@model DoctorIndexVM
 
 @{
+    var isArabic =
+                CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+
     var routes = Model.Filter.ToRouteDictionary();
 
     var columns = new List<TableColumnVM>
@@ -24,30 +27,8 @@
         },
         new TableColumnVM
         {
-            Column = "Gender",
-            Title = Localizer["Gender"],
-            IsSortable = false
-        },
-        new TableColumnVM
-        {
-            Column = "NationalId",
-            Title = Localizer["NationalId"],
-        },
-        new TableColumnVM
-        {
-            Column = "Address",
-            Title = Localizer["Address"],
-        },
-        new TableColumnVM
-        {
-            Column = "DateOfBirth",
-            Title = Localizer["DateOfBirth"],
-        },
-        new TableColumnVM
-        {
-            Column = "BloodType",
-            Title = Localizer["BloodType"],
-			IsSortable = false
+            Column = "ConsultationFee",
+            Title = Localizer["ConsultationFee"]
         },
         new TableColumnVM
         {
@@ -110,19 +91,7 @@ else
 
                         <td>@item.Email</td>
 
-                        <td>@Localizer[item.Gender.ToString()]</td>
-
-                        <td>@item.NationalId</td>
-
-                        <td>@item.Address</td>
-
-                        <td>@item.DateOfBirth</td>
-
-                        <td>
-                            @(item.BloodType.HasValue
-                                ? Localizer[item.BloodType.Value.ToString()]
-                                                : Localizer["NotSpecified"])
-                        </td>
+                        <td>@item.ConsultationFee</td>
 
                         <td>
                             <span class="badge @(item.IsActive ? "bg-success" : "bg-danger")">
@@ -133,10 +102,10 @@ else
                         <td class="d-flex align-items-center gap-1">
                             <partial name="Partials/_Actions"
                                      model='new ActionButtonsVM
-                                     {
-                                 Controller = "Patients",
-                                         Id = item.Id
-                                     }' />
+                             {
+                                         Controller = "Doctors",
+                                 Id = item.Id
+                             }' />
                 </td>
             </tr>
                         }

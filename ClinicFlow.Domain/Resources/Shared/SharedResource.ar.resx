@@ -408,64 +408,52 @@
   <data name="NotSpecified" xml:space="preserve">
     <value>غير محدد</value>
   </data>
-	<data name="Select" xml:space="preserve">
+  <data name="Select" xml:space="preserve">
     <value>اختر</value>
-</data>
-
-	<data name="Add" xml:space="preserve">
+  </data>
+  <data name="Add" xml:space="preserve">
     <value>إضافة</value>
-</data>
-
-	<data name="Remove" xml:space="preserve">
+  </data>
+  <data name="Remove" xml:space="preserve">
     <value>حذف</value>
-</data>
-
-	<data name="PleaseSelectAllergy" xml:space="preserve">
+  </data>
+  <data name="PleaseSelectAllergy" xml:space="preserve">
     <value>يرجى اختيار حساسية.</value>
-</data>
-
-	<data name="PleaseSelectChronicCondition" xml:space="preserve">
+  </data>
+  <data name="PleaseSelectChronicCondition" xml:space="preserve">
     <value>يرجى اختيار حالة مزمنة.</value>
-</data>
-	<data name="NoAllergies" xml:space="preserve">
+  </data>
+  <data name="NoAllergies" xml:space="preserve">
     <value>لا توجد حساسية.</value>
-</data>
-
-	<data name="NoChronicConditions" xml:space="preserve">
+  </data>
+  <data name="NoChronicConditions" xml:space="preserve">
     <value>لا توجد حالات مزمنة.</value>
-</data>
-
-	<data name="Doctor" xml:space="preserve">
+  </data>
+  <data name="Doctor" xml:space="preserve">
     <value>طبيب</value>
   </data>
-	<data name="Doctors" xml:space="preserve">
-    <value>الأطباء</value>
-  </data>
-
-	<data name="Specialty" xml:space="preserve">
-    <value>تخصص</value>
-  </data>
-	<data name="Specialties" xml:space="preserve">
-    <value>التخصصات</value>
-  </data>
-
-	<data name="DoctorSpecialty" xml:space="preserve">
-    <value>تخصص الطبيب</value>
-  </data>
-	<data name="DoctorSpecialties" xml:space="preserve">
-    <value>تخصصات الأطباء</value>
-  </data>
-
-	<data name="ConsultationFee" xml:space="preserve">
+  <data name="ConsultationFee" xml:space="preserve">
     <value>رسوم الاستشارة</value>
   </data>
-
-	<data name="DuplicateSpecialty" xml:space="preserve">
-  <value>تم اختيار نفس التخصص أكثر من مرة.</value>
-</data>
-
-	<data name="InvalidSpecialty" xml:space="preserve">
-  <value>واحد أو أكثر من التخصصات المختارة غير صالح.</value>
-</data>
-	
+  <data name="Specialty" xml:space="preserve">
+    <value>تخصص</value>
+  </data>
+  <data name="Specialties" xml:space="preserve">
+    <value>التخصصات</value>
+  </data>
+  <data name="DoctorSpecialty" xml:space="preserve">
+    <value>تخصص الطبيب</value>
+  </data>
+  <data name="DoctorSpecialties" xml:space="preserve">
+    <value>تخصصات الأطباء</value>
+  </data>
+  <data name="DuplicateSpecialty" xml:space="preserve">
+    <value>تم اختيار نفس التخصص أكثر من مرة.</value>
+  </data>
+  <data name="InvalidSpecialty" xml:space="preserve">
+    <value>واحد أو أكثر من التخصصات المختارة غير صالح.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>الإجراءات</value>
+  </data>
 </root>
