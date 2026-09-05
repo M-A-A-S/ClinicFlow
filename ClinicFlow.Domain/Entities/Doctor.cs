@@ -13,7 +13,7 @@ namespace ClinicFlow.Domain.Entities
         //public string? LicenseNumber { get; set; }
         public string? PhoneNumber { get; set; }
         public string? Email { get; set; }
-        public decimal? ConsultationFee { get; set; }
+        public decimal ConsultationFee { get; set; }
         public bool IsActive { get; set; } = true;
 
         public ICollection<DoctorSpecialty> DoctorSpecialties { get; set; }

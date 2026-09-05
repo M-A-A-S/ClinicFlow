@@ -23,6 +23,11 @@ namespace ClinicFlow.Domain.DTOs.Doctor
             ResourceType = typeof(SharedResource)
         )]
         public string? PhoneNumber { get; set; }
+        [Display(
+            Name = nameof(SharedResource.ConsultationFee),
+            ResourceType = typeof(SharedResource)
+        )]
+        public decimal ConsultationFee { get; set; }
 
     }
 }

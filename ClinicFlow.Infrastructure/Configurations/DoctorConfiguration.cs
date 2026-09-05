@@ -32,7 +32,7 @@ namespace ClinicFlow.Infrastructure.Configurations
 
             builder.Property(x => x.ConsultationFee)
                 .HasPrecision(18, 2)
-                .IsRequired(false);
+                .IsRequired(true);
 
             builder.Property(x => x.IsActive)
                 .IsRequired()

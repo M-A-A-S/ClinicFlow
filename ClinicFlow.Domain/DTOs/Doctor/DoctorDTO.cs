@@ -39,7 +39,11 @@ namespace ClinicFlow.Domain.DTOs.Doctor
             Name = nameof(SharedResource.ConsultationFee),
             ResourceType = typeof(SharedResource)
         )]
-        public decimal? ConsultationFee { get; set; }
+        [Required(
+            ErrorMessageResourceName = nameof(SharedResource.Required),
+            ErrorMessageResourceType = typeof(SharedResource)
+        )]
+        public decimal ConsultationFee { get; set; }
 
         [Display(
             Name = nameof(SharedResource.IsActive),

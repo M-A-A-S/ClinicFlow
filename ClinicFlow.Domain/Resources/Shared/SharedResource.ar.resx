@@ -456,4 +456,7 @@
   <data name="Actions" xml:space="preserve">
     <value>الإجراءات</value>
   </data>
+  <data name="PleaseSelectSpecialty" xml:space="preserve">
+    <value>يرجى اختيار تخصص</value>
+  </data>
 </root>

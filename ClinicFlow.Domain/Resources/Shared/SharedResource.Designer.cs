@@ -925,6 +925,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please select a specialty.
+        /// </summary>
+        public static string PleaseSelectSpecialty {
+            get {
+                return ResourceManager.GetString("PleaseSelectSpecialty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Prescriptions.
         /// </summary>
         public static string Prescriptions {

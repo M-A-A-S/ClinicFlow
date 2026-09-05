@@ -1,0 +1,49 @@
+﻿@using ClinicFlow.Domain.DTOs.Doctor
+@using System.Text.Json
+@model DoctorDTO
+
+
+<div class="card shadow-sm">
+
+    <div class="card-header">
+        <h5>@Localizer["Create"] @Localizer["Doctor"]</h5>
+    </div>
+
+    <div class="card-body">
+
+        <form asp-action="Create" method="post">
+
+            <partial name="Partials/_DoctorForm" model="Model" />
+
+            <button type="submit" class="btn btn-success">
+                @Localizer["Save"]
+            </button>
+
+            <a asp-action="Index" class="btn btn-secondary">
+                @Localizer["Cancel"]
+            </a>
+
+        </form>
+
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+
+            window.doctorFormMessages = {
+
+                    selectSpecialty:
+                    @Html.Raw(JsonSerializer.Serialize(
+                            Localizer["PleaseSelectSpecialty"].Value
+                                                )),
+
+    };
+
+</script>
+
+<script src="~/js/doctor-form.js" asp-append-version="true"></script>
+
+}

@@ -41,7 +41,9 @@
                         id = x.Id,
                         allergyId = x.AllergyId,
                         allergyText = x.Allergy != null
-                                ? x.Allergy.NameEn
+                                ? CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "ar"
+									    ? x.Allergy.NameAr
+                                        : x.Allergy.NameEn
                                 : "",
                         notes = x.Notes,
                         identifiedAt = x.IdentifiedAt
@@ -56,7 +58,9 @@
                                 id = x.Id,
                                 chronicConditionId = x.ChronicConditionId,
                                 conditionText = x.ChronicCondition != null
-                                        ? x.ChronicCondition.NameEn
+                                        ? CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "ar"
+                                            ? x.ChronicCondition.NameAr
+                                            : x.ChronicCondition.NameEn
                                         : "",
                                 notes = x.Notes,
                                 diagnosedAt = x.DiagnosedAt
