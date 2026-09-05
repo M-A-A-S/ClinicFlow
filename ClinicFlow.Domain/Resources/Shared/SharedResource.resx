@@ -455,5 +455,13 @@
 	<data name="DoctorSpecialties" xml:space="preserve">
     <value>Doctor Specialties</value>
   </data>
+
+	<data name="DuplicateSpecialty" xml:space="preserve">
+  <value>The same specialty has been selected more than once.</value>
+</data>
+
+	<data name="InvalidSpecialty" xml:space="preserve">
+  <value>One or more selected specialties are invalid.</value>
+</data>
 	
 </root>

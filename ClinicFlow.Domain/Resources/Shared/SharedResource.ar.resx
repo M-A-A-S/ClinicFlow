@@ -459,5 +459,13 @@
 	<data name="ConsultationFee" xml:space="preserve">
     <value>رسوم الاستشارة</value>
   </data>
+
+	<data name="DuplicateSpecialty" xml:space="preserve">
+  <value>تم اختيار نفس التخصص أكثر من مرة.</value>
+</data>
+
+	<data name="InvalidSpecialty" xml:space="preserve">
+  <value>واحد أو أكثر من التخصصات المختارة غير صالح.</value>
+</data>
 	
 </root>

@@ -31,5 +31,8 @@ namespace ClinicFlow.Domain.Constants
         public const string DuplicateChronicCondition = "DuplicateChronicCondition";
         public const string InvalidChronicCondition = "InvalidChronicCondition";
 
+        public const string DuplicateSpecialty = "DuplicateSpecialty";
+        public const string InvalidSpecialty = "InvalidSpecialty";
+
     }
 }
