@@ -1,0 +1,55 @@
+﻿@using ClinicFlow.Domain.DTOs.Specialty
+@model SpecialtyDTO
+
+
+<div class="row">
+
+    @* ================= NameEn ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["NameEn"]</div>
+        <div>@Model.NameEn</div>
+    </div>
+
+    @* ================= NameAr ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["NameAr"]</div>
+        <div>@Model.NameAr</div>
+    </div>
+
+    @* ================= DescriptionEn ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["DescriptionEn"]</div>
+        <div>
+            @(string.IsNullOrWhiteSpace(Model.DescriptionEn) ? "-" : Model.DescriptionEn)
+        </div>
+    </div>
+
+    @* ================= DescriptionAr ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["DescriptionAr"]</div>
+        <div>
+            @(string.IsNullOrWhiteSpace(Model.DescriptionAr) ? "-" : Model.DescriptionAr)
+        </div>
+    </div>
+
+    @* ================= IsActive ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["IsActive"]</div>
+        <div>
+            @if (Model.IsActive)
+            {
+                <span class="badge bg-success">
+                    @Localizer["Active"]
+                </span>
+            }
+            else
+            {
+                <span class="badge bg-danger">
+                    @Localizer["Inactive"]
+                </span>
+            }
+        </div>
+    </div>
+</div>
+
+
