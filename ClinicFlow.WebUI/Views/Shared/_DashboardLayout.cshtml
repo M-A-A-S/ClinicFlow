@@ -127,8 +127,20 @@
 								Icon = "fa-stethoscope",
 								Controller = "Specialties",
 								Action = "Index"
-								}
-								}
+								},
+
+								new()
+								{
+								Key = "Clinics",
+								Icon = "fa-hospital",
+								Controller = "Clinics",
+								Action = "Index"
+								},
+
+								},
+
+								
+
 								},
 
 								new()
@@ -151,8 +163,25 @@
 								{
 								Key = "Visits",
 								Icon = "fa-stethoscope",
+								Controller = "",
+								Action = "",
+								Children =
+								{
+								new()
+								{
+								Key = "Visits",
+								Icon = "fa-stethoscope",
 								Controller = "Visits",
 								Action = "Index"
+								},
+								new()
+								{
+								Key = "Diagnoses",
+								Icon = "fa-file-medical",
+								Controller = "Diagnoses",
+								Action = "Index"
+								}
+								}
 								},
 
 								new()

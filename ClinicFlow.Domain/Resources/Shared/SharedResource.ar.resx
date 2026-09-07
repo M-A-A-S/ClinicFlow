@@ -465,4 +465,54 @@
   <data name="NoItemsFound" xml:space="preserve">
     <value>لم يتم العثور على أي عناصر</value>
   </data>
+	<data name="Clinic" xml:space="preserve">
+    <value>عيادة</value>
+</data>
+
+	<data name="Clinics" xml:space="preserve">
+    <value>العيادات</value>
+</data>
+	<data name="Diagnosis" xml:space="preserve">
+    <value>تشخيص</value>
+  </data>
+
+	<data name="Diagnoses" xml:space="preserve">
+    <value>التشخيصات</value>
+  </data>
+	<data name="ClinicDoctor" xml:space="preserve">
+    <value>طبيب العيادة</value>
+  </data>
+
+	<data name="ClinicDoctors" xml:space="preserve">
+    <value>أطباء العيادة</value>
+  </data>
+	<data name="Appointment" xml:space="preserve">
+    <value>موعد</value>
+  </data>
+
+	<data name="Appointments" xml:space="preserve">
+    <value>المواعيد</value>
+  </data>
+	<data name="Visit" xml:space="preserve">
+    <value>زيارة</value>
+  </data>
+
+	<data name="Visits" xml:space="preserve">
+    <value>الزيارات</value>
+  </data>
+	<data name="Prescription" xml:space="preserve">
+    <value>وصفة طبية</value>
+  </data>
+
+	<data name="Prescriptions" xml:space="preserve">
+    <value>الوصفات الطبية</value>
+  </data>
+	<data name="Invoice" xml:space="preserve">
+    <value>فاتورة</value>
+  </data>
+
+	<data name="Invoices" xml:space="preserve">
+    <value>الفواتير</value>
+  </data>
+
 </root>
