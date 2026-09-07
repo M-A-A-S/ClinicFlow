@@ -17,5 +17,14 @@ namespace ClinicFlow.Domain.Entities
 
         public ICollection<ClinicDoctor> ClinicDoctors { get; set; }
             = new List<ClinicDoctor>();
+
+        public ICollection<Appointment> Appointments { get; set; }
+            = new List<Appointment>();
+
+        public ICollection<WaitingQueue> WaitingQueues { get; set; }
+            = new List<WaitingQueue>();
+
+        public ICollection<Visit> Visits { get; set; }
+            = new List<Visit>();
     }
 }

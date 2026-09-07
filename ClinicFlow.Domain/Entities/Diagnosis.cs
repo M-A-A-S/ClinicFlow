@@ -9,7 +9,7 @@
 
         public bool IsActive { get; set; } = true;
 
-        //public ICollection<VisitDiagnosis> VisitDiagnoses { get; set; }
-        //    = new List<VisitDiagnosis>();
+        public ICollection<VisitDiagnosis> VisitDiagnoses { get; set; }
+            = new List<VisitDiagnosis>();
     }
 }

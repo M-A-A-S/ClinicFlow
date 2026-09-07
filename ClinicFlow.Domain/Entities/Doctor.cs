@@ -10,7 +10,6 @@ namespace ClinicFlow.Domain.Entities
     public class Doctor : BaseEntity
     {
         public string FullName { get; set; }
-        //public string? LicenseNumber { get; set; }
         public string? PhoneNumber { get; set; }
         public string? Email { get; set; }
         public decimal ConsultationFee { get; set; }
@@ -22,11 +21,14 @@ namespace ClinicFlow.Domain.Entities
         public ICollection<ClinicDoctor> ClinicDoctors { get; set; }
             = new List<ClinicDoctor>();
 
-        //public ICollection<Appointment> Appointments { get; set; }
-        //    = new List<Appointment>();
+        public ICollection<Appointment> Appointments { get; set; }
+            = new List<Appointment>();
 
-        //public ICollection<Visit> Visits { get; set; }
-        //    = new List<Visit>();
+        public ICollection<Visit> Visits { get; set; }
+            = new List<Visit>();
+
+        public ICollection<WaitingQueue> WaitingQueues { get; set; }
+            = new List<WaitingQueue>();
 
     }
 

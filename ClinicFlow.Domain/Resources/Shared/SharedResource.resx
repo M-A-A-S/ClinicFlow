@@ -537,4 +537,336 @@
 	<data name="InvalidDoctor" xml:space="preserve">
     <value>The selected doctor is invalid.</value>
 </data>
+
+	<data name="Medicine" xml:space="preserve">
+    <value>Medicine</value>
+</data>
+	<data name="Medicines" xml:space="preserve">
+    <value>Medicines</value>
+</data>
+	<data name="GenericNameEn" xml:space="preserve">
+    <value>Generic Name (English)</value>
+</data>
+	<data name="GenericNameAr" xml:space="preserve">
+    <value>Generic Name (Arabic)</value>
+</data>
+	<data name="Strength" xml:space="preserve">
+    <value>Strength</value>
+</data>
+	<data name="DosageForm" xml:space="preserve">
+    <value>Dosage Form</value>
+</data>
+	<data name="Route" xml:space="preserve">
+    <value>Route</value>
+</data>
+
+	<data name="Prescription" xml:space="preserve">
+    <value>Prescription</value>
+</data>
+	<data name="Prescriptions" xml:space="preserve">
+    <value>Prescriptions</value>
+</data>
+	<data name="PrescriptionNumber" xml:space="preserve">
+    <value>Prescription Number</value>
+</data>
+
+	<data name="PrescriptionDate" xml:space="preserve">
+    <value>Prescription Date</value>
+</data>
+	<data name="Notes" xml:space="preserve">
+    <value>Notes</value>
+</data>
+	<data name="Items" xml:space="preserve">
+    <value>Items</value>
+</data>
+
+	<data name="PrescriptionItem" xml:space="preserve">
+    <value>Prescription Item</value>
+</data>
+	<data name="PrescriptionItems" xml:space="preserve">
+    <value>Prescription Items</value>
+</data>
+
+
+	<data name="MedicineName" xml:space="preserve">
+    <value>Medicine Name</value>
+</data>
+	<data name="Dosage" xml:space="preserve">
+    <value>Dosage</value>
+</data>
+	<data name="Frequency" xml:space="preserve">
+    <value>Frequency</value>
+</data>
+	<data name="Duration" xml:space="preserve">
+    <value>Duration</value>
+</data>
+	<data name="Instructions" xml:space="preserve">
+    <value>Instructions</value>
+</data>
+	<data name="Quantity" xml:space="preserve">
+    <value>Quantity</value>
+</data>
+
+	<data name="Tablet" xml:space="preserve">
+    <value>Tablet</value>
+</data>
+	<data name="Capsule" xml:space="preserve">
+    <value>Capsule</value>
+</data>
+	<data name="Syrup" xml:space="preserve">
+    <value>Syrup</value>
+</data>
+	<data name="Cream" xml:space="preserve">
+    <value>Cream</value>
+</data>
+	<data name="Inhaler" xml:space="preserve">
+    <value>Inhaler</value>
+</data>
+
+	<data name="Oral" xml:space="preserve">
+    <value>Oral</value>
+</data>
+	<data name="IV" xml:space="preserve">
+    <value>IV</value>
+</data>
+	<data name="Topical" xml:space="preserve">
+    <value>Topical</value>
+</data>
+	<data name="Inhalation" xml:space="preserve">
+    <value>Inhalation</value>
+</data>
+
+	<data name="Appointment" xml:space="preserve">
+    <value>Appointment</value>
+</data>
+	<data name="Appointments" xml:space="preserve">
+    <value>Appointments</value>
+</data>
+	<data name="AppointmentNumber" xml:space="preserve">
+    <value>Appointment Number</value>
+</data>
+	<data name="StartAt" xml:space="preserve">
+    <value>Start Time</value>
+</data>
+	<data name="EndAt" xml:space="preserve">
+    <value>End Time</value>
+</data>
+	<data name="Status" xml:space="preserve">
+    <value>Status</value>
+</data>
+	<data name="Reason" xml:space="preserve">
+    <value>Reason</value>
+</data>
+	<data name="Notes" xml:space="preserve">
+    <value>Notes</value>
+</data>
+
+	<data name="Visit" xml:space="preserve">
+    <value>Visit</value>
+</data>
+	<data name="Visits" xml:space="preserve">
+    <value>Visits</value>
+</data>
+	<data name="VisitNumber" xml:space="preserve">
+    <value>Visit Number</value>
+</data>
+
+	<data name="VisitDate" xml:space="preserve">
+    <value>Visit Date</value>
+</data>
+	<data name="Status" xml:space="preserve">
+    <value>Status</value>
+</data>
+	<data name="Complaint" xml:space="preserve">
+    <value>Chief Complaint</value>
+</data>
+	<data name="ClinicalNotes" xml:space="preserve">
+    <value>Clinical Notes</value>
+</data>
+	<data name="CompletedAt" xml:space="preserve">
+    <value>Completed At</value>
+</data>
+	<data name="VitalSigns" xml:space="preserve">
+    <value>Vital Signs</value>
+</data>
+	<data name="VisitDiagnoses" xml:space="preserve">
+    <value>Diagnoses</value>
+</data>
+	<data name="Prescriptions" xml:space="preserve">
+    <value>Prescriptions</value>
+</data>
+
+	<data name="VisitDiagnosis" xml:space="preserve">
+    <value>Visit Diagnosis</value>
+</data>
+	<data name="VisitDiagnoses" xml:space="preserve">
+    <value>Visit Diagnoses</value>
+</data>
+
+	<data name="VitalSign" xml:space="preserve">
+    <value>Vital Sign</value>
+</data>
+	<data name="VitalSigns" xml:space="preserve">
+    <value>Vital Signs</value>
+</data>
+
+	<data name="Temperature" xml:space="preserve">
+    <value>Temperature</value>
+</data>
+	<data name="Pulse" xml:space="preserve">
+    <value>Pulse</value>
+</data>
+	<data name="SystolicBloodPressure" xml:space="preserve">
+    <value>Systolic Blood Pressure</value>
+</data>
+	<data name="DiastolicBloodPressure" xml:space="preserve">
+    <value>Diastolic Blood Pressure</value>
+</data>
+	<data name="RespiratoryRate" xml:space="preserve">
+    <value>Respiratory Rate</value>
+</data>
+	<data name="OxygenSaturation" xml:space="preserve">
+    <value>Oxygen Saturation</value>
+</data>
+	<data name="Weight" xml:space="preserve">
+    <value>Weight</value>
+</data>
+	<data name="Height" xml:space="preserve">
+    <value>Height</value>
+</data>
+	<data name="BMI" xml:space="preserve">
+    <value>BMI</value>
+</data>
+	<data name="RecordedAt" xml:space="preserve">
+    <value>Recorded At</value>
+</data>
+
+	<data name="WaitingQueue" xml:space="preserve">
+    <value>Waiting Queue</value>
+</data>
+	<data name="WaitingQueues" xml:space="preserve">
+    <value>Waiting Queues</value>
+</data>
+
+	<data name="QueueDate" xml:space="preserve">
+    <value>Queue Date</value>
+</data>
+	<data name="QueueNumber" xml:space="preserve">
+    <value>Queue Number</value>
+</data>
+	<data name="JoinedAt" xml:space="preserve">
+    <value>Joined At</value>
+</data>
+	<data name="CalledAt" xml:space="preserve">
+    <value>Called At</value>
+</data>
+	<data name="ServiceStartAt" xml:space="preserve">
+    <value>Service Start Time</value>
+</data>
+	<data name="CompletedAt" xml:space="preserve">
+    <value>Completed At</value>
+</data>
+	<data name="Priority" xml:space="preserve">
+    <value>Priority</value>
+</data>
+	<data name="Status" xml:space="preserve">
+    <value>Status</value>
+</data>
+
+	<data name="AppointmentStatus" xml:space="preserve">
+    <value>Appointment Status</value>
+</data>
+
+	<data name="Scheduled" xml:space="preserve">
+    <value>Scheduled</value>
+</data>
+
+	<data name="Confirmed" xml:space="preserve">
+    <value>Confirmed</value>
+</data>
+
+	<data name="CheckedIn" xml:space="preserve">
+    <value>Checked In</value>
+</data>
+
+	<data name="Completed" xml:space="preserve">
+    <value>Completed</value>
+</data>
+
+	<data name="Cancelled" xml:space="preserve">
+    <value>Cancelled</value>
+</data>
+
+	<data name="NoShow" xml:space="preserve">
+    <value>No Show</value>
+</data>
+
+	<data name="QueuePriority" xml:space="preserve">
+    <value>Queue Priority</value>
+</data>
+
+	<data name="Normal" xml:space="preserve">
+    <value>Normal</value>
+</data>
+
+	<data name="Urgent" xml:space="preserve">
+    <value>Urgent</value>
+</data>
+
+	<data name="Emergency" xml:space="preserve">
+    <value>Emergency</value>
+</data>
+
+	<data name="QueueStatus" xml:space="preserve">
+    <value>Queue Status</value>
+</data>
+
+	<data name="Waiting" xml:space="preserve">
+    <value>Waiting</value>
+</data>
+
+	<data name="Called" xml:space="preserve">
+    <value>Called</value>
+</data>
+
+	<data name="InConsultation" xml:space="preserve">
+    <value>In Consultation</value>
+</data>
+
+	<data name="Completed" xml:space="preserve">
+    <value>Completed</value>
+</data>
+
+	<data name="Skipped" xml:space="preserve">
+    <value>Skipped</value>
+</data>
+
+	<data name="Cancelled" xml:space="preserve">
+    <value>Cancelled</value>
+</data>
+
+	<data name="NoShow" xml:space="preserve">
+    <value>No Show</value>
+</data>
+
+	<data name="VisitStatus" xml:space="preserve">
+    <value>Visit Status</value>
+</data>
+
+	<data name="Open" xml:space="preserve">
+    <value>Open</value>
+</data>
+
+	<data name="InProgress" xml:space="preserve">
+    <value>In Progress</value>
+</data>
+
+	<data name="Completed" xml:space="preserve">
+    <value>Completed</value>
+</data>
+
+	<data name="Cancelled" xml:space="preserve">
+    <value>Cancelled</value>
+</data>
+	
 </root>

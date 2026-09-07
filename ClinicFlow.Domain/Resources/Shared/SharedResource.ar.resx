@@ -531,4 +531,334 @@
 	<data name="InvalidDoctor" xml:space="preserve">
     <value>الطبيب المحدد غير صالح.</value>
 </data>
+	<data name="Medicine" xml:space="preserve">
+    <value>دواء</value>
+</data>
+	<data name="Medicines" xml:space="preserve">
+    <value>الأدوية</value>
+</data>
+	<data name="GenericNameEn" xml:space="preserve">
+    <value>الاسم العلمي (بالإنجليزية)</value>
+</data>
+	<data name="GenericNameAr" xml:space="preserve">
+    <value>الاسم العلمي (بالعربية)</value>
+</data>
+	<data name="Strength" xml:space="preserve">
+    <value>التركيز</value>
+</data>
+	<data name="DosageForm" xml:space="preserve">
+    <value>الشكل الدوائي</value>
+</data>
+	<data name="Route" xml:space="preserve">
+    <value>طريقة الاستخدام</value>
+</data>
+
+	<data name="Prescription" xml:space="preserve">
+    <value>وصفة طبية</value>
+</data>
+	<data name="Prescriptions" xml:space="preserve">
+    <value>الوصفات الطبية</value>
+</data>
+	<data name="PrescriptionNumber" xml:space="preserve">
+    <value>رقم الوصفة</value>
+</data>
+
+	<data name="PrescriptionDate" xml:space="preserve">
+    <value>تاريخ الوصفة</value>
+</data>
+	<data name="Notes" xml:space="preserve">
+    <value>ملاحظات</value>
+</data>
+	<data name="Items" xml:space="preserve">
+    <value>الأدوية</value>
+</data>
+
+	<data name="PrescriptionItem" xml:space="preserve">
+    <value>بند وصفة طبية</value>
+</data>
+	<data name="PrescriptionItems" xml:space="preserve">
+    <value>بنود الوصفة الطبية</value>
+</data>
+
+	<data name="MedicineName" xml:space="preserve">
+    <value>اسم الدواء</value>
+</data>
+	<data name="Dosage" xml:space="preserve">
+    <value>الجرعة</value>
+</data>
+	<data name="Frequency" xml:space="preserve">
+    <value>التكرار</value>
+</data>
+	<data name="Duration" xml:space="preserve">
+    <value>المدة</value>
+</data>
+	<data name="Instructions" xml:space="preserve">
+    <value>التعليمات</value>
+</data>
+	<data name="Quantity" xml:space="preserve">
+    <value>الكمية</value>
+</data>
+
+	<data name="Tablet" xml:space="preserve">
+    <value>أقراص</value>
+</data>
+	<data name="Capsule" xml:space="preserve">
+    <value>كبسولات</value>
+</data>
+	<data name="Syrup" xml:space="preserve">
+    <value>شراب</value>
+</data>
+	<data name="Cream" xml:space="preserve">
+    <value>كريم</value>
+</data>
+	<data name="Inhaler" xml:space="preserve">
+    <value>بخاخ</value>
+</data>
+
+	<data name="Oral" xml:space="preserve">
+    <value>عن طريق الفم</value>
+</data>
+	<data name="IV" xml:space="preserve">
+    <value>وريدي</value>
+</data>
+	<data name="Topical" xml:space="preserve">
+    <value>موضعي</value>
+</data>
+	<data name="Inhalation" xml:space="preserve">
+    <value>استنشاق</value>
+</data>
+
+	<data name="Appointment" xml:space="preserve">
+    <value>موعد</value>
+</data>
+	<data name="Appointments" xml:space="preserve">
+    <value>المواعيد</value>
+</data>
+	<data name="AppointmentNumber" xml:space="preserve">
+    <value>رقم الموعد</value>
+</data>
+
+	<data name="StartAt" xml:space="preserve">
+    <value>وقت البدء</value>
+</data>
+	<data name="EndAt" xml:space="preserve">
+    <value>وقت الانتهاء</value>
+</data>
+	<data name="Status" xml:space="preserve">
+    <value>الحالة</value>
+</data>
+	<data name="Reason" xml:space="preserve">
+    <value>السبب</value>
+</data>
+	<data name="Notes" xml:space="preserve">
+    <value>ملاحظات</value>
+</data>
+
+	<data name="Visit" xml:space="preserve">
+    <value>زيارة</value>
+</data>
+	<data name="Visits" xml:space="preserve">
+    <value>الزيارات</value>
+</data>
+	<data name="VisitNumber" xml:space="preserve">
+    <value>رقم الزيارة</value>
+</data>
+	
+	<data name="VisitDate" xml:space="preserve">
+    <value>تاريخ الزيارة</value>
+</data>
+	<data name="Status" xml:space="preserve">
+    <value>الحالة</value>
+</data>
+	<data name="Complaint" xml:space="preserve">
+    <value>الشكوى الرئيسية</value>
+</data>
+	<data name="ClinicalNotes" xml:space="preserve">
+    <value>الملاحظات السريرية</value>
+</data>
+	<data name="CompletedAt" xml:space="preserve">
+    <value>تاريخ الإكمال</value>
+</data>
+	<data name="VitalSigns" xml:space="preserve">
+    <value>العلامات الحيوية</value>
+</data>
+	<data name="VisitDiagnoses" xml:space="preserve">
+    <value>التشخيصات</value>
+</data>
+	<data name="Prescriptions" xml:space="preserve">
+    <value>الوصفات الطبية</value>
+</data>
+
+	<data name="VisitDiagnosis" xml:space="preserve">
+    <value>تشخيص الزيارة</value>
+</data>
+	<data name="VisitDiagnoses" xml:space="preserve">
+    <value>تشخيصات الزيارة</value>
+</data>
+
+	<data name="VitalSign" xml:space="preserve">
+    <value>علامة حيوية</value>
+</data>
+	<data name="VitalSigns" xml:space="preserve">
+    <value>العلامات الحيوية</value>
+</data>
+
+	<data name="Temperature" xml:space="preserve">
+    <value>درجة الحرارة</value>
+</data>
+	<data name="Pulse" xml:space="preserve">
+    <value>النبض</value>
+</data>
+	<data name="SystolicBloodPressure" xml:space="preserve">
+    <value>ضغط الدم الانقباضي</value>
+</data>
+	<data name="DiastolicBloodPressure" xml:space="preserve">
+    <value>ضغط الدم الانبساطي</value>
+</data>
+	<data name="RespiratoryRate" xml:space="preserve">
+    <value>معدل التنفس</value>
+</data>
+	<data name="OxygenSaturation" xml:space="preserve">
+    <value>نسبة تشبع الأكسجين</value>
+</data>
+	<data name="Weight" xml:space="preserve">
+    <value>الوزن</value>
+</data>
+	<data name="Height" xml:space="preserve">
+    <value>الطول</value>
+</data>
+	<data name="BMI" xml:space="preserve">
+    <value>مؤشر كتلة الجسم</value>
+</data>
+	<data name="RecordedAt" xml:space="preserve">
+    <value>وقت التسجيل</value>
+</data>
+
+	<data name="WaitingQueue" xml:space="preserve">
+    <value>قائمة الانتظار</value>
+</data>
+	<data name="WaitingQueues" xml:space="preserve">
+    <value>قوائم الانتظار</value>
+</data>
+	<data name="QueueDate" xml:space="preserve">
+    <value>تاريخ قائمة الانتظار</value>
+</data>
+	<data name="QueueNumber" xml:space="preserve">
+    <value>رقم الانتظار</value>
+</data>
+	<data name="JoinedAt" xml:space="preserve">
+    <value>وقت الانضمام</value>
+</data>
+	<data name="CalledAt" xml:space="preserve">
+    <value>وقت الاستدعاء</value>
+</data>
+	<data name="ServiceStartAt" xml:space="preserve">
+    <value>وقت بدء الخدمة</value>
+</data>
+	<data name="CompletedAt" xml:space="preserve">
+    <value>وقت الإكمال</value>
+</data>
+	<data name="Priority" xml:space="preserve">
+    <value>الأولوية</value>
+</data>
+	<data name="Status" xml:space="preserve">
+    <value>الحالة</value>
+</data>
+
+	<data name="AppointmentStatus" xml:space="preserve">
+    <value>حالة الموعد</value>
+</data>
+
+	<data name="Scheduled" xml:space="preserve">
+    <value>مجدول</value>
+</data>
+
+	<data name="Confirmed" xml:space="preserve">
+    <value>مؤكد</value>
+</data>
+
+	<data name="CheckedIn" xml:space="preserve">
+    <value>تم تسجيل الوصول</value>
+</data>
+
+	<data name="Completed" xml:space="preserve">
+    <value>مكتمل</value>
+</data>
+
+	<data name="Cancelled" xml:space="preserve">
+    <value>ملغى</value>
+</data>
+
+	<data name="NoShow" xml:space="preserve">
+    <value>لم يحضر</value>
+</data>
+
+	<data name="QueuePriority" xml:space="preserve">
+    <value>أولوية قائمة الانتظار</value>
+</data>
+
+	<data name="Normal" xml:space="preserve">
+    <value>عادية</value>
+</data>
+
+	<data name="Urgent" xml:space="preserve">
+    <value>عاجلة</value>
+</data>
+
+	<data name="Emergency" xml:space="preserve">
+    <value>طارئة</value>
+</data>
+
+	<data name="QueueStatus" xml:space="preserve">
+    <value>حالة قائمة الانتظار</value>
+</data>
+
+	<data name="Waiting" xml:space="preserve">
+    <value>في الانتظار</value>
+</data>
+
+	<data name="Called" xml:space="preserve">
+    <value>تم الاستدعاء</value>
+</data>
+
+	<data name="InConsultation" xml:space="preserve">
+    <value>قيد المعاينة</value>
+</data>
+
+	<data name="Completed" xml:space="preserve">
+    <value>مكتمل</value>
+</data>
+
+	<data name="Skipped" xml:space="preserve">
+    <value>تم التجاوز</value>
+</data>
+
+	<data name="Cancelled" xml:space="preserve">
+    <value>ملغى</value>
+</data>
+
+	<data name="NoShow" xml:space="preserve">
+    <value>لم يحضر</value>
+</data>
+
+	<data name="VisitStatus" xml:space="preserve">
+    <value>حالة الزيارة</value>
+</data>
+
+	<data name="Open" xml:space="preserve">
+    <value>مفتوحة</value>
+</data>
+
+	<data name="InProgress" xml:space="preserve">
+    <value>قيد التنفيذ</value>
+</data>
+
+	<data name="Completed" xml:space="preserve">
+    <value>مكتملة</value>
+</data>
+
+	<data name="Cancelled" xml:space="preserve">
+    <value>ملغاة</value>
+</data>
+	
 </root>

@@ -27,11 +27,14 @@ namespace ClinicFlow.Domain.Entities
         public ICollection<PatientChronicCondition> PatientChronicConditions { get; set; }
             = new List<PatientChronicCondition>();
 
-        //public ICollection<Appointment> Appointments { get; set; }
-        //    = new List<Appointment>();
+        public ICollection<Appointment> Appointments { get; set; }
+            = new List<Appointment>();
 
-        //public ICollection<Visit> Visits { get; set; }
-        //    = new List<Visit>();
+        public ICollection<WaitingQueue> WaitingQueues { get; set; }
+            = new List<WaitingQueue>();
+
+        public ICollection<Visit> Visits { get; set; }
+            = new List<Visit>();
 
         //public ICollection<Invoice> Invoices { get; set; }
         //    = new List<Invoice>();
