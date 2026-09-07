@@ -1,6 +1,6 @@
 ﻿@using ClinicFlow.WebUI.ViewModels.Common
-@using ClinicFlow.WebUI.ViewModels.ChronicCondition;
-@model ChronicConditionIndexVM
+@using ClinicFlow.WebUI.ViewModels.Diagnosis;
+@model DiagnosisIndexVM
 
 @{
     var routes = Model.Filter.ToRouteDictionary();
@@ -100,7 +100,7 @@ else
                             <partial name="Partials/_Actions"
                                      model='new ActionButtonsVM
                                      {
-                                         Controller = "ChronicConditions",
+                                         Controller = "Diagnoses",
                                          Id = item.Id
                                      }' />
                 </td>
