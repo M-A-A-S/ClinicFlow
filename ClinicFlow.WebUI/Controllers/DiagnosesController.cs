@@ -1,22 +1,22 @@
 ﻿using ClinicFlow.Application.Services;
-using ClinicFlow.Domain.DTOs.ChronicCondition;
+using ClinicFlow.Domain.DTOs.Diagnosis;
 using ClinicFlow.Domain.Resources.Shared;
 using ClinicFlow.Domain.Utilities;
-using ClinicFlow.WebUI.ViewModels.ChronicCondition;
+using ClinicFlow.WebUI.ViewModels.Diagnosis;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 
 namespace ClinicFlow.WebUI.Controllers
 {
-    public class ChronicConditionsController : BaseController
+    public class DiagnosesController : BaseController
     {
         #region ========================= Fields & Properties =========================
-        private readonly IChronicConditionService _service;
+        private readonly IDiagnosisService _service;
         #endregion
 
         #region ========================= Constructors =========================
-        public ChronicConditionsController(
-            IChronicConditionService service,
+        public DiagnosesController(
+            IDiagnosisService service,
             IStringLocalizer<SharedResource> localizer
             ) : base(localizer)
         {
@@ -25,7 +25,7 @@ namespace ClinicFlow.WebUI.Controllers
         #endregion
 
         #region ========================= Get =========================
-        public async Task<IActionResult> Index(ChronicConditionFilterDTO filter)
+        public async Task<IActionResult> Index(DiagnosisFilterDTO filter)
         {
             var getAllResult = await _service.GetAllAsync(filter);
 
@@ -34,9 +34,9 @@ namespace ClinicFlow.WebUI.Controllers
                 Error(getAllResult.Code);
             }
 
-            var viewModel = new ChronicConditionIndexVM
+            var viewModel = new DiagnosisIndexVM
             {
-                PagedResult = getAllResult.Data ?? new PagedResult<ChronicConditionDTO>(),
+                PagedResult = getAllResult.Data ?? new PagedResult<DiagnosisDTO>(),
                 Filter = filter,
             };
             return View(viewModel);
@@ -59,19 +59,19 @@ namespace ClinicFlow.WebUI.Controllers
         public async Task<IActionResult> Search(string search)
         {
             var result = await _service.SearchAsync(search);
-            return Json(result.Data ?? Enumerable.Empty<ChronicConditionSearchDTO>());
+            return Json(result.Data ?? Enumerable.Empty<DiagnosisSearchDTO>());
         }
         #endregion
 
         #region ========================= Create =========================
         public async Task<IActionResult> Create()
         {
-            return View(new ChronicConditionDTO());
+            return View(new DiagnosisDTO());
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(ChronicConditionDTO DTO)
+        public async Task<IActionResult> Create(DiagnosisDTO DTO)
         {
             if (InvalidModel())
             {
@@ -106,7 +106,7 @@ namespace ClinicFlow.WebUI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(ChronicConditionDTO DTO)
+        public async Task<IActionResult> Edit(DiagnosisDTO DTO)
         {
             if (InvalidModel())
             {
@@ -161,7 +161,6 @@ namespace ClinicFlow.WebUI.Controllers
             return RedirectToAction(nameof(Index));
         }
         #endregion
-
 
     }
 }
