@@ -944,5 +944,25 @@
 	<data name="AppointmentTimeAlreadyBooked" xml:space="preserve">
     <value>The doctor already has an appointment during the selected time.</value>
 </data>
+
+	<data name="Select2NoResults" xml:space="preserve">
+    <value>No results found</value>
+</data>
+
+	<data name="Select2Searching" xml:space="preserve">
+    <value>Searching...</value>
+</data>
+
+	<data name="Select2InputTooShort" xml:space="preserve">
+    <value>Please enter more characters</value>
+</data>
+
+	<data name="SelectClinicFirst" xml:space="preserve">
+    <value>Please select a clinic first.</value>
+</data>
+
+	<data name="SelectDoctor" xml:space="preserve">
+    <value>Select Doctor</value>
+</data>
 	
 </root>

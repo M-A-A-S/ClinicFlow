@@ -18,15 +18,12 @@ namespace ClinicFlow.Domain.DTOs.Appointment
     public class AppointmentDTO
     {
         public int Id { get; set; }
+
         [Display(
             Name = nameof(SharedResource.AppointmentNumber),
             ResourceType = typeof(SharedResource)
         )]
-        [Required(
-            ErrorMessageResourceName = nameof(SharedResource.Required),
-            ErrorMessageResourceType = typeof(SharedResource)
-        )]
-        public string AppointmentNumber { get; set; }
+        public string AppointmentNumber { get; set; } = string.Empty;
 
         [Display(
             Name = nameof(SharedResource.Patient),
@@ -66,7 +63,7 @@ namespace ClinicFlow.Domain.DTOs.Appointment
             ErrorMessageResourceName = nameof(SharedResource.Required),
             ErrorMessageResourceType = typeof(SharedResource)
         )]
-        public DateTime StartAt { get; set; }
+        public DateTime StartAt { get; set; } = DateTime.Now;
 
         [Display(
             Name = nameof(SharedResource.EndAt),
@@ -76,7 +73,7 @@ namespace ClinicFlow.Domain.DTOs.Appointment
             ErrorMessageResourceName = nameof(SharedResource.Required),
             ErrorMessageResourceType = typeof(SharedResource)
         )]
-        public DateTime EndAt { get; set; }
+        public DateTime EndAt { get; set; } = DateTime.Now.AddMinutes(30);
 
         [Display(
             Name = nameof(SharedResource.Status),

@@ -1,5 +1,94 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@using ClinicFlow.Domain.DTOs.Appointment
+@model AppointmentDTO
+@using ClinicFlow.Domain.Enums
+
+
+<div class="row g-3 mb-2">
+
+    @* ================= Patient ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="PatientId" class="form-label"></label>
+        <select asp-for="PatientId" 
+                id="patientId" 
+                class="form-select select2" 
+                asp-items="ViewBag.Patients">
+            <option value="">
+                @Localizer["Select"]
+            </option>
+        </select>
+        <span asp-validation-for="PatientId" class="text-danger"></span>
+    </div>
+
+    @* ================= Clinic ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="ClinicId" class="form-label"></label>
+        <select asp-for="ClinicId" 
+                id="clinicId"
+                class="form-select select2" 
+                asp-items="ViewBag.Clinics">
+            <option value="">
+                @Localizer["Select"]
+            </option>
+        </select>
+        <span asp-validation-for="ClinicId" class="text-danger"></span>
+    </div>
+
+    @* ================= DoctorId ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="DoctorId" class="form-label"></label>
+        <select asp-for="DoctorId" 
+                id="doctorId"
+                class="form-select select2" 
+                asp-items="ViewBag.Doctors">
+            <option value="">
+                @Localizer["Select"]
+            </option>
+        </select>
+        <span asp-validation-for="DoctorId" class="text-danger"></span>
+    </div>
+
+    @* ================= StartAt ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="StartAt" class="form-label"></label>
+        <input asp-for="StartAt" id="startAt" type="datetime-local" class="form-control" />
+        <span asp-validation-for="StartAt" class="text-danger"></span>
+    </div>
+
+    @* ================= EndAt ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="EndAt" class="form-label"></label>
+        <input asp-for="EndAt" id="endAt" type="datetime-local" class="form-control" />
+        <span asp-validation-for="EndAt" class="text-danger"></span>
+    </div>
+
+    @* ================= AppointmentStatus ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="Status" class="form-label"></label>
+        <select asp-for="Status"
+                asp-items="Html.GetEnumSelectList<AppointmentStatus>()"
+                class="form-select">
+        </select>
+        <span asp-validation-for="Status" class="text-danger"></span>
+    </div>
+
+    @* ================= Reason ================= *@
+    <div class="col-12 col-md-6">
+        <label asp-for="Reason" class="form-label"></label>
+        <textarea asp-for="Reason"
+                class="form-control"
+                rows="3"
+                maxlength="500"></textarea>
+        <span asp-validation-for="Reason" class="text-danger"></span>
+    </div>
+
+    @* ================= Notes ================= *@
+    <div class="col-12 col-md-6">
+        <label asp-for="Notes" class="form-label"></label>
+        <textarea asp-for="Reason"
+                  class="form-control"
+                  rows="3"
+                  maxlength="500"></textarea>
+        <span asp-validation-for="Notes" class="text-danger"></span>
+    </div>
+
+</div>

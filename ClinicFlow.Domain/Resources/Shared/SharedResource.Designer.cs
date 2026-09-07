@@ -1780,6 +1780,51 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please enter more characters.
+        /// </summary>
+        public static string Select2InputTooShort {
+            get {
+                return ResourceManager.GetString("Select2InputTooShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No results found.
+        /// </summary>
+        public static string Select2NoResults {
+            get {
+                return ResourceManager.GetString("Select2NoResults", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Searching....
+        /// </summary>
+        public static string Select2Searching {
+            get {
+                return ResourceManager.GetString("Select2Searching", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select a clinic first..
+        /// </summary>
+        public static string SelectClinicFirst {
+            get {
+                return ResourceManager.GetString("SelectClinicFirst", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Doctor.
+        /// </summary>
+        public static string SelectDoctor {
+            get {
+                return ResourceManager.GetString("SelectDoctor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Server error occurred.
         /// </summary>
         public static string ServerError {

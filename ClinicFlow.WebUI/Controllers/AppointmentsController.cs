@@ -1,5 +1,6 @@
 ﻿using ClinicFlow.Application.Services;
 using ClinicFlow.Domain.DTOs.Appointment;
+using ClinicFlow.Domain.Entities;
 using ClinicFlow.Domain.Resources.Shared;
 using ClinicFlow.Domain.Utilities;
 using ClinicFlow.WebUI.ViewModels.Appointment;
@@ -18,6 +19,7 @@ namespace ClinicFlow.WebUI.Controllers
         private readonly IPatientService _patientService;
         private readonly IDoctorService _doctorService;
         private readonly IClinicService _clinicService;
+        private readonly IClinicDoctorService _clinicDoctorService;
 
         #endregion
 
@@ -27,7 +29,8 @@ namespace ClinicFlow.WebUI.Controllers
             IStringLocalizer<SharedResource> localizer,
             IPatientService patientService,
             IDoctorService doctorService,
-            IClinicService clinicService
+            IClinicService clinicService,
+            IClinicDoctorService clinicDoctorService
 
             ) : base(localizer)
         {
@@ -35,6 +38,7 @@ namespace ClinicFlow.WebUI.Controllers
             _patientService = patientService;
             _doctorService = doctorService;
             _clinicService = clinicService;
+            _clinicDoctorService = clinicDoctorService;
         }
         #endregion
 
@@ -186,6 +190,7 @@ namespace ClinicFlow.WebUI.Controllers
             var patientsResult = await _patientService.GetForSelectAsync();
             var doctorsResult = await _doctorService.GetForSelectAsync();
             var clinicsResult = await _clinicService.GetForSelectAsync();
+            var clinicDoctorsResult = await _clinicDoctorService.GetForSelectAsync();
 
             var isArabic =
                 CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
@@ -207,6 +212,9 @@ namespace ClinicFlow.WebUI.Controllers
                 Value = x.Id.ToString(),
                 Text = isArabic ? x.NameAr : x.NameEn
             });
+
+            ViewBag.ClinicDoctors = clinicDoctorsResult.Data;
+
         }
 
         #endregion

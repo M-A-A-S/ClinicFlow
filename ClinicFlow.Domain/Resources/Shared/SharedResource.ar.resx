@@ -936,5 +936,25 @@
 	<data name="AppointmentTimeAlreadyBooked" xml:space="preserve">
     <value>لدى الطبيب موعد آخر خلال الوقت المحدد.</value>
 </data>
+
+	<data name="Select2NoResults" xml:space="preserve">
+    <value>لم يتم العثور على نتائج</value>
+</data>
+
+	<data name="Select2Searching" xml:space="preserve">
+    <value>جارٍ البحث...</value>
+</data>
+
+	<data name="Select2InputTooShort" xml:space="preserve">
+    <value>يرجى إدخال المزيد من الأحرف</value>
+</data>
+
+	<data name="SelectClinicFirst" xml:space="preserve">
+    <value>يرجى اختيار العيادة أولاً.</value>
+</data>
+
+	<data name="SelectDoctor" xml:space="preserve">
+    <value>اختر الطبيب</value>
+</data>
 	
 </root>
