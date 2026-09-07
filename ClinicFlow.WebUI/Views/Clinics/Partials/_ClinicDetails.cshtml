@@ -1,0 +1,118 @@
+﻿@using ClinicFlow.Domain.DTOs.Clinic
+@model ClinicDTO
+
+<div class="row">
+
+    @* ================= NameEn ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["NameEn"]</div>
+        <div>@Model.NameEn</div>
+    </div>
+
+    @* ================= NameAr ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["NameAr"]</div>
+        <div>@Model.NameAr</div>
+    </div>
+
+    @* ================= DescriptionEn ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["DescriptionEn"]</div>
+        <div>
+            @(string.IsNullOrWhiteSpace(Model.DescriptionEn) ? "-" : Model.DescriptionEn)
+        </div>
+    </div>
+
+    @* ================= DescriptionAr ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["DescriptionAr"]</div>
+        <div>
+            @(string.IsNullOrWhiteSpace(Model.DescriptionAr) ? "-" : Model.DescriptionAr)
+        </div>
+    </div>
+
+    @* ================= IsActive ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["IsActive"]</div>
+        <div>
+            @if (Model.IsActive)
+            {
+                <span class="badge bg-success">
+                    @Localizer["Active"]
+                </span>
+            }
+            else
+            {
+                <span class="badge bg-danger">
+                    @Localizer["Inactive"]
+                </span>
+            }
+        </div>
+    </div>
+
+</div>
+
+@* ========================================================= *@
+@* ==================== Doctors =========================== *@
+@* ========================================================= *@
+
+<div class="card mt-4">
+
+    <div class="card-header">
+        <h5 class="mb-0">
+            <i class="fa fa-stethoscope me-1"></i>
+            @Localizer["Doctors"]
+        </h5>
+    </div>
+
+    <div class="card-body">
+
+        @if (Model.ClinicDoctors != null &&
+                Model.ClinicDoctors.Any())
+        {
+            <div class="table-responsive">
+                <table class="table">
+
+                    <thead>
+                        <tr>
+                            <th>
+                                @Localizer["Doctor"]
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model.ClinicDoctors)
+                        {
+                            <tr>
+                                <td>
+                                    @if (item.Doctor != null)
+                                    {
+                                        @($"{item.Doctor.FullName} {item.Doctor.PhoneNumber}")
+                                    }
+                                    else
+                                    {
+                                        @:-
+                                    }
+                                </td>
+
+
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+        }
+        else
+        {
+            <div class="text-muted">
+                @Localizer["NoItemsFound"]
+            </div>
+        }
+
+    </div>
+</div>
+
+
+
