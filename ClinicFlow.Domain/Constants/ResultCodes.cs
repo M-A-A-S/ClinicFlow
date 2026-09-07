@@ -40,5 +40,18 @@ namespace ClinicFlow.Domain.Constants
         public const string DuplicateDoctor = "DuplicateDoctor";
         public const string InvalidDoctor = "InvalidDoctor";
 
+        public const string InvalidAppointmentNumber = "InvalidAppointmentNumber";
+        public const string AppointmentNumberAlreadyExists = "AppointmentNumberAlreadyExists";
+        public const string PleaseSelectPatient = "PleaseSelectPatient";
+        public const string InvalidPatient = "InvalidPatient";
+        public const string PleaseSelectClinic = "PleaseSelectClinic";
+        public const string InvalidClinic = "InvalidClinic";
+        public const string PleaseSelectDoctor = "PleaseSelectDoctor";
+        public const string DoctorNotAssignedToClinic = "DoctorNotAssignedToClinic";
+        public const string InvalidAppointmentTime = "InvalidAppointmentTime";
+        public const string AppointmentInPast = "AppointmentInPast";
+        public const string InvalidAppointmentStatus = "InvalidAppointmentStatus";
+        public const string AppointmentTimeAlreadyBooked = "AppointmentTimeAlreadyBooked";
+
     }
 }

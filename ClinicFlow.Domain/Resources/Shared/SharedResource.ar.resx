@@ -880,5 +880,61 @@
 	<data name="Priority" xml:space="preserve">
     <value>الأولوية</value>
   </data>
+
+	<data name="InvalidData" xml:space="preserve">
+    <value>البيانات المدخلة غير صالحة.</value>
+</data>
+
+	<data name="InvalidAppointmentNumber" xml:space="preserve">
+    <value>يرجى إدخال رقم الموعد.</value>
+</data>
+
+	<data name="AppointmentNumberAlreadyExists" xml:space="preserve">
+    <value>رقم الموعد هذا موجود بالفعل.</value>
+</data>
+
+	<data name="PleaseSelectPatient" xml:space="preserve">
+    <value>يرجى اختيار المريض.</value>
+</data>
+
+	<data name="InvalidPatient" xml:space="preserve">
+    <value>المريض المحدد غير صالح أو غير نشط.</value>
+</data>
+
+	<data name="PleaseSelectClinic" xml:space="preserve">
+    <value>يرجى اختيار العيادة.</value>
+</data>
+
+	<data name="InvalidClinic" xml:space="preserve">
+    <value>العيادة المحددة غير صالحة أو غير نشطة.</value>
+</data>
+
+	<data name="PleaseSelectDoctor" xml:space="preserve">
+    <value>يرجى اختيار الطبيب.</value>
+</data>
+
+	<data name="InvalidDoctor" xml:space="preserve">
+    <value>الطبيب المحدد غير صالح أو غير نشط.</value>
+</data>
+
+	<data name="DoctorNotAssignedToClinic" xml:space="preserve">
+    <value>الطبيب المحدد غير مضاف إلى العيادة المحددة.</value>
+</data>
+
+	<data name="InvalidAppointmentTime" xml:space="preserve">
+    <value>يجب أن يكون وقت بداية الموعد قبل وقت انتهائه.</value>
+</data>
+
+	<data name="AppointmentInPast" xml:space="preserve">
+    <value>لا يمكن حجز موعد في وقت سابق.</value>
+</data>
+
+	<data name="InvalidAppointmentStatus" xml:space="preserve">
+    <value>حالة الموعد المحددة غير صالحة.</value>
+</data>
+
+	<data name="AppointmentTimeAlreadyBooked" xml:space="preserve">
+    <value>لدى الطبيب موعد آخر خلال الوقت المحدد.</value>
+</data>
 	
 </root>

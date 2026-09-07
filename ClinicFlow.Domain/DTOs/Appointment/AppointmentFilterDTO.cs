@@ -12,11 +12,6 @@ namespace ClinicFlow.Domain.DTOs.Appointment
 {
     public class AppointmentFilterDTO : BaseFilterDTO
     {
-        [Display(
-            Name = nameof(SharedResource.AppointmentNumber),
-            ResourceType = typeof(SharedResource)
-        )]
-        public string? AppointmentNumber { get; set; }
 
         [Display(
             Name = nameof(SharedResource.Patient),
