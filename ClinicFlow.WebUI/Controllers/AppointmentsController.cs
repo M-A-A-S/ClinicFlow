@@ -57,6 +57,9 @@ namespace ClinicFlow.WebUI.Controllers
                 PagedResult = getAllResult.Data ?? new PagedResult<AppointmentDTO>(),
                 Filter = filter,
             };
+
+            await LoadAppointmentFormData();
+
             return View(viewModel);
         }
 

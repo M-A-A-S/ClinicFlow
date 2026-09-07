@@ -50,7 +50,7 @@
     <div class="col-sm-6 col-md-4">
         <div class="fw-bold">@Localizer["Status"]</div>
         <div>
-            <span class="badge @GetAppointmentStatusClass(Model.Status)">
+            <span class="badge @Model.Status.ToCssClass()">
                 @Localizer[Model.Status.ToString()]
             </span>
         </div>
@@ -78,21 +78,5 @@
 </div>
 
 
-@functions
-{
-    private string GetAppointmentStatusClass(AppointmentStatus status)
-    {
-        return status switch
-        {
-            AppointmentStatus.Scheduled => "bg-secondary",
-            AppointmentStatus.Confirmed => "bg-primary",
-            AppointmentStatus.CheckedIn => "bg-info text-dark",
-            AppointmentStatus.Completed => "bg-success",
-            AppointmentStatus.Cancelled => "bg-danger",
-            AppointmentStatus.NoShow => "bg-warning text-dark",
-            _ => "bg-secondary"
-        };
-    }
-}
 
 

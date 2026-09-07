@@ -27,7 +27,37 @@ namespace ClinicFlow.Domain.Extensions
                 EndAt = Entity.EndAt,
                 Reason = Entity.Reason,
                 Notes = Entity.Notes,
-                Status = Entity.Status
+                Status = Entity.Status,
+
+                Patient = Entity.Patient == null
+                    ? null
+                    : new PatientDTO
+                    {
+                        Id = Entity.Patient.Id,
+                        FullName = Entity.Patient.FullName,
+                        PhoneNumber = Entity.Patient.PhoneNumber,
+                        Email = Entity.Patient.Email,
+                    },
+
+                Doctor = Entity.Doctor == null
+                    ? null
+                    : new DoctorDTO
+                    {
+                        Id = Entity.Doctor.Id,
+                        FullName = Entity.Doctor.FullName,
+                        PhoneNumber = Entity.Doctor.PhoneNumber,
+                        Email = Entity.Doctor.Email,
+                    },
+
+                Clinic = Entity.Clinic == null
+                    ? null
+                    : new ClinicDTO
+                    {
+                        Id = Entity.Clinic.Id,
+                        NameEn = Entity.Clinic.NameEn,
+                        NameAr = Entity.Clinic.NameAr,
+                    }
+
             };
 
 

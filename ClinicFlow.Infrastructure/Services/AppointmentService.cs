@@ -269,6 +269,7 @@ namespace ClinicFlow.Infrastructure.Services
             var prefix = $"APT-{now:yyyy-MM}-";
 
             var lastAppointmentNumber = await _appDbContext.Appointments
+                .IgnoreQueryFilters()
                 .Where(x => x.AppointmentNumber.StartsWith(prefix))
                 .OrderByDescending(x => x.AppointmentNumber)
                 .Select(x => x.AppointmentNumber)
@@ -329,7 +330,7 @@ namespace ClinicFlow.Infrastructure.Services
             }
 
             var clinicExists = await _appDbContext.Clinics
-                .AnyAsync(x => x.Id == DTO.ClinicId);
+                .AnyAsync(x => x.Id == DTO.ClinicId && x.IsActive);
 
             if (!clinicExists)
             {
@@ -349,7 +350,7 @@ namespace ClinicFlow.Infrastructure.Services
             }
 
             var doctorExists = await _appDbContext.Doctors
-                .AnyAsync(x => x.Id == DTO.DoctorId);
+                .AnyAsync(x => x.Id == DTO.DoctorId && x.IsActive);
 
             if (!doctorExists)
             {
@@ -382,8 +383,12 @@ namespace ClinicFlow.Infrastructure.Services
                     "Start date and time must be before end date and time.");
             }
 
+            // // ======================== Past Date ========================
             // Do not allow creating an appointment in the past.
-            if (DTO.StartAt < DateTime.UtcNow)
+
+            var isCreate = !excludedId.HasValue;
+
+            if (isCreate && DTO.StartAt < DateTime.UtcNow)
             {
                 return Result<bool>.Failure(
                     ResultCodes.AppointmentInPast,
@@ -408,7 +413,7 @@ namespace ClinicFlow.Infrastructure.Services
                     x.Status != AppointmentStatus.Cancelled &&
                     DTO.StartAt < x.EndAt &&
                     DTO.EndAt > x.StartAt &&
-                    (excludedId == null || x.Id != excludedId.Value)
+                    (!excludedId.HasValue || x.Id != excludedId.Value)
                 );
 
             if (hasOverlap)
@@ -437,8 +442,13 @@ namespace ClinicFlow.Infrastructure.Services
                 query = query.Where(x =>
                     x.AppointmentNumber.Contains(search) ||
                     x.Patient.FullName.Contains(search) ||
+                    (x.Notes != null && x.Notes.Contains(search)) ||
+                    (x.Reason != null && x.Reason.Contains(search)) ||
                     (x.Patient.PhoneNumber != null &&  x.Patient.PhoneNumber.Contains(search)) ||
-                    (x.Patient.Email != null && x.Patient.Email.Contains(search))
+                    (x.Patient.Email != null && x.Patient.Email.Contains(search)) ||
+                    (x.Doctor.FullName != null && x.Doctor.FullName.Contains(search)) || 
+                    (x.Doctor.PhoneNumber != null && x.Doctor.PhoneNumber.Contains(search)) || 
+                    (x.Doctor.Email != null && x.Doctor.Email.Contains(search))
                     );
             }
 

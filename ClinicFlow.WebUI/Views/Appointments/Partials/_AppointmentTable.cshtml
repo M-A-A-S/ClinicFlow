@@ -6,6 +6,8 @@
 @{
     var routes = Model.Filter.ToRouteDictionary();
 
+    var isArabic = CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "ar";
+
     var columns = new List<TableColumnVM>
     {
         new TableColumnVM
@@ -107,11 +109,11 @@ else
                     <tr>
                         <td>@item.AppointmentNumber</td>
 
-                        <td>@item.PatientId</td>
+                        <td>@item?.Patient?.FullName</td>
 
-                        <td>@item.ClinicId</td>
+                        <td>@(isArabic? item?.Clinic?.NameAr : item?.Clinic?.NameEn)</td>
 
-                        <td>@item.DoctorId</td>
+                        <td>@item?.Doctor?.FullName</td>
 
                         <td>@item.StartAt</td>
 
@@ -122,7 +124,7 @@ else
                         <td>@item.Notes</td>
 
                         <td>
-                            <span class="badge @GetAppointmentStatusClass(item.Status)">
+                            <span class="badge @item.Status.ToCssClass()">
                                 @Localizer[item.Status.ToString()]
                             </span>
                         </td>
@@ -140,22 +142,4 @@ else
             </tbody>
         </table>
     </div>
-}
-
-
-@functions
-{
-    private string GetAppointmentStatusClass(AppointmentStatus status)
-    {
-        return status switch
-        {
-            AppointmentStatus.Scheduled => "bg-secondary",
-            AppointmentStatus.Confirmed => "bg-primary",
-            AppointmentStatus.CheckedIn => "bg-info text-dark",
-            AppointmentStatus.Completed => "bg-success",
-            AppointmentStatus.Cancelled => "bg-danger",
-            AppointmentStatus.NoShow => "bg-warning text-dark",
-            _ => "bg-secondary"
-        };
-    }
 }
