@@ -1,0 +1,73 @@
+﻿@using ClinicFlow.Domain.DTOs.Appointment
+@using ClinicFlow.Domain.DTOs.ClinicDoctor
+@model AppointmentDTO
+
+
+<div class="card shadow-sm">
+
+    <div class="card-header">
+        <h5>@Localizer["Edit"] @Localizer["Appointment"]</h5>
+    </div>
+
+    <div class="card-body">
+
+        <form asp-action="Edit">
+
+            <input type="hidden" asp-for="Id" />
+
+            <input type="hidden" asp-for="AppointmentNumber" />
+
+            <partial name="Partials/_AppointmentForm" model="Model" />
+
+            <button type="submit" class="btn btn-primary">
+                @Localizer["Edit"]
+            </button>
+
+            <a asp-action="Index" class="btn btn-secondary">
+                @Localizer["Cancel"]
+            </a>
+
+        </form>
+
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+
+            window.appointmentLocalization = @Html.Raw(Json.Serialize(new
+            {
+                        select = Localizer["Select"].Value,
+                        selectDoctor = Localizer["SelectDoctor"].Value,
+                        selectClinicFirst = Localizer["SelectClinicFirst"].Value,
+
+                        // select2NoResults = Localizer["Select2NoResults"].Value,
+                        // select2Searching = Localizer["Select2Searching"].Value,
+                        // select2InputTooShort = Localizer["Select2InputTooShort"].Value
+            }));
+
+
+    window.appointmentData = @Html.Raw(Json.Serialize(new
+    {
+                        doctors = ((IEnumerable<SelectListItem>)ViewBag.Doctors)
+                                                .Select(x => new
+                                                {
+                                                            id = x.Value,
+                                                            text = x.Text
+                                                }),
+
+                        clinicDoctors = ((IEnumerable<ClinicDoctorSearchDTO>)ViewBag.ClinicDoctors)
+                                                .Select(x => new
+                                                {
+                                                            clinicId = x.ClinicId,
+                                                            doctorId = x.DoctorId
+                                                })
+    }));
+
+</script>
+
+    <script src="~/js/appointment-form.js" asp-append-version="true"></script>
+
+}

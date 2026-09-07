@@ -23,6 +23,7 @@ namespace ClinicFlow.Domain.Extensions
                 EndAt = Entity.EndAt,
                 Reason = Entity.Reason,
                 Notes = Entity.Notes,
+                Status = Entity.Status
             };
 
 
@@ -44,6 +45,7 @@ namespace ClinicFlow.Domain.Extensions
                 EndAt = Entity.EndAt,
                 Reason = Entity.Reason,
                 Notes = Entity.Notes,
+                Status = Entity.Status
             };
         }
 
@@ -65,6 +67,7 @@ namespace ClinicFlow.Domain.Extensions
                 EndAt = DTO.EndAt,
                 Reason = DTO.Reason,
                 Notes = DTO.Notes,
+                Status = DTO.Status
             };
         }
 
@@ -82,6 +85,7 @@ namespace ClinicFlow.Domain.Extensions
             Entity.EndAt = DTO.EndAt;
             Entity.Reason = DTO.Reason;
             Entity.Notes = DTO.Notes;
+            Entity.Status = DTO.Status;
 
             Entity.UpdatedAt = DateTime.UtcNow;
 

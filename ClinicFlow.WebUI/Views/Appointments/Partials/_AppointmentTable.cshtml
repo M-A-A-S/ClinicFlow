@@ -1,4 +1,5 @@
-﻿@using ClinicFlow.WebUI.ViewModels.Common
+﻿@using ClinicFlow.Domain.Enums
+@using ClinicFlow.WebUI.ViewModels.Common
 @using ClinicFlow.WebUI.ViewModels.Appointment;
 @model AppointmentIndexVM
 
@@ -120,7 +121,11 @@ else
 
                         <td>@item.Notes</td>
 
-                        <td>@item.Status</td>
+                        <td>
+                            <span class="badge @GetAppointmentStatusClass(item.Status)">
+                                @Localizer[item.Status.ToString()]
+                            </span>
+                        </td>
 
                         <td class="d-flex align-items-center gap-1">
                             <partial name="Partials/_Actions"
@@ -135,4 +140,22 @@ else
             </tbody>
         </table>
     </div>
+}
+
+
+@functions
+{
+    private string GetAppointmentStatusClass(AppointmentStatus status)
+    {
+        return status switch
+        {
+            AppointmentStatus.Scheduled => "bg-secondary",
+            AppointmentStatus.Confirmed => "bg-primary",
+            AppointmentStatus.CheckedIn => "bg-info text-dark",
+            AppointmentStatus.Completed => "bg-success",
+            AppointmentStatus.Cancelled => "bg-danger",
+            AppointmentStatus.NoShow => "bg-warning text-dark",
+            _ => "bg-secondary"
+        };
+    }
 }
