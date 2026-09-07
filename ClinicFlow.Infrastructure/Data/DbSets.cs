@@ -20,5 +20,9 @@ namespace ClinicFlow.Infrastructure.Data
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<DoctorSpecialty> DoctorSpecialties { get; set; }
 
+        public DbSet<Clinic> Clinics { get; set; }
+        public DbSet<ClinicDoctor> ClinicDoctors { get; set; }
+        public DbSet<Diagnosis> Diagnoses { get; set; }
+
     }
 }
