@@ -1,4 +1,4 @@
-﻿using ClinicFlow.Domain.DTOs.Specialty;
+﻿using ClinicFlow.Domain.DTOs.Diagnosis;
 using ClinicFlow.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace ClinicFlow.Domain.Extensions
 {
-    public static class SpecialtyExtensions
+    public static class DiagnosisExtensions
     {
-        public static Expression<Func<Specialty, SpecialtyDTO>>
-            ToDTOExpression => Entity => new SpecialtyDTO
+        public static Expression<Func<Diagnosis, DiagnosisDTO>>
+            ToDTOExpression => Entity => new DiagnosisDTO
             {
                 Id = Entity.Id,
                 NameEn = Entity.NameEn,
@@ -23,14 +23,14 @@ namespace ClinicFlow.Domain.Extensions
             };
 
 
-        public static SpecialtyDTO ToDTO(this Specialty Entity)
+        public static DiagnosisDTO ToDTO(this Diagnosis Entity)
         {
             if (Entity == null)
             {
                 return null;
             }
 
-            return new SpecialtyDTO
+            return new DiagnosisDTO
             {
                 Id = Entity.Id,
                 NameEn = Entity.NameEn,
@@ -41,14 +41,14 @@ namespace ClinicFlow.Domain.Extensions
             };
         }
 
-        public static Specialty ToEntity(this SpecialtyDTO DTO)
+        public static Diagnosis ToEntity(this DiagnosisDTO DTO)
         {
             if (DTO == null)
             {
                 return null;
             }
 
-            return new Specialty
+            return new Diagnosis
             {
                 Id = DTO.Id,
                 NameEn = DTO.NameEn,
@@ -59,7 +59,7 @@ namespace ClinicFlow.Domain.Extensions
             };
         }
 
-        public static void UpdateEntity(this Specialty Entity, SpecialtyDTO DTO)
+        public static void UpdateEntity(this Diagnosis Entity, DiagnosisDTO DTO)
         {
 
             ArgumentNullException.ThrowIfNull(Entity);
