@@ -524,4 +524,11 @@
 	<data name="PleaseSelectDoctor" xml:space="preserve">
     <value>يرجى اختيار الطبيب</value>
 </data>
+	<data name="DuplicateDoctor" xml:space="preserve">
+    <value>لا يمكن إضافة الطبيب نفسه أكثر من مرة.</value>
+</data>
+
+	<data name="InvalidDoctor" xml:space="preserve">
+    <value>الطبيب المحدد غير صالح.</value>
+</data>
 </root>

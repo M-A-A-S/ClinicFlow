@@ -538,6 +538,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The same doctor cannot be assigned more than once..
+        /// </summary>
+        public static string DuplicateDoctor {
+            get {
+                return ResourceManager.GetString("DuplicateDoctor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The same specialty has been selected more than once..
         /// </summary>
         public static string DuplicateSpecialty {
@@ -678,6 +687,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string InvalidDate {
             get {
                 return ResourceManager.GetString("InvalidDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The selected doctor is invalid..
+        /// </summary>
+        public static string InvalidDoctor {
+            get {
+                return ResourceManager.GetString("InvalidDoctor", resourceCulture);
             }
         }
         

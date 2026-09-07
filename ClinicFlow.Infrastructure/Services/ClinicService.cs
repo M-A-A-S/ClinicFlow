@@ -389,33 +389,35 @@ namespace ClinicFlow.Infrastructure.Services
             }
 
             // ======================== ClinicDoctors ========================
-            var clinicDoctorIds = DTO.ClinicDoctors
+            var doctorIds = DTO.ClinicDoctors?
                 .Select(x => x.DoctorId)
-                .ToList();
+                .ToList() ?? new List<int>();
 
-            var distinctClinicDoctorIds = clinicDoctorIds
+            var distinctDoctorIds = doctorIds
                 .Distinct()
                 .ToList();
 
-            if (clinicDoctorIds.Count != distinctClinicDoctorIds.Count)
+            // Check duplicate doctors
+            if (doctorIds.Count != distinctDoctorIds.Count)
             {
                 return Result<bool>.Failure(
-                    ResultCodes.DuplicateClinicDoctor,
+                    ResultCodes.DuplicateDoctor,
                     HttpStatusCodes.BadRequest,
-                    "Duplicate clinic doctor IDs found.");
+                    "Duplicate doctor IDs found.");
             }
 
-            if (distinctClinicDoctorIds.Count > 0)
+            // Validate that all selected doctors exist and are active
+            if (distinctDoctorIds.Count > 0)
             {
-                var validClinicDoctorCount = await _appDbContext.ClinicDoctors
-                    .CountAsync(x => distinctClinicDoctorIds.Contains(x.Id));
+                var validDoctorCount = await _appDbContext.Doctors
+                    .CountAsync(x => distinctDoctorIds.Contains(x.Id) && x.IsActive);
 
-                if (validClinicDoctorCount != distinctClinicDoctorIds.Count)
+                if (validDoctorCount != distinctDoctorIds.Count)
                 {
                     return Result<bool>.Failure(
-                        ResultCodes.InvalidClinicDoctor,
+                        ResultCodes.InvalidDoctor,
                         HttpStatusCodes.BadRequest,
-                        "One or more clinic doctor IDs are invalid.");
+                        "One or more doctor IDs are invalid.");
                 }
             }
 

@@ -530,5 +530,11 @@
 	<data name="PleaseSelectDoctor" xml:space="preserve">
     <value>Please select a doctor.</value>
 </data>
-	
+	<data name="DuplicateDoctor" xml:space="preserve">
+    <value>The same doctor cannot be assigned more than once.</value>
+</data>
+
+	<data name="InvalidDoctor" xml:space="preserve">
+    <value>The selected doctor is invalid.</value>
+</data>
 </root>
