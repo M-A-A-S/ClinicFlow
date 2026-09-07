@@ -1,9 +1,13 @@
 ﻿using ClinicFlow.Domain.DTOs.Appointment;
+using ClinicFlow.Domain.DTOs.Clinic;
+using ClinicFlow.Domain.DTOs.Doctor;
+using ClinicFlow.Domain.DTOs.Patient;
 using ClinicFlow.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -45,7 +49,29 @@ namespace ClinicFlow.Domain.Extensions
                 EndAt = Entity.EndAt,
                 Reason = Entity.Reason,
                 Notes = Entity.Notes,
-                Status = Entity.Status
+                Status = Entity.Status,
+
+                Patient = new PatientDTO
+                {
+                    Id = Entity.Patient.Id,
+                    FullName = Entity.Patient.FullName,
+                    PhoneNumber = Entity.Patient.PhoneNumber
+                },
+
+                Doctor  = new DoctorDTO
+                {
+                    Id = Entity.Doctor.Id,
+                    FullName = Entity.Doctor.FullName,
+                    PhoneNumber = Entity.Doctor.PhoneNumber
+                },
+
+                Clinic = new ClinicDTO
+                {
+                    Id = Entity.Clinic.Id,
+                    NameEn = Entity.Clinic.NameEn,
+                    NameAr = Entity.Clinic.NameAr,
+                }
+
             };
         }
 

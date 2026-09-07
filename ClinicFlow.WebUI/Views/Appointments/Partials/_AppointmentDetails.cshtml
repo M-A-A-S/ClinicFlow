@@ -1,5 +1,98 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using ClinicFlow.Domain.DTOs.Appointment
+@using ClinicFlow.Domain.Enums
+@model AppointmentDTO
+
 @{
+    var isArabic =
+                CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
 }
+
+
+<div class="row">
+
+    @* ================= AppointmentNumber ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["AppointmentNumber"]</div>
+        <div>@Model.AppointmentNumber</div>
+    </div>
+
+    @* ================= Patient ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["Patient"]</div>
+        <div>@Model?.Patient?.FullName @Model?.Patient?.PhoneNumber</div>
+    </div>
+
+    @* ================= Clinic ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["Clinic"]</div>
+        <div>@(isArabic ? Model?.Clinic?.NameAr : Model?.Clinic?.NameEn)</div>
+    </div>
+
+    @* ================= Doctor ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["Doctor"]</div>
+        <div>@Model?.Doctor?.FullName @Model?.Doctor?.PhoneNumber</div>
+    </div>
+
+    @* ================= StartAt ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["StartAt"]</div>
+        <div>@Model.StartAt</div>
+    </div>
+
+    @* ================= EndAt ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["EndAt"]</div>
+        <div>@Model.EndAt</div>
+    </div>
+
+    @* ================= Status ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["Status"]</div>
+        <div>
+            <span class="badge @GetAppointmentStatusClass(Model.Status)">
+                @Localizer[Model.Status.ToString()]
+            </span>
+        </div>
+    </div>
+
+    <div class="row">
+        @* ================= Reason ================= *@
+        <div class="col-12 col-md-6">
+            <div class="fw-bold">@Localizer["Reason"]</div>
+            <div>
+                @(string.IsNullOrWhiteSpace(Model.Reason) ? "-" : Model.Reason)
+            </div>
+        </div>
+
+        @* ================= Notes ================= *@
+        <div class="col-12 col-md-6">
+            <div class="fw-bold">@Localizer["Notes"]</div>
+            <div>
+                @(string.IsNullOrWhiteSpace(Model.Notes) ? "-" : Model.Notes)
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+
+
+@functions
+{
+    private string GetAppointmentStatusClass(AppointmentStatus status)
+    {
+        return status switch
+        {
+            AppointmentStatus.Scheduled => "bg-secondary",
+            AppointmentStatus.Confirmed => "bg-primary",
+            AppointmentStatus.CheckedIn => "bg-info text-dark",
+            AppointmentStatus.Completed => "bg-success",
+            AppointmentStatus.Cancelled => "bg-danger",
+            AppointmentStatus.NoShow => "bg-warning text-dark",
+            _ => "bg-secondary"
+        };
+    }
+}
+
+
