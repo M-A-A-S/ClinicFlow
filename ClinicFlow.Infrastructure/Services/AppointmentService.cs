@@ -52,6 +52,8 @@ namespace ClinicFlow.Infrastructure.Services
                         validationResult.StatusCode);
                 }
 
+                DTO.AppointmentNumber = await GenerateAppointmentNumberAsync();
+
                 var entity = DTO.ToEntity();
 
                 _appDbContext.Appointments.Add(entity);
@@ -259,6 +261,35 @@ namespace ClinicFlow.Infrastructure.Services
         #endregion
 
         #region ========================= Helpers =========================
+
+        private async Task<string> GenerateAppointmentNumberAsync()
+        {
+            var now = DateTime.UtcNow;
+
+            var prefix = $"APT-{now:yyyy-MM}-";
+
+            var lastAppointmentNumber = await _appDbContext.Appointments
+                .Where(x => x.AppointmentNumber.StartsWith(prefix))
+                .OrderByDescending(x => x.AppointmentNumber)
+                .Select(x => x.AppointmentNumber)
+                .FirstOrDefaultAsync();
+
+            var nextNumber = 1;
+
+            if (!string.IsNullOrWhiteSpace(lastAppointmentNumber))
+            {
+                var numberPart = lastAppointmentNumber.Substring(prefix.Length);
+
+                if (int.TryParse(numberPart, out var lastNumber))
+                {
+                    nextNumber = lastNumber + 1;
+                }
+            }
+
+            return $"{prefix}{nextNumber:D4}";
+
+        }
+
         private async Task<Result<bool>> ValidateAppointmentDTO(AppointmentDTO DTO, int? excludedId = null)
         {
             if (DTO == null)
@@ -266,29 +297,6 @@ namespace ClinicFlow.Infrastructure.Services
                 return Result<bool>.Failure(
                     ResultCodes.InvalidData,
                     HttpStatusCodes.BadRequest);
-            }
-
-            // ======================== AppointmentNumber ========================
-            if (string.IsNullOrWhiteSpace(DTO.AppointmentNumber))
-            {
-                return Result<bool>.Failure(
-                    ResultCodes.InvalidAppointmentNumber,
-                    HttpStatusCodes.BadRequest,
-                    "Appointment number is required.");
-            }
-
-            var appointmentNumber = DTO.AppointmentNumber.Trim();
-
-            var appointmentNumberExists = await _appDbContext.Appointments
-                .AnyAsync(x => x.AppointmentNumber == appointmentNumber &&
-                (excludedId == null || x.Id != excludedId.Value));
-
-            if (appointmentNumberExists)
-            {
-                return Result<bool>.Failure(
-                    ResultCodes.AppointmentNumberAlreadyExists,
-                    HttpStatusCodes.Conflict,
-                    "Appointment number already exists.");
             }
 
             // ======================== Patient ========================
@@ -321,7 +329,7 @@ namespace ClinicFlow.Infrastructure.Services
             }
 
             var clinicExists = await _appDbContext.Clinics
-                .AnyAsync(x => x.Id == DTO.PatientId);
+                .AnyAsync(x => x.Id == DTO.ClinicId);
 
             if (!clinicExists)
             {

@@ -1,0 +1,138 @@
+﻿@using ClinicFlow.WebUI.ViewModels.Common
+@using ClinicFlow.WebUI.ViewModels.Appointment;
+@model AppointmentIndexVM
+
+@{
+    var routes = Model.Filter.ToRouteDictionary();
+
+    var columns = new List<TableColumnVM>
+    {
+        new TableColumnVM
+        {
+            Column = "AppointmentNumber",
+            Title = Localizer["AppointmentNumber"]
+        },
+        new TableColumnVM
+        {
+            Column = "PatientId",
+            Title = Localizer["Patient"]
+        },
+        new TableColumnVM
+        {
+            Column = "ClinicId",
+            Title = Localizer["Clinic"]
+        },
+        new TableColumnVM
+        {
+            Column = "DoctorId",
+            Title = Localizer["Doctor"]
+        },
+        new TableColumnVM
+        {
+            Column = "StartAt",
+            Title = Localizer["StartAt"]
+        },
+        new TableColumnVM
+        {
+            Column = "EndAt",
+            Title = Localizer["EndAt"]
+        },
+        new TableColumnVM
+        {
+            Column = "Reason",
+            Title = Localizer["Reason"],
+            IsSortable = false
+        },
+        new TableColumnVM
+        {
+            Column = "Notes",
+            Title = Localizer["Notes"],
+            IsSortable = false
+        },
+        new TableColumnVM
+        {
+            Column = "Status",
+            Title = Localizer["Status"],
+            IsSortable = false
+        },
+        new TableColumnVM
+        {
+            Column = string.Empty,
+            Title = Localizer["Actions"],
+            IsSortable = false
+        }
+    };
+
+}
+
+@if (!Model.PagedResult.Items.Any())
+{
+    <div class="alert alert-info">
+        @Localizer["NoRecordsFound"]
+    </div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    @foreach (var column in columns)
+                    {
+                        <th>
+                            @if (column.IsSortable)
+                            {
+                                <partial name="Partials/_SortableHeader"
+                                         model='new SortHeaderVM
+                                         {
+                                             Column = column.Column,
+                                             Title = column.Title,
+                                             Filter = Model.Filter,
+                                             Routes = routes
+                                         }' />
+                                        }
+                            else
+                            {
+                                @column.Title
+                            }
+                        </th>
+                    }
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model.PagedResult.Items)
+                {
+                    <tr>
+                        <td>@item.AppointmentNumber</td>
+
+                        <td>@item.PatientId</td>
+
+                        <td>@item.ClinicId</td>
+
+                        <td>@item.DoctorId</td>
+
+                        <td>@item.StartAt</td>
+
+                        <td>@item.EndAt</td>
+
+                        <td>@item.Reason</td>
+
+                        <td>@item.Notes</td>
+
+                        <td>@item.Status</td>
+
+                        <td class="d-flex align-items-center gap-1">
+                            <partial name="Partials/_Actions"
+                                     model='new ActionButtonsVM
+                                     {
+                                         Controller = "Appointments",
+                                         Id = item.Id
+                                     }' />
+                </td>
+            </tr>
+                        }
+            </tbody>
+        </table>
+    </div>
+}
