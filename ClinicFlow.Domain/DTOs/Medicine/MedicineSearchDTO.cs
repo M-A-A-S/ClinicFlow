@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClinicFlow.Domain.DTOs.Allergy
+namespace ClinicFlow.Domain.DTOs.Medicine
 {
-    public class AllergySearchDTO
+    public class MedicineSearchDTO
     {
         public int Id { get; set; }
 
@@ -23,6 +23,19 @@ namespace ClinicFlow.Domain.DTOs.Allergy
             ResourceType = typeof(SharedResource)
         )]
         public string NameAr { get; set; }
+
+
+        [Display(
+            Name = nameof(SharedResource.GenericNameEn),
+            ResourceType = typeof(SharedResource)
+        )]
+        public string GenericNameEn { get; set; }
+
+        [Display(
+            Name = nameof(SharedResource.GenericNameAr),
+            ResourceType = typeof(SharedResource)
+        )]
+        public string GenericNameAr { get; set; }
 
     }
 }

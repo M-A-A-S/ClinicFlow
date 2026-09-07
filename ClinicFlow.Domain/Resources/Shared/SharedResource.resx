@@ -868,5 +868,25 @@
 	<data name="Cancelled" xml:space="preserve">
     <value>Cancelled</value>
 </data>
+
+	<data name="FromDate" xml:space="preserve">
+    <value>From Date</value>
+  </data>
+
+	<data name="ToDate" xml:space="preserve">
+    <value>To Date</value>
+  </data>
+
+	<data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+
+	<data name="All" xml:space="preserve">
+    <value>All</value>
+  </data>
+
+	<data name="Priority" xml:space="preserve">
+    <value>Priority</value>
+  </data>
 	
 </root>

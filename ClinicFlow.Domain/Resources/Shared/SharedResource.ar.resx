@@ -860,5 +860,25 @@
 	<data name="Cancelled" xml:space="preserve">
     <value>ملغاة</value>
 </data>
+
+	<data name="FromDate" xml:space="preserve">
+    <value>من تاريخ</value>
+  </data>
+
+	<data name="ToDate" xml:space="preserve">
+    <value>إلى تاريخ</value>
+  </data>
+
+	<data name="Reset" xml:space="preserve">
+    <value>إعادة تعيين</value>
+  </data>
+
+	<data name="All" xml:space="preserve">
+    <value>الكل</value>
+  </data>
+
+	<data name="Priority" xml:space="preserve">
+    <value>الأولوية</value>
+  </data>
 	
 </root>
