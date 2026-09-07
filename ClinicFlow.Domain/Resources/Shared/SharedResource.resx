@@ -527,5 +527,8 @@
 	<data name="InvalidClinicDoctor" xml:space="preserve">
     <value>The selected doctor or clinic is invalid.</value>
 </data>
+	<data name="PleaseSelectDoctor" xml:space="preserve">
+    <value>Please select a doctor.</value>
+</data>
 	
 </root>

@@ -365,7 +365,7 @@ namespace ClinicFlow.Infrastructure.Services
 
             // ======================== NameEn ========================
             bool nameEnExists =
-                await _appDbContext.Specialties
+                await _appDbContext.Clinics
                 .AnyAsync(x => x.NameEn.ToLower() == DTO.NameEn.ToLower() &&
                 (excludedId == null || x.Id != excludedId));
 
@@ -378,7 +378,7 @@ namespace ClinicFlow.Infrastructure.Services
 
             // ======================== NameAr ========================
             bool nameArExists =
-                await _appDbContext.Specialties
+                await _appDbContext.Clinics
                 .AnyAsync(x => x.NameAr == DTO.NameAr && (excludedId == null || x.Id != excludedId));
 
             if (nameArExists)

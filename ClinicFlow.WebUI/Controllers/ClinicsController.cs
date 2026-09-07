@@ -15,7 +15,7 @@ namespace ClinicFlow.WebUI.Controllers
 
         #region ========================= Fields & Properties =========================
         private readonly IClinicService _service;
-        private readonly IClinicService _doctorService;
+        private readonly IDoctorService _doctorService;
 
         #endregion
 
@@ -23,7 +23,7 @@ namespace ClinicFlow.WebUI.Controllers
         public ClinicsController(
             IClinicService service,
             IStringLocalizer<SharedResource> localizer,
-            IClinicService doctorService
+            IDoctorService doctorService
 
             ) : base(localizer)
         {
@@ -185,13 +185,10 @@ namespace ClinicFlow.WebUI.Controllers
         {
             var doctorsResult = await _doctorService.GetForSelectAsync();
 
-            var isArabic =
-                CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
-
             ViewBag.Doctors = doctorsResult.Data.Select(x => new SelectListItem
             {
                 Value = x.Id.ToString(),
-                Text = isArabic ? x.NameAr : x.NameEn
+                Text = x.FullName + " " + x.PhoneNumber
             });
         }
 

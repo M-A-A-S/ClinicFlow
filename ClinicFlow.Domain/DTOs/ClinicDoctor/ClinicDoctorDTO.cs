@@ -12,9 +12,9 @@ namespace ClinicFlow.Domain.DTOs.ClinicDoctor
     {
         public int Id { get; set; }
         public int DoctorId { get; set; }
-        public DoctorDTO Doctor { get; set; }
+        public DoctorDTO? Doctor { get; set; }
         public int ClinicId { get; set; }
-        public ClinicDTO Clinic { get; set; }
+        public ClinicDTO? Clinic { get; set; }
 
     }
 }

@@ -515,10 +515,13 @@
     <value>الفواتير</value>
   </data>
 	<data name="DuplicateClinicDoctor" xml:space="preserve">
-    <value>هذا الطبيب مضاف بالفعل إلى هذه العيادة.</value>
+    <value>هذا الطبيب مضاف بالفعل إلى هذه العيادة</value>
 </data>
 
 	<data name="InvalidClinicDoctor" xml:space="preserve">
-    <value>الطبيب أو العيادة المحددة غير صالحة.</value>
+    <value>الطبيب أو العيادة المحددة غير صالحة</value>
+</data>
+	<data name="PleaseSelectDoctor" xml:space="preserve">
+    <value>يرجى اختيار الطبيب</value>
 </data>
 </root>
