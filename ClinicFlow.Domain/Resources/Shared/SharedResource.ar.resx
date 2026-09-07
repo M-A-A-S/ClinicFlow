@@ -514,5 +514,11 @@
 	<data name="Invoices" xml:space="preserve">
     <value>الفواتير</value>
   </data>
+	<data name="DuplicateClinicDoctor" xml:space="preserve">
+    <value>هذا الطبيب مضاف بالفعل إلى هذه العيادة.</value>
+</data>
 
+	<data name="InvalidClinicDoctor" xml:space="preserve">
+    <value>الطبيب أو العيادة المحددة غير صالحة.</value>
+</data>
 </root>

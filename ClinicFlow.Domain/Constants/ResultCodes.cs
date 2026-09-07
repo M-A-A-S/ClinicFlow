@@ -34,5 +34,8 @@ namespace ClinicFlow.Domain.Constants
         public const string DuplicateSpecialty = "DuplicateSpecialty";
         public const string InvalidSpecialty = "InvalidSpecialty";
 
+        public const string DuplicateClinicDoctor = "DuplicateClinicDoctor";
+        public const string InvalidClinicDoctor = "InvalidClinicDoctor";
+
     }
 }

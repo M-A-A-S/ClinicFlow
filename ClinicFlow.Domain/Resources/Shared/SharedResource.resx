@@ -519,4 +519,13 @@
 	<data name="Invoices" xml:space="preserve">
     <value>Invoices</value>
   </data>
+
+	<data name="DuplicateClinicDoctor" xml:space="preserve">
+    <value>This doctor is already assigned to this clinic.</value>
+</data>
+
+	<data name="InvalidClinicDoctor" xml:space="preserve">
+    <value>The selected doctor or clinic is invalid.</value>
+</data>
+	
 </root>

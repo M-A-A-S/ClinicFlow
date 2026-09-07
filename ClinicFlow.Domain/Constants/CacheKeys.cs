@@ -13,6 +13,7 @@ namespace ClinicFlow.Domain.Constants
         public const string PatientSelect = "PatientSelect";
         public const string SpecialtySelect = "SpecialtySelect";
         public const string DoctorSelect = "DoctorSelect";
+        public const string ClinicSelect = "ClinicSelect";
 
     }
 }
