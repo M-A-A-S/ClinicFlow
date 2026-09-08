@@ -98,13 +98,16 @@ else
                             </span>
                         </td>
 
-                        <td class="d-flex align-items-center gap-1">
-                            <partial name="Partials/_Actions"
-                                     model='new ActionButtonsVM
-                                     {
-                                         Controller = "Allergies",
-                                         Id = item.Id
-                                     }' />
+                        <td>
+
+                    <div class="d-flex gap-1 align-items-center">
+                        <partial name="Partials/_Actions"
+                                 model='new ActionButtonsVM
+                                 {
+                                     Controller = "Allergies",
+                                     Id = item.Id
+                                 }' />
+                    </div>
                 </td>
             </tr>
                         }
