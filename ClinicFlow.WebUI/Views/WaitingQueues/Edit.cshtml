@@ -1,0 +1,69 @@
+﻿@using ClinicFlow.Domain.DTOs.WaitingQueue
+@using ClinicFlow.Domain.DTOs.ClinicDoctor
+@model WaitingQueueDTO
+
+
+<div class="card shadow-sm">
+
+    <div class="card-header">
+        <h5>@Localizer["Edit"] @Localizer["WaitingQueue"]</h5>
+    </div>
+
+    <div class="card-body">
+
+        <form asp-action="Edit">
+
+            <input type="hidden" asp-for="Id" />
+
+            <input type="hidden" asp-for="WaitingQueueNumber" />
+
+            <partial name="Partials/_WaitingQueueForm" model="Model" />
+
+            <button type="submit" class="btn btn-primary">
+                @Localizer["Edit"]
+            </button>
+
+            <a asp-action="Index" class="btn btn-secondary">
+                @Localizer["Cancel"]
+            </a>
+
+        </form>
+
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+
+                    window.waitingQueueLocalization = @Html.Raw(Json.Serialize(new
+                {
+                                select = Localizer["Select"].Value,
+                                selectDoctor = Localizer["SelectDoctor"].Value,
+                                selectClinicFirst = Localizer["SelectClinicFirst"].Value,
+                }));
+
+
+    window.waitingQueueData = @Html.Raw(Json.Serialize(new
+    {
+                            doctors = ((IEnumerable<SelectListItem>)ViewBag.Doctors)
+                                                                                                .Select(x => new
+                                                                                                {
+                                                                                                                id = x.Value,
+                                                                                                                text = x.Text
+                                                                                                }),
+
+                            clinicDoctors = ((IEnumerable<ClinicDoctorSearchDTO>)ViewBag.ClinicDoctors)
+                                                                                                .Select(x => new
+                                                                                                {
+                                                                                                                clinicId = x.ClinicId,
+                                                                                                                doctorId = x.DoctorId
+                                                                                                })
+    }));
+
+</script>
+
+    <script src="~/js/waiting-queue-form.js" asp-append-version="true"></script>
+
+}
