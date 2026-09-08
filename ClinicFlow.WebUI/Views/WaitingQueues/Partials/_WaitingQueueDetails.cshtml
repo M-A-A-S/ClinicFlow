@@ -1,5 +1,92 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using ClinicFlow.Domain.DTOs.WaitingQueue
+@using ClinicFlow.Domain.Enums
+@model WaitingQueueDTO
+
 @{
+    var isArabic =
+                CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
 }
+
+
+<div class="row">
+
+    @* ================= WaitingQueueNumber ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["QueueNumber"]</div>
+        <div>@Model.WaitingQueueNumber</div>
+    </div>
+
+    @* ================= Patient ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["Patient"]</div>
+        <div>@Model?.Patient?.FullName</div>
+    </div>
+
+    @* ================= Clinic ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["Clinic"]</div>
+        <div>@(isArabic? Model?.Clinic?.NameAr : Model?.Clinic?.NameEn)</div>
+    </div>
+
+    @* ================= Doctor ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["Doctor"]</div>
+        <div>@Model?.Doctor?.FullName</div>
+    </div>
+
+    @* ================= WaitingQueueDate ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["QueueDate"]</div>
+        <div>@Model.WaitingQueueDate</div>
+    </div>
+
+    @* ================= JoinedAt ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["JoinedAt"]</div>
+        <div>@Model.JoinedAt</div>
+    </div>
+
+    @* ================= CalledAt ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["CalledAt"]</div>
+        <div>@(Model.CalledAt.HasValue? Model.CalledAt: '-')</div>
+    </div>
+
+    @* ================= ServiceStartAt ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["ServiceStartAt"]</div>
+        <div>@(Model.ServiceStartAt.HasValue? Model.ServiceStartAt : '-')</div>
+    </div>
+
+    @* ================= CompletedAt ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["CompletedAt"]</div>
+        <div>@(Model.CompletedAt.HasValue? Model.CompletedAt: '-')</div>
+    </div>
+
+    @* ================= Status ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["Status"]</div>
+        <div>
+            <span class="badge @Model.Status.ToCssClass()">
+                @Localizer[Model.Status.ToString()]
+            </span>
+        </div>
+    </div>
+
+    @* ================= Priority ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["Priority"]</div>
+        <div>
+            <span class="badge @Model.Priority.ToCssClass()">
+                @Localizer[Model.Priority.ToString()]
+            </span>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
