@@ -35,3 +35,8 @@
 
 <partial name="Partials/_Pagination"
          model="pagination" />
+
+@* Required here because Select2 depends on the scripts loaded by this partial. *@
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
