@@ -1069,6 +1069,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid waiting queue status.
+        /// </summary>
+        public static string InvalidWaitingQueueStatus {
+            get {
+                return ResourceManager.GetString("InvalidWaitingQueueStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invoice.
         /// </summary>
         public static string Invoice {

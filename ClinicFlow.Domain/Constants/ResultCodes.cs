@@ -52,6 +52,8 @@ namespace ClinicFlow.Domain.Constants
         public const string AppointmentInPast = "AppointmentInPast";
         public const string InvalidAppointmentStatus = "InvalidAppointmentStatus";
         public const string AppointmentTimeAlreadyBooked = "AppointmentTimeAlreadyBooked";
+        
+        public const string InvalidWaitingQueueStatus = "InvalidWaitingQueueStatus";
 
     }
 }

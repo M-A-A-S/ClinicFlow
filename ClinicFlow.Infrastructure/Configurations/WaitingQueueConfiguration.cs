@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -77,14 +78,26 @@ namespace ClinicFlow.Infrastructure.Configurations
                 .OnDelete(DeleteBehavior.Restrict);
 
             // Queue number resets every day per clinic
+            //builder.HasIndex(x => new
+            //{
+            //    x.ClinicId,
+            //    x.WaitingQueueDate,
+            //    x.WaitingQueueNumber
+            //})
+            //.IsUnique()
+            //.HasDatabaseName("UX_Queues_Clinic_Date_Number")
+            //.HasFilter("[IsDeleted] = 0");
+
+            // Queue number resets every day per clinic
             builder.HasIndex(x => new
             {
                 x.ClinicId,
+                x.DoctorId,
                 x.WaitingQueueDate,
                 x.WaitingQueueNumber
             })
             .IsUnique()
-            .HasDatabaseName("UX_Queues_Clinic_Date_Number")
+            .HasDatabaseName("UX_Queues_Clinic_Doctor_Date_Number")
             .HasFilter("[IsDeleted] = 0");
 
             // An appointment can enter the queue only once
