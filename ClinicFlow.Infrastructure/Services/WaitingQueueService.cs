@@ -419,6 +419,10 @@ namespace ClinicFlow.Infrastructure.Services
                     x.ClinicId == filter.ClinicId.Value);
             }
 
+            // ========================== WaitingQueueDate ==========================
+            query = query.Where(x =>
+                x.WaitingQueueDate == filter.WaitingQueueDate);
+
             // ========================== FromDate ==========================
             if (filter.FromDate.HasValue)
             {

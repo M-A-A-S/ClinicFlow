@@ -38,6 +38,12 @@ namespace ClinicFlow.Domain.DTOs.WaitingQueue
         public int? DoctorId { get; set; }
 
         [Display(
+            Name = nameof(SharedResource.QueueDate),
+            ResourceType = typeof(SharedResource)
+        )]
+        public DateOnly WaitingQueueDate { get; set; } = DateOnly.FromDateTime(DateTime.Now);
+
+        [Display(
             Name = nameof(SharedResource.FromDate),
             ResourceType = typeof(SharedResource)
         )]
