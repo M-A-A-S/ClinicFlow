@@ -807,4 +807,10 @@
   <data name="InvalidWaitingQueueStatus" xml:space="preserve">
     <value>حالة قائمة الانتظار غير صالحة</value>
   </data>
+  <data name="WaitingQueueDateInPast" xml:space="preserve">
+    <value>لا يمكن أن يكون تاريخ قائمة الانتظار في الماضي</value>
+  </data>
+  <data name="PatientAlreadyInWaitingQueue" xml:space="preserve">
+    <value>المريض موجود بالفعل في قائمة انتظار هذا الطبيب اليوم</value>
+  </data>
 </root>

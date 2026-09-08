@@ -359,6 +359,41 @@ namespace ClinicFlow.Infrastructure.Services
                     "The selected doctor is not assigned to the selected clinic.");
             }
 
+            // ======================== Doctor / Clinic / Patient / Date ========================
+            var hasExistingQueue = await _appDbContext.WaitingQueues
+                .AnyAsync(x =>
+                    x.PatientId == DTO.PatientId &&
+                    x.ClinicId == DTO.ClinicId &&
+                    x.DoctorId == DTO.DoctorId &&
+                    x.WaitingQueueDate == DTO.WaitingQueueDate &&
+
+                    x.Status != QueueStatus.Completed &&
+                    x.Status != QueueStatus.Cancelled &&
+                    x.Status != QueueStatus.NoShow &&
+
+                    (!excludedId.HasValue || x.Id != excludedId.Value)
+                );
+
+            if (hasExistingQueue)
+            {
+                return Result<bool>.Failure(
+                    ResultCodes.PatientAlreadyInWaitingQueue,
+                    HttpStatusCodes.BadRequest);
+            }
+
+
+            // ======================== Waiting Queue Date ========================
+            var today = DateOnly.FromDateTime(DateTime.UtcNow);
+
+            if (DTO.WaitingQueueDate < today)
+            {
+                return Result<bool>.Failure(
+                    ResultCodes.WaitingQueueDateInPast,
+                    HttpStatusCodes.BadRequest,
+                    "Waiting queue date cannot be in the past.");
+            }
+
+
             // ======================== Status ========================
 
             if (!Enum.IsDefined(typeof(QueueStatus), DTO.Status))

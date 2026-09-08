@@ -78,17 +78,6 @@ namespace ClinicFlow.Infrastructure.Configurations
                 .OnDelete(DeleteBehavior.Restrict);
 
             // Queue number resets every day per clinic
-            //builder.HasIndex(x => new
-            //{
-            //    x.ClinicId,
-            //    x.WaitingQueueDate,
-            //    x.WaitingQueueNumber
-            //})
-            //.IsUnique()
-            //.HasDatabaseName("UX_Queues_Clinic_Date_Number")
-            //.HasFilter("[IsDeleted] = 0");
-
-            // Queue number resets every day per clinic
             builder.HasIndex(x => new
             {
                 x.ClinicId,

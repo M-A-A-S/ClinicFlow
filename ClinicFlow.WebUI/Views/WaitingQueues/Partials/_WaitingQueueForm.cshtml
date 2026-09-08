@@ -1,5 +1,106 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@using ClinicFlow.Domain.DTOs.WaitingQueue
+@model WaitingQueueDTO
+@using ClinicFlow.Domain.Enums
+
+
+<div class="row g-3 mb-2">
+
+    @* ================= Patient ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="PatientId" class="form-label"></label>
+        <select asp-for="PatientId"
+                id="patientId"
+                class="form-select select2"
+                asp-items="ViewBag.Patients">
+            <option value="">
+                @Localizer["Select"]
+            </option>
+        </select>
+        <span asp-validation-for="PatientId" class="text-danger"></span>
+    </div>
+
+    @* ================= Clinic ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="ClinicId" class="form-label"></label>
+        <select asp-for="ClinicId"
+                id="clinicId"
+                class="form-select select2"
+                asp-items="ViewBag.Clinics">
+            <option value="">
+                @Localizer["Select"]
+            </option>
+        </select>
+        <span asp-validation-for="ClinicId" class="text-danger"></span>
+    </div>
+
+    @* ================= DoctorId ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="DoctorId" class="form-label"></label>
+        <select asp-for="DoctorId"
+                id="doctorId"
+                class="form-select select2"
+                asp-items="ViewBag.Doctors">
+            <option value="">
+                @Localizer["Select"]
+            </option>
+        </select>
+        <span asp-validation-for="DoctorId" class="text-danger"></span>
+    </div>
+
+    @* ================= WaitingQueueDate ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="WaitingQueueDate" class="form-label"></label>
+		<input asp-for="WaitingQueueDate" class="form-control" type="date" />
+        <span asp-validation-for="WaitingQueueDate" class="text-danger"></span>
+    </div>
+
+    @* ================= JoinedAt ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="JoinedAt" class="form-label"></label>
+        <input asp-for="JoinedAt" class="form-control" type="datetime-local" />
+        <span asp-validation-for="JoinedAt" class="text-danger"></span>
+    </div>
+
+    @* ================= CalledAt ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="CalledAt" class="form-label"></label>
+        <input asp-for="CalledAt" class="form-control" type="datetime-local" />
+        <span asp-validation-for="CalledAt" class="text-danger"></span>
+    </div>
+
+    @* ================= ServiceStartAt ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="ServiceStartAt" class="form-label"></label>
+        <input asp-for="ServiceStartAt" class="form-control" type="datetime-local" />
+        <span asp-validation-for="ServiceStartAt" class="text-danger"></span>
+    </div>
+
+    @* ================= CompletedAt ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="CompletedAt" class="form-label"></label>
+        <input asp-for="CompletedAt" class="form-control" type="datetime-local" />
+        <span asp-validation-for="CompletedAt" class="text-danger"></span>
+    </div>
+
+    @* ================= Status ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="Status" class="form-label"></label>
+        <select asp-for="Status"
+                asp-items="Html.GetEnumSelectList<QueueStatus>()"
+                class="form-select">
+        </select>
+        <span asp-validation-for="Status" class="text-danger"></span>
+    </div>
+
+    @* ================= Priority ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="Priority" class="form-label"></label>
+        <select asp-for="Priority"
+                asp-items="Html.GetEnumSelectList<QueuePriority>()"
+                class="form-select">
+        </select>
+        <span asp-validation-for="Priority" class="text-danger"></span>
+    </div>
+
+
+</div>

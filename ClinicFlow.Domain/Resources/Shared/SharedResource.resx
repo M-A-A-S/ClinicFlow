@@ -807,4 +807,10 @@
   <data name="InvalidWaitingQueueStatus" xml:space="preserve">
     <value>Invalid waiting queue status</value>
   </data>
+  <data name="WaitingQueueDateInPast" xml:space="preserve">
+    <value>The waiting queue date cannot be in the past</value>
+  </data>
+  <data name="PatientAlreadyInWaitingQueue" xml:space="preserve">
+    <value>The patient is already in the waiting queue for this doctor today</value>
+  </data>
 </root>

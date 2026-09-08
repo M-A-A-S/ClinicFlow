@@ -1447,6 +1447,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The patient is already in the waiting queue for this doctor today.
+        /// </summary>
+        public static string PatientAlreadyInWaitingQueue {
+            get {
+                return ResourceManager.GetString("PatientAlreadyInWaitingQueue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Patients with this Condition.
         /// </summary>
         public static string PatientChronicConditions {
@@ -2109,6 +2118,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string WaitingQueue {
             get {
                 return ResourceManager.GetString("WaitingQueue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The waiting queue date cannot be in the past.
+        /// </summary>
+        public static string WaitingQueueDateInPast {
+            get {
+                return ResourceManager.GetString("WaitingQueueDateInPast", resourceCulture);
             }
         }
         
