@@ -510,7 +510,7 @@ namespace ClinicFlow.Infrastructure.Services
         {
             bool desc = filter.Descending;
 
-            var currentLanguage = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+            var currentLanguage = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
 
             var isArabic = currentLanguage.Equals("ar", StringComparison.OrdinalIgnoreCase);
 
@@ -525,17 +525,18 @@ namespace ClinicFlow.Infrastructure.Services
                     : query.OrderBy(x => x.Doctor.FullName),
 
                 "ClinicId" => isArabic
-                    ? (desc 
+                    ? (desc
                         ? query.OrderByDescending(x => x.Clinic.NameAr)
                         : query.OrderBy(x => x.Clinic.NameAr)
                     ) :
-                    (desc 
+                    (desc
                         ? query.OrderByDescending(x => x.Clinic.NameEn)
                         : query.OrderBy(x => x.Clinic.NameEn)
                     ),
 
                 _ => query.OrderByProperty(filter.SortBy, desc)
             };
+
         }
 
         private IQueryable<WaitingQueueDTO> ProjectToDTO(

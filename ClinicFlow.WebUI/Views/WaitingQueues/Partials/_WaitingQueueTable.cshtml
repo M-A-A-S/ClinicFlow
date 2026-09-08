@@ -6,7 +6,7 @@
 @{
     var routes = Model.Filter.ToRouteDictionary();
 
-    var isArabic = CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "ar";
+    var isArabic = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
 
     var columns = new List<TableColumnVM>
     {
@@ -33,7 +33,8 @@
         new TableColumnVM
         {
             Column = "WaitingQueueDate",
-            Title = Localizer["QueueDate"]
+            Title = Localizer["QueueDate"],
+            IsSortable = false
         },
         new TableColumnVM
         {

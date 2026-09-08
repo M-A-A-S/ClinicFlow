@@ -42,13 +42,36 @@ namespace ClinicFlow.WebUI.Extensions
         where T : BaseFilterDTO
         {
             return request
-                .GetType()
-                .GetProperties()
-                .ToDictionary(
-                    p => p.Name,
-                    p => p.GetValue(request)?.ToString() ?? ""
-                );
+        .GetType()
+        .GetProperties()
+        .ToDictionary(
+            p => p.Name,
+            p =>
+            {
+                var value = p.GetValue(request);
+
+                return value switch
+                {
+                    null => "",
+                    DateOnly date => date.ToString("yyyy-MM-dd"),
+                    DateTime dateTime => dateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
+                    _ => value.ToString() ?? ""
+                };
+            });
         }
+
+        //public static Dictionary<string, string> ToRouteDictionary<T>(
+        //this T request)
+        //where T : BaseFilterDTO
+        //{
+        //    return request
+        //        .GetType()
+        //        .GetProperties()
+        //        .ToDictionary(
+        //            p => p.Name,
+        //            p => p.GetValue(request)?.ToString() ?? ""
+        //        );
+        //}
 
     }
 }
