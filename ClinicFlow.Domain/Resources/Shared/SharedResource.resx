@@ -813,4 +813,10 @@
   <data name="PatientAlreadyInWaitingQueue" xml:space="preserve">
     <value>The patient is already in the waiting queue for this doctor today</value>
   </data>
+  <data name="GenericNameEnExists" xml:space="preserve">
+    <value>English generic name already exists</value>
+  </data>
+  <data name="GenericNameArExists" xml:space="preserve">
+    <value>Arabic generic name already exists</value>
+  </data>
 </root>

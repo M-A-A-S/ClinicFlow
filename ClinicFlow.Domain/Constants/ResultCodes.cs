@@ -57,5 +57,8 @@ namespace ClinicFlow.Domain.Constants
         public const string WaitingQueueDateInPast = "WaitingQueueDateInPast";
         public const string PatientAlreadyInWaitingQueue = "PatientAlreadyInWaitingQueue";
 
+        public const string GenericNameEnExists = "GenericNameEnExists";
+        public const string GenericNameArExists = "GenericNameArExists";
+
     }
 }

@@ -871,11 +871,29 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Arabic generic name already exists.
+        /// </summary>
+        public static string GenericNameArExists {
+            get {
+                return ResourceManager.GetString("GenericNameArExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Generic Name (English).
         /// </summary>
         public static string GenericNameEn {
             get {
                 return ResourceManager.GetString("GenericNameEn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English generic name already exists.
+        /// </summary>
+        public static string GenericNameEnExists {
+            get {
+                return ResourceManager.GetString("GenericNameEnExists", resourceCulture);
             }
         }
         
