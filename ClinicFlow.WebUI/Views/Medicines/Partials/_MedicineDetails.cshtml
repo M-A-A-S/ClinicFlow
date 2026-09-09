@@ -1,1 +1,75 @@
-﻿
+﻿@using ClinicFlow.Domain.DTOs.Medicine
+@model MedicineDTO
+
+
+<div class="row">
+
+    @* ================= NameEn ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["NameEn"]</div>
+        <div>@Model.NameEn</div>
+    </div>
+
+    @* ================= NameAr ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["NameAr"]</div>
+        <div>@Model.NameAr</div>
+    </div>
+
+    @* ================= GenericNameEn ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["GenericNameEn"]</div>
+        <div>@Model.GenericNameEn</div>
+    </div>
+
+    @* ================= GenericNameAr ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["GenericNameAr"]</div>
+        <div>@Model.GenericNameAr</div>
+    </div>
+
+    @* ================= Strength ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["Strength"]</div>
+        <div>
+            @(string.IsNullOrWhiteSpace(Model.Strength) ? "-" : Model.Strength)
+        </div>
+    </div>
+
+    @* ================= DosageForm ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["DosageForm"]</div>
+        <div>
+            @(string.IsNullOrWhiteSpace(Model.DosageForm) ? "-" : Model.DosageForm)
+        </div>
+    </div>
+
+    @* ================= Route ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["Route"]</div>
+        <div>
+            @(string.IsNullOrWhiteSpace(Model.Route) ? "-" : Model.Route)
+        </div>
+    </div>
+
+    @* ================= IsActive ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["IsActive"]</div>
+        <div>
+            @if (Model.IsActive)
+            {
+                <span class="badge bg-success">
+                    @Localizer["Active"]
+                </span>
+            }
+            else
+            {
+                <span class="badge bg-danger">
+                    @Localizer["Inactive"]
+                </span>
+            }
+        </div>
+    </div>
+</div>
+
+
