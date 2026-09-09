@@ -77,11 +77,11 @@ namespace ClinicFlow.Domain.Extensions
 
             Entity.NameEn = DTO.NameEn;
             Entity.NameAr = DTO.NameAr;
-            Entity.GenericNameEn = Entity.GenericNameEn;
-            Entity.GenericNameAr = Entity.GenericNameAr;
-            Entity.Strength = Entity.Strength;
-            Entity.DosageForm = Entity.DosageForm;
-            Entity.Route = Entity.Route;
+            Entity.GenericNameEn = DTO.GenericNameEn;
+            Entity.GenericNameAr = DTO.GenericNameAr;
+            Entity.Strength = DTO.Strength;
+            Entity.DosageForm = DTO.DosageForm;
+            Entity.Route = DTO.Route;
             Entity.IsActive = DTO.IsActive;
 
             Entity.UpdatedAt = DateTime.UtcNow;
