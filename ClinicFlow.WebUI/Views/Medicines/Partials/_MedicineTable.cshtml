@@ -1,0 +1,136 @@
+﻿@using ClinicFlow.WebUI.ViewModels.Common
+@using ClinicFlow.WebUI.ViewModels.Medicine;
+@model MedicineIndexVM
+
+@{
+    var routes = Model.Filter.ToRouteDictionary();
+
+    var columns = new List<TableColumnVM>
+    {
+        new TableColumnVM
+        {
+            Column = "NameEn",
+            Title = Localizer["NameEn"]
+        },
+        new TableColumnVM
+        {
+            Column = "NameAr",
+            Title = Localizer["NameAr"]
+        },
+        new TableColumnVM
+        {
+            Column = "GenericNameEn",
+            Title = Localizer["GenericNameEn"]
+        },
+        new TableColumnVM
+        {
+            Column = "GenericNameAr",
+            Title = Localizer["GenericNameAr"]
+        },
+        new TableColumnVM
+        {
+            Column = "Strength",
+            Title = Localizer["Strength"]
+        },
+        new TableColumnVM
+        {
+            Column = "DosageForm",
+            Title = Localizer["DosageForm"]
+        },
+        new TableColumnVM
+        {
+            Column = "Route",
+            Title = Localizer["Route"]
+        },
+        new TableColumnVM
+        {
+            Column = "IsActive",
+            Title = Localizer["IsActive"],
+            IsSortable = false
+        },
+        new TableColumnVM
+        {
+            Column = string.Empty,
+            Title = Localizer["Actions"],
+            IsSortable = false
+        }
+    };
+
+}
+
+@if (!Model.PagedResult.Items.Any())
+{
+    <div class="alert alert-info">
+        @Localizer["NoRecordsFound"]
+    </div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    @foreach (var column in columns)
+                    {
+                        <th>
+                            @if (column.IsSortable)
+                            {
+                                <partial name="Partials/_SortableHeader"
+                                         model='new SortHeaderVM
+                                         {
+                                             Column = column.Column,
+                                             Title = column.Title,
+                                             Filter = Model.Filter,
+                                             Routes = routes
+                                         }' />
+                                        }
+                            else
+                            {
+                                @column.Title
+                            }
+                        </th>
+                    }
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model.PagedResult.Items)
+                {
+                    <tr>
+                        <td>@item.NameEn</td>
+
+                        <td>@item.NameAr</td>
+
+                        <td>@item.GenericNameEn</td>
+
+                        <td>@item.GenericNameAr</td>
+
+                        <td>@item.Strength</td>
+
+                        <td>@item.DosageForm</td>
+
+                        <td>@item.Route</td>
+
+                        <td>
+                            <span class="badge @(item.IsActive ? "bg-success" : "bg-danger")">
+                                @(item.IsActive? Localizer["Active"] : Localizer["Inactive"])
+                            </span>
+                        </td>
+
+                        <td>
+
+                            <div class="d-flex gap-1 align-items-center">
+                                <partial name="Partials/_Actions"
+                                         model='new ActionButtonsVM
+                                         {
+                                             Controller = "Medicines",
+                                             Id = item.Id
+                                         }' />
+                    </div>
+                </td>
+            </tr>
+                        }
+            </tbody>
+        </table>
+    </div>
+}
