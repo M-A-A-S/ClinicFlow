@@ -1,0 +1,151 @@
+﻿@using ClinicFlow.Domain.Enums
+@using ClinicFlow.WebUI.ViewModels.Common
+@using ClinicFlow.WebUI.ViewModels.Visit;
+@model VisitIndexVM
+
+@{
+    var routes = Model.Filter.ToRouteDictionary();
+
+    var isArabic = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+
+    var columns = new List<TableColumnVM>
+    {
+        new TableColumnVM
+        {
+            Column = "VisitNumber",
+            Title = Localizer["VisitNumber"]
+        },
+        new TableColumnVM
+        {
+            Column = "PatientId",
+            Title = Localizer["Patient"]
+        },
+        new TableColumnVM
+        {
+            Column = "ClinicId",
+            Title = Localizer["Clinic"]
+        },
+        new TableColumnVM
+        {
+            Column = "DoctorId",
+            Title = Localizer["Doctor"]
+        },
+        new TableColumnVM
+        {
+            Column = "VisitDate",
+            Title = Localizer["VisitDate"],
+            IsSortable = false
+        },
+        new TableColumnVM
+        {
+            Column = "Status",
+            Title = Localizer["Status"]
+        },
+        new TableColumnVM
+        {
+            Column = "Complaint",
+            Title = Localizer["Complaint"],
+            IsSortable = false
+        },
+        new TableColumnVM
+        {
+            Column = "ClinicalNotes",
+            Title = Localizer["ClinicalNotes"],
+            IsSortable = false
+        },
+        new TableColumnVM
+        {
+            Column = "CompletedAt",
+            Title = Localizer["CompletedAt"],
+            IsSortable = false
+        },
+        new TableColumnVM
+        {
+            Column = string.Empty,
+            Title = Localizer["Actions"],
+            IsSortable = false
+        }
+    };
+
+}
+
+@if (!Model.PagedResult.Items.Any())
+{
+    <div class="alert alert-info">
+        @Localizer["NoRecordsFound"]
+    </div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    @foreach (var column in columns)
+                    {
+                        <th>
+                            @if (column.IsSortable)
+                            {
+                                <partial name="Partials/_SortableHeader"
+                                         model='new SortHeaderVM
+                                         {
+                                             Column = column.Column,
+                                             Title = column.Title,
+                                             Filter = Model.Filter,
+                                             Routes = routes
+                                         }' />
+                                        }
+                            else
+                            {
+                                @column.Title
+                            }
+                        </th>
+                    }
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model.PagedResult.Items)
+                {
+                    <tr>
+                        <td>@item.VisitNumber</td>
+
+                        <td>@item?.Patient?.FullName</td>
+
+                        <td>@(isArabic? item?.Clinic?.NameAr : item?.Clinic?.NameEn)</td>
+
+                        <td>@item?.Doctor?.FullName</td>
+
+                        <td>@item.VisitDate</td>
+
+                        <td>
+                            <span class="badge @item.Status.ToCssClass()">
+                                @Localizer[item.Status.ToString()]
+                            </span>
+                        </td>
+
+                        <td>@item.Complaint</td>
+
+                        <td>@item.ClinicalNotes</td>
+
+                        <td>@item.CompletedAt</td>
+
+                        
+
+                        <td>
+                            <div class="d-flex gap-1 align-items-center">
+                                <partial name="Partials/_Actions"
+                                         model='new ActionButtonsVM
+                                         {
+                                             Controller = "Visits",
+                                             Id = item.Id
+                                         }' />
+                    </div>
+
+                        </td>
+                    </tr>
+                        }
+            </tbody>
+        </table>
+    </div>
+}
