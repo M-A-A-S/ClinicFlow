@@ -1,0 +1,574 @@
+﻿@using ClinicFlow.Domain.DTOs.Visit
+@model VisitDTO
+@using ClinicFlow.Domain.Enums
+
+
+<div class="row g-3 mb-2">
+
+    @* ================= Patient ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="PatientId" class="form-label"></label>
+        <select asp-for="PatientId"
+                id="patientId"
+                class="form-select select2"
+                asp-items="ViewBag.Patients">
+            <option value="">
+                @Localizer["Select"]
+            </option>
+        </select>
+        <span asp-validation-for="PatientId" class="text-danger"></span>
+    </div>
+
+    @* ================= Clinic ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="ClinicId" class="form-label"></label>
+        <select asp-for="ClinicId"
+                id="clinicId"
+                class="form-select select2"
+                asp-items="ViewBag.Clinics">
+            <option value="">
+                @Localizer["Select"]
+            </option>
+        </select>
+        <span asp-validation-for="ClinicId" class="text-danger"></span>
+    </div>
+
+    @* ================= DoctorId ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="DoctorId" class="form-label"></label>
+        <select asp-for="DoctorId"
+                id="doctorId"
+                class="form-select select2"
+                asp-items="ViewBag.Doctors">
+            <option value="">
+                @Localizer["Select"]
+            </option>
+        </select>
+        <span asp-validation-for="DoctorId" class="text-danger"></span>
+    </div>
+
+    @* ================= Status ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="Status" class="form-label"></label>
+        <select asp-for="Status"
+                asp-items="Html.GetEnumSelectList<VisitStatus>()"
+                class="form-select">
+        </select>
+        <span asp-validation-for="Status" class="text-danger"></span>
+    </div>
+
+    @* ================= VisitDate ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="VisitDate" class="form-label"></label>
+        <input asp-for="VisitDate" class="form-control" type="date" />
+        <span asp-validation-for="VisitDate" class="text-danger"></span>
+    </div>
+
+    @* ================= CompletedAt ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="CompletedAt" class="form-label"></label>
+        <input asp-for="CompletedAt" class="form-control" type="datetime-local" />
+        <span asp-validation-for="CompletedAt" class="text-danger"></span>
+    </div>
+
+    @* ================= Complaint ================= *@
+    <div class="col-12 col-md-6">
+        <label asp-for="Complaint" class="form-label"></label>
+        <textarea asp-for="Complaint"
+                  class="form-control"
+                  rows="3"
+                  maxlength="500"></textarea>
+        <span asp-validation-for="Complaint" class="text-danger"></span>
+    </div>
+
+    @* ================= Notes ================= *@
+    <div class="col-12 col-md-6">
+        <label asp-for="ClinicalNotes" class="form-label"></label>
+        <textarea asp-for="ClinicalNotes"
+                  class="form-control"
+                  rows="3"
+                  maxlength="500"></textarea>
+        <span asp-validation-for="ClinicalNotes" class="text-danger"></span>
+    </div>
+
+</div>
+
+<!-- ========================================================= -->
+<!-- Vital Signs                                                 -->
+<!-- ========================================================= -->
+<div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-transparent border-bottom py-3">
+        <h5 class="mb-0 fw-semibold">
+            <i class="fa fa-heartbeat me-2"></i>
+            @Localizer["VitalSign"]
+        </h5>
+    </div>
+
+    <div class="card-body">
+        <div class="row g-3">
+            @* Temperature *@
+            <div class="col-sm-6 col-md-4 col-xl-3">
+                <label asp-for="VitalSign.Temperature"></label>
+                <div class="input-group">
+                    <input asp-for="VitalSign.Temperature"
+                        class="form-control"
+                        type="number"
+                        step="0.1"
+                        min="0"/>
+                    <span class="input-group-text">°C</span>
+                </div>
+                <span asp-validation-for="VitalSign.Temperature"
+                class="text-danger small"></span>
+            </div>
+
+            @* Pulse *@
+            <div class="col-sm-6 col-md-4 col-xl-3">
+                <label asp-for="VitalSign.Pulse"></label>
+                <div class="input-group">
+                    <input asp-for="VitalSign.Pulse"
+                        class="form-control"
+                        type="number"
+                        min="0"/>
+                    <span class="input-group-text">bpm</span>
+                </div>
+                <span asp-validation-for="VitalSign.Pulse"
+                class="text-danger small"></span>
+            </div>
+
+            @* SystolicBloodPressure *@
+            <div class="col-sm-6 col-md-4 col-xl-3">
+                <label asp-for="VitalSign.SystolicBloodPressure"></label>
+                <div class="input-group">
+                    <input asp-for="VitalSign.SystolicBloodPressure"
+                        class="form-control"
+                        type="number"
+                        min="0"/>
+                    <span class="input-group-text">mmHg</span>
+                </div>
+                <span asp-validation-for="VitalSign.SystolicBloodPressure"
+                class="text-danger small"></span>
+            </div>
+
+            @* DiastolicBloodPressure *@
+            <div class="col-sm-6 col-md-4 col-xl-3">
+                <label asp-for="VitalSign.DiastolicBloodPressure"></label>
+                <div class="input-group">
+                    <input asp-for="VitalSign.DiastolicBloodPressure"
+                        class="form-control"
+                        type="number"
+                        min="0"/>
+                    <span class="input-group-text">mmHg</span>
+                </div>
+                <span asp-validation-for="VitalSign.DiastolicBloodPressure"
+                class="text-danger small"></span>
+            </div>
+
+            @* RespiratoryRate *@
+            <div class="col-sm-6 col-md-4 col-xl-3">
+                <label asp-for="VitalSign.RespiratoryRate"></label>
+                <div class="input-group">
+                    <input asp-for="VitalSign.RespiratoryRate"
+                        class="form-control"
+                        type="number"
+                        min="0"/>
+                    <span class="input-group-text">/min</span>
+                </div>
+                <span asp-validation-for="VitalSign.RespiratoryRate"
+                class="text-danger small"></span>
+            </div>
+
+            @* OxygenSaturation *@
+            <div class="col-sm-6 col-md-4 col-xl-3">
+                <label asp-for="VitalSign.OxygenSaturation"></label>
+                <div class="input-group">
+                    <input asp-for="VitalSign.OxygenSaturation"
+                        class="form-control"
+                        type="number"
+                        step="0.1"
+                        min="0"
+                        max="100"/>
+                    <span class="input-group-text">%</span>
+                </div>
+                <span asp-validation-for="VitalSign.OxygenSaturation"
+                class="text-danger small"></span>
+            </div>
+
+            @* Weight *@
+            <div class="col-sm-6 col-md-4 col-xl-3">
+                <label asp-for="VitalSign.Weight"></label>
+                <div class="input-group">
+                    <input asp-for="VitalSign.Weight"
+                        class="form-control"
+                        type="number"
+                        step="0.1"
+                        min="0"/>
+                    <span class="input-group-text">kg</span>
+                </div>
+                <span asp-validation-for="VitalSign.Weight"
+                class="text-danger small"></span>
+            </div>
+
+            @* Height *@
+            <div class="col-sm-6 col-md-4 col-xl-3">
+                <label asp-for="VitalSign.Height"></label>
+                <div class="input-group">
+                    <input asp-for="VitalSign.Height"
+                        class="form-control"
+                        type="number"
+                        step="0.1"
+                        min="0"/>
+                    <span class="input-group-text">cm</span>
+                </div>
+                <span asp-validation-for="VitalSign.Height"
+                class="text-danger small"></span>
+            </div>
+
+            @* BMI *@
+            <div class="col-sm-6 col-md-4 col-xl-3">
+                <label asp-for="VitalSign.BMI"></label>
+                <div class="input-group">
+                    <input asp-for="VitalSign.BMI"
+                        class="form-control"
+                        type="text"
+                        readonly/>
+                    <span class="input-group-text">kg/m²</span>
+                </div>
+                <span asp-validation-for="VitalSign.BMI"
+                class="text-danger small"></span>
+            </div>
+        
+        </div>
+    </div>
+
+</div>
+
+<!-- ========================================================= -->
+<!-- Diagnoses                                                 -->
+<!-- ========================================================= -->
+
+<div class="card shadow-sm border-0 mb-4">
+
+    <div class="card-header bg-transparent border-bottom py-3">
+        <h5 class="mb-0 fw-semibold">
+            <i class="fa fa-notes-medical me-2"></i>
+            @Localizer["Diagnoses"]
+        </h5>
+    </div>
+
+
+    <div class="card-body">
+
+        <!-- Add Diagnosis -->
+        <div class="row g-3 align-items-end">
+
+            <div class="col-md-6 col-lg-5">
+
+                <label class="form-label">
+                    @Localizer["Diagnosis"]
+                </label>
+
+                <select id="diagnosisId"
+                        class="form-select select2"
+                        asp-items="ViewBag.Diagnosis">
+
+                    <option value="">
+                        @Localizer["Select"]
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="col-md-4 col-lg-5">
+
+                <label class="form-label">
+                    @Localizer["Notes"]
+                </label>
+
+                <input id="diagnosisNotes"
+                       type="text"
+                       class="form-control"
+                       maxlength="500"/>
+
+            </div>
+
+            <div class="col-md-2">
+
+                <button type="button"
+                        id="add-diagnosis"
+                        class="btn btn-primary w-100">
+
+                    <i class="fa fa-plus me-1"></i>
+
+                    @Localizer["Add"]
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Diagnoses Table -->
+        <div class="table-responsive mt-4">
+
+            <table class="table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            @Localizer["Diagnosis"]
+                        </th>
+
+                        <th>
+                            @Localizer["Notes"]
+                        </th>
+
+                        <th style="width: 80px;">
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="diagnoses-container">
+
+                    @* JavaScript adds rows here *@
+
+                </tbody>
+
+            </table>
+
+            <div id="diagnosis-empty"
+                 class="text-center text-muted py-4">
+                <i class="fa fa-notes-medical fa-2x mb-2"></i>
+
+                <div>
+                    @Localizer["NoDiagnosesAdded"]
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ========================================================= -->
+<!-- Prescription                                                -->
+<!-- ========================================================= -->
+
+<div class="card mt-4 mb-2">
+
+    <div class="card-header bg-transparent border-bottom py-3">
+        <div class="d-flex align-items-center justify-content-between">
+            <h5 class="mb-0 fw-semibold">
+                <i class="fa fa-prescription-bottle-medical me-2"></i>
+                @Localizer["Prescription"]
+            </h5>
+            <span class="badge bg-light text-dark">
+                @Localizer["Optional"]
+            </span>
+        </div>
+    </div>
+
+
+    <div class="card-body">
+
+        <!-- Prescription Information -->
+        <div class="row g-3 mb-4">
+            <div class="col col-md-6">
+                <label asp-for="Prescription.PrescriptionDate" 
+                    class="form-label"></label>
+                <input asp-for="Prescription.PrescriptionDate" 
+                type="date"
+                    class="form-control" />
+                <span asp-validation-for="Prescription.PrescriptionDate"
+                      class="text-danger small"></span>
+            </div>
+
+            <div class="col col-md-6">
+                <label asp-for="Prescription.Notes" 
+                    class="form-label"></label>
+                <input asp-for="Prescription.Notes" 
+                    maxlength="500" 
+                    class="form-control" />
+                <span asp-validation-for="Prescription.Notes"
+                      class="text-danger small"></span>
+            </div>
+        </div>
+
+        <!-- Prescription Items -->
+        <div class="border-top pt-4">
+            <h6 class="fw-semibold mb-3">
+                @Localizer["PrescriptionItems"]
+                </h6>
+
+
+            <!-- Add Prescription -->
+            <div class="row g-3 align-items-end">
+
+                @* Medicine *@
+                <div class="col-md-6 col-xl-3">
+
+                    <label class="form-label fw-medium">
+                        @Localizer["Medicine"]
+                    </label>
+
+                    <select id="medicineId"
+                            class="form-select select2"
+                            asp-items="ViewBag.Medicines">
+
+                        <option value="">
+                            @Localizer["Select"]
+                        </option>
+
+                    </select>
+
+                </div>
+
+                @* Dosage *@
+                <div class="col-md-6 col-xl-2">
+                    <label class="form-label fw-medium">
+                        @Localizer["Dosage"]
+                    </label>
+                    <input id="dosage"
+                           class="form-control"
+                            type="text"
+                            maxlength="100"/>
+                </div>
+
+                @* Frequency *@
+                <div class="col-md-6 col-xl-2">
+                    <label class="form-label fw-medium">
+                        @Localizer["Frequency"]
+                    </label>
+                    <input id="frequency"
+                           class="form-control"
+                            type="text"
+                            maxlength="100"/>
+                </div>
+
+                @* Duration *@
+                <div class="col-md-6 col-xl-2">
+                    <label class="form-label fw-medium">
+                        @Localizer["Quantity"]
+                    </label>
+                    <input id="quantity"
+                           class="form-control"
+                           type="text"
+                           maxlength="100" />
+                </div>
+
+                @* Quantity *@
+                <div class="col-md-4 col-xl-1">
+                    <label class="form-label fw-medium">
+                        @Localizer["Quantity"]
+                    </label>
+                    <input id="duration"
+                           type="number"
+                           min="1"
+                           step="1"
+                        class="form-control"
+                            />
+                </div>
+
+                @* Instructions *@
+                <div class="col-md-8 col-xl-2">
+                    <label class="form-label fw-medium">
+                        @Localizer["Instructions"]
+                    </label>
+                    <input id="duration"
+                            type="text"
+                            class="form-control"
+                            maxlength="500"/>
+                </div>
+
+                @* Add *@
+                <div class="col-md-12">
+
+                    <button type="button"
+                            id="add-prescription-item"
+                            class="btn btn-primary w-100">
+
+                        <i class="fa fa-plus me-1"></i>
+
+                        @Localizer["Add"]
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Prescription Items Table -->
+            <div class="table-responsive mt-4">
+
+                <table class="table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                @Localizer["Medicine"]
+                            </th>
+
+                            <th>
+                                @Localizer["Dosage"]
+                            </th>
+
+                            <th>
+                                @Localizer["Frequency"]
+                            </th>
+
+                            <th>
+                                @Localizer["Duration"]
+                            </th>
+
+                            <th>
+                                @Localizer["Quantity"]
+                            </th>
+
+                            <th>
+                                @Localizer["Instructions"]
+                            </th>
+
+                            <th class="text-center" style="width: 80px;">
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="prescription-items-container">
+
+                        @* JavaScript adds rows here *@
+
+                    </tbody>
+
+                </table>
+
+                <div id="prescription-empty"
+                     class="text-center text-muted py-4">
+                    <i class="fa fa-pills fa-2x mb-2"></i>
+                    <div>
+                        @Localizer["NoPrescriptionItemsAdded"]
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        
+
+        
+
+    </div>
+
+</div>

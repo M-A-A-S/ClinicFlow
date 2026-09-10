@@ -9,6 +9,8 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using ClinicFlow.Domain.DTOs.Prescription;
+using ClinicFlow.Domain.DTOs.PrescriptionItem;
 
 namespace ClinicFlow.Domain.Extensions
 {
@@ -103,6 +105,27 @@ namespace ClinicFlow.Domain.Extensions
                     Id = Entity.Clinic.Id,
                     NameEn = Entity.Clinic.NameEn,
                     NameAr = Entity.Clinic.NameAr,
+                },
+
+                Prescription = Entity.Prescription == null ? null : new PrescriptionDTO
+                {
+                    Id = Entity.Prescription.Id,
+                    PrescriptionNumber = Entity.Prescription.PrescriptionNumber,
+                    PrescriptionDate = Entity.Prescription.PrescriptionDate,
+                    Notes = Entity.Prescription.Notes,
+
+                    Items = Entity.Prescription.Items?
+                        .Select(x => new PrescriptionItemDTO
+                        {
+                            Id = x.Id,
+                            MedicineId = x.MedicineId,
+                            MedicineName = x.MedicineName,
+                            Dosage = x.Dosage,
+                            Frequency = x.Frequency,
+                            Duration = x.Duration,
+                            Quantity = x.Quantity,
+                            Instructions = x.Instructions
+                        }).ToList()
                 }
 
             };
@@ -130,24 +153,22 @@ namespace ClinicFlow.Domain.Extensions
                 ClinicalNotes = DTO.ClinicalNotes,
                 CompletedAt = DTO.CompletedAt,
 
-                // ======================== Vital Signs ========================
-                VitalSigns = DTO.VitalSigns?
-                    .Select(x => new VitalSign
-                    {
-                        Id = x.Id,
-                        VisitId = x.VisitId,
-                        Temperature = x.Temperature,
-                        Pulse = x.Pulse,
-                        SystolicBloodPressure = x.SystolicBloodPressure,
-                        DiastolicBloodPressure = x.DiastolicBloodPressure,
-                        RespiratoryRate = x.RespiratoryRate,
-                        OxygenSaturation = x.OxygenSaturation,
-                        Weight = x.Weight,
-                        Height = x.Height,
-                        RecordedAt = x.RecordedAt
+                // ======================== Vital Sign ========================
 
-                    }).ToList()
-                    ?? new List<VitalSign>(),
+                VitalSign = DTO.VitalSign == null ? null : new VitalSign
+                {
+                    Id = DTO.VitalSign.Id,
+                    VisitId = DTO.VitalSign.VisitId,
+                    Temperature = DTO.VitalSign.Temperature,
+                    Pulse = DTO.VitalSign.Pulse,
+                    SystolicBloodPressure = DTO.VitalSign.SystolicBloodPressure,
+                    DiastolicBloodPressure = DTO.VitalSign.DiastolicBloodPressure,
+                    RespiratoryRate = DTO.VitalSign.RespiratoryRate,
+                    OxygenSaturation = DTO.VitalSign.OxygenSaturation,
+                    Weight = DTO.VitalSign.Weight,
+                    Height = DTO.VitalSign.Height,
+                    RecordedAt = DTO.VitalSign.RecordedAt
+                },
 
                 // ======================== Diagnoses ========================
                 VisitDiagnoses = DTO.VisitDiagnoses?
@@ -161,33 +182,25 @@ namespace ClinicFlow.Domain.Extensions
                     .ToList()
                     ?? new List<VisitDiagnosis>(),
 
-                // ======================== Prescriptions ========================
-                Prescriptions = DTO.Prescriptions?
-                    .Select(x => new Prescription
-                    {
-                        Id = x.Id,
-                        VisitId= x.VisitId,
-                        PrescriptionNumber = x.PrescriptionNumber,
-                        PrescriptionDate = x.PrescriptionDate,
-                        Notes = x.Notes,
-                        Items = x.Items?
-                            .Select(item => new PrescriptionItem
-                            {
-                                Id = item.Id,
-                                PrescriptionId = item.PrescriptionId,
-                                MedicineId = item.MedicineId,
-                                MedicineName = item.MedicineName,
-                                Dosage = item.Dosage,
-                                Frequency = item.Frequency,
-                                Duration = item.Duration,
-                                Instructions = item.Instructions,
-                                Quantity = item.Quantity,
-                            })
-                            .ToList()
-                            ?? new List<PrescriptionItem>()
-                    })
-                    .ToList()
-                    ?? new List<Prescription>()
+                // ======================== Prescription ========================
+                Prescription = DTO.Prescription == null ? null : new Prescription
+                {
+                    Id = DTO.Prescription.Id,
+                    PrescriptionDate = DTO.Prescription.PrescriptionDate,
+                    PrescriptionNumber = DTO.Prescription.PrescriptionNumber,
+                    Notes = DTO.Prescription.Notes,
+                    Items = DTO.Prescription.Items?
+                        .Select(x => new PrescriptionItem
+                        {
+                            Id = x.Id,
+                            MedicineId = x.MedicineId,
+                            MedicineName = x.MedicineName,
+                            Quantity = x.Quantity,
+                            Dosage = x.Dosage,
+                            Frequency = x.Frequency,
+                            Duration = x.Duration
+                        }).ToList()
+                }
 
             };
         }

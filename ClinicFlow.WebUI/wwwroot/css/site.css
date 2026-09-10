@@ -184,7 +184,7 @@ body[data-bs-theme="light"] {
 
 .card-header {
     background-color: var(--primary-color);
-    color: white;
+/*    color: white;*/
     border-bottom-color: var(--border-color) !important;
 }
 

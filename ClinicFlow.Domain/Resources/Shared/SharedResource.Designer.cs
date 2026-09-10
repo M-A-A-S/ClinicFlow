@@ -124,6 +124,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Medicine.
+        /// </summary>
+        public static string AddMedicine {
+            get {
+                return ResourceManager.GetString("AddMedicine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Address.
         /// </summary>
         public static string Address {
@@ -205,7 +214,7 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The appointment does not belong to the selected clinic..
+        ///   Looks up a localized string similar to The selected appointment does not belong to the selected clinic..
         /// </summary>
         public static string AppointmentClinicMismatch {
             get {
@@ -214,7 +223,7 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The appointment does not belong to the selected doctor..
+        ///   Looks up a localized string similar to The selected appointment does not belong to the selected doctor..
         /// </summary>
         public static string AppointmentDoctorMismatch {
             get {
@@ -250,7 +259,7 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The appointment does not belong to the selected patient..
+        ///   Looks up a localized string similar to The selected appointment does not belong to the selected patient..
         /// </summary>
         public static string AppointmentPatientMismatch {
             get {
@@ -484,6 +493,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clinic is required..
+        /// </summary>
+        public static string ClinicRequired {
+            get {
+                return ResourceManager.GetString("ClinicRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Clinics.
         /// </summary>
         public static string Clinics {
@@ -493,7 +511,7 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Chief Complaint.
+        ///   Looks up a localized string similar to Complaint.
         /// </summary>
         public static string Complaint {
             get {
@@ -520,7 +538,7 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Completed date can only be set for a completed visit..
+        ///   Looks up a localized string similar to Completed date can only be set for completed visits..
         /// </summary>
         public static string CompletedAtOnlyForCompletedVisit {
             get {
@@ -745,6 +763,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Doctor is required..
+        /// </summary>
+        public static string DoctorRequired {
+            get {
+                return ResourceManager.GetString("DoctorRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Doctors.
         /// </summary>
         public static string Doctors {
@@ -903,6 +930,24 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string EndAt {
             get {
                 return ResourceManager.GetString("EndAt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter clinical notes.
+        /// </summary>
+        public static string EnterClinicalNotes {
+            get {
+                return ResourceManager.GetString("EnterClinicalNotes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter complaint.
+        /// </summary>
+        public static string EnterComplaint {
+            get {
+                return ResourceManager.GetString("EnterComplaint", resourceCulture);
             }
         }
         
@@ -1078,7 +1123,7 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Invalid appointment..
+        ///   Looks up a localized string similar to The selected appointment is invalid..
         /// </summary>
         public static string InvalidAppointment {
             get {
@@ -1123,7 +1168,7 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The selected clinic is invalid or inactive..
+        ///   Looks up a localized string similar to The selected clinic is invalid..
         /// </summary>
         public static string InvalidClinic {
             get {
@@ -1137,6 +1182,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string InvalidClinicDoctor {
             get {
                 return ResourceManager.GetString("InvalidClinicDoctor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid completion date..
+        /// </summary>
+        public static string InvalidCompletionDate {
+            get {
+                return ResourceManager.GetString("InvalidCompletionDate", resourceCulture);
             }
         }
         
@@ -1159,7 +1213,7 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Invalid diagnosis..
+        ///   Looks up a localized string similar to The selected diagnosis is invalid..
         /// </summary>
         public static string InvalidDiagnosis {
             get {
@@ -1168,7 +1222,7 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The selected doctor is invalid or inactive..
+        ///   Looks up a localized string similar to The selected doctor is invalid..
         /// </summary>
         public static string InvalidDoctor {
             get {
@@ -1177,7 +1231,7 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Invalid medicine..
+        ///   Looks up a localized string similar to The selected medicine is invalid..
         /// </summary>
         public static string InvalidMedicine {
             get {
@@ -1186,7 +1240,7 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The selected patient is invalid or inactive..
+        ///   Looks up a localized string similar to The selected patient is invalid..
         /// </summary>
         public static string InvalidPatient {
             get {
@@ -1195,7 +1249,7 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Invalid prescription date..
+        ///   Looks up a localized string similar to The prescription date is invalid..
         /// </summary>
         public static string InvalidPrescriptionDate {
             get {
@@ -1209,6 +1263,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string InvalidSpecialty {
             get {
                 return ResourceManager.GetString("InvalidSpecialty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid visit data..
+        /// </summary>
+        public static string InvalidVisitData {
+            get {
+                return ResourceManager.GetString("InvalidVisitData", resourceCulture);
             }
         }
         
@@ -1231,7 +1294,7 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Invalid waiting queue..
+        ///   Looks up a localized string similar to The selected waiting queue entry is invalid..
         /// </summary>
         public static string InvalidWaitingQueue {
             get {
@@ -1375,6 +1438,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This medicine has already been added..
+        /// </summary>
+        public static string MedicineAlreadyAdded {
+            get {
+                return ResourceManager.GetString("MedicineAlreadyAdded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Medicine Name.
         /// </summary>
         public static string MedicineName {
@@ -1384,7 +1456,7 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Medicine is required..
+        ///   Looks up a localized string similar to Please select a medicine..
         /// </summary>
         public static string MedicineRequired {
             get {
@@ -1483,11 +1555,38 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No diagnoses added..
+        /// </summary>
+        public static string NoDiagnosesAdded {
+            get {
+                return ResourceManager.GetString("NoDiagnosesAdded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No items found.
         /// </summary>
         public static string NoItemsFound {
             get {
                 return ResourceManager.GetString("NoItemsFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to None.
+        /// </summary>
+        public static string None {
+            get {
+                return ResourceManager.GetString("None", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No prescription items added..
+        /// </summary>
+        public static string NoPrescriptionItemsAdded {
+            get {
+                return ResourceManager.GetString("NoPrescriptionItemsAdded", resourceCulture);
             }
         }
         
@@ -1600,6 +1699,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Optional.
+        /// </summary>
+        public static string Optional {
+            get {
+                return ResourceManager.GetString("Optional", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Oral.
         /// </summary>
         public static string Oral {
@@ -1659,6 +1767,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string PatientChronicConditions {
             get {
                 return ResourceManager.GetString("PatientChronicConditions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Patient is required..
+        /// </summary>
+        public static string PatientRequired {
+            get {
+                return ResourceManager.GetString("PatientRequired", resourceCulture);
             }
         }
         
@@ -1735,6 +1852,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please select a diagnosis..
+        /// </summary>
+        public static string PleaseSelectDiagnosis {
+            get {
+                return ResourceManager.GetString("PleaseSelectDiagnosis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please select a doctor..
         /// </summary>
         public static string PleaseSelectDoctor {
@@ -1789,7 +1915,7 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Prescription dosage is required..
+        ///   Looks up a localized string similar to Dosage is required..
         /// </summary>
         public static string PrescriptionDosageRequired {
             get {
@@ -1798,7 +1924,7 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Prescription duration is required..
+        ///   Looks up a localized string similar to Duration is required..
         /// </summary>
         public static string PrescriptionDurationRequired {
             get {
@@ -1807,7 +1933,7 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Prescription frequency is required..
+        ///   Looks up a localized string similar to Frequency is required..
         /// </summary>
         public static string PrescriptionFrequencyRequired {
             get {
@@ -1834,7 +1960,7 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Prescription must contain at least one item..
+        ///   Looks up a localized string similar to The prescription must contain at least one item..
         /// </summary>
         public static string PrescriptionItemsRequired {
             get {
@@ -1852,7 +1978,7 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Prescription quantity must be greater than zero..
+        ///   Looks up a localized string similar to Quantity must be greater than zero..
         /// </summary>
         public static string PrescriptionQuantityMustBeGreaterThanZero {
             get {
@@ -2019,6 +2145,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save Changes.
+        /// </summary>
+        public static string SaveChanges {
+            get {
+                return ResourceManager.GetString("SaveChanges", resourceCulture);
             }
         }
         
@@ -2311,6 +2446,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Visit date is required..
+        /// </summary>
+        public static string VisitDateRequired {
+            get {
+                return ResourceManager.GetString("VisitDateRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Visit Diagnoses.
         /// </summary>
         public static string VisitDiagnoses {
@@ -2325,6 +2469,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string VisitDiagnosis {
             get {
                 return ResourceManager.GetString("VisitDiagnosis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visit Information.
+        /// </summary>
+        public static string VisitInformation {
+            get {
+                return ResourceManager.GetString("VisitInformation", resourceCulture);
             }
         }
         

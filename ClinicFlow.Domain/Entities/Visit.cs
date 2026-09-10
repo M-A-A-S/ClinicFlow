@@ -28,12 +28,15 @@ namespace ClinicFlow.Domain.Entities
         public Appointment? Appointment { get; set; }
 
 
-        public ICollection<VitalSign> VitalSigns { get; set; } = new List<VitalSign>();
+        //public ICollection<VitalSign> VitalSigns { get; set; } = new List<VitalSign>();
         
         public ICollection<VisitDiagnosis> VisitDiagnoses { get; set; } = new List<VisitDiagnosis>();
 
-        public ICollection<Prescription> Prescriptions { get; set; }
-            = new List<Prescription>();
+        //public ICollection<Prescription> Prescriptions { get; set; }
+        //    = new List<Prescription>();
+
+        public Prescription? Prescription { get; set; }
+        public VitalSign? VitalSign { get; set; }
 
     }
 }

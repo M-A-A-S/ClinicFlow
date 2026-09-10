@@ -19,10 +19,10 @@ namespace ClinicFlow.Domain.DTOs.VitalSign
             Name = nameof(SharedResource.Visit),
             ResourceType = typeof(SharedResource)
         )]
-        [Required(
-            ErrorMessageResourceName = nameof(SharedResource.Required),
-            ErrorMessageResourceType = typeof(SharedResource)
-        )]
+        //[Required(
+        //    ErrorMessageResourceName = nameof(SharedResource.Required),
+        //    ErrorMessageResourceType = typeof(SharedResource)
+        //)]
         public int VisitId { get; set; }
 
         [Display(
@@ -103,7 +103,7 @@ namespace ClinicFlow.Domain.DTOs.VitalSign
         )]
         public DateTime RecordedAt { get; set; } = DateTime.UtcNow;
 
-        public VisitDTO Visit { get; set; }
+        public VisitDTO? Visit { get; set; }
 
     }
 }

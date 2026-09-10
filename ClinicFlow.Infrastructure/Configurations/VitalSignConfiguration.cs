@@ -58,8 +58,8 @@ namespace ClinicFlow.Infrastructure.Configurations
                 .IsRequired();
 
             builder.HasOne(x => x.Visit)
-                .WithMany(x => x.VitalSigns)
-                .HasForeignKey(x => x.VisitId)
+                .WithOne(x => x.VitalSign)
+                .HasForeignKey<VitalSign>(x => x.VisitId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasIndex(x => new

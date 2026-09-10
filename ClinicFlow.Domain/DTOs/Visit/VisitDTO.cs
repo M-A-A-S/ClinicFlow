@@ -25,11 +25,7 @@ namespace ClinicFlow.Domain.DTOs.Visit
             Name = nameof(SharedResource.VisitNumber),
             ResourceType = typeof(SharedResource)
         )]
-        [Required(
-            ErrorMessageResourceName = nameof(SharedResource.Required),
-            ErrorMessageResourceType = typeof(SharedResource)
-        )]
-        public string VisitNumber { get; set; }
+        public string VisitNumber { get; set; } = string.Empty;
 
 
         [Display(
@@ -79,7 +75,7 @@ namespace ClinicFlow.Domain.DTOs.Visit
             Name = nameof(SharedResource.VisitDate),
             ResourceType = typeof(SharedResource)
         )]
-        public DateTime VisitDate { get; set; } = DateTime.UtcNow;
+        public DateTime VisitDate { get; set; } = DateTime.Now;
 
         [Display(
             Name = nameof(SharedResource.Status),
@@ -105,19 +101,22 @@ namespace ClinicFlow.Domain.DTOs.Visit
         )]
         public DateTime? CompletedAt { get; set; }
 
-        public PatientDTO Patient { get; set; }
-        public DoctorDTO Doctor { get; set; }
-        public ClinicDTO Clinic { get; set; }
+        public PatientDTO? Patient { get; set; }
+        public DoctorDTO? Doctor { get; set; }
+        public ClinicDTO? Clinic { get; set; }
         public WaitingQueueDTO? WaitingQueue { get; set; }
         public AppointmentDTO? Appointment { get; set; }
 
 
-        public ICollection<VitalSignDTO> VitalSigns { get; set; } = new List<VitalSignDTO>();
+        //public ICollection<VitalSignDTO> VitalSigns { get; set; } = new List<VitalSignDTO>();
 
-        public ICollection<VisitDiagnosisDTO> VisitDiagnoses { get; set; } = new List<VisitDiagnosisDTO>();
+        public IList<VisitDiagnosisDTO> VisitDiagnoses { get; set; } = new List<VisitDiagnosisDTO>();
 
-        public ICollection<PrescriptionDTO> Prescriptions { get; set; }
-            = new List<PrescriptionDTO>();
+        //public ICollection<PrescriptionDTO> Prescriptions { get; set; }
+        //    = new List<PrescriptionDTO>();
+
+        public PrescriptionDTO? Prescription { get; set; } = null;
+        public VitalSignDTO? VitalSign { get; set; }
 
     }
 }

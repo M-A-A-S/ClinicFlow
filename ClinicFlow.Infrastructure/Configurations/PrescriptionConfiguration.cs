@@ -46,8 +46,8 @@ namespace ClinicFlow.Infrastructure.Configurations
                 .HasFilter("[IsDeleted] = 0");
 
             builder.HasOne(x => x.Visit)
-                .WithMany(x => x.Prescriptions)
-                .HasForeignKey(x => x.VisitId)
+                .WithOne(x => x.Prescription)
+                .HasForeignKey<Prescription>(x => x.VisitId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

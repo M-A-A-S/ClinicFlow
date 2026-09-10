@@ -18,19 +18,11 @@ namespace ClinicFlow.Domain.DTOs.Prescription
             Name = nameof(SharedResource.PrescriptionNumber),
             ResourceType = typeof(SharedResource)
         )]
-        [Required(
-            ErrorMessageResourceName = nameof(SharedResource.Required),
-            ErrorMessageResourceType = typeof(SharedResource)
-        )]
-        public string PrescriptionNumber { get; set; }
+        public string PrescriptionNumber { get; set; } = string.Empty;
 
         [Display(
             Name = nameof(SharedResource.Visit),
             ResourceType = typeof(SharedResource)
-        )]
-        [Required(
-            ErrorMessageResourceName = nameof(SharedResource.Required),
-            ErrorMessageResourceType = typeof(SharedResource)
         )]
         public int VisitId { get; set; }
 
@@ -38,11 +30,7 @@ namespace ClinicFlow.Domain.DTOs.Prescription
             Name = nameof(SharedResource.PrescriptionDate),
             ResourceType = typeof(SharedResource)
         )]
-        [Required(
-            ErrorMessageResourceName = nameof(SharedResource.Required),
-            ErrorMessageResourceType = typeof(SharedResource)
-        )]
-        public DateTime PrescriptionDate { get; set; } = DateTime.UtcNow;
+        public DateTime PrescriptionDate { get; set; } = DateTime.Now;
 
         [Display(
             Name = nameof(SharedResource.Notes),
@@ -50,9 +38,9 @@ namespace ClinicFlow.Domain.DTOs.Prescription
         )]
         public string? Notes { get; set; }
 
-        public VisitDTO Visit { get; set; }
+        public VisitDTO? Visit { get; set; }
 
-        public ICollection<PrescriptionItemDTO> Items { get; set; }
+        public IList<PrescriptionItemDTO> Items { get; set; }
             = new List<PrescriptionItemDTO>();
 
     }

@@ -1,0 +1,264 @@
+﻿@using ClinicFlow.Domain.DTOs.Visit
+@using ClinicFlow.Domain.Enums
+
+@model VisitDTO
+
+<div class="card shadow-sm border-0 mb-4">
+
+    <div class="card-header bg-transparent border-bottom py-3">
+
+        <h5 class="mb-0 fw-semibold">
+
+            <i class="fa fa-stethoscope me-2"></i>
+
+            @Localizer["VisitInformation"]
+
+        </h5>
+
+    </div>
+
+    <div class="card-body">
+
+        <div class="row g-3">
+
+            <!-- Patient -->
+
+            <div class="col-sm-6 col-lg-4">
+
+                <label asp-for="PatientId"
+                       class="form-label fw-medium">
+                </label>
+
+                <select asp-for="PatientId"
+                        id="patientId"
+                        class="form-select select2"
+                        asp-items="ViewBag.Patients">
+
+                    <option value="">
+                        @Localizer["Select"]
+                    </option>
+
+                </select>
+
+                <span asp-validation-for="PatientId"
+                      class="text-danger small">
+                </span>
+
+            </div>
+
+
+            <!-- Clinic -->
+
+            <div class="col-sm-6 col-lg-4">
+
+                <label asp-for="ClinicId"
+                       class="form-label fw-medium">
+                </label>
+
+                <select asp-for="ClinicId"
+                        id="clinicId"
+                        class="form-select select2"
+                        asp-items="ViewBag.Clinics">
+
+                    <option value="">
+                        @Localizer["Select"]
+                    </option>
+
+                </select>
+
+                <span asp-validation-for="ClinicId"
+                      class="text-danger small">
+                </span>
+
+            </div>
+
+
+            <!-- Doctor -->
+
+            <div class="col-sm-6 col-lg-4">
+
+                <label asp-for="DoctorId"
+                       class="form-label fw-medium">
+                </label>
+
+                <select asp-for="DoctorId"
+                        id="doctorId"
+                        class="form-select select2"
+                        asp-items="ViewBag.Doctors">
+
+                    <option value="">
+                        @Localizer["Select"]
+                    </option>
+
+                </select>
+
+                <span asp-validation-for="DoctorId"
+                      class="text-danger small">
+                </span>
+
+            </div>
+
+
+            <!-- Appointment -->
+
+            @* <div class="col-sm-6 col-lg-4">
+
+                <label asp-for="AppointmentId"
+                       class="form-label fw-medium">
+                </label>
+
+                <select asp-for="AppointmentId"
+                        id="appointmentId"
+                        class="form-select select2"
+                        asp-items="ViewBag.Appointments">
+
+                    <option value="">
+                        @Localizer["None"]
+                    </option>
+
+                </select>
+
+                <span asp-validation-for="AppointmentId"
+                      class="text-danger small">
+                </span>
+
+            </div> *@
+
+
+            <!-- Waiting Queue -->
+
+            @* <div class="col-sm-6 col-lg-4">
+
+                <label asp-for="WaitingQueueId"
+                       class="form-label fw-medium">
+                </label>
+
+                <select asp-for="WaitingQueueId"
+                        id="waitingQueueId"
+                        class="form-select select2"
+                        asp-items="ViewBag.WaitingQueues">
+
+                    <option value="">
+                        @Localizer["None"]
+                    </option>
+
+                </select>
+
+                <span asp-validation-for="WaitingQueueId"
+                      class="text-danger small">
+                </span>
+
+            </div> *@
+
+
+            <!-- Visit Date -->
+
+            <div class="col-sm-6 col-lg-4">
+
+                <label asp-for="VisitDate"
+                       class="form-label fw-medium">
+                </label>
+
+                <input asp-for="VisitDate"
+                       type="date"
+                       class="form-control" />
+
+                <span asp-validation-for="VisitDate"
+                      class="text-danger small">
+                </span>
+
+            </div>
+
+
+            <!-- Status -->
+
+            <div class="col-sm-6 col-lg-4">
+
+                <label asp-for="Status"
+                       class="form-label fw-medium">
+                </label>
+
+                <select asp-for="Status"
+                        id="visitStatus"
+                        asp-items="Html.GetEnumSelectList<VisitStatus>()"
+                        class="form-select">
+                </select>
+
+                <span asp-validation-for="Status"
+                      class="text-danger small">
+                </span>
+
+            </div>
+
+
+            <!-- Completed At -->
+
+            <div class="col-sm-6 col-lg-4"
+                 id="completedAtContainer">
+
+                <label asp-for="CompletedAt"
+                       class="form-label fw-medium">
+                </label>
+
+                <input asp-for="CompletedAt"
+                       type="datetime-local"
+                       class="form-control" />
+
+                <span asp-validation-for="CompletedAt"
+                      class="text-danger small">
+                </span>
+
+            </div>
+
+
+            <div class="row">
+                <!-- Complaint -->
+
+                <div class="col-12 col-lg-6">
+
+                    <label asp-for="Complaint"
+                           class="form-label fw-medium">
+                    </label>
+
+                    <textarea asp-for="Complaint"
+                              class="form-control"
+                              rows="4"
+                              maxlength="500"
+                              placeholder="@Localizer["EnterComplaint"]">
+                </textarea>
+
+                    <span asp-validation-for="Complaint"
+                          class="text-danger small">
+                    </span>
+
+                </div>
+
+
+                <!-- Clinical Notes -->
+
+                <div class="col-12 col-lg-6">
+
+                    <label asp-for="ClinicalNotes"
+                           class="form-label fw-medium">
+                    </label>
+
+                    <textarea asp-for="ClinicalNotes"
+                              class="form-control"
+                              rows="4"
+                              maxlength="500"
+                              placeholder="@Localizer["EnterClinicalNotes"]">
+                </textarea>
+
+                    <span asp-validation-for="ClinicalNotes"
+                          class="text-danger small">
+                    </span>
+
+                </div>
+            </div>
+            
+
+        </div>
+
+    </div>
+
+</div>

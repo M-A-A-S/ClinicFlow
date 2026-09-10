@@ -59,6 +59,11 @@ namespace ClinicFlow.Infrastructure.Services
 
                 DTO.VisitNumber = await GenerateVisitNumberAsync();
 
+                if (DTO.Prescription != null)
+                {
+                    DTO.Prescription.PrescriptionNumber = await GeneratePrescriptionNumberAsync();
+                }
+
                 var entity = DTO.ToEntity();
 
                 _appDbContext.Visits.Add(entity);
@@ -150,6 +155,11 @@ namespace ClinicFlow.Infrastructure.Services
                     .Include(x => x.Doctor)
                     .Include(x => x.Patient)
                     .Include(x => x.Clinic)
+                    .Include(x => x.VitalSign)
+                    .Include(x => x.Prescription)
+                        .ThenInclude(x => x.Items)
+                    .Include(x => x.VisitDiagnoses)
+                        .ThenInclude(x => x.Diagnosis)
                     .FirstOrDefaultAsync(x => x.Id == id);
 
                 if (item == null)
@@ -197,9 +207,9 @@ namespace ClinicFlow.Infrastructure.Services
                     .Include(x => x.Clinic)
                     .Include(x => x.WaitingQueue)
                     .Include(x => x.Appointment)
-                    .Include(x => x.VitalSigns)
+                    .Include(x => x.VitalSign)
                     .Include(x => x.VisitDiagnoses)
-                    .Include(x => x.Prescriptions)
+                    .Include(x => x.Prescription)
                         .ThenInclude(x => x.Items)
                     .FirstOrDefaultAsync(x => x.Id == id);
 
@@ -213,8 +223,8 @@ namespace ClinicFlow.Infrastructure.Services
                 item.UpdateEntity(DTO);
 
                 UpdateVisitDiagnoses(item, DTO);
-                await UpdateVisitPrescriptions(item, DTO);
-                UpdateVisitVitalSigns(item, DTO);
+                UpdateVisitPrescription(item, DTO);
+                UpdateVisitVitalSign(item, DTO);
 
 
                 await _appDbContext.SaveChangesAsync();
@@ -406,9 +416,9 @@ namespace ClinicFlow.Infrastructure.Services
             }
 
             // ============== Prescriptions ==============
-            if (DTO.Prescriptions != null)
+            if (DTO.Prescription != null)
             {
-                var prescriptionResult = await ValidatePrescriptionsAsync(DTO);
+                var prescriptionResult = await ValidatePrescriptionAsync(DTO);
                 
                 if (!prescriptionResult.IsSuccess)
                 {
@@ -792,11 +802,10 @@ namespace ClinicFlow.Infrastructure.Services
             return Result<bool>.Success(true);
         }
 
-        private async Task<Result<bool>> ValidatePrescriptionsAsync(VisitDTO DTO) 
+        private async Task<Result<bool>> ValidatePrescriptionAsync(VisitDTO DTO) 
         {
             // ======================== Prescriptions ========================
-            if (DTO.Prescriptions == null ||
-                !DTO.Prescriptions.Any())
+            if (DTO.Prescription == null)
             {
                 return Result<bool>.Success(true);
             }
@@ -804,81 +813,76 @@ namespace ClinicFlow.Infrastructure.Services
             // ========================================================
             // First validate everything that does NOT require DB
             // ========================================================
-            foreach (var prescription in DTO.Prescriptions)
+            // ============= Prescription Date =============
+            if (DTO.Prescription.PrescriptionDate == default)
             {
-                // ============= Prescription Date =============
-                if (prescription.PrescriptionDate == default)
+                return Result<bool>.Failure(
+                    ResultCodes.InvalidPrescriptionDate,
+                    HttpStatusCodes.BadRequest,
+                    "Prescription date is required.");
+            }
+
+            // ============= Prescription Items =============
+            if (DTO.Prescription.Items == null ||
+                !DTO.Prescription.Items.Any())
+            {
+                return Result<bool>.Failure(
+                    ResultCodes.PrescriptionItemsRequired,
+                    HttpStatusCodes.BadRequest,
+                    "Prescription must contain at least one item.");
+            }
+
+            foreach (var item in DTO.Prescription.Items)
+            {
+                // ================= MedicineId =================
+                if (item.MedicineId <= 0)
                 {
                     return Result<bool>.Failure(
-                        ResultCodes.InvalidPrescriptionDate,
+                        ResultCodes.InvalidMedicine,
                         HttpStatusCodes.BadRequest,
-                        "Prescription date is required.");
+                        "Medicine is required.");
                 }
 
-                // ============= Prescription Items =============
-                if (prescription.Items == null ||
-                    !prescription.Items.Any())
+                // ================= Quantity =================
+                if (item.Quantity <= 0)
                 {
                     return Result<bool>.Failure(
-                        ResultCodes.PrescriptionItemsRequired,
+                        ResultCodes.InvalidPrescriptionQuantity,
                         HttpStatusCodes.BadRequest,
-                        "Prescription must contain at least one item.");
+                        "Prescription quantity must be greater than zero");
                 }
-                
-                foreach (var item in prescription.Items)
+
+                // ================= Dosage =================
+                if (string.IsNullOrWhiteSpace(item.Dosage))
                 {
-                    // ================= MedicineId =================
-                    if (item.MedicineId <= 0)
-                    {
-                        return Result<bool>.Failure(
-                            ResultCodes.InvalidMedicine,
-                            HttpStatusCodes.BadRequest,
-                            "Medicine is required.");
-                    }        
-
-                    // ================= Quantity =================
-                    if (item.Quantity <= 0)
-                    {
-                        return Result<bool>.Failure(
-                            ResultCodes.InvalidPrescriptionQuantity,
-                            HttpStatusCodes.BadRequest,
-                            "Prescription quantity must be greater than zero");
-                    }
-
-                    // ================= Dosage =================
-                    if (string.IsNullOrWhiteSpace(item.Dosage))
-                    {
-                        return Result<bool>.Failure(
-                            ResultCodes.InvalidPrescriptionDosage,
-                            HttpStatusCodes.BadRequest,
-                            "Prescription dosage is required");
-                    }
-
-                    // ================= Frequency =================
-                    if (string.IsNullOrWhiteSpace(item.Frequency))
-                    {
-                        return Result<bool>.Failure(
-                            ResultCodes.InvalidPrescriptionFrequency,
-                            HttpStatusCodes.BadRequest,
-                            "Prescription frequency is required");
-                    }
-                    // ================= Duration =================
-                    if (string.IsNullOrWhiteSpace(item.Duration))
-                    {
-                        return Result<bool>.Failure(
-                            ResultCodes.InvalidPrescriptionDuration,
-                            HttpStatusCodes.BadRequest,
-                            "Prescription duration is required");
-                    }
+                    return Result<bool>.Failure(
+                        ResultCodes.InvalidPrescriptionDosage,
+                        HttpStatusCodes.BadRequest,
+                        "Prescription dosage is required");
                 }
 
+                // ================= Frequency =================
+                if (string.IsNullOrWhiteSpace(item.Frequency))
+                {
+                    return Result<bool>.Failure(
+                        ResultCodes.InvalidPrescriptionFrequency,
+                        HttpStatusCodes.BadRequest,
+                        "Prescription frequency is required");
+                }
+                // ================= Duration =================
+                if (string.IsNullOrWhiteSpace(item.Duration))
+                {
+                    return Result<bool>.Failure(
+                        ResultCodes.InvalidPrescriptionDuration,
+                        HttpStatusCodes.BadRequest,
+                        "Prescription duration is required");
+                }
             }
 
             // ========================================================
             // Collect ALL medicine IDs
             // ========================================================
-            var medicineIds = DTO.Prescriptions
-                .SelectMany(x => x.Items)
+            var medicineIds = DTO.Prescription.Items
                 .Select(x => x.MedicineId)
                 .Distinct()
                 .ToList();
@@ -1022,55 +1026,23 @@ namespace ClinicFlow.Infrastructure.Services
             return query.Select(VisitExtensions.ToDTOExpression);
         }
 
-        private void UpdateVisitVitalSigns(Visit Entity, VisitDTO DTO)
+        private void UpdateVisitVitalSign(Visit Entity, VisitDTO DTO)
         {
-            var incomingIds = DTO.VitalSigns?
-                .Where(x => x.Id > 0)
-                .Select(x => x.Id)
-                .ToHashSet()
-                ?? new HashSet<int>();
-
-            // ======================== Remove ========================
-            var deletedItems = Entity.VitalSigns
-                .Where(x => x.Id > 0 && !incomingIds.Contains(x.Id)).ToList();
-
-            _appDbContext.VitalSigns.RemoveRange(deletedItems);
-
-            // ======================== Add / Update ========================
-            foreach (var dto in DTO.VitalSigns ?? Enumerable.Empty<VitalSignDTO>())
+            if (Entity.VitalSign == null ||  DTO.VitalSign == null)
             {
-                var entity = Entity.VitalSigns.FirstOrDefault(x => x.Id == dto.Id);
-
-                // ======================== Add ========================
-                if (entity == null)
-                {
-                    Entity.VitalSigns.Add(new VitalSign
-                    {
-                        Temperature = dto.Temperature,
-                        Pulse = dto.Pulse,
-                        SystolicBloodPressure = dto.SystolicBloodPressure,
-                        DiastolicBloodPressure = dto.DiastolicBloodPressure,
-                        RespiratoryRate = dto.RespiratoryRate,
-                        OxygenSaturation = dto.OxygenSaturation,
-                        Weight = dto.Weight,
-                        Height = dto.Height,
-                        RecordedAt = dto.RecordedAt,
-                    });
-
-                    continue;
-                }
-
-                // ======================== Update ========================
-                entity.Temperature = dto.Temperature;
-                entity.Pulse = dto.Pulse;
-                entity.SystolicBloodPressure = dto.SystolicBloodPressure;
-                entity.DiastolicBloodPressure = dto.DiastolicBloodPressure;
-                entity.RespiratoryRate = dto.RespiratoryRate;
-                entity.OxygenSaturation = dto.OxygenSaturation;
-                entity.Weight = dto.Weight;
-                entity.Height = dto.Height;
-                entity.RecordedAt = dto.RecordedAt;
+                return;
             }
+
+            Entity.VitalSign.Temperature = DTO.VitalSign.Temperature;
+            Entity.VitalSign.Pulse = DTO.VitalSign.Pulse;
+            Entity.VitalSign.SystolicBloodPressure = DTO.VitalSign.SystolicBloodPressure;
+            Entity.VitalSign.DiastolicBloodPressure = DTO.VitalSign.DiastolicBloodPressure;
+            Entity.VitalSign.RespiratoryRate = DTO.VitalSign.RespiratoryRate;
+            Entity.VitalSign.OxygenSaturation = DTO.VitalSign.OxygenSaturation;
+            Entity.VitalSign.Weight = DTO.VitalSign.Weight;
+            Entity.VitalSign.Height = DTO.VitalSign.Height;
+            Entity.VitalSign.RecordedAt = DTO.VitalSign.RecordedAt;
+
         }
 
         private void UpdateVisitDiagnoses(Visit Entity, VisitDTO DTO)
@@ -1112,75 +1084,15 @@ namespace ClinicFlow.Infrastructure.Services
             }
         }
 
-        private async Task UpdateVisitPrescriptions(Visit Entity, VisitDTO DTO)
+        private void UpdateVisitPrescription(Visit Entity, VisitDTO DTO)
         {
-            var incomingIds = DTO.Prescriptions?
-                .Where(x => x.Id > 0)
-                .Select(x => x.Id)
-                .ToHashSet()
-                ?? new HashSet<int>();
-
-            // ======================== Remove Prescriptions ========================
-            var deletedPrescriptions = Entity.Prescriptions
-                .Where(x => x.Id > 0 && 
-                    !incomingIds.Contains(x.Id))
-                .ToList();
-
-            foreach (var prescription in deletedPrescriptions)
+            if (Entity.Prescription == null || DTO.Prescription == null)
             {
-                _appDbContext.PrescriptionItems.RemoveRange(prescription.Items);
+                return;
             }
+            // ======================== Update Items ========================
+            UpdatePrescriptionItems(Entity.Prescription, DTO.Prescription);
 
-            _appDbContext.Prescriptions.RemoveRange(deletedPrescriptions);
-
-            // ======================== Add / Update ========================
-            foreach (var dto in DTO.Prescriptions
-                ?? Enumerable.Empty<PrescriptionDTO>())
-            {
-                var prescription = Entity.Prescriptions
-                    .FirstOrDefault(x => x.Id == dto.Id);
-
-                // ======================== Add ========================
-                if (prescription == null)
-                {
-                    prescription = new Prescription
-                    {
-                        //PrescriptionNumber = dto.PrescriptionNumber,
-                        PrescriptionNumber = await GeneratePrescriptionNumberAsync(),
-                        PrescriptionDate = dto.PrescriptionDate,
-                        Notes = dto.Notes,
-                    };
-
-                    Entity.Prescriptions.Add(prescription);
-
-                    foreach (var item in dto.Items
-                        ?? Enumerable.Empty<PrescriptionItemDTO>())
-                    {
-                        prescription.Items.Add(new PrescriptionItem
-                        {
-                            Id = item.Id,
-                            MedicineId = item.MedicineId,
-                            MedicineName = item.MedicineName,
-                            Dosage = item.Dosage,
-                            Frequency = item.Frequency,
-                            Duration = item.Duration,
-                            Instructions = item.Instructions,
-                            Quantity = item.Quantity,
-                        });
-                    }
-
-
-
-                    continue;
-                }
-
-                // ======================== Update Prescription ========================
-                prescription.PrescriptionDate = dto.PrescriptionDate;
-                prescription.Notes = dto.Notes;
-
-                // ======================== Update Items ========================
-                UpdatePrescriptionItems(prescription, dto);
-            }
         }
 
         private void UpdatePrescriptionItems(Prescription Entity, PrescriptionDTO DTO)

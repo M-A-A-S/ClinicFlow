@@ -1,0 +1,100 @@
+﻿@using ClinicFlow.Domain.DTOs.ClinicDoctor
+@using ClinicFlow.Domain.DTOs.Visit
+@using System.Text.Json
+@using ClinicFlow.Domain.Enums
+@model VisitDTO
+
+
+
+    
+
+    
+
+        <form asp-action="Edit"
+              id="visit-form"
+              data-completed-status="@((int)VisitStatus.Completed)"
+              data-message-select-diagnosis="@Localizer["PleaseSelectDiagnosis"]"
+              data-message-duplicate-diagnosis="@Localizer["DuplicateDiagnosis"]"
+              data-message-select-medicine="@Localizer["MedicineRequired"]"
+              data-message-medicine-already-added="@Localizer["MedicineAlreadyAdded"]"
+              data-message-dosage-required="@Localizer["PrescriptionDosageRequired"]"
+              data-message-frequency-required="@Localizer["PrescriptionFrequencyRequired"]"
+              data-message-duration-required="@Localizer["PrescriptionDurationRequired"]"
+              data-message-quantity-invalid="@Localizer["PrescriptionQuantityMustBeGreaterThanZero"]"
+              >
+
+        <div class="card shadow-sm">
+
+        <div class="card-header text-white d-flex align-items-center justify-content-between">
+            <h5>@Localizer["Edit"] @Localizer["Visit"]</h5>
+            <div>
+                <button type="submit" class="btn btn-success">
+                    <i class="fa fa-save me-1"></i>
+                    @Localizer["Save"]
+                </button>
+
+                <a asp-action="Index" class="btn btn-secondary">
+
+                    <i class="fa fa-arrow-left me-1"></i>
+                    @Localizer["Cancel"]
+                </a>
+            </div>
+
+        </div>
+
+        <div class="card-body">
+
+            <input type="hidden" asp-for="Id" />
+
+            <input type="hidden" asp-for="VisitNumber" />
+
+            <partial name="Partials/_VisitForm" model="Model" />
+        </div>
+
+        </div>
+
+            
+
+            
+
+        </form>
+
+    
+
+
+@section Scripts {
+
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+
+                            window.visitLocalization = @Html.Raw(Json.Serialize(new
+                    {
+                                        select = Localizer["Select"].Value,
+                                        selectDoctor = Localizer["SelectDoctor"].Value,
+                                        selectClinicFirst = Localizer["SelectClinicFirst"].Value,
+                    }));
+
+
+    window.visitData = @Html.Raw(Json.Serialize(new
+    {
+                                doctors = ((IEnumerable<SelectListItem>)ViewBag.Doctors)
+                                                                                                                                                                                                .Select(x => new
+                                                                                                                                                                                                {
+                                                                                                                                                                                                                    id = x.Value,
+                                                                                                                                                                                                                    text = x.Text
+                                                                                                                                                                                                }),
+
+                                clinicDoctors = ((IEnumerable<ClinicDoctorSearchDTO>)ViewBag.ClinicDoctors)
+                                                                                                                                                                                                .Select(x => new
+                                                                                                                                                                                                {
+                                                                                                                                                                                                                    clinicId = x.ClinicId,
+                                                                                                                                                                                                                    doctorId = x.DoctorId
+                                                                                                                                                                                                })
+    }));
+
+</script>
+
+    <script src="~/js/visit-form.js"
+            asp-append-version="true"></script>
+}

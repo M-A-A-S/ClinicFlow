@@ -86,7 +86,6 @@ namespace ClinicFlow.WebUI.Controllers
         public async Task<IActionResult> Create()
         {
             await LoadVisitFormData();
-
             return View(new VisitDTO());
         }
 
@@ -222,13 +221,13 @@ namespace ClinicFlow.WebUI.Controllers
                 Text = isArabic ? x.NameAr : x.NameEn
             });
 
-            ViewBag.Medicines = clinicsResult.Data.Select(x => new SelectListItem
+            ViewBag.Medicines = medicinesResult.Data.Select(x => new SelectListItem
             {
                 Value = x.Id.ToString(),
                 Text = isArabic ? x.NameAr : x.NameEn
             });
 
-            ViewBag.Diagnosis = clinicsResult.Data.Select(x => new SelectListItem
+            ViewBag.Diagnosis = diagnosisResult.Data.Select(x => new SelectListItem
             {
                 Value = x.Id.ToString(),
                 Text = isArabic ? x.NameAr : x.NameEn

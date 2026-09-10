@@ -18,10 +18,10 @@ namespace ClinicFlow.Domain.DTOs.PrescriptionItem
             Name = nameof(SharedResource.Prescription),
             ResourceType = typeof(SharedResource)
         )]
-        [Required(
-            ErrorMessageResourceName = nameof(SharedResource.Required),
-            ErrorMessageResourceType = typeof(SharedResource)
-        )]
+        //[Required(
+        //    ErrorMessageResourceName = nameof(SharedResource.Required),
+        //    ErrorMessageResourceType = typeof(SharedResource)
+        //)]
         public int PrescriptionId { get; set; }
 
         [Display(

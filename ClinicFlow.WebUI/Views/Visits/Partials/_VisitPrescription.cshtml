@@ -1,0 +1,363 @@
+﻿@using ClinicFlow.Domain.DTOs.Visit
+@model VisitDTO
+
+<div class="card shadow-sm border-0 mb-4">
+
+    <div class="card-header bg-transparent border-bottom py-3">
+
+        <div class="d-flex align-items-center justify-content-between">
+
+            <h5 class="mb-0 fw-semibold">
+
+                <i class="fa fa-prescription-bottle-medical me-2"></i>
+
+                @Localizer["Prescription"]
+
+            </h5>
+
+            <span class="badge bg-light text-dark">
+
+                @Localizer["Optional"]
+
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="card-body">
+
+        <!-- Prescription Information -->
+
+        <div class="row g-3 mb-4">
+
+            <div class="col-md-6">
+
+                <label asp-for="Prescription.PrescriptionDate"
+                       class="form-label fw-medium">
+                </label>
+
+                <input asp-for="Prescription.PrescriptionDate"
+                       type="date"
+                       class="form-control" />
+
+                <span asp-validation-for="Prescription.PrescriptionDate"
+                      class="text-danger small">
+                </span>
+
+            </div>
+
+
+            <div class="col-md-6">
+
+                <label asp-for="Prescription.Notes"
+                       class="form-label fw-medium">
+                </label>
+
+                <input asp-for="Prescription.Notes"
+                       class="form-control"
+                       maxlength="500" />
+
+                <span asp-validation-for="Prescription.Notes"
+                      class="text-danger small">
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="border-top pt-4">
+
+            <h6 class="fw-semibold mb-3">
+                @Localizer["PrescriptionItems"]
+            </h6>
+
+
+            <!-- Add Medicine -->
+
+            <div class="row g-3 align-items-end">
+
+                <!-- Medicine -->
+
+                <div class="col-md-6 col-xl-3">
+
+                    <label class="form-label fw-medium">
+                        @Localizer["Medicine"]
+                    </label>
+
+                    <select id="medicineId"
+                            class="form-select select2"
+                            asp-items="ViewBag.Medicines">
+
+                        <option value="">
+                            @Localizer["Select"]
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Dosage -->
+
+                <div class="col-md-6 col-xl-2">
+
+                    <label class="form-label fw-medium">
+                        @Localizer["Dosage"]
+                    </label>
+
+                    <input id="dosage"
+                           type="text"
+                           class="form-control"
+                           maxlength="100" />
+
+                </div>
+
+
+                <!-- Frequency -->
+
+                <div class="col-md-6 col-xl-2">
+
+                    <label class="form-label fw-medium">
+                        @Localizer["Frequency"]
+                    </label>
+
+                    <input id="frequency"
+                           type="text"
+                           class="form-control"
+                           maxlength="100" />
+
+                </div>
+
+
+                <!-- Duration -->
+
+                <div class="col-md-6 col-xl-2">
+
+                    <label class="form-label fw-medium">
+                        @Localizer["Duration"]
+                    </label>
+
+                    <input id="duration"
+                           type="text"
+                           class="form-control"
+                           maxlength="100" />
+
+                </div>
+
+
+                <!-- Quantity -->
+
+                <div class="col-md-4 col-xl-1">
+
+                    <label class="form-label fw-medium">
+                        @Localizer["Quantity"]
+                    </label>
+
+                    <input id="quantity"
+                           type="number"
+                           class="form-control"
+                           min="1"
+                           step="1" />
+
+                </div>
+
+
+                <!-- Instructions -->
+
+                <div class="col-md-8 col-xl-2">
+
+                    <label class="form-label fw-medium">
+                        @Localizer["Instructions"]
+                    </label>
+
+                    <input id="instructions"
+                           type="text"
+                           class="form-control"
+                           maxlength="500" />
+
+                </div>
+
+
+                <!-- Add -->
+
+                <div class="col-12">
+
+                    <button type="button"
+                            id="add-prescription-item"
+                            class="btn btn-primary">
+
+                        <i class="fa fa-plus me-1"></i>
+
+                        @Localizer["AddMedicine"]
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Items Table -->
+
+            <div class="table-responsive mt-4">
+
+                <table class="table table-hover align-middle mb-0">
+
+                    <thead class="table-light">
+
+                        <tr>
+
+                            <th>
+                                @Localizer["Medicine"]
+                            </th>
+
+                            <th>
+                                @Localizer["Dosage"]
+                            </th>
+
+                            <th>
+                                @Localizer["Frequency"]
+                            </th>
+
+                            <th>
+                                @Localizer["Duration"]
+                            </th>
+
+                            <th>
+                                @Localizer["Quantity"]
+                            </th>
+
+                            <th>
+                                @Localizer["Instructions"]
+                            </th>
+
+                            <th class="text-center"
+                                style="width:80px;">
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="prescription-items-container">
+
+                        @if (Model.Prescription?.Items != null)
+                        {
+                            for (var i = 0;
+                            i < Model.Prescription.Items.Count;
+                            i++)
+                            {
+                                var item =
+                                Model.Prescription.Items[i];
+
+                                <tr class="prescription-item-row"
+                                    data-medicine-id="@item.MedicineId">
+
+                                    <td>
+
+                                        @item.Medicine?.NameEn
+
+                                        <input type="hidden"
+                                               name="Prescription.Items.Index"
+                                               value="@i" />
+
+                                        <input type="hidden"
+                                               name="Prescription.Items[@i].Id"
+                                               value="@item.Id" />
+
+                                        <input type="hidden"
+                                               name="Prescription.Items[@i].MedicineId"
+                                               value="@item.MedicineId" />
+
+                                    </td>
+
+                                    <td>
+
+                                        @item.Dosage
+
+                                        <input type="hidden"
+                                               name="Prescription.Items[@i].Dosage"
+                                               value="@item.Dosage" />
+
+                                    </td>
+
+                                    <td>
+
+                                        @item.Frequency
+
+                                        <input type="hidden"
+                                               name="Prescription.Items[@i].Frequency"
+                                               value="@item.Frequency" />
+
+                                    </td>
+
+                                    <td>
+
+                                        @item.Duration
+
+                                        <input type="hidden"
+                                               name="Prescription.Items[@i].Duration"
+                                               value="@item.Duration" />
+
+                                    </td>
+
+                                    <td>
+
+                                        @item.Quantity
+
+                                        <input type="hidden"
+                                               name="Prescription.Items[@i].Quantity"
+                                               value="@item.Quantity" />
+
+                                    </td>
+
+                                    <td>
+
+                                        @item.Instructions
+
+                                        <input type="hidden"
+                                               name="Prescription.Items[@i].Instructions"
+                                               value="@item.Instructions" />
+
+                                    </td>
+
+                                    <td class="text-center">
+
+                                        <button type="button"
+                                                class="btn btn-sm btn-outline-danger remove-prescription-item">
+
+                                            <i class="fa fa-trash"></i>
+
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+                            }
+                        }
+
+                    </tbody>
+
+                </table>
+
+
+                <div id="prescription-empty"
+                     class="text-center text-muted py-4">
+
+                    <i class="fa fa-pills fa-2x mb-2"></i>
+
+                    <div>
+                        @Localizer["NoPrescriptionItemsAdded"]
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -313,7 +313,7 @@
     <value>خطأ في التحقق من البيانات</value>
   </data>
   <data name="UnexpectedError" xml:space="preserve">
-    <value>حدث خطأ غير متوقع</value>
+    <value>حدث خطأ غير متوقع.</value>
   </data>
   <data name="NameArExists" xml:space="preserve">
     <value>الاسم باللغة العربية موجود بالفعل.</value>
@@ -819,93 +819,491 @@
   <data name="GenericNameArExists" xml:space="preserve">
     <value>الاسم العلمي باللغة العربية موجود بالفعل</value>
   </data>
-
-	<data name="InvalidVisitDate" xml:space="preserve">
+  <data name="InvalidVisitDate" xml:space="preserve">
     <value>تاريخ الزيارة مطلوب.</value>
   </data>
-
-	<data name="InvalidVisitStatus" xml:space="preserve">
+  <data name="InvalidVisitStatus" xml:space="preserve">
     <value>حالة الزيارة غير صالحة.</value>
   </data>
-
-	<data name="InvalidAppointment" xml:space="preserve">
+  <data name="InvalidAppointment" xml:space="preserve">
     <value>الموعد المحدد غير صالح.</value>
   </data>
-
-	<data name="AppointmentPatientMismatch" xml:space="preserve">
+  <data name="AppointmentPatientMismatch" xml:space="preserve">
     <value>الموعد المحدد لا ينتمي إلى المريض المحدد.</value>
   </data>
-
-	<data name="AppointmentDoctorMismatch" xml:space="preserve">
+  <data name="AppointmentDoctorMismatch" xml:space="preserve">
     <value>الموعد المحدد لا ينتمي إلى الطبيب المحدد.</value>
   </data>
-
-	<data name="AppointmentClinicMismatch" xml:space="preserve">
+  <data name="AppointmentClinicMismatch" xml:space="preserve">
     <value>الموعد المحدد لا ينتمي إلى العيادة المحددة.</value>
   </data>
-
-	<data name="AppointmentAlreadyUsed" xml:space="preserve">
+  <data name="AppointmentAlreadyUsed" xml:space="preserve">
     <value>هذا الموعد مرتبط بالفعل بزيارة أخرى.</value>
   </data>
-	<data name="InvalidWaitingQueue" xml:space="preserve">
+  <data name="InvalidWaitingQueue" xml:space="preserve">
     <value>قائمة الانتظار المحددة غير صالحة.</value>
   </data>
-
-	<data name="VisitNotFound" xml:space="preserve">
-    <value>الزيارة غير موجودة.</value>
-  </data>
-
-	<data name="VisitAlreadyCompleted" xml:space="preserve">
+  <data name="VisitAlreadyCompleted" xml:space="preserve">
     <value>الزيارة مكتملة بالفعل.</value>
   </data>
-
-	<data name="CancelledVisitCannotBeCompleted" xml:space="preserve">
+  <data name="CancelledVisitCannotBeCompleted" xml:space="preserve">
     <value>لا يمكن إكمال زيارة ملغاة.</value>
   </data>
-
-	<data name="CompletedVisitCannotBeCancelled" xml:space="preserve">
+  <data name="CompletedVisitCannotBeCancelled" xml:space="preserve">
     <value>لا يمكن إلغاء زيارة مكتملة.</value>
   </data>
-
-	<data name="VisitAlreadyCancelled" xml:space="preserve">
+  <data name="VisitAlreadyCancelled" xml:space="preserve">
     <value>الزيارة ملغاة بالفعل.</value>
   </data>
-
-	<data name="UnexpectedError" xml:space="preserve">
-    <value>حدث خطأ غير متوقع.</value>
+  <data name="InvalidMedicine" xml:space="preserve">
+    <value>الدواء المحدد غير صالح.</value>
   </data>
-	<data name="InvalidMedicine" xml:space="preserve">
-  <value>الدواء المحدد غير صالح.</value>
-</data>
+  <data name="OneOrMoreInvalidMedicines" xml:space="preserve">
+    <value>واحد أو أكثر من الأدوية المحددة غير صالح.</value>
+  </data>
+  <data name="MedicineRequired" xml:space="preserve">
+    <value>الدواء مطلوب.</value>
+  </data>
+  <data name="VisitNotFound" xml:space="preserve">
+    <value>الزيارة غير موجودة.</value>
+  </data>
+  <data name="CompletedVisitCannotBeChanged" xml:space="preserve">
+    <value>لا يمكن تغيير حالة الزيارة المكتملة إلى حالة أخرى.</value>
+  </data>
+  <data name="CancelledVisitCannotBeReopened" xml:space="preserve">
+    <value>لا يمكن إعادة فتح الزيارة الملغاة.</value>
+  </data>
+  <data name="CompletedAtOnlyForCompletedVisit" xml:space="preserve">
+    <value>يمكن تحديد تاريخ إكمال الزيارة للزيارات المكتملة فقط.</value>
+  </data>
+  <data name="InvalidDiagnosis" xml:space="preserve">
+    <value>التشخيص المحدد غير صالح.</value>
+  </data>
+  <data name="DuplicateDiagnosis" xml:space="preserve">
+    <value>لا يمكن إضافة نفس التشخيص أكثر من مرة.</value>
+  </data>
+  <data name="OneOrMoreInvalidDiagnoses" xml:space="preserve">
+    <value>واحد أو أكثر من التشخيصات المحددة غير صالح.</value>
+  </data>
+  <data name="InvalidPrescriptionDate" xml:space="preserve">
+    <value>تاريخ الوصفة الطبية غير صالح.</value>
+  </data>
+  <data name="PrescriptionDateRequired" xml:space="preserve">
+    <value>تاريخ الوصفة الطبية مطلوب.</value>
+  </data>
+  <data name="PrescriptionItemsRequired" xml:space="preserve">
+    <value>يجب أن تحتوي الوصفة الطبية على عنصر واحد على الأقل.</value>
+  </data>
+  <data name="PrescriptionQuantityMustBeGreaterThanZero" xml:space="preserve">
+    <value>يجب أن تكون كمية الدواء أكبر من صفر.</value>
+  </data>
+  <data name="PrescriptionDosageRequired" xml:space="preserve">
+    <value>جرعة الدواء مطلوبة.</value>
+  </data>
+  <data name="PrescriptionFrequencyRequired" xml:space="preserve">
+    <value>تكرار تناول الدواء مطلوب.</value>
+  </data>
+  <data name="PrescriptionDurationRequired" xml:space="preserve">
+    <value>مدة العلاج مطلوبة.</value>
+  </data>
+  <data name="PleaseSelectDiagnosis" xml:space="preserve">
+    <value>يرجى اختيار التشخيص</value>
+  </data>
 
-	<data name="OneOrMoreInvalidMedicines" xml:space="preserve">
-  <value>واحد أو أكثر من الأدوية المحددة غير صالح.</value>
-</data>
+	<data name="VisitInformation">
+		<value>معلومات الزيارة</value>
+	</data>
+	<data name="VitalSigns">
+		<value>العلامات الحيوية</value>
+	</data>
+	<data name="BMI">
+		<value>مؤشر كتلة الجسم</value>
+	</data>
 
-	<data name="MedicineRequired" xml:space="preserve">
-  <value>الدواء مطلوب.</value>
-</data>
+	<data name="NoDiagnosesAdded">
+		<value>لم تتم إضافة أي تشخيص.</value>
+	</data>
+	<data name="PleaseSelectDiagnosis">
+		<value>يرجى اختيار التشخيص.</value>
+	</data>
+	<data name="DuplicateDiagnosis">
+		<value>تمت إضافة هذا التشخيص مسبقًا.</value>
+	</data>
 
-	<data name="VisitNotFound" xml:space="preserve"> <value>الزيارة غير موجودة.</value> </data>
-	<data name="CompletedVisitCannotBeChanged" xml:space="preserve"> <value>لا يمكن تغيير حالة الزيارة المكتملة إلى حالة أخرى.</value> </data>
-	<data name="CancelledVisitCannotBeReopened" xml:space="preserve"> <value>لا يمكن إعادة فتح الزيارة الملغاة.</value> </data>
-	<data name="CompletedAtOnlyForCompletedVisit" xml:space="preserve"> <value>يمكن تحديد تاريخ إكمال الزيارة للزيارات المكتملة فقط.</value> </data>
+	<data name="NoPrescriptionItemsAdded">
+		<value>لم تتم إضافة أي أدوية.</value>
+	</data>
+	<data name="MedicineRequired">
+		<value>يرجى اختيار الدواء.</value>
+	</data>
+	<data name="MedicineAlreadyAdded">
+		<value>تمت إضافة هذا الدواء مسبقًا.</value>
+	</data>
+	<data name="PrescriptionDosageRequired">
+		<value>الجرعة مطلوبة.</value>
+	</data>
+	<data name="PrescriptionFrequencyRequired">
+		<value>تكرار تناول الدواء مطلوب.</value>
+	</data>
+	<data name="PrescriptionDurationRequired">
+		<value>مدة العلاج مطلوبة.</value>
+	</data>
+	<data name="PrescriptionQuantityMustBeGreaterThanZero">
+		<value>يجب أن تكون كمية الدواء أكبر من صفر.</value>
+	</data>
+	<data name="None">
+		<value>لا يوجد</value>
+	</data>
+	<data name="Optional">
+		<value>اختياري</value>
+	</data>
 
-	<data name="InvalidWaitingQueue" xml:space="preserve"> <value>قائمة الانتظار المحددة غير صالحة.</value> </data>
-	<data name="InvalidDiagnosis" xml:space="preserve"> <value>التشخيص المحدد غير صالح.</value> </data>
-	<data name="DuplicateDiagnosis" xml:space="preserve"> <value>لا يمكن إضافة نفس التشخيص أكثر من مرة.</value> </data>
-	<data name="OneOrMoreInvalidDiagnoses" xml:space="preserve"> <value>واحد أو أكثر من التشخيصات المحددة غير صالح.</value> </data>
-	<data name="InvalidPrescriptionDate" xml:space="preserve"> <value>تاريخ الوصفة الطبية غير صالح.</value> </data>
+	<data name="SaveChanges">
+		<value>حفظ التغييرات</value>
+	</data>
 
-	<data name="PrescriptionDateRequired" xml:space="preserve"> <value>تاريخ الوصفة الطبية مطلوب.</value> </data>
-	<data name="PrescriptionItemsRequired" xml:space="preserve"> <value>يجب أن تحتوي الوصفة الطبية على عنصر واحد على الأقل.</value> </data>
-	<data name="MedicineRequired" xml:space="preserve"> <value>الدواء مطلوب.</value> </data>
-	<data name="InvalidMedicine" xml:space="preserve"> <value>الدواء المحدد غير صالح.</value> </data>
-	<data name="OneOrMoreInvalidMedicines" xml:space="preserve"> <value>واحد أو أكثر من الأدوية المحددة غير صالح.</value> </data>
-	<data name="PrescriptionQuantityMustBeGreaterThanZero" xml:space="preserve"> <value>يجب أن تكون كمية الدواء أكبر من صفر.</value> </data>
-	<data name="PrescriptionDosageRequired" xml:space="preserve"> <value>جرعة الدواء مطلوبة.</value> </data>
-	<data name="PrescriptionFrequencyRequired" xml:space="preserve"> <value>تكرار تناول الدواء مطلوب.</value> </data>
-	<data name="PrescriptionDurationRequired" xml:space="preserve"> <value>مدة العلاج مطلوبة.</value> </data>
+	<data name="EnterComplaint">
+		<value>أدخل الشكوى</value>
+	</data>
+	<data name="EnterClinicalNotes">
+		<value>أدخل الملاحظات السريرية</value>
+	</data>
 
+	<data name="InvalidVisitData">
+		<value>بيانات الزيارة غير صالحة.</value>
+	</data>
+	<data name="PatientRequired">
+		<value>المريض مطلوب.</value>
+	</data>
+	<data name="InvalidPatient">
+		<value>المريض المحدد غير صالح.</value>
+	</data>
+	<data name="ClinicRequired">
+		<value>العيادة مطلوبة.</value>
+	</data>
+	<data name="InvalidClinic">
+		<value>العيادة المحددة غير صالحة.</value>
+	</data>
+	<data name="DoctorRequired">
+		<value>الطبيب مطلوب.</value>
+	</data>
+	<data name="InvalidDoctor">
+		<value>الطبيب المحدد غير صالح.</value>
+	</data>
+	<data name="DoctorNotAssignedToClinic">
+		<value>الطبيب المحدد غير مرتبط بالعيادة المحددة.</value>
+	</data>
+	<data name="VisitDateRequired">
+		<value>تاريخ الزيارة مطلوب.</value>
+	</data>
+	<data name="InvalidVisitStatus">
+		<value>حالة الزيارة غير صالحة.</value>
+	</data>
+	<data name="VisitNotFound">
+		<value>الزيارة غير موجودة.</value>
+	</data>
+	<data name="CompletedVisitCannotBeChanged">
+		<value>لا يمكن تغيير حالة الزيارة المكتملة إلى حالة أخرى.</value>
+	</data>
+	<data name="CancelledVisitCannotBeReopened">
+		<value>لا يمكن إعادة فتح الزيارة الملغاة.</value>
+	</data>
+	<data name="CompletedAtOnlyForCompletedVisit">
+		<value>يمكن تحديد تاريخ إكمال الزيارة للزيارات المكتملة فقط.</value>
+	</data>
+	<data name="InvalidCompletionDate">
+		<value>تاريخ إكمال الزيارة غير صالح.</value>
+	</data>
+
+	<data name="InvalidAppointment">
+		<value>الموعد المحدد غير صالح.</value>
+	</data>
+	<data name="AppointmentPatientMismatch">
+		<value>الموعد المحدد لا يخص المريض المحدد.</value>
+	</data>
+	<data name="AppointmentDoctorMismatch">
+		<value>الموعد المحدد لا يخص الطبيب المحدد.</value>
+	</data>
+	<data name="AppointmentClinicMismatch">
+		<value>الموعد المحدد لا يخص العيادة المحددة.</value>
+	</data>
+	<data name="AppointmentAlreadyUsed">
+		<value>هذا الموعد مرتبط بالفعل بزيارة أخرى.</value>
+	</data>
+	<data name="InvalidWaitingQueue">
+		<value>قائمة الانتظار المحددة غير صالحة.</value>
+	</data>
+
+	<data name="InvalidDiagnosis">
+		<value>التشخيص المحدد غير صالح.</value>
+	</data>
+	<data name="DuplicateDiagnosis">
+		<value>لا يمكن إضافة نفس التشخيص أكثر من مرة.</value>
+	</data>
+	<data name="OneOrMoreInvalidDiagnoses">
+		<value>واحد أو أكثر من التشخيصات المحددة غير صالح.</value>
+	</data>
+	<data name="InvalidPrescriptionDate">
+		<value>تاريخ الوصفة الطبية غير صالح.</value>
+	</data>
+	<data name="PrescriptionDateRequired">
+		<value>تاريخ الوصفة الطبية مطلوب.</value>
+	</data>
+	<data name="PrescriptionItemsRequired">
+		<value>يجب أن تحتوي الوصفة الطبية على عنصر واحد على الأقل.</value>
+	</data>
+	<data name="InvalidMedicine">
+		<value>الدواء المحدد غير صالح.</value>
+	</data>
+	<data name="OneOrMoreInvalidMedicines">
+		<value>واحد أو أكثر من الأدوية المحددة غير صالح.</value>
+	</data>
+
+	<data name="AddMedicine">
+		<value>إضافة دواء</value>
+	</data>
+
+	<data name="NoDiagnosesAdded">
+		<value>لم تتم إضافة أي تشخيص.</value>
+	</data>
+	<data name="PleaseSelectDiagnosis">
+		<value>يرجى اختيار التشخيص.</value>
+	</data>
+	<data name="DuplicateDiagnosis">
+		<value>تمت إضافة هذا التشخيص مسبقًا.</value>
+	</data>
+
+	<!-- Visit -->
+	<data name="VisitInformation">
+		<value>معلومات الزيارة</value>
+	</data>
+	<data name="VitalSigns">
+		<value>العلامات الحيوية</value>
+	</data>
+	<data name="BMI">
+		<value>مؤشر كتلة الجسم</value>
+	</data>
+
+	<!-- Diagnoses -->
+	<data name="Diagnoses">
+		<value>التشخيصات</value>
+	</data>
+	<data name="Diagnosis">
+		<value>التشخيص</value>
+	</data>
+	<data name="NoDiagnosesAdded">
+		<value>لم تتم إضافة أي تشخيص.</value>
+	</data>
+	<data name="PleaseSelectDiagnosis">
+		<value>يرجى اختيار التشخيص.</value>
+	</data>
+	<data name="DuplicateDiagnosis">
+		<value>تمت إضافة هذا التشخيص مسبقًا.</value>
+	</data>
+
+	<!-- Prescription -->
+	<data name="Prescription">
+		<value>الوصفة الطبية</value>
+	</data>
+	<data name="PrescriptionItems">
+		<value>أدوية الوصفة الطبية</value>
+	</data>
+	<data name="Medicine">
+		<value>الدواء</value>
+	</data>
+	<data name="Dosage">
+		<value>الجرعة</value>
+	</data>
+	<data name="Frequency">
+		<value>التكرار</value>
+	</data>
+	<data name="Duration">
+		<value>مدة العلاج</value>
+	</data>
+	<data name="Quantity">
+		<value>الكمية</value>
+	</data>
+	<data name="Instructions">
+		<value>التعليمات</value>
+	</data>
+	<data name="NoPrescriptionItemsAdded">
+		<value>لم تتم إضافة أي أدوية.</value>
+	</data>
+	<data name="MedicineRequired">
+		<value>يرجى اختيار الدواء.</value>
+	</data>
+	<data name="MedicineAlreadyAdded">
+		<value>تمت إضافة هذا الدواء مسبقًا.</value>
+	</data>
+	<data name="PrescriptionDosageRequired">
+		<value>الجرعة مطلوبة.</value>
+	</data>
+	<data name="PrescriptionFrequencyRequired">
+		<value>تكرار تناول الدواء مطلوب.</value>
+	</data>
+	<data name="PrescriptionDurationRequired">
+		<value>مدة العلاج مطلوبة.</value>
+	</data>
+	<data name="PrescriptionQuantityMustBeGreaterThanZero">
+		<value>يجب أن تكون كمية الدواء أكبر من صفر.</value>
+	</data>
+
+	<!-- General -->
+	<data name="Notes">
+		<value>الملاحظات</value>
+	</data>
+	<data name="Complaint">
+		<value>الشكوى</value>
+	</data>
+	<data name="ClinicalNotes">
+		<value>الملاحظات السريرية</value>
+	</data>
+	<data name="Appointment">
+		<value>الموعد</value>
+	</data>
+	<data name="WaitingQueue">
+		<value>قائمة الانتظار</value>
+	</data>
+	<data name="VisitDate">
+		<value>تاريخ الزيارة</value>
+	</data>
+	<data name="Status">
+		<value>الحالة</value>
+	</data>
+	<data name="CompletedAt">
+		<value>تاريخ الإكمال</value>
+	</data>
+	<data name="Select">
+		<value>اختر</value>
+	</data>
+	<data name="None">
+		<value>لا يوجد</value>
+	</data>
+	<data name="Optional">
+		<value>اختياري</value>
+	</data>
+	<data name="Add">
+		<value>إضافة</value>
+	</data>
+	<data name="AddMedicine">
+		<value>إضافة دواء</value>
+	</data>
+	<data name="Save">
+		<value>حفظ</value>
+	</data>
+	<data name="SaveChanges">
+		<value>حفظ التغييرات</value>
+	</data>
+	<data name="Cancel">
+		<value>إلغاء</value>
+	</data>
+	<data name="Remove">
+		<value>حذف</value>
+	</data>
+
+	<!-- Placeholders -->
+	<data name="EnterComplaint">
+		<value>أدخل الشكوى</value>
+	</data>
+	<data name="EnterClinicalNotes">
+		<value>أدخل الملاحظات السريرية</value>
+	</data>
+
+	<!-- Visit Validation -->
+	<data name="InvalidVisitData">
+		<value>بيانات الزيارة غير صالحة.</value>
+	</data>
+	<data name="PatientRequired">
+		<value>المريض مطلوب.</value>
+	</data>
+	<data name="InvalidPatient">
+		<value>المريض المحدد غير صالح.</value>
+	</data>
+	<data name="ClinicRequired">
+		<value>العيادة مطلوبة.</value>
+	</data>
+	<data name="InvalidClinic">
+		<value>العيادة المحددة غير صالحة.</value>
+	</data>
+	<data name="DoctorRequired">
+		<value>الطبيب مطلوب.</value>
+	</data>
+	<data name="InvalidDoctor">
+		<value>الطبيب المحدد غير صالح.</value>
+	</data>
+	<data name="DoctorNotAssignedToClinic">
+		<value>الطبيب المحدد غير مرتبط بالعيادة المحددة.</value>
+	</data>
+	<data name="VisitDateRequired">
+		<value>تاريخ الزيارة مطلوب.</value>
+	</data>
+	<data name="InvalidVisitStatus">
+		<value>حالة الزيارة غير صالحة.</value>
+	</data>
+	<data name="VisitNotFound">
+		<value>الزيارة غير موجودة.</value>
+	</data>
+	<data name="CompletedVisitCannotBeChanged">
+		<value>لا يمكن تغيير حالة الزيارة المكتملة إلى حالة أخرى.</value>
+	</data>
+	<data name="CancelledVisitCannotBeReopened">
+		<value>لا يمكن إعادة فتح الزيارة الملغاة.</value>
+	</data>
+	<data name="CompletedAtOnlyForCompletedVisit">
+		<value>يمكن تحديد تاريخ إكمال الزيارة للزيارات المكتملة فقط.</value>
+	</data>
+	<data name="InvalidCompletionDate">
+		<value>تاريخ إكمال الزيارة غير صالح.</value>
+	</data>
+
+	<!-- Appointment -->
+	<data name="InvalidAppointment">
+		<value>الموعد المحدد غير صالح.</value>
+	</data>
+	<data name="AppointmentPatientMismatch">
+		<value>الموعد المحدد لا يخص المريض المحدد.</value>
+	</data>
+	<data name="AppointmentDoctorMismatch">
+		<value>الموعد المحدد لا يخص الطبيب المحدد.</value>
+	</data>
+	<data name="AppointmentClinicMismatch">
+		<value>الموعد المحدد لا يخص العيادة المحددة.</value>
+	</data>
+	<data name="AppointmentAlreadyUsed">
+		<value>هذا الموعد مرتبط بالفعل بزيارة أخرى.</value>
+	</data>
+
+	<!-- Waiting Queue -->
+	<data name="InvalidWaitingQueue">
+		<value>قائمة الانتظار المحددة غير صالحة.</value>
+	</data>
+
+	<!-- Diagnoses Validation -->
+	<data name="InvalidDiagnosis">
+		<value>التشخيص المحدد غير صالح.</value>
+	</data>
+	<data name="DuplicateDiagnosis">
+		<value>لا يمكن إضافة نفس التشخيص أكثر من مرة.</value>
+	</data>
+	<data name="OneOrMoreInvalidDiagnoses">
+		<value>واحد أو أكثر من التشخيصات المحددة غير صالح.</value>
+	</data>
+
+	<!-- Prescription Validation -->
+	<data name="InvalidPrescriptionDate">
+		<value>تاريخ الوصفة الطبية غير صالح.</value>
+	</data>
+	<data name="PrescriptionDateRequired">
+		<value>تاريخ الوصفة الطبية مطلوب.</value>
+	</data>
+	<data name="PrescriptionItemsRequired">
+		<value>يجب أن تحتوي الوصفة الطبية على عنصر واحد على الأقل.</value>
+	</data>
+	<data name="InvalidMedicine">
+		<value>الدواء المحدد غير صالح.</value>
+	</data>
+	<data name="OneOrMoreInvalidMedicines">
+		<value>واحد أو أكثر من الأدوية المحددة غير صالح.</value>
+	</data>
 
 </root>
