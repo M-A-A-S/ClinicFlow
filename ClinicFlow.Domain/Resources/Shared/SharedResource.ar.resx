@@ -819,4 +819,93 @@
   <data name="GenericNameArExists" xml:space="preserve">
     <value>الاسم العلمي باللغة العربية موجود بالفعل</value>
   </data>
+
+	<data name="InvalidVisitDate" xml:space="preserve">
+    <value>تاريخ الزيارة مطلوب.</value>
+  </data>
+
+	<data name="InvalidVisitStatus" xml:space="preserve">
+    <value>حالة الزيارة غير صالحة.</value>
+  </data>
+
+	<data name="InvalidAppointment" xml:space="preserve">
+    <value>الموعد المحدد غير صالح.</value>
+  </data>
+
+	<data name="AppointmentPatientMismatch" xml:space="preserve">
+    <value>الموعد المحدد لا ينتمي إلى المريض المحدد.</value>
+  </data>
+
+	<data name="AppointmentDoctorMismatch" xml:space="preserve">
+    <value>الموعد المحدد لا ينتمي إلى الطبيب المحدد.</value>
+  </data>
+
+	<data name="AppointmentClinicMismatch" xml:space="preserve">
+    <value>الموعد المحدد لا ينتمي إلى العيادة المحددة.</value>
+  </data>
+
+	<data name="AppointmentAlreadyUsed" xml:space="preserve">
+    <value>هذا الموعد مرتبط بالفعل بزيارة أخرى.</value>
+  </data>
+	<data name="InvalidWaitingQueue" xml:space="preserve">
+    <value>قائمة الانتظار المحددة غير صالحة.</value>
+  </data>
+
+	<data name="VisitNotFound" xml:space="preserve">
+    <value>الزيارة غير موجودة.</value>
+  </data>
+
+	<data name="VisitAlreadyCompleted" xml:space="preserve">
+    <value>الزيارة مكتملة بالفعل.</value>
+  </data>
+
+	<data name="CancelledVisitCannotBeCompleted" xml:space="preserve">
+    <value>لا يمكن إكمال زيارة ملغاة.</value>
+  </data>
+
+	<data name="CompletedVisitCannotBeCancelled" xml:space="preserve">
+    <value>لا يمكن إلغاء زيارة مكتملة.</value>
+  </data>
+
+	<data name="VisitAlreadyCancelled" xml:space="preserve">
+    <value>الزيارة ملغاة بالفعل.</value>
+  </data>
+
+	<data name="UnexpectedError" xml:space="preserve">
+    <value>حدث خطأ غير متوقع.</value>
+  </data>
+	<data name="InvalidMedicine" xml:space="preserve">
+  <value>الدواء المحدد غير صالح.</value>
+</data>
+
+	<data name="OneOrMoreInvalidMedicines" xml:space="preserve">
+  <value>واحد أو أكثر من الأدوية المحددة غير صالح.</value>
+</data>
+
+	<data name="MedicineRequired" xml:space="preserve">
+  <value>الدواء مطلوب.</value>
+</data>
+
+	<data name="VisitNotFound" xml:space="preserve"> <value>الزيارة غير موجودة.</value> </data>
+	<data name="CompletedVisitCannotBeChanged" xml:space="preserve"> <value>لا يمكن تغيير حالة الزيارة المكتملة إلى حالة أخرى.</value> </data>
+	<data name="CancelledVisitCannotBeReopened" xml:space="preserve"> <value>لا يمكن إعادة فتح الزيارة الملغاة.</value> </data>
+	<data name="CompletedAtOnlyForCompletedVisit" xml:space="preserve"> <value>يمكن تحديد تاريخ إكمال الزيارة للزيارات المكتملة فقط.</value> </data>
+
+	<data name="InvalidWaitingQueue" xml:space="preserve"> <value>قائمة الانتظار المحددة غير صالحة.</value> </data>
+	<data name="InvalidDiagnosis" xml:space="preserve"> <value>التشخيص المحدد غير صالح.</value> </data>
+	<data name="DuplicateDiagnosis" xml:space="preserve"> <value>لا يمكن إضافة نفس التشخيص أكثر من مرة.</value> </data>
+	<data name="OneOrMoreInvalidDiagnoses" xml:space="preserve"> <value>واحد أو أكثر من التشخيصات المحددة غير صالح.</value> </data>
+	<data name="InvalidPrescriptionDate" xml:space="preserve"> <value>تاريخ الوصفة الطبية غير صالح.</value> </data>
+
+	<data name="PrescriptionDateRequired" xml:space="preserve"> <value>تاريخ الوصفة الطبية مطلوب.</value> </data>
+	<data name="PrescriptionItemsRequired" xml:space="preserve"> <value>يجب أن تحتوي الوصفة الطبية على عنصر واحد على الأقل.</value> </data>
+	<data name="MedicineRequired" xml:space="preserve"> <value>الدواء مطلوب.</value> </data>
+	<data name="InvalidMedicine" xml:space="preserve"> <value>الدواء المحدد غير صالح.</value> </data>
+	<data name="OneOrMoreInvalidMedicines" xml:space="preserve"> <value>واحد أو أكثر من الأدوية المحددة غير صالح.</value> </data>
+	<data name="PrescriptionQuantityMustBeGreaterThanZero" xml:space="preserve"> <value>يجب أن تكون كمية الدواء أكبر من صفر.</value> </data>
+	<data name="PrescriptionDosageRequired" xml:space="preserve"> <value>جرعة الدواء مطلوبة.</value> </data>
+	<data name="PrescriptionFrequencyRequired" xml:space="preserve"> <value>تكرار تناول الدواء مطلوب.</value> </data>
+	<data name="PrescriptionDurationRequired" xml:space="preserve"> <value>مدة العلاج مطلوبة.</value> </data>
+
+
 </root>

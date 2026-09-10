@@ -819,4 +819,85 @@
   <data name="GenericNameArExists" xml:space="preserve">
     <value>Arabic generic name already exists</value>
   </data>
+	<data name="InvalidVisitDate" xml:space="preserve">
+    <value>Visit date is required.</value>
+  </data>
+
+	<data name="InvalidVisitStatus" xml:space="preserve">
+    <value>Invalid visit status.</value>
+  </data>
+
+	<data name="InvalidAppointment" xml:space="preserve">
+    <value>Invalid appointment.</value>
+  </data>
+
+	<data name="AppointmentPatientMismatch" xml:space="preserve">
+    <value>The appointment does not belong to the selected patient.</value>
+  </data>
+
+	<data name="AppointmentDoctorMismatch" xml:space="preserve">
+    <value>The appointment does not belong to the selected doctor.</value>
+  </data>
+
+	<data name="AppointmentClinicMismatch" xml:space="preserve">
+    <value>The appointment does not belong to the selected clinic.</value>
+  </data>
+
+	<data name="AppointmentAlreadyUsed" xml:space="preserve">
+    <value>This appointment is already linked to another visit.</value>
+  </data>
+
+	<data name="InvalidWaitingQueue" xml:space="preserve">
+    <value>Invalid waiting queue.</value>
+  </data>
+
+	<data name="VisitAlreadyCompleted" xml:space="preserve">
+    <value>The visit is already completed.</value>
+  </data>
+
+	<data name="CancelledVisitCannotBeCompleted" xml:space="preserve">
+    <value>A cancelled visit cannot be completed.</value>
+  </data>
+
+	<data name="CompletedVisitCannotBeCancelled" xml:space="preserve">
+    <value>A completed visit cannot be cancelled.</value>
+  </data>
+
+	<data name="VisitAlreadyCancelled" xml:space="preserve">
+    <value>The visit is already cancelled.</value>
+  </data>
+
+	<data name="UnexpectedError" xml:space="preserve">
+    <value>An unexpected error occurred.</value>
+  </data>
+	<data name="InvalidMedicine" xml:space="preserve">
+  <value>Invalid medicine.</value>
+</data>
+
+	<data name="OneOrMoreInvalidMedicines" xml:space="preserve">
+  <value>One or more selected medicines are invalid.</value>
+</data>
+
+	<data name="MedicineRequired" xml:space="preserve">
+  <value>Medicine is required.</value>
+</data>
+
+	<data name="VisitNotFound" xml:space="preserve"> <value>Visit not found.</value> </data>
+	<data name="CompletedVisitCannotBeChanged" xml:space="preserve"> <value>A completed visit cannot be changed to another status.</value> </data>
+	<data name="CancelledVisitCannotBeReopened" xml:space="preserve"> <value>A cancelled visit cannot be reopened.</value> </data>
+	<data name="CompletedAtOnlyForCompletedVisit" xml:space="preserve"> <value>Completed date can only be set for a completed visit.</value> </data>
+
+	<data name="InvalidDiagnosis" xml:space="preserve"> <value>Invalid diagnosis.</value> </data>
+	<data name="DuplicateDiagnosis" xml:space="preserve"> <value>The same diagnosis cannot be added more than once.</value> </data>
+	<data name="OneOrMoreInvalidDiagnoses" xml:space="preserve"> <value>One or more selected diagnoses are invalid.</value> </data>
+	<data name="InvalidPrescriptionDate" xml:space="preserve"> <value>Invalid prescription date.</value> </data>
+
+	<data name="PrescriptionDateRequired" xml:space="preserve"> <value>Prescription date is required.</value> </data>
+	<data name="PrescriptionItemsRequired" xml:space="preserve"> <value>Prescription must contain at least one item.</value> </data>
+	<data name="OneOrMoreInvalidMedicines" xml:space="preserve"> <value>One or more selected medicines are invalid.</value> </data>
+	<data name="PrescriptionQuantityMustBeGreaterThanZero" xml:space="preserve"> <value>Prescription quantity must be greater than zero.</value> </data>
+	<data name="PrescriptionDosageRequired" xml:space="preserve"> <value>Prescription dosage is required.</value> </data>
+	<data name="PrescriptionFrequencyRequired" xml:space="preserve"> <value>Prescription frequency is required.</value> </data>
+	<data name="PrescriptionDurationRequired" xml:space="preserve"> <value>Prescription duration is required.</value> </data>
+
 </root>

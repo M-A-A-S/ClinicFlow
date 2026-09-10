@@ -29,8 +29,7 @@ namespace ClinicFlow.Infrastructure.Services
         #region ========================= Constructors =========================
         public AppointmentService(
             IAppDbContext appDbContext,
-            ILogger<AppointmentService> logger,
-            IMemoryCache cache)
+            ILogger<AppointmentService> logger)
         {
             _appDbContext = appDbContext;
             _logger = logger;

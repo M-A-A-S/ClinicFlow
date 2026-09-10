@@ -60,5 +60,27 @@ namespace ClinicFlow.Domain.Constants
         public const string GenericNameEnExists = "GenericNameEnExists";
         public const string GenericNameArExists = "GenericNameArExists";
 
+        public const string InvalidVisitDate = "InvalidVisitDate";
+        public const string InvalidVisitStatus = "InvalidVisitStatus";
+        public const string InvalidAppointment = "InvalidAppointment";
+        public const string AppointmentAlreadyUsed = "AppointmentAlreadyUsed";
+        public const string InvalidWaitingQueue = "InvalidWaitingQueue";
+
+        public const string VisitNotFound = "VisitNotFound";
+        public const string VisitAlreadyCompleted = "VisitAlreadyCompleted";
+        public const string VisitAlreadyCancelled = "VisitAlreadyCancelled";
+        public const string InvalidPrescriptionDate = "InvalidPrescriptionDate";
+        public const string PrescriptionItemsRequired = "PrescriptionItemsRequired";
+        public const string InvalidMedicine = "InvalidMedicine";
+        public const string InvalidPrescriptionQuantity = "InvalidPrescriptionQuantity";
+        public const string InvalidPrescriptionDosage = "InvalidPrescriptionDosage";
+        public const string InvalidPrescriptionFrequency = "InvalidPrescriptionFrequency";
+        public const string InvalidPrescriptionDuration = "InvalidPrescriptionDuration";
+        public const string DuplicateDiagnosis = "DuplicateDiagnosis";
+        public const string InvalidDiagnosis = "InvalidDiagnosis";
+        public const string AppointmentPatientMismatch = "AppointmentPatientMismatch";
+        public const string AppointmentDoctorMismatch = "AppointmentDoctorMismatch";
+        public const string AppointmentClinicMismatch = "AppointmentClinicMismatch";
+
     }
 }
