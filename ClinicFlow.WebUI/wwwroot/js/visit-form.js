@@ -23,6 +23,10 @@ const VisitForm = {
 
         this.initializeSelect2();
 
+        // Disable existing selections in update mode
+        this.disableExistingDiagnosisOptions();
+        this.disableExistingMedicineOptions();
+
     },
 
 
@@ -771,6 +775,36 @@ const VisitForm = {
 
         }
 
+    },
+
+    disableExistingDiagnosisOptions() {
+        document
+            .querySelectorAll(".visit-diagnosis-row")
+            .forEach(row => {
+                const diagnosisId = row.dataset.diagnosisId;
+
+                if (diagnosisId) {
+                    this.disableOption(
+                        "diagnosisId",
+                        diagnosisId
+                    );
+                }
+            });
+    },
+
+    disableExistingMedicineOptions() {
+        document
+            .querySelectorAll(".prescription-item-row")
+            .forEach(row => {
+                const medicineId = row.dataset.medicineId;
+
+                if (medicineId) {
+                    this.disableOption(
+                        "medicineId",
+                        medicineId
+                    );
+                }
+            });
     },
 
 
