@@ -1289,4 +1289,45 @@
 		<value>One or more selected medicines are invalid.</value>
 	</data>
 
+	<data name="AddVitalSigns" xml:space="preserve">
+    <value>Add Vital Signs</value>
+  </data>
+
+	<data name="AddDiagnosis" xml:space="preserve">
+    <value>Add Diagnosis</value>
+  </data>
+
+	<data name="AddPrescription" xml:space="preserve">
+    <value>Add Prescription</value>
+  </data>
+
+	<data name="VitalSigns" xml:space="preserve">
+    <value>Vital Signs</value>
+  </data>
+
+	<data name="Diagnoses" xml:space="preserve">
+    <value>Diagnoses</value>
+  </data>
+
+	<data name="Prescription" xml:space="preserve">
+    <value>Prescription</value>
+  </data>
+
+	<data name="Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+
+	<data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+
+	<data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+
+	<data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+
+
 </root>

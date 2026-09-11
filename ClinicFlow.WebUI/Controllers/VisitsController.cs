@@ -93,6 +93,20 @@ namespace ClinicFlow.WebUI.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(VisitDTO DTO)
         {
+            // If no items or details were provided for the optional prescription, ignore its validation
+            //if (DTO.Prescription != null &&
+            //    (DTO.Prescription.Items == null || !DTO.Prescription.Items.Any())
+            //)
+            //{
+            //    // Remove nested validation state for the optional Prescription model
+            //    foreach (var key in ModelState.Keys.Where(k => k.StartsWith("Prescription")).ToList())
+            //    {
+            //        ModelState.Remove(key);
+            //    }
+
+            //    DTO.Prescription = null;
+            //}
+
             if (InvalidModel())
             {
                 await LoadVisitFormData();

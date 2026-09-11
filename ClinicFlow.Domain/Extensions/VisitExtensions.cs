@@ -11,6 +11,9 @@ using System.Text;
 using System.Threading.Tasks;
 using ClinicFlow.Domain.DTOs.Prescription;
 using ClinicFlow.Domain.DTOs.PrescriptionItem;
+using ClinicFlow.Domain.DTOs.VitalSign;
+using ClinicFlow.Domain.DTOs.VisitDiagnosis;
+using ClinicFlow.Domain.DTOs.Diagnosis;
 
 namespace ClinicFlow.Domain.Extensions
 {
@@ -126,7 +129,36 @@ namespace ClinicFlow.Domain.Extensions
                             Quantity = x.Quantity,
                             Instructions = x.Instructions
                         }).ToList()
-                }
+                },
+
+                VitalSign = Entity.VitalSign == null ? null : new VitalSignDTO
+                {
+                    Id = Entity.VitalSign.Id,
+                    VisitId = Entity.VitalSign.VisitId,
+                    Temperature = Entity.VitalSign.Temperature,
+                    Pulse = Entity.VitalSign.Pulse,
+                    SystolicBloodPressure = Entity.VitalSign.SystolicBloodPressure,
+                    DiastolicBloodPressure = Entity.VitalSign.DiastolicBloodPressure,
+                    RespiratoryRate = Entity.VitalSign.RespiratoryRate,
+                    OxygenSaturation = Entity.VitalSign.OxygenSaturation,
+                    Height = Entity.VitalSign.Height,
+                    Weight = Entity.VitalSign.Weight
+                },
+
+                VisitDiagnoses = Entity.VisitDiagnoses?
+                    .Select(x => new VisitDiagnosisDTO
+                    {
+                        Id = x.Id,
+                        VisitId = x.VisitId,
+                        DiagnosisId = x.DiagnosisId,
+                        Diagnosis = x.Diagnosis == null ? null : new DiagnosisDTO
+                        {
+                            Id = x.Diagnosis.Id,
+                            NameEn = x.Diagnosis.NameEn,
+                            NameAr = x.Diagnosis.NameAr
+                        }
+                    })
+                    .ToList()
 
             };
         }

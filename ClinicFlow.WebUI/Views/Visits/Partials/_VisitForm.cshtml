@@ -1,11 +1,90 @@
 ﻿<div class="container-fluid px-0">
+
+    <!-- Always required -->
     <partial name="Partials/_VisitInformation" model="Model" />
 
-    <partial name="Partials/_VisitVitalSigns" model="Model" />
+
+    <!-- Optional sections -->
+    <div class="d-flex gap-2 mt-4 mb-3">
+        <button type="button"
+                class="btn btn-outline-primary"
+                data-toggle-section="vitalSignsSection">
+            <i class="fa fa-heartbeat me-1"></i>
+            @Localizer["AddVitalSigns"]
+        </button>
+        <button type="button"
+                class="btn btn-outline-primary"
+                data-toggle-section="diagnosesSection">
+            <i class="fa fa-stethoscope me-1"></i>
+            @Localizer["AddDiagnosis"]
+        </button>
+        <button type="button"
+                class="btn btn-outline-primary"
+                data-toggle-section="prescriptionSection">
+            <i class="fa fa-prescription-bottle me-1"></i>
+            @Localizer["AddPrescription"]
+        </button>
+    </div>
+
+    <!-- Vital Signs -->
+    <div id="vitalSignsSection"
+         class="optional-section d-none">
+         <div class="card mb-3">
+             <div class="card-header d-flex text-white align-items-center justify-content-between">
+                <strong>@Localizer["VitalSigns"]</strong>
+                <button type="button"
+                        class="btn btn-sm btn-danger float-end"
+                        data-remove-section="vitalSignsSection">
+                    @Localizer["Remove"]
+                </button>
+             </div>
+             <div class="card-body">
+                <partial name="Partials/_VisitVitalSigns" model="Model" />
+             </div>
+         </div>
+     </div>
+
+    <!-- Diagnoses -->
+    <div id="diagnosesSection"
+         class="optional-section d-none">
+         <div class="card mb-3">
+            <div class="card-header d-flex text-white align-items-center justify-content-between">
+                <strong>@Localizer["Diagnoses"]</strong>
+                <button type="button"
+                        class="btn btn-sm btn-danger float-end"
+                        data-remove-section="diagnosesSection">
+                    @Localizer["Remove"]
+                </button>
+             </div>
+             <div class="card-body">
+                <partial name="Partials/_VisitDiagnoses" model="Model" />
+             </div>
+         </div>
+     </div>
+
+    <!-- Prescription  -->
+    <div id="prescriptionSection"
+         class="optional-section d-none">
+         <div class="card mb-3">
+            <div class="card-header d-flex text-white align-items-center justify-content-between">
+                <strong>@Localizer["Prescription"]</strong>
+                <button type="button"
+                        class="btn btn-sm btn-danger float-end"
+                        data-remove-section="prescriptionSection">
+                    @Localizer["Remove"]
+                </button>
+             </div>
+             <div class="card-body">
+                <partial name="Partials/_VisitPrescription" model="Model" />
+             </div>
+         </div>
+     </div>
+
+    @* <partial name="Partials/_VisitVitalSigns" model="Model" />
 
     <partial name="Partials/_VisitDiagnoses" model="Model" />
 
-    <partial name="Partials/_VisitPrescription" model="Model" />
+    <partial name="Partials/_VisitPrescription" model="Model" /> *@
 
     @* <div class="d-flex justify-content-end gap-2 mt-4">
 

@@ -1306,4 +1306,44 @@
 		<value>واحد أو أكثر من الأدوية المحددة غير صالح.</value>
 	</data>
 
+	<data name="AddVitalSigns" xml:space="preserve">
+    <value>إضافة العلامات الحيوية</value>
+  </data>
+
+	<data name="AddDiagnosis" xml:space="preserve">
+    <value>إضافة تشخيص</value>
+  </data>
+
+	<data name="AddPrescription" xml:space="preserve">
+    <value>إضافة وصفة طبية</value>
+  </data>
+
+	<data name="VitalSigns" xml:space="preserve">
+    <value>العلامات الحيوية</value>
+  </data>
+
+	<data name="Diagnoses" xml:space="preserve">
+    <value>التشخيصات</value>
+  </data>
+
+	<data name="Prescription" xml:space="preserve">
+    <value>الوصفة الطبية</value>
+  </data>
+
+	<data name="Remove" xml:space="preserve">
+    <value>إزالة</value>
+  </data>
+
+	<data name="Add" xml:space="preserve">
+    <value>إضافة</value>
+  </data>
+
+	<data name="Save" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+
+	<data name="Cancel" xml:space="preserve">
+    <value>إلغاء</value>
+  </data>
+
 </root>

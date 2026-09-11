@@ -124,6 +124,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Diagnosis.
+        /// </summary>
+        public static string AddDiagnosis {
+            get {
+                return ResourceManager.GetString("AddDiagnosis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Medicine.
         /// </summary>
         public static string AddMedicine {
@@ -133,11 +142,29 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Prescription.
+        /// </summary>
+        public static string AddPrescription {
+            get {
+                return ResourceManager.GetString("AddPrescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Address.
         /// </summary>
         public static string Address {
             get {
                 return ResourceManager.GetString("Address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Vital Signs.
+        /// </summary>
+        public static string AddVitalSigns {
+            get {
+                return ResourceManager.GetString("AddVitalSigns", resourceCulture);
             }
         }
         
