@@ -1,11 +1,222 @@
 ﻿<div class="container-fluid px-0">
 
-    <!-- Always required -->
-    <partial name="Partials/_VisitInformation" model="Model" />
+
+    <!-- ============================================ -->
+    <!-- Tabs -->
+    <!-- ============================================ -->
+
+    <ul class="nav nav-tabs" id="visitTabs" role="tablist">
+
+        <!-- Visit Information -->
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active"
+                    id="visit-information-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#visitInformationTab"
+                    type="button"
+                    role="tab">
+                <i class="fa fa-info-circle me-1"></i>
+                @Localizer["VisitInformation"]
+            </button>
+        </li>
+
+        <!-- Vital Signs -->
+        <li class="nav-item" role="presentation">
+            <button class="nav-link"
+                    id="vital-signs-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#vitalSignsTab"
+                    type="button"
+                    role="tab">
+                <i class="fa fa-heartbeat me-1"></i>
+                @Localizer["VitalSigns"]
+            </button>
+        </li>
+
+        <!-- Diagnoses -->
+        <li class="nav-item" role="presentation">
+            <button class="nav-link"
+                    id="visit-information-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#diagnosesTab"
+                    type="button"
+                    role="tab">
+                <i class="fa fa-stethoscope me-1"></i>
+                @Localizer["Diagnoses"]
+            </button>
+        </li>
+
+        <!-- Prescription  -->
+        <li class="nav-item" role="presentation">
+            <button class="nav-link"
+                    id="visit-information-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#prescriptionTab"
+                    type="button"
+                    role="tab">
+                <i class="fa fa-prescription-bottle me-1"></i>
+                @Localizer["Prescription"]
+            </button>
+        </li>
+
+    </ul>
+
+    <!-- ============================================ -->
+    <!-- Tab Content -->
+    <!-- ============================================ -->
+
+    <div class="tab-content border border-top-0 rounded-bottom p-4"
+         id="visitTabsContent">
+
+        <!-- ======================================== -->
+        <!-- Visit Information -->
+        <!-- ======================================== -->
+        <div class="tab-pane fade show active"
+             id="visitInformationTab"
+             role="tabpanel">
+
+            <!-- Always required -->
+            <partial name="Partials/_VisitInformation" model="Model" />
+
+         </div>
+
+        <!-- ======================================== -->
+        <!-- Vital Signs-->
+        <!-- ======================================== -->
+        <div class="tab-pane fade"
+             id="vitalSignsTab"
+             role="tabpanel">
+
+            <div id="vitalSignsSection"
+                 class="optional-section d-none">
+                <div class="card mb-3">
+                    <div class="card-header d-flex text-white align-items-center justify-content-between">
+                        <strong>@Localizer["VitalSigns"]</strong>
+                        <button type="button"
+                                class="btn btn-sm btn-danger float-end"
+                                data-remove-section="vitalSignsSection">
+                            @Localizer["Remove"]
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <partial name="Partials/_VisitVitalSigns" model="Model" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Vital Signs -->
+            <div id="addVitalSignsContainer"
+                 class="text-center py-4">
+
+                <button type="button"
+                        class="btn btn-outline-primary"
+                        data-toggle-section="vitalSignsSection">
+
+                    <i class="fa fa-heartbeat me-1"></i>
+                    @Localizer["AddVitalSigns"]
+
+                </button>
+
+            </div>
+
+         </div>
+
+        <!-- ======================================== -->
+        <!-- Diagnoses -->
+        <!-- ======================================== -->
+        <div class="tab-pane fade"
+             id="diagnosesTab"
+             role="tabpanel">
+
+
+            <div id="diagnosesSection"
+                 class="optional-section d-none">
+                <div class="card mb-3">
+                    <div class="card-header d-flex text-white align-items-center justify-content-between">
+                        <strong>@Localizer["Diagnoses"]</strong>
+                        <button type="button"
+                                class="btn btn-sm btn-danger float-end"
+                                data-remove-section="diagnosesSection">
+                            @Localizer["Remove"]
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <partial name="Partials/_VisitDiagnoses" model="Model" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Diagnosis -->
+            <div id="addDiagnosesContainer"
+                 class="text-center py-4">
+
+                <button type="button"
+                        class="btn btn-outline-primary"
+                        data-toggle-section="diagnosesSection">
+
+                    <i class="fa fa-stethoscope me-1"></i>
+                    @Localizer["AddDiagnosis"]
+
+                </button>
+
+            </div>
+
+         </div>
+
+        <!-- ======================================== -->
+        <!-- Prescription  -->
+        <!-- ======================================== -->
+        <div class="tab-pane fade"
+             id="prescriptionTab"
+             role="tabpanel">
+
+
+            <div id="prescriptionSection"
+                 class="optional-section d-none">
+                <div class="card mb-3">
+                    <div class="card-header d-flex text-white align-items-center justify-content-between">
+                        <strong>@Localizer["Prescription"]</strong>
+                        <button type="button"
+                                class="btn btn-sm btn-danger float-end"
+                                data-remove-section="prescriptionSection">
+                            @Localizer["Remove"]
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <partial name="Partials/_VisitPrescription" model="Model" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Prescription -->
+            <div id="addPrescriptionContainer"
+                 class="text-center py-4">
+
+                <button type="button"
+                        class="btn btn-outline-primary"
+                        data-toggle-section="prescriptionSection">
+
+                    <i class="fa fa-prescription-bottle me-1"></i>
+                    @Localizer["AddPrescription"]
+
+                </button>
+
+            </div>
+
+         </div>
+
+
+        
+
+
+     </div>
+
+
+
 
 
     <!-- Optional sections -->
-    <div class="d-flex gap-2 mt-4 mb-3">
+    @* <div class="d-flex gap-2 mt-4 mb-3">
         <button type="button"
                 class="btn btn-outline-primary"
                 data-toggle-section="vitalSignsSection">
@@ -24,61 +235,16 @@
             <i class="fa fa-prescription-bottle me-1"></i>
             @Localizer["AddPrescription"]
         </button>
-    </div>
+    </div> *@
 
     <!-- Vital Signs -->
-    <div id="vitalSignsSection"
-         class="optional-section d-none">
-         <div class="card mb-3">
-             <div class="card-header d-flex text-white align-items-center justify-content-between">
-                <strong>@Localizer["VitalSigns"]</strong>
-                <button type="button"
-                        class="btn btn-sm btn-danger float-end"
-                        data-remove-section="vitalSignsSection">
-                    @Localizer["Remove"]
-                </button>
-             </div>
-             <div class="card-body">
-                <partial name="Partials/_VisitVitalSigns" model="Model" />
-             </div>
-         </div>
-     </div>
+  
 
     <!-- Diagnoses -->
-    <div id="diagnosesSection"
-         class="optional-section d-none">
-         <div class="card mb-3">
-            <div class="card-header d-flex text-white align-items-center justify-content-between">
-                <strong>@Localizer["Diagnoses"]</strong>
-                <button type="button"
-                        class="btn btn-sm btn-danger float-end"
-                        data-remove-section="diagnosesSection">
-                    @Localizer["Remove"]
-                </button>
-             </div>
-             <div class="card-body">
-                <partial name="Partials/_VisitDiagnoses" model="Model" />
-             </div>
-         </div>
-     </div>
+   
 
     <!-- Prescription  -->
-    <div id="prescriptionSection"
-         class="optional-section d-none">
-         <div class="card mb-3">
-            <div class="card-header d-flex text-white align-items-center justify-content-between">
-                <strong>@Localizer["Prescription"]</strong>
-                <button type="button"
-                        class="btn btn-sm btn-danger float-end"
-                        data-remove-section="prescriptionSection">
-                    @Localizer["Remove"]
-                </button>
-             </div>
-             <div class="card-body">
-                <partial name="Partials/_VisitPrescription" model="Model" />
-             </div>
-         </div>
-     </div>
+    
 
     @* <partial name="Partials/_VisitVitalSigns" model="Model" />
 

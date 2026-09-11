@@ -223,7 +223,7 @@ namespace ClinicFlow.Infrastructure.Services
                 item.UpdateEntity(DTO);
 
                 UpdateVisitDiagnoses(item, DTO);
-                UpdateVisitPrescription(item, DTO);
+                await UpdateVisitPrescription(item, DTO);
                 UpdateVisitVitalSign(item, DTO);
 
 
@@ -1028,11 +1028,38 @@ namespace ClinicFlow.Infrastructure.Services
 
         private void UpdateVisitVitalSign(Visit Entity, VisitDTO DTO)
         {
-            if (Entity.VitalSign == null ||  DTO.VitalSign == null)
+            // No VitalSign was selected/submitted
+            if (DTO.VitalSign == null)
             {
+                if (Entity.VitalSign != null)
+                {
+                    _appDbContext.VitalSigns.Remove(Entity.VitalSign);
+                }
+
                 return;
             }
 
+            // VitalSign was selected but does not exist yet
+            if (Entity.VitalSign == null)
+            {
+                Entity.VitalSign = new VitalSign
+                {
+                    Temperature = DTO.VitalSign.Temperature,
+                    Pulse = DTO.VitalSign.Pulse,
+                    SystolicBloodPressure = DTO.VitalSign.SystolicBloodPressure,
+                    DiastolicBloodPressure = DTO.VitalSign.DiastolicBloodPressure,
+                    RespiratoryRate = DTO.VitalSign.RespiratoryRate,
+                    OxygenSaturation = DTO.VitalSign.OxygenSaturation,
+                    Weight = DTO.VitalSign.Weight,
+                    Height = DTO.VitalSign.Height,
+                    RecordedAt = DTO.VitalSign.RecordedAt
+                };
+
+                return;
+            }
+
+
+            // Existing VitalSign -> update
             Entity.VitalSign.Temperature = DTO.VitalSign.Temperature;
             Entity.VitalSign.Pulse = DTO.VitalSign.Pulse;
             Entity.VitalSign.SystolicBloodPressure = DTO.VitalSign.SystolicBloodPressure;
@@ -1042,6 +1069,7 @@ namespace ClinicFlow.Infrastructure.Services
             Entity.VitalSign.Weight = DTO.VitalSign.Weight;
             Entity.VitalSign.Height = DTO.VitalSign.Height;
             Entity.VitalSign.RecordedAt = DTO.VitalSign.RecordedAt;
+            Entity.VitalSign.UpdatedAt = DateTime.Now;
 
         }
 
@@ -1084,13 +1112,38 @@ namespace ClinicFlow.Infrastructure.Services
             }
         }
 
-        private void UpdateVisitPrescription(Visit Entity, VisitDTO DTO)
+        private async Task UpdateVisitPrescription(Visit Entity, VisitDTO DTO)
         {
-            if (Entity.Prescription == null || DTO.Prescription == null)
+            // No prescription was selected/submitted
+            if (DTO.Prescription == null)
             {
+                if (Entity.Prescription != null)
+                {
+                    _appDbContext.Prescriptions.Remove(Entity.Prescription);
+                }
+
                 return;
             }
-            // ======================== Update Items ========================
+
+
+            // Prescription was selected but does not exist yet
+            if (Entity.Prescription == null)
+            {
+                Entity.Prescription = new Prescription
+                {
+                    PrescriptionDate = DateTime.Now,
+                    PrescriptionNumber = await GeneratePrescriptionNumberAsync(),
+                    Notes = DTO.Prescription.Notes,
+                };
+
+                UpdatePrescriptionItems(Entity.Prescription, DTO.Prescription);
+
+                return;
+            }
+
+            // Existing prescription -> update
+            Entity.Prescription.PrescriptionDate = DateTime.Now;
+            Entity.Prescription.Notes = DTO.Prescription.Notes;
             UpdatePrescriptionItems(Entity.Prescription, DTO.Prescription);
 
         }
@@ -1121,7 +1174,6 @@ namespace ClinicFlow.Infrastructure.Services
                 {
                     Entity.Items.Add(new PrescriptionItem
                     {
-                        Id = dto.Id,
                         MedicineId = dto.MedicineId,
                         MedicineName = dto.MedicineName,
                         Dosage = dto.Dosage,
