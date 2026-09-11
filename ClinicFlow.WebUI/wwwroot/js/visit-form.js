@@ -1185,3 +1185,140 @@ function initializeVisitDoctorFilter() {
     });
 
 }
+
+
+
+/* =========================================================
+Handle Model Binding For optional Visit Sections
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+    initializeOptionalSections();
+    initializeExistingSections();
+    registerOptionalSectionEvents();
+});
+
+
+function initializeOptionalSections() {
+
+    document.querySelectorAll(".optional-section").forEach(section => {
+        disableSectionFields(section);
+    });
+}
+
+function initializeExistingSections() {
+
+    if (hasPrescription) {
+        openOptionalSection("prescriptionSection");
+        hideAddButton("prescriptionSection");
+    }
+
+    if (hasVitalSign) {
+        openOptionalSection("vitalSignsSection");
+        hideAddButton("vitalSignsSection");
+    }
+
+    if (hasDiagnoses) {
+        openOptionalSection("diagnosesSection");
+        hideAddButton("diagnosesSection");
+    }
+}
+
+
+function registerOptionalSectionEvents() {
+
+    document.querySelectorAll("[data-toggle-section]")
+        .forEach(button => {
+
+            button.addEventListener("click", function () {
+
+                const sectionId = this.dataset.toggleSection;
+
+                openOptionalSection(sectionId);
+                hideAddButton(sectionId);
+            });
+        });
+
+
+    document.querySelectorAll("[data-remove-section]")
+        .forEach(button => {
+
+            button.addEventListener("click", function () {
+
+                const sectionId = this.dataset.removeSection;
+
+                closeOptionalSection(sectionId);
+                showAddButton(sectionId);
+            });
+        });
+}
+
+
+function openOptionalSection(sectionId) {
+
+    const section = document.getElementById(sectionId);
+
+    if (!section) {
+        return;
+    }
+
+    section.classList.remove("d-none");
+
+    enableSectionFields(section);
+}
+
+
+function closeOptionalSection(sectionId) {
+
+    const section = document.getElementById(sectionId);
+
+    if (!section) {
+        return;
+    }
+
+    section.classList.add("d-none");
+
+    disableSectionFields(section);
+}
+
+
+function enableSectionFields(section) {
+
+    section.querySelectorAll("input, select, textarea")
+        .forEach(input => {
+            input.disabled = false;
+        });
+}
+
+
+function disableSectionFields(section) {
+
+    section.querySelectorAll("input, select, textarea")
+        .forEach(input => {
+            input.disabled = true;
+        });
+}
+
+
+function hideAddButton(sectionId) {
+
+    const button = document.querySelector(
+        `[data-toggle-section="${sectionId}"]`
+    );
+
+    if (button) {
+        button.classList.add("d-none");
+    }
+}
+
+
+function showAddButton(sectionId) {
+
+    const button = document.querySelector(
+        `[data-toggle-section="${sectionId}"]`
+    );
+
+    if (button) {
+        button.classList.remove("d-none");
+    }
+}
