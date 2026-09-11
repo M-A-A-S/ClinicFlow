@@ -1143,7 +1143,7 @@ namespace ClinicFlow.Infrastructure.Services
             }
 
             // Existing prescription -> update
-            Entity.Prescription.PrescriptionDate = DateTime.Now;
+            Entity.Prescription.PrescriptionDate = DTO.Prescription.PrescriptionDate;
             Entity.Prescription.Notes = DTO.Prescription.Notes;
             UpdatePrescriptionItems(Entity.Prescription, DTO.Prescription);
 

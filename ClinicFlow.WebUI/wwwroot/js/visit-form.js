@@ -1299,6 +1299,30 @@ function openOptionalSection(sectionId) {
     section.classList.remove("d-none");
 
     enableSectionFields(section);
+
+    if (sectionId === "prescriptionSection") {
+        const input = document.getElementById("prescriptionDate");
+        console.log("Test")
+        if (input && !input.value) {
+            setPrescriptionDateToday();
+        }
+    }
+}
+
+
+function setPrescriptionDateToday() {
+    const input = document.getElementById("prescriptionDate");
+
+    if (!input) {
+        return;
+    }
+
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const day = String(today.getDate()).padStart(2, "0");
+
+    input.value = `${year}-${month}-${day}`;
 }
 
 
