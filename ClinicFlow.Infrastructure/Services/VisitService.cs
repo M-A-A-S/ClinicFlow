@@ -158,6 +158,7 @@ namespace ClinicFlow.Infrastructure.Services
                     .Include(x => x.VitalSign)
                     .Include(x => x.Prescription)
                         .ThenInclude(x => x.Items)
+                            .ThenInclude(x => x.Medicine)
                     .Include(x => x.VisitDiagnoses)
                         .ThenInclude(x => x.Diagnosis)
                     .FirstOrDefaultAsync(x => x.Id == id);

@@ -14,6 +14,7 @@ using ClinicFlow.Domain.DTOs.PrescriptionItem;
 using ClinicFlow.Domain.DTOs.VitalSign;
 using ClinicFlow.Domain.DTOs.VisitDiagnosis;
 using ClinicFlow.Domain.DTOs.Diagnosis;
+using ClinicFlow.Domain.DTOs.Medicine;
 
 namespace ClinicFlow.Domain.Extensions
 {
@@ -127,7 +128,16 @@ namespace ClinicFlow.Domain.Extensions
                             Frequency = x.Frequency,
                             Duration = x.Duration,
                             Quantity = x.Quantity,
-                            Instructions = x.Instructions
+                            Instructions = x.Instructions,
+
+                            Medicine = x.Medicine == null ? null : new MedicineDTO
+                            {
+                                Id = x.Medicine.Id,
+                                NameEn = x.Medicine.NameEn,
+                                NameAr = x.Medicine.NameAr,
+                                GenericNameEn = x.Medicine.GenericNameEn,
+                                GenericNameAr = x.Medicine.GenericNameAr
+                            }
                         }).ToList()
                 },
 

@@ -1,6 +1,11 @@
 ﻿@using ClinicFlow.Domain.DTOs.Visit
 @model VisitDTO
 
+
+@{
+    bool isArabic = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+}
+
 <div class="card shadow-sm border-0 mb-4">
 
     <div class="card-header bg-transparent border-bottom py-3">
@@ -256,8 +261,10 @@
                                     data-medicine-id="@item.MedicineId">
 
                                     <td>
-
-                                        @item.Medicine?.NameEn
+                                        @(isArabic 
+                                            ? item.Medicine?.NameAr
+                                            : item.Medicine?.NameEn)
+                                        @* @item.Medicine?.NameEn *@
 
                                         <input type="hidden"
                                                name="Prescription.Items.Index"
