@@ -1,0 +1,124 @@
+﻿@using ClinicFlow.Domain.DTOs.Visit
+@model VisitDTO
+
+@{
+    bool isArabic = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+}
+
+@if (Model.Prescription != null)
+{
+    <div class="card">
+
+        <div class="card-header text-white">
+            <strong>@Localizer["Prescription"]</strong>
+        </div>
+
+        <div class="card-body">
+
+            <div class="row g-3 mb-4">
+
+                <div class="col-md-4">
+                    <label class="form-label fw-medium">
+                        @Localizer["PrescriptionDate"]
+                    </label>
+
+                    <div class="form-control">
+                        @Model.Prescription.PrescriptionDate.ToString("yyyy-MM-dd")
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <label class="form-label fw-medium">
+                        @Localizer["PrescriptionDate"]
+                    </label>
+
+                    <div class="form-control">
+                        @(!string.IsNullOrWhiteSpace(Model.Prescription.Notes)
+                            ? Model.Prescription.Notes
+                            : "-")
+                    </div>
+                </div>
+
+            </div>
+
+
+            @if (Model.Prescription.Items?.Any() == true)
+            {
+                <div class="table-responsive">
+
+                    <table class="table table-bordered align-middle mb-0">
+
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>@Localizer["Medicine"]</th>
+                                <th>@Localizer["Dosage"]</th>
+                                <th>@Localizer["Frequency"]</th>
+                                <th>@Localizer["Duration"]</th>
+                                <th>@Localizer["Quantity"]</th>
+                                <th>@Localizer["Instructions"]</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @for (var i = 0;
+                                                i < Model.Prescription.Items.Count;
+                                                i++)
+                            {
+                                var item = Model.Prescription.Items[i];
+
+                                <tr>
+                                    <td>
+                                        @(i + 1)
+                                    </td>
+
+                                    <td>
+                                        @(isArabic
+                                                                    ? item.Medicine?.NameAr
+                                                                    : item.Medicine?.NameEn)
+                        </td>
+
+                                    <td>
+                                        @item.Dosage
+                                    </td>
+
+                                    <td>
+                                        @item.Frequency
+                                    </td>
+
+                                    <td>
+                                        @item.Duration
+                                    </td>
+
+                                    <td>
+                                        @item.Quantity
+                                    </td>
+
+                                    <td>
+                                        @item.Instructions
+                                    </td>
+                                </tr>
+                                        }
+                        </tbody>
+
+                    </table>
+
+                </div>
+            }
+            else
+            {
+                <div class="text-center text-muted py-4">
+                    @Localizer["NoPrescriptionItems"]
+                </div>
+            }
+
+        </div>
+    </div>
+}
+else
+{
+    <div class="text-center text-muted py-5">
+        <i class="fa fa-prescription-bottle fa-2x mb-3"></i>
+        <div>@Localizer["NoPrescription"]</div>
+    </div>
+}

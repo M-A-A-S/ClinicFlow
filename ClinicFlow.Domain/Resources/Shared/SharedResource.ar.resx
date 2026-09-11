@@ -1346,4 +1346,20 @@
     <value>إلغاء</value>
   </data>
 
+	<data name="NoVitalSigns" xml:space="preserve">
+  <value>لا توجد علامات حيوية مسجلة.</value>
+</data>
+
+	<data name="NoDiagnoses" xml:space="preserve">
+  <value>لا توجد تشخيصات مسجلة.</value>
+</data>
+
+	<data name="NoPrescription" xml:space="preserve">
+  <value>لا توجد وصفة طبية مسجلة.</value>
+</data>
+
+	<data name="NoPrescriptionItems" xml:space="preserve">
+  <value>لا توجد أدوية مسجلة في الوصفة.</value>
+</data>
+
 </root>

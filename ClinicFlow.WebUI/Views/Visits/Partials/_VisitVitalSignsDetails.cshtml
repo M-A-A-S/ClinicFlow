@@ -1,0 +1,132 @@
+﻿@using ClinicFlow.Domain.DTOs.Visit
+@model VisitDTO
+
+@if (Model.VitalSign != null)
+{
+    <div class="card">
+        <div class="card-header text-white">
+            <strong>@Localizer["VitalSigns"]</strong>
+        </div>
+
+        <div class="card-body">
+            <div class="row g-3">
+
+                <div class="col-md-3">
+                    <label class="form-label fw-medium">
+                        @Localizer["Temperature"]
+                    </label>
+                    <div class="form-control">
+                        @(Model.VitalSign.Temperature.HasValue
+                            ? Model.VitalSign.Temperature.Value
+                            : "-")
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label fw-medium">
+                        @Localizer["Pulse"]
+                    </label>
+                    <div class="form-control">
+                        @(Model.VitalSign.Pulse.HasValue
+                                            ? Model.VitalSign.Pulse.Value
+                                            : "-")
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label fw-medium">
+                        @Localizer["SystolicBloodPressure"]
+                    </label>
+                    <div class="form-control">
+                        @(Model.VitalSign.SystolicBloodPressure.HasValue
+                                            ? Model.VitalSign.SystolicBloodPressure.Value
+                                            : "-")
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label fw-medium">
+                        @Localizer["DiastolicBloodPressure"]
+                    </label>
+                    <div class="form-control">
+                        @(Model.VitalSign.DiastolicBloodPressure.HasValue
+                                            ? Model.VitalSign.DiastolicBloodPressure.Value
+                                            : "-")
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label fw-medium">
+                        @Localizer["RespiratoryRate"]
+                    </label>
+                    <div class="form-control">
+                        @(Model.VitalSign.RespiratoryRate.HasValue
+                                            ? Model.VitalSign.RespiratoryRate.Value
+                                            : "-")
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label fw-medium">
+                        @Localizer["OxygenSaturation"]
+                    </label>
+                    <div class="form-control">
+                        @(Model.VitalSign.OxygenSaturation.HasValue
+                                            ? Model.VitalSign.OxygenSaturation.Value
+                                            : "-")
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label fw-medium">
+                        @Localizer["Weight"]
+                    </label>
+                    <div class="form-control">
+                        @(Model.VitalSign.Weight.HasValue
+                                            ? Model.VitalSign.Weight.Value
+                                            : "-")
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label fw-medium">
+                        @Localizer["Height"]
+                    </label>
+                    <div class="form-control">
+                        @(Model.VitalSign.Height.HasValue
+                                            ? Model.VitalSign.Height.Value
+                                            : "-")
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label fw-medium">
+                        @Localizer["BMI"]
+                    </label>
+                    <div class="form-control">
+                        @(Model.VitalSign.BMI.HasValue
+                                            ? Model.VitalSign.BMI.Value
+                                            : "-")
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label fw-medium">
+                        @Localizer["RecordedAt"]
+                    </label>
+                    <div class="form-control">
+                        @Model.VitalSign.RecordedAt.ToString("yyyy-MM-dd HH:mm")
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="text-center text-muted py-5">
+        <i class="fa fa-heartbeat fa-2x mb-3"></i>
+        <div>@Localizer["NoVitalSigns"]</div>
+    </div>
+}

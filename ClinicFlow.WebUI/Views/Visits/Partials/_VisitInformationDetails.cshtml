@@ -1,0 +1,100 @@
+﻿@using ClinicFlow.Domain.DTOs.Visit
+@model VisitDTO
+
+@{
+    bool isArabic = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+}
+
+<div class="card">
+    <div class="card-header text-white">
+        <strong>@Localizer["VisitInformation"]</strong>
+    </div>
+
+    <div class="card-body">
+        <div class="row g-3">
+
+            <div class="col-md-6">
+                <label class="form-label fw-medium">
+                    @Localizer["VisitNumber"]
+                </label>
+
+                <div class="form-control">
+                    @Model.VisitNumber
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label fw-medium">
+                    @Localizer["VisitDate"]
+                </label>
+
+                <div class="form-control ">
+                    @Model.VisitDate.ToString("yyyy-MM-dd HH:mm")
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label fw-medium">
+                    @Localizer["Patient"]
+                </label>
+
+                <div class="form-control ">
+                    @Model.Patient?.FullName
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label fw-medium">
+                    @Localizer["Doctor"]
+                </label>
+
+                <div class="form-control ">
+                    @Model.Doctor?.FullName
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label fw-medium">
+                    @Localizer["Clinic"]
+                </label>
+
+                <div class="form-control ">
+                    @(isArabic
+                        ? Model.Clinic?.NameAr
+                        : Model.Clinic?.NameEn)
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label fw-medium">
+                    @Localizer["Status"]
+                </label>
+
+                <div class="form-control ">
+                    @Model.Status
+                </div>
+            </div>
+
+            <div class="col-12">
+                <label class="form-label fw-medium">
+                    @Localizer["Complaint"]
+                </label>
+
+                <div class="form-control ">
+                    @Model.Complaint
+                </div>
+            </div>
+
+            <div class="col-12">
+                <label class="form-label fw-medium">
+                    @Localizer["ClinicalNotes"]
+                </label>
+
+                <div class="form-control ">
+                    @Model.ClinicalNotes
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

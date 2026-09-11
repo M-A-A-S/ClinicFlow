@@ -1329,5 +1329,20 @@
     <value>Cancel</value>
   </data>
 
+	<data name="NoVitalSigns" xml:space="preserve">
+  <value>No vital signs recorded.</value>
+</data>
+
+	<data name="NoDiagnoses" xml:space="preserve">
+  <value>No diagnoses recorded.</value>
+</data>
+
+	<data name="NoPrescription" xml:space="preserve">
+  <value>No prescription recorded.</value>
+</data>
+
+	<data name="NoPrescriptionItems" xml:space="preserve">
+  <value>No prescription items recorded.</value>
+</data>
 
 </root>

@@ -1,0 +1,61 @@
+﻿@using ClinicFlow.Domain.DTOs.Visit
+@model VisitDTO
+
+@{
+    bool isArabic = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+}
+
+<div class="card">
+    <div class="card-header text-white">
+        <strong>@Localizer["Diagnoses"]</strong>
+    </div>
+
+    <div class="card-body">
+
+        @if (Model.VisitDiagnoses?.Any() == true)
+        {
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover align-middle mb-0">
+
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>@Localizer["Diagnosis"]</th>
+                            <th>@Localizer["Notes"]</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var diagnosis in Model.VisitDiagnoses)
+                        {
+                            <tr>
+                                <td>
+                                    @(Model.VisitDiagnoses.IndexOf(diagnosis) + 1)
+                                </td>
+
+                                <td>
+                                    @(isArabic
+                                                                ? diagnosis.Diagnosis?.NameAr
+                                                                : diagnosis.Diagnosis?.NameEn)
+                        </td>
+
+                                <td>
+                                    @diagnosis.Notes
+                                </td>
+                            </tr>
+                                        }
+                    </tbody>
+
+                </table>
+            </div>
+        }
+        else
+        {
+            <div class="text-center text-muted py-4">
+                <i class="fa fa-stethoscope fa-2x mb-2"></i>
+                <div>@Localizer["NoDiagnoses"]</div>
+            </div>
+        }
+
+    </div>
+</div>

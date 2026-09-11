@@ -1582,6 +1582,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No diagnoses recorded..
+        /// </summary>
+        public static string NoDiagnoses {
+            get {
+                return ResourceManager.GetString("NoDiagnoses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No diagnoses added..
         /// </summary>
         public static string NoDiagnosesAdded {
@@ -1605,6 +1614,24 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string None {
             get {
                 return ResourceManager.GetString("None", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No prescription recorded..
+        /// </summary>
+        public static string NoPrescription {
+            get {
+                return ResourceManager.GetString("NoPrescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No prescription items recorded..
+        /// </summary>
+        public static string NoPrescriptionItems {
+            get {
+                return ResourceManager.GetString("NoPrescriptionItems", resourceCulture);
             }
         }
         
@@ -1677,6 +1704,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string NotSpecified {
             get {
                 return ResourceManager.GetString("NotSpecified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No vital signs recorded..
+        /// </summary>
+        public static string NoVitalSigns {
+            get {
+                return ResourceManager.GetString("NoVitalSigns", resourceCulture);
             }
         }
         

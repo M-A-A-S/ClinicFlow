@@ -161,6 +161,7 @@ namespace ClinicFlow.Domain.Extensions
                         Id = x.Id,
                         VisitId = x.VisitId,
                         DiagnosisId = x.DiagnosisId,
+                        Notes = x.Notes,
                         Diagnosis = x.Diagnosis == null ? null : new DiagnosisDTO
                         {
                             Id = x.Diagnosis.Id,

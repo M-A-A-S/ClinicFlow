@@ -178,6 +178,11 @@ body[data-bs-theme="light"] {
         /*        padding: 0.5rem 1rem;*/
     }
 
+.table-bordered
+{
+    border-color: var(--border-color);
+}
+
 .card {
     background-color: var(--card-background);
 }
@@ -207,6 +212,8 @@ body[data-bs-theme="light"] {
         box-shadow: none;
         border-color: var(--primary-color);
     }
+
+
 
 .form-label {
     margin-bottom: 0px;
@@ -1032,3 +1039,28 @@ html[dir="rtl"] .submenu a {
     border-color: var(--border-color);
 }
 /*Starte Filting & Pangination*/
+
+/* Start Tabs */
+.border {
+    border-color: var(--border-color) !important;
+}
+.nav-tabs {
+    border-bottom-color: var(--border-color);
+}
+.nav-tabs .nav-link {
+    border-color: var(--border-color);
+    color: var(--primary-color);
+    
+}
+.nav-tabs .nav-link:hover{
+    border-color: var(--primary-color);
+}
+.nav-tabs .nav-link.active {
+    color: var(--text-color);
+    background-color: var(--card-background);
+    border-color: var(--border-color);
+    border-bottom-color: transparent;
+    background-color: var(--primary-color);
+    color: white;
+}
+/* End Tabs */
