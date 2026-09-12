@@ -241,7 +241,8 @@ namespace ClinicFlow.Domain.Extensions
                             Quantity = x.Quantity,
                             Dosage = x.Dosage,
                             Frequency = x.Frequency,
-                            Duration = x.Duration
+                            Duration = x.Duration,
+                            Instructions = x.Instructions
                         }).ToList()
                 }
 

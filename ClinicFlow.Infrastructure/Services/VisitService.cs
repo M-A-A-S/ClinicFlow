@@ -19,6 +19,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -1076,40 +1077,57 @@ namespace ClinicFlow.Infrastructure.Services
 
         private void UpdateVisitDiagnoses(Visit Entity, VisitDTO DTO)
         {
-            var incomingIds = DTO.VisitDiagnoses?
-                .Where(x => x.Id > 0)
-                .Select(x => x.Id)
-                .ToHashSet()
-                ?? new HashSet<int>();
 
-            // ======================== Remove ========================
-            var deletedItems = Entity.VisitDiagnoses
-                .Where(x => x.Id > 0 && !incomingIds.Contains(x.Id)).ToList();
+            Entity.VisitDiagnoses ??= new List<VisitDiagnosis>();
 
-            _appDbContext.VisitDiagnoses.RemoveRange(deletedItems);
+            var incomingDiagnoses = DTO.VisitDiagnoses 
+                ?? new List<VisitDiagnosisDTO>();
 
-            // ======================== Add / Update ========================
-            foreach (var dto in DTO.VisitDiagnoses 
-                ?? Enumerable.Empty<VisitDiagnosisDTO>())
+            if (incomingDiagnoses.Count == 0)
             {
-                var entity = Entity.VisitDiagnoses
-                    .FirstOrDefault(x => x.Id == dto.Id);
+                if (Entity.VisitDiagnoses.Count > 0)
+                {
+                    _appDbContext.VisitDiagnoses.RemoveRange(Entity.VisitDiagnoses);
+                    Entity.VisitDiagnoses.Clear();
+                }
 
-                // ======================== Add ========================
-                if (entity == null)
+                return;
+            }
+
+            var incomingByDiagnosisId = incomingDiagnoses
+                .GroupBy(x => x.DiagnosisId)
+                .ToDictionary(g => g.Key, g => g.First());
+
+            var existingList = Entity.VisitDiagnoses.ToList();
+
+            foreach (var existing in existingList)
+            {
+                if (incomingByDiagnosisId.TryGetValue(existing.DiagnosisId, out var incoming))
+                {
+                    existing.Notes = incoming.Notes;
+                }
+                else
+                {
+                    _appDbContext.VisitDiagnoses.Remove(existing);
+                    Entity.VisitDiagnoses.Remove(existing);
+                }
+            }
+
+            var existingDiagnosisIds = existingList
+                .Select(x => x.DiagnosisId)
+                .ToHashSet();
+
+            foreach (var incoming in incomingByDiagnosisId.Values)
+            {
+                if (!existingDiagnosisIds.Contains(incoming.DiagnosisId))
                 {
                     Entity.VisitDiagnoses.Add(new VisitDiagnosis
                     {
-                        DiagnosisId = dto.DiagnosisId,
-                        Notes = dto.Notes,
+                        VisitId = Entity.Id,
+                        DiagnosisId = incoming.DiagnosisId,
+                        Notes = incoming.Notes,
                     });
-
-                    continue;
                 }
-
-                // ======================== Update ========================
-                entity.DiagnosisId = dto.DiagnosisId;
-                entity.Notes = dto.Notes;
             }
         }
 
@@ -1132,7 +1150,7 @@ namespace ClinicFlow.Infrastructure.Services
             {
                 Entity.Prescription = new Prescription
                 {
-                    PrescriptionDate = DateTime.Now,
+                    PrescriptionDate = DTO.Prescription.PrescriptionDate,
                     PrescriptionNumber = await GeneratePrescriptionNumberAsync(),
                     Notes = DTO.Prescription.Notes,
                 };
@@ -1151,53 +1169,109 @@ namespace ClinicFlow.Infrastructure.Services
 
         private void UpdatePrescriptionItems(Prescription Entity, PrescriptionDTO DTO)
         {
-            var incomingIds = DTO.Items?
-                .Where(x => x.Id > 0)
-                .Select(x => x.Id)
-                .ToHashSet()
-                ?? new HashSet<int>();
 
-            // ======================== Remove ========================
-            var deletedItems = Entity.Items
-                .Where(x => x.Id > 0 &&
-                    !incomingIds.Contains(x.Id))
-                .ToList();
+            Entity.Items ??= new List<PrescriptionItem>();
+            var incomingItems = DTO.Items
+                ?? new List<PrescriptionItemDTO>();
 
-            _appDbContext.PrescriptionItems.RemoveRange(deletedItems);
-
-            // ======================== Add / Update ========================
-            foreach (var dto in DTO.Items
-                ?? Enumerable.Empty<PrescriptionItemDTO>())
+            // Clear all if payload is empty
+            if (incomingItems.Count == 0)
             {
-                var item = Entity.Items.FirstOrDefault(x => x.Id == dto.Id);
-                // ======================== Add ========================
-                if (item == null)
+                if (Entity.Items.Count > 0)
                 {
-                    Entity.Items.Add(new PrescriptionItem
-                    {
-                        MedicineId = dto.MedicineId,
-                        MedicineName = dto.MedicineName,
-                        Dosage = dto.Dosage,
-                        Frequency = dto.Frequency,
-                        Duration = dto.Duration,
-                        Instructions = dto.Instructions,
-                        Quantity = dto.Quantity,
-                    });
-
-                    continue;
+                    _appDbContext.PrescriptionItems.RemoveRange(Entity.Items);
+                    Entity.Items.Clear();
                 }
 
-                // ======================== Update ========================
-                item.MedicineId = dto.MedicineId;
-                item.MedicineName = dto.MedicineName;
-                item.Dosage = dto.Dosage;
-                item.Frequency = dto.Frequency;
-                item.Duration = dto.Duration;
-                item.Instructions = dto.Instructions;
-                item.Quantity = dto.Quantity;
+                return;
+            }
+
+            var incomingByMedicineId = incomingItems
+                .Where(x => x.MedicineId.HasValue)
+                .GroupBy(x => x.MedicineId!.Value)
+                .ToDictionary(g => g.Key, g => g.First());
+
+
+            var incomingById = incomingItems
+                .Where(x => !x.MedicineId.HasValue &&
+                    x.Id > 0)
+                .GroupBy(x => x.Id)
+                .ToDictionary(g => g.Key, g => g.First());
+
+            var existingList = Entity.Items.ToList();
+
+            // Update or Remove existing items
+            foreach (var existing in existingList)
+            {
+                PrescriptionItemDTO? matchedIncoming = null;
+
+                if (existing.MedicineId.HasValue)
+                {
+                    incomingByMedicineId.TryGetValue(existing.MedicineId.Value, out matchedIncoming);
+                }
+                else if (existing.Id > 0)
+                {
+                    incomingById.TryGetValue(existing.Id, out matchedIncoming);
+                }
+
+                if (matchedIncoming != null)
+                {
+                    existing.MedicineId = matchedIncoming.MedicineId;
+                    existing.MedicineName = matchedIncoming.MedicineName;
+                    existing.Dosage = matchedIncoming.Dosage;
+                    existing.Frequency = matchedIncoming.Frequency;
+                    existing.Duration = matchedIncoming.Duration;
+                    existing.Instructions = matchedIncoming.Instructions;
+                    existing.Quantity = matchedIncoming.Quantity;
+                }
+                else
+                {
+                    _appDbContext.PrescriptionItems.Remove(existing);
+                    Entity.Items.Remove(existing);
+                }
 
             }
 
+            // Track existing IDs to avoid duplicate insertions
+            var existingMedicineIds = existingList
+                .Where(x => x.MedicineId.HasValue)
+                .Select(x => x.MedicineId!.Value)
+                .ToHashSet();
+
+            var existingItemIds = existingList
+                .Where(x => !x.MedicineId.HasValue && x.Id > 0)
+                .Select(x => x.Id)
+                .ToHashSet();
+
+            // Add new items
+            foreach (var incoming in incomingItems)
+            {
+                bool isNew = true;
+
+                if (incoming.MedicineId.HasValue)
+                {
+                    isNew = !existingMedicineIds.Contains(incoming.MedicineId.Value);
+                }
+                else if (incoming.Id > 0)
+                {
+                    isNew = !existingItemIds.Contains(incoming.Id);
+                }
+
+                if (isNew)
+                {
+                    Entity.Items.Add(new PrescriptionItem
+                    {
+                        PrescriptionId = Entity.Id,
+                        MedicineId = incoming.MedicineId,
+                        MedicineName = incoming.MedicineName,
+                        Dosage = incoming.Dosage,
+                        Frequency = incoming.Frequency,
+                        Duration = incoming.Duration,
+                        Instructions = incoming.Instructions,
+                        Quantity = incoming.Quantity,
+                    });
+                }
+            }
         }
 
         #endregion
