@@ -733,7 +733,6 @@ const VisitForm = {
             "dosage",
             "frequency",
             "duration",
-            "quantity",
             "instructions"
 
         ];
@@ -744,11 +743,18 @@ const VisitForm = {
             const element =
                 document.getElementById(id);
 
+
             if (element) {
                 element.value = "";
             }
 
         });
+
+        const quantity = document.getElementById("quantity");
+
+        if (quantity) {
+            quantity.value = "1"
+        }
 
     },
 
