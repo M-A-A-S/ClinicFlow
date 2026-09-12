@@ -82,6 +82,9 @@
 
                 <div class="form-control ">
                     @Model.Complaint
+                    @(!string.IsNullOrWhiteSpace(Model.Complaint)
+                                        ? Model.Complaint
+                                        : "-")
                 </div>
             </div>
 
@@ -92,6 +95,9 @@
 
                 <div class="form-control ">
                     @Model.ClinicalNotes
+                    @(!string.IsNullOrWhiteSpace(Model.ClinicalNotes)
+                                        ? Model.ClinicalNotes
+                                        : "-")
                 </div>
             </div>
 
