@@ -1362,4 +1362,160 @@
   <value>لا توجد أدوية مسجلة في الوصفة.</value>
 </data>
 
+	<data name="LabCategory" xml:space="preserve">
+    <value>فئة المختبر</value>
+  </data>
+	<data name="LabCategories" xml:space="preserve">
+    <value>فئات المختبر</value>
+  </data>
+
+	<data name="LabTest" xml:space="preserve">
+    <value>فحص مخبري</value>
+  </data>
+	<data name="LabTests" xml:space="preserve">
+    <value>الفحوصات المخبرية</value>
+  </data>
+
+	<data name="LabTestParameter" xml:space="preserve">
+    <value>مؤشر الفحص المخبري</value>
+  </data>
+	<data name="LabTestParameters" xml:space="preserve">
+    <value>مؤشرات الفحوصات المخبرية</value>
+  </data>
+
+	<data name="LabOrder" xml:space="preserve">
+    <value>طلب فحص مخبري</value>
+  </data>
+	<data name="LabOrders" xml:space="preserve">
+    <value>طلبات الفحوصات المخبرية</value>
+  </data>
+
+	<data name="LabOrderItem" xml:space="preserve">
+    <value>عنصر طلب الفحص المخبري</value>
+  </data>
+	<data name="LabOrderItems" xml:space="preserve">
+    <value>عناصر طلبات الفحوصات المخبرية</value>
+  </data>
+
+	<data name="LabResult" xml:space="preserve">
+    <value>نتيجة الفحص المخبري</value>
+  </data>
+	<data name="LabResults" xml:space="preserve">
+    <value>نتائج الفحوصات المخبرية</value>
+  </data>
+
+	<data name="LabResultValue" xml:space="preserve">
+    <value>قيمة نتيجة الفحص</value>
+  </data>
+	<data name="LabResultValues" xml:space="preserve">
+    <value>قيم نتائج الفحوصات</value>
+  </data>
+	<data name="Category" xml:space="preserve">
+    <value>الفئة</value>
+  </data>
+
+	<data name="Tests" xml:space="preserve">
+    <value>الفحوصات</value>
+  </data>
+
+	<data name="Parameters" xml:space="preserve">
+    <value>المؤشرات</value>
+  </data>
+
+	<data name="Unit" xml:space="preserve">
+    <value>الوحدة</value>
+  </data>
+
+	<data name="NormalRange" xml:space="preserve">
+    <value>المعدل الطبيعي</value>
+  </data>
+
+	<data name="DisplayOrder" xml:space="preserve">
+    <value>ترتيب العرض</value>
+  </data>
+
+	<data name="OrderDate" xml:space="preserve">
+    <value>تاريخ الطلب</value>
+  </data>
+
+	<data name="Items" xml:space="preserve">
+    <value>العناصر</value>
+  </data>
+
+	<data name="Result" xml:space="preserve">
+    <value>النتيجة</value>
+  </data>
+
+	<data name="OrderItem" xml:space="preserve">
+    <value>عنصر طلب الفحص</value>
+  </data>
+
+	<data name="ResultDate" xml:space="preserve">
+    <value>تاريخ النتيجة</value>
+  </data>
+
+	<data name="Values" xml:space="preserve">
+    <value>القيم</value>
+  </data>
+
+	<data name="Parameter" xml:space="preserve">
+    <value>المؤشر</value>
+  </data>
+
+	<data name="Value" xml:space="preserve">
+    <value>القيمة</value>
+  </data>
+
+	<data name="NumericValue" xml:space="preserve">
+    <value>القيمة الرقمية</value>
+  </data>
+
+	<data name="Flag" xml:space="preserve">
+    <value>تصنيف النتيجة</value>
+  </data>
+
+	<data name="LabStatus" xml:space="preserve">
+    <value>حالة الفحص المخبري</value>
+  </data>
+
+	<data name="Pending" xml:space="preserve">
+    <value>قيد الانتظار</value>
+  </data>
+
+	<data name="SampleCollected" xml:space="preserve">
+    <value>تم جمع العينة</value>
+  </data>
+
+	<data name="InProgress" xml:space="preserve">
+    <value>قيد التنفيذ</value>
+  </data>
+
+	<data name="Completed" xml:space="preserve">
+    <value>مكتمل</value>
+  </data>
+
+	<data name="Cancelled" xml:space="preserve">
+    <value>ملغى</value>
+  </data>
+
+	<data name="LabResultFlag" xml:space="preserve">
+    <value>تصنيف النتيجة</value>
+  </data>
+
+	<data name="None" xml:space="preserve">
+    <value>غير محدد</value>
+  </data>
+
+	<data name="Normal" xml:space="preserve">
+    <value>طبيعي</value>
+  </data>
+
+	<data name="Abnormal" xml:space="preserve">
+    <value>غير طبيعي</value>
+  </data>
+
+	<data name="Critical" xml:space="preserve">
+    <value>حرج</value>
+  </data>
+
 </root>

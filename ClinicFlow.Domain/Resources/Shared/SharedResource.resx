@@ -1345,4 +1345,155 @@
   <value>No prescription items recorded.</value>
 </data>
 
+	<data name="LabCategory" xml:space="preserve">
+    <value>Lab Category</value>
+  </data>
+	<data name="LabCategories" xml:space="preserve">
+    <value>Lab Categories</value>
+  </data>
+
+	<data name="LabTest" xml:space="preserve">
+    <value>Lab Test</value>
+  </data>
+	<data name="LabTests" xml:space="preserve">
+    <value>Lab Tests</value>
+  </data>
+
+	<data name="LabTestParameter" xml:space="preserve">
+    <value>Lab Test Parameter</value>
+  </data>
+	<data name="LabTestParameters" xml:space="preserve">
+    <value>Lab Test Parameters</value>
+  </data>
+
+	<data name="LabOrder" xml:space="preserve">
+    <value>Lab Order</value>
+  </data>
+	<data name="LabOrders" xml:space="preserve">
+    <value>Lab Orders</value>
+  </data>
+
+	<data name="LabOrderItem" xml:space="preserve">
+    <value>Lab Order Item</value>
+  </data>
+	<data name="LabOrderItems" xml:space="preserve">
+    <value>Lab Order Items</value>
+  </data>
+
+	<data name="LabResult" xml:space="preserve">
+    <value>Lab Result</value>
+  </data>
+	<data name="LabResults" xml:space="preserve">
+    <value>Lab Results</value>
+  </data>
+
+	<data name="LabResultValue" xml:space="preserve">
+    <value>Lab Result Value</value>
+  </data>
+	<data name="LabResultValues" xml:space="preserve">
+    <value>Lab Result Values</value>
+  </data>
+
+	<data name="Tests" xml:space="preserve">
+    <value>Tests</value>
+  </data>
+
+	<data name="Parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+	
+	<data name="Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+
+	<data name="Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+
+	<data name="Unit" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+	<data name="NormalRange" xml:space="preserve">
+    <value>Normal Range</value>
+  </data>
+	<data name="DisplayOrder" xml:space="preserve">
+    <value>Display Order</value>
+  </data>
+
+	<data name="OrderDate" xml:space="preserve">
+    <value>Order Date</value>
+  </data>
+
+	<data name="Items" xml:space="preserve">
+    <value>Items</value>
+  </data>
+
+	<data name="Result" xml:space="preserve">
+    <value>Result</value>
+  </data>
+
+	<data name="ResultDate" xml:space="preserve">
+    <value>Result Date</value>
+  </data>
+
+	<data name="Values" xml:space="preserve">
+    <value>Values</value>
+  </data>
+
+	<data name="Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+
+	<data name="NumericValue" xml:space="preserve">
+    <value>Numeric Value</value>
+  </data>
+
+	<data name="Flag" xml:space="preserve">
+    <value>Result Flag</value>
+  </data>
+
+	<data name="LabStatus" xml:space="preserve">
+    <value>Lab Status</value>
+  </data>
+
+	<data name="Pending" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+
+	<data name="SampleCollected" xml:space="preserve">
+    <value>Sample Collected</value>
+  </data>
+
+	<data name="InProgress" xml:space="preserve">
+    <value>In Progress</value>
+  </data>
+
+	<data name="Completed" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+
+	<data name="Cancelled" xml:space="preserve">
+    <value>Cancelled</value>
+  </data>
+
+	<data name="LabResultFlag" xml:space="preserve">
+    <value>Result Flag</value>
+  </data>
+
+	<data name="None" xml:space="preserve">
+    <value>None</value>
+  </data>
+
+	<data name="Normal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+
+	<data name="Abnormal" xml:space="preserve">
+    <value>Abnormal</value>
+  </data>
+
+	<data name="Critical" xml:space="preserve">
+    <value>Critical</value>
+  </data>
+
 </root>
