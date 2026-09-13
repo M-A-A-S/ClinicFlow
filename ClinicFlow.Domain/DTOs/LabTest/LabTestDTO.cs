@@ -1,0 +1,66 @@
+﻿using ClinicFlow.Domain.DTOs.LabCategory;
+using ClinicFlow.Domain.DTOs.LabTestParameter;
+using ClinicFlow.Domain.Entities;
+using ClinicFlow.Domain.Resources.Shared;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ClinicFlow.Domain.DTOs.LabTest
+{
+    public class LabTestDTO
+    {
+        public int Id { get; set; }
+
+
+        [Display(
+            Name = nameof(SharedResource.Category),
+            ResourceType = typeof(SharedResource)
+        )]
+        public int? CategoryId { get; set; }
+
+        [Display(
+            Name = nameof(SharedResource.NameEn),
+            ResourceType = typeof(SharedResource)
+        )]
+        [Required(
+            ErrorMessageResourceName = nameof(SharedResource.Required),
+            ErrorMessageResourceType = typeof(SharedResource)
+        )]
+        public required string NameEn { get; set; }
+
+        [Display(
+            Name = nameof(SharedResource.NameAr),
+            ResourceType = typeof(SharedResource)
+        )]
+        public string? NameAr { get; set; }
+
+        [Display(
+            Name = nameof(SharedResource.Price),
+            ResourceType = typeof(SharedResource)
+        )]
+        [Required(
+            ErrorMessageResourceName = nameof(SharedResource.Required),
+            ErrorMessageResourceType = typeof(SharedResource)
+        )]
+        public decimal Price { get; set; }
+
+        [Display(
+            Name = nameof(SharedResource.IsActive),
+            ResourceType = typeof(SharedResource)
+        )]
+        [Required(
+            ErrorMessageResourceName = nameof(SharedResource.Required),
+            ErrorMessageResourceType = typeof(SharedResource)
+        )]
+        public bool IsActive { get; set; } = true;
+
+        public LabCategoryDTO? Category { get; set; }
+        public ICollection<LabTestParameterDTO> Parameters { get; set; }
+            = new List<LabTestParameterDTO>();
+
+    }
+}

@@ -1496,4 +1496,33 @@
     <value>Critical</value>
   </data>
 
+	<data name="SearchLabTests" xml:space="preserve">
+    <value>Search lab tests</value>
+  </data>
+
+
+	<data name="SelectCategory" xml:space="preserve">
+    <value>Select category</value>
+  </data>
+
+	<data name="All" xml:space="preserve">
+    <value>All</value>
+  </data>
+
+	<data name="MinPrice" xml:space="preserve">
+    <value>Minimum price</value>
+  </data>
+
+	<data name="MaxPrice" xml:space="preserve">
+    <value>Maximum price</value>
+  </data>
+
+	<data name="Filter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+
+	<data name="Parameter" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+
 </root>

@@ -1024,6 +1024,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Filter.
+        /// </summary>
+        public static string Filter {
+            get {
+                return ResourceManager.GetString("Filter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Result Flag.
         /// </summary>
         public static string Flag {
@@ -1609,6 +1618,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Maximum price.
+        /// </summary>
+        public static string MaxPrice {
+            get {
+                return ResourceManager.GetString("MaxPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Medicine.
         /// </summary>
         public static string Medicine {
@@ -1650,6 +1668,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string Medicines {
             get {
                 return ResourceManager.GetString("Medicines", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimum price.
+        /// </summary>
+        public static string MinPrice {
+            get {
+                return ResourceManager.GetString("MinPrice", resourceCulture);
             }
         }
         
@@ -1974,6 +2001,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string OxygenSaturation {
             get {
                 return ResourceManager.GetString("OxygenSaturation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parameter.
+        /// </summary>
+        public static string Parameter {
+            get {
+                return ResourceManager.GetString("Parameter", resourceCulture);
             }
         }
         
@@ -2473,6 +2509,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search lab tests.
+        /// </summary>
+        public static string SearchLabTests {
+            get {
+                return ResourceManager.GetString("SearchLabTests", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select.
         /// </summary>
         public static string Select {
@@ -2505,6 +2550,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string Select2Searching {
             get {
                 return ResourceManager.GetString("Select2Searching", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select category.
+        /// </summary>
+        public static string SelectCategory {
+            get {
+                return ResourceManager.GetString("SelectCategory", resourceCulture);
             }
         }
         

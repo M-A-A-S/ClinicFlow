@@ -1518,4 +1518,36 @@
     <value>حرج</value>
   </data>
 
+	<data name="SearchLabTests" xml:space="preserve">
+    <value>البحث عن الفحوصات المعملية</value>
+  </data>
+
+	<data name="SelectCategory" xml:space="preserve">
+    <value>اختر التصنيف</value>
+  </data>
+
+	<data name="All" xml:space="preserve">
+    <value>الكل</value>
+  </data>
+
+	<data name="MinPrice" xml:space="preserve">
+    <value>الحد الأدنى للسعر</value>
+  </data>
+
+	<data name="MaxPrice" xml:space="preserve">
+    <value>الحد الأقصى للسعر</value>
+  </data>
+
+	<data name="Filter" xml:space="preserve">
+    <value>تصفية</value>
+  </data>
+
+	<data name="Clear" xml:space="preserve">
+    <value>مسح</value>
+  </data>
+
+	<data name="Parameter" xml:space="preserve">
+    <value>المؤشر</value>
+  </data>
+
 </root>
