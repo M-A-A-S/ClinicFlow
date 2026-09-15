@@ -1,5 +1,67 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using ClinicFlow.Domain.DTOs.LabTest
+@model LabTestDTO
+
 @{
+    bool isArabic = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
 }
+
+
+<div class="row">
+
+    @* ================= NameEn ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["NameEn"]</div>
+        <div>@Model.NameEn</div>
+    </div>
+
+    @* ================= NameAr ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["NameAr"]</div>
+        <div>
+            @(string.IsNullOrWhiteSpace(Model.NameAr) ? "-" : Model.NameAr)
+        </div>
+    </div>
+
+    @* ================= Price ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["Price"]</div>
+        <div>@Model.Price</div>
+    </div>
+
+    @* ================= Category ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["Category"]</div>
+        <div>
+            @(Model.Category != null
+                        ? (!isArabic
+                        ? Model.Category.NameEn
+                        : string.IsNullOrWhiteSpace(Model.Category.NameAr)
+                        ? "-"
+                        : Model.Category.NameAr)
+                        : "-")
+        </div>
+    </div>
+
+    @* ================= IsActive ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["IsActive"]</div>
+        <div>
+            @if (Model.IsActive)
+            {
+                <span class="badge bg-success">
+                    @Localizer["Active"]
+                </span>
+            }
+            else
+            {
+                <span class="badge bg-danger">
+                    @Localizer["Inactive"]
+                </span>
+            }
+        </div>
+    </div>
+</div>
+
+<partial name="Partials/_LabTestParameterDetails" model="Model" />
+
+

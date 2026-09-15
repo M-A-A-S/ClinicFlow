@@ -1,0 +1,72 @@
+﻿@using ClinicFlow.Domain.DTOs.LabTest
+@model LabTestDTO
+
+@{
+    bool isArabic = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+}
+
+<div class="card">
+    <div class="card-header text-white">
+        <strong>@Localizer["Parameters"]</strong>
+    </div>
+
+    <div class="card-body">
+
+        @if (Model.Parameters?.Any() == true)
+        {
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover align-middle mb-0">
+
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>@Localizer["NameEn"]</th>
+                            <th>@Localizer["NameAr"]</th>
+                            <th>@Localizer["Unit"]</th>
+                            <th>@Localizer["NormalRange"]</th>
+                            <th>@Localizer["DisplayOrder"]</th>
+                            <th>@Localizer["IsActive"]</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var parameter in Model.Parameters)
+                        {
+                            <tr>
+                                <td>
+                                    @(Model.Parameters.IndexOf(parameter) + 1)
+                                </td>
+
+                                <td>@parameter.NameEn</td>
+
+                                <td>@(string.IsNullOrWhiteSpace(parameter.NameAr) ? "-" : parameter.NameAr)</td>
+
+                                <td>@(string.IsNullOrWhiteSpace(parameter.Unit) ? "-" : parameter.Unit)</td>
+
+                                <td>@(string.IsNullOrWhiteSpace(parameter.NormalRange) ? "-" : parameter.NormalRange)</td>
+
+                                <td>@parameter.DisplayOrder</td>
+
+                                <td>
+                                    <span class="badge @(parameter.IsActive ? "bg-success" : "bg-danger")">
+                                        @(parameter.IsActive? Localizer["Active"] : Localizer["Inactive"])
+                                    </span>
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+        }
+        else
+        {
+            <div class="text-center text-muted py-4">
+                <i class="fa fa-stethoscope fa-2x mb-2"></i>
+                <div>@Localizer["NoItems"]</div>
+            </div>
+        }
+
+    </div>
+</div>

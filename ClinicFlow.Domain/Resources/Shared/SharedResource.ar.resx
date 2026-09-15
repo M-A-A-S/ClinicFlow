@@ -1017,6 +1017,9 @@
   <data name="Category" xml:space="preserve">
     <value>الفئة</value>
   </data>
+  <data name="Price" xml:space="preserve">
+    <value>السعر</value>
+  </data>
   <data name="Unit" xml:space="preserve">
     <value>الوحدة</value>
   </data>
