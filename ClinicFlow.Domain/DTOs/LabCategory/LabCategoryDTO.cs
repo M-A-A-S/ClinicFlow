@@ -22,7 +22,7 @@ namespace ClinicFlow.Domain.DTOs.LabCategory
             ErrorMessageResourceName = nameof(SharedResource.Required),
             ErrorMessageResourceType = typeof(SharedResource)
         )]
-        public required string NameEn { get; set; }
+        public string NameEn { get; set; }
 
         [Display(
             Name = nameof(SharedResource.NameAr),
