@@ -20,6 +20,7 @@ namespace ClinicFlow.Infrastructure
             IConfiguration configuration)
         {
 
+            services.AddScoped<ILabCategoryService, LabCategoryService>();
             services.AddScoped<IVisitService, VisitService>();
             services.AddScoped<IMedicineService, MedicineService>();
             services.AddScoped<IWaitingQueueService, WaitingQueueService>();
