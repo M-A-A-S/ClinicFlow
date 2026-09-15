@@ -1,6 +1,7 @@
 ﻿using ClinicFlow.Application.Services;
 using ClinicFlow.Domain.Constants;
 using ClinicFlow.Domain.DTOs.LabTest;
+using ClinicFlow.Domain.DTOs.LabTestParameter;
 using ClinicFlow.Domain.DTOs.WaitingQueue;
 using ClinicFlow.Domain.Entities;
 using ClinicFlow.Domain.Enums;
@@ -207,6 +208,7 @@ namespace ClinicFlow.Infrastructure.Services
 
                 item.UpdateEntity(DTO);
 
+                UpdateLabTestParameters(item, DTO);
 
                 await _appDbContext.SaveChangesAsync();
                 return Result<bool>.Success(true,
@@ -267,6 +269,78 @@ namespace ClinicFlow.Infrastructure.Services
         #endregion
 
         #region ========================= Helpers =========================
+
+
+        private void UpdateLabTestParameters(LabTest entity, LabTestDTO dto)
+        {
+            entity.Parameters ??= new List<LabTestParameter>();
+
+            var incomingParameters = dto.Parameters
+                ?? new List<LabTestParameterDTO>();
+
+            // IDs of existing parameters submitted from the form
+            var incomingIds = incomingParameters
+                .Where(x => x.Id > 0)
+                .Select(x => x.Id)
+                .ToHashSet();
+
+            // Remove existing parameters that were deleted from the form
+            var parametersToRemove = entity.Parameters
+                .Where(x => !incomingIds.Contains(x.Id))
+                .ToList();
+
+            if (parametersToRemove.Count > 0)
+            {
+                _appDbContext.LabTestParameters.RemoveRange(parametersToRemove);
+            }
+
+            // Add / Update parameters
+            for (int i = 0; i < incomingParameters.Count; i++)
+            {
+                var dtoParameter = incomingParameters[i];
+
+                // DisplayOrder is controlled by the server
+                var displayOrder = i + 1;
+
+                // Existing parameter
+                if (dtoParameter.Id > 0)
+                {
+                    var entityParameter = entity.Parameters
+                        .FirstOrDefault(x => x.Id == dtoParameter.Id);
+
+                    if (entityParameter == null)
+                    {
+                        // Parameter ID does not belong to this LabTest.
+                        // Do not update/attach it.
+                        continue;
+                    }
+
+                    entityParameter.NameEn = dtoParameter.NameEn;
+                    entityParameter.NameAr = dtoParameter.NameAr;
+                    entityParameter.Unit = dtoParameter.Unit;
+                    entityParameter.NormalRange = dtoParameter.NormalRange;
+                    entityParameter.IsActive = dtoParameter.IsActive;
+                    entityParameter.DisplayOrder = displayOrder;
+                }
+                // New parameter
+                else
+                {
+                    var entityParameter = new LabTestParameter
+                    {
+                        NameEn = dtoParameter.NameEn,
+                        NameAr = dtoParameter.NameAr,
+                        Unit = dtoParameter.Unit,
+                        NormalRange = dtoParameter.NormalRange,
+                        IsActive = dtoParameter.IsActive,
+                        DisplayOrder = displayOrder,
+                    };
+
+                    entity.Parameters.Add(entityParameter);
+                }
+            }
+
+
+        }
 
         private async Task<Result<bool>> ValidateLabTestDTO(LabTestDTO DTO, int? excludedId = null)
         {

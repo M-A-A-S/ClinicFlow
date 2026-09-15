@@ -107,6 +107,21 @@ namespace ClinicFlow.Domain.Extensions
                 NameAr = DTO.NameAr,
                 Price = DTO.Price,
                 IsActive = DTO.IsActive,
+
+                Parameters = DTO.Parameters
+                    .Select(x => new LabTestParameter
+                    {
+                        Id = x.Id,
+                        LabTestId = x.LabTestId,
+                        NameEn = x.NameEn,
+                        NameAr = x.NameAr,
+                        Unit = x.Unit,
+                        NormalRange = x.NormalRange,
+                        DisplayOrder = x.DisplayOrder,
+                        IsActive = x.IsActive
+                    })
+                    .ToList()
+                    ?? new List<LabTestParameter>(),
             };
         }
 
