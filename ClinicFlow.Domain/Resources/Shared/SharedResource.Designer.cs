@@ -1339,6 +1339,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Minimum price cannot be greater than maximum price.
+        /// </summary>
+        public static string InvalidPriceRange {
+            get {
+                return ResourceManager.GetString("InvalidPriceRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to One or more selected specialties are invalid..
         /// </summary>
         public static string InvalidSpecialty {

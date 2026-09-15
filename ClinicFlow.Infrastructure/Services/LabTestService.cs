@@ -1,6 +1,7 @@
 ﻿using ClinicFlow.Application.Services;
 using ClinicFlow.Domain.Constants;
 using ClinicFlow.Domain.DTOs.LabTest;
+using ClinicFlow.Domain.DTOs.WaitingQueue;
 using ClinicFlow.Domain.Entities;
 using ClinicFlow.Domain.Enums;
 using ClinicFlow.Domain.Extensions;
@@ -11,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -106,6 +108,15 @@ namespace ClinicFlow.Infrastructure.Services
         {
             try
             {
+                var validationResult = ValidateFilter(filter);
+
+                if (!validationResult.IsSuccess)
+                {
+                    return Result<PagedResult<LabTestDTO>>.Failure(
+                        validationResult.Code,
+                        validationResult.StatusCode,
+                        validationResult.Message);
+                }
 
                 var query = _appDbContext.LabTests.AsNoTracking();
 
@@ -295,6 +306,21 @@ namespace ClinicFlow.Infrastructure.Services
 
         }
 
+        private Result<bool> ValidateFilter(LabTestFilterDTO filter)
+        {
+            // ========================== Price ==========================
+            if (filter.MinPrice.HasValue &&
+                filter.MaxPrice.HasValue &&
+                filter.MinPrice.Value > filter.MaxPrice.Value)
+            {
+                return Result<bool>.Failure(
+                    ResultCodes.InvalidPriceRange,
+                    HttpStatusCodes.BadRequest);
+            }
+
+            return Result<bool>.Success(true);
+        }
+
         private IQueryable<LabTest> ApplyFilters(
             IQueryable<LabTest> query,
             LabTestFilterDTO filter)
@@ -350,7 +376,25 @@ namespace ClinicFlow.Infrastructure.Services
         {
             bool desc = filter.Descending;
 
-            return query.OrderByProperty(filter.SortBy, desc);
+            var currentLanguage = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+
+            var isArabic = currentLanguage.Equals("ar", StringComparison.OrdinalIgnoreCase);
+
+            return filter.SortBy switch
+            {
+                "CategoryId" => isArabic
+                    ? (desc
+                        ? query.OrderByDescending(x => x.Category.NameAr)
+                        : query.OrderBy(x => x.Category.NameAr)
+                    ) :
+                    (desc
+                        ? query.OrderByDescending(x => x.Category.NameEn)
+                        : query.OrderBy(x => x.Category.NameEn)
+                    ),
+
+                _ => query.OrderByProperty(filter.SortBy, desc)
+            };
+
         }
 
         private IQueryable<LabTestDTO> ProjectToDTO(

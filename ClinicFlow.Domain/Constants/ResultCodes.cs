@@ -81,6 +81,8 @@ namespace ClinicFlow.Domain.Constants
         public const string AppointmentPatientMismatch = "AppointmentPatientMismatch";
         public const string AppointmentDoctorMismatch = "AppointmentDoctorMismatch";
         public const string AppointmentClinicMismatch = "AppointmentClinicMismatch";
+        
+        public const string InvalidPriceRange = "InvalidPriceRange";
 
     }
 }
