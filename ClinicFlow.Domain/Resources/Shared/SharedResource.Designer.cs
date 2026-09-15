@@ -1807,6 +1807,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No parameters added.
+        /// </summary>
+        public static string NoParametersAdded {
+            get {
+                return ResourceManager.GetString("NoParametersAdded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No prescription recorded..
         /// </summary>
         public static string NoPrescription {

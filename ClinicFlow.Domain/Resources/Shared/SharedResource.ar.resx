@@ -1089,4 +1089,7 @@
   <data name="InvalidPriceRange" xml:space="preserve">
     <value>لا يمكن أن يكون الحد الأدنى للسعر أكبر من الحد الأقصى للسعر</value>
   </data>
+  <data name="NoParametersAdded" xml:space="preserve">
+    <value>لم تتم إضافة أي مؤشرات</value>
+  </data>
 </root>

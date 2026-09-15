@@ -1,0 +1,303 @@
+﻿@using ClinicFlow.Domain.DTOs.LabTest
+@using System.Globalization
+
+@model LabTestDTO
+
+@{
+    bool isArabic = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+}
+
+<div class="card shadow-sm border-0 mb-4">
+
+    <div class="card-header bg-transparent border-bottom py-3">
+        <h5 class="mb-0 fw-semibold">
+            <i class="fa fa-notes-medical me-2"></i>
+            @Localizer["Parameters"]
+        </h5>
+    </div>
+
+    <div class="card-body">
+
+        @* ================= Add Parameter ================= *@
+
+        <div class="row g-3 align-items-end">
+
+            @* ================= NameEn ================= *@
+            <div class="col-sm-6 col-md-4">
+                <label class="form-label">
+                    @Localizer["NameEn"]
+                </label>
+
+                <input id="parameterNameEn"
+                       class="form-control" />
+            </div>
+
+
+            @* ================= NameAr ================= *@
+            <div class="col-sm-6 col-md-4">
+                <label class="form-label">
+                    @Localizer["NameAr"]
+                </label>
+
+                <input id="parameterNameAr"
+                       class="form-control"
+                       dir="rtl" />
+            </div>
+
+
+            @* ================= Unit ================= *@
+            <div class="col-sm-6 col-md-4">
+                <label class="form-label">
+                    @Localizer["Unit"]
+                </label>
+
+                <input id="parameterUnit"
+                       class="form-control" />
+            </div>
+
+
+            @* ================= NormalRange ================= *@
+            <div class="col-sm-6 col-md-4">
+                <label class="form-label">
+                    @Localizer["NormalRange"]
+                </label>
+
+                <input id="parameterNormalRange"
+                       class="form-control" />
+            </div>
+
+
+            @* ================= IsActive ================= *@
+            <div class="col-sm-6 col-md-4 d-flex align-items-end">
+
+                <div class="form-check form-switch">
+
+                    <input id="parameterIsActive"
+                           class="form-check-input"
+                           type="checkbox"
+                           checked />
+
+                    <label class="form-check-label">
+                        @Localizer["IsActive"]
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            @* ================= Add ================= *@
+            <div class="col-sm-6 col-md-2">
+
+                <button type="button"
+                        id="add-parameter"
+                        class="btn btn-primary w-100">
+
+                    <i class="fa fa-plus me-1"></i>
+                    @Localizer["Add"]
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        @* ================= Parameters Table ================= *@
+
+        <div class="table-responsive mt-4">
+
+            <table class="table table-hover align-middle mb-0">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            @Localizer["NameEn"]
+                        </th>
+
+                        <th>
+                            @Localizer["NameAr"]
+                        </th>
+
+                        <th>
+                            @Localizer["Unit"]
+                        </th>
+
+                        <th>
+                            @Localizer["NormalRange"]
+                        </th>
+
+                        <th>
+                            @Localizer["IsActive"]
+                        </th>
+
+                        <th class="text-center">
+                            @Localizer["DisplayOrder"]
+                        </th>
+
+                        <th class="text-center"
+                            style="width:80px;">
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="parameters-container">
+
+                    @if (Model.Parameters != null &&
+                                        Model.Parameters.Any())
+                    {
+                        for (var i = 0; i < Model.Parameters.Count; i++)
+                        {
+                            var parameter = Model.Parameters[i];
+
+                            <tr class="lab-test-parameter-row"
+                                data-parameter-id="@parameter.Id">
+
+                                @* ================= NameEn ================= *@
+                                <td>
+
+                                    <span class="parameter-name-en">
+                                        @parameter.NameEn
+                                    </span>
+
+                                    <input type="hidden"
+                                           name="Parameters.Index"
+                                           value="@i" />
+
+                                    <input type="hidden"
+                                           class="parameter-id-input"
+                                           name="Parameters[@i].Id"
+                                           value="@parameter.Id" />
+
+                                    <input type="hidden"
+                                           class="parameter-name-en-input"
+                                           name="Parameters[@i].NameEn"
+                                           value="@parameter.NameEn" />
+
+                                </td>
+
+
+                                @* ================= NameAr ================= *@
+                                <td>
+
+                                    <span class="parameter-name-ar">
+                                        @parameter.NameAr
+                                    </span>
+
+                                    <input type="hidden"
+                                           class="parameter-name-ar-input"
+                                           name="Parameters[@i].NameAr"
+                                           value="@parameter.NameAr" />
+
+                                </td>
+
+
+                                @* ================= Unit ================= *@
+                                <td>
+
+                                    <span class="parameter-unit">
+                                        @parameter.Unit
+                                    </span>
+
+                                    <input type="hidden"
+                                           class="parameter-unit-input"
+                                           name="Parameters[@i].Unit"
+                                           value="@parameter.Unit" />
+
+                                </td>
+
+
+                                @* ================= NormalRange ================= *@
+                                <td>
+
+                                    <span class="parameter-normal-range">
+                                        @parameter.NormalRange
+                                    </span>
+
+                                    <input type="hidden"
+                                           class="parameter-normal-range-input"
+                                           name="Parameters[@i].NormalRange"
+                                           value="@parameter.NormalRange" />
+
+                                </td>
+
+
+                                @* ================= IsActive ================= *@
+                                <td>
+
+                                    <span class="parameter-is-active badge @(parameter.IsActive ? "bg-success" : "bg-danger")">
+
+                                        @(parameter.IsActive
+                                                                        ? Localizer["Active"]
+                                                                        : Localizer["Inactive"])
+
+                            </span>
+
+                                    <input type="hidden"
+                                           class="parameter-is-active-input"
+                                           name="Parameters[@i].IsActive"
+                                           value="@parameter.IsActive.ToString().ToLower()" />
+
+                                </td>
+
+
+                                @* ================= DisplayOrder ================= *@
+                                <td class="text-center">
+
+                                    <span class="parameter-display-order">
+                                        @parameter.DisplayOrder
+                                    </span>
+
+                                    <input type="hidden"
+                                           class="parameter-display-order-input"
+                                           name="Parameters[@i].DisplayOrder"
+                                           value="@parameter.DisplayOrder" />
+
+                                </td>
+
+
+                                @* ================= Remove ================= *@
+                                <td class="text-center">
+
+                                    <button type="button"
+                                            class="btn btn-sm btn-outline-danger remove-parameter"
+                                            title="@Localizer["Remove"]">
+
+                                        <i class="fa fa-trash"></i>
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+                                        }
+                    }
+
+                </tbody>
+
+            </table>
+
+
+            @* ================= Empty State ================= *@
+
+            <div id="parameters-empty"
+                 class="text-center text-muted py-4 @(Model.Parameters != null && Model.Parameters.Any() ? "d-none" : "")">
+
+                <i class="fa fa-notes-medical fa-2x mb-2"></i>
+
+                <div>
+                    @Localizer["NoParametersAdded"]
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

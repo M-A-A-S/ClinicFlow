@@ -59,7 +59,7 @@ namespace ClinicFlow.Domain.DTOs.LabTest
         public bool IsActive { get; set; } = true;
 
         public LabCategoryDTO? Category { get; set; }
-        public ICollection<LabTestParameterDTO> Parameters { get; set; }
+        public IList<LabTestParameterDTO> Parameters { get; set; }
             = new List<LabTestParameterDTO>();
 
     }
