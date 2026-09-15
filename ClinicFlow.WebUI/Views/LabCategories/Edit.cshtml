@@ -5,17 +5,19 @@
 <div class="card shadow-sm">
 
     <div class="card-header text-white">
-        <h5>@Localizer["Create"] @Localizer["LabCategory"]</h5>
+        <h5>@Localizer["Edit"] @Localizer["LabCategory"]</h5>
     </div>
 
     <div class="card-body">
 
-        <form asp-action="Create" method="post">
+        <form asp-action="Edit">
+
+            <input type="hidden" asp-for="Id" />
 
             <partial name="Partials/_LabCategoryForm" model="Model" />
 
-            <button type="submit" class="btn btn-success">
-                @Localizer["Save"]
+            <button type="submit" class="btn btn-primary">
+                @Localizer["Edit"]
             </button>
 
             <a asp-action="Index" class="btn btn-secondary">
