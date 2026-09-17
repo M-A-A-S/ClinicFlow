@@ -1,0 +1,35 @@
+﻿@using ClinicFlow.Domain.DTOs.LabResult
+@model LabResultDTO
+
+
+<div class="card shadow-sm">
+
+    <div class="card-header text-white">
+        <h5>@Localizer["Edit"] @Localizer["LabResult"]</h5>
+    </div>
+
+    <div class="card-body">
+
+        <form asp-action="Edit">
+
+            <input type="hidden" asp-for="Id" />
+
+            <partial name="Partials/_LabResultForm" model="Model" />
+
+            <button type="submit" class="btn btn-primary">
+                @Localizer["Edit"]
+            </button>
+
+            <a asp-action="Index" class="btn btn-secondary">
+                @Localizer["Cancel"]
+            </a>
+
+        </form>
+
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+}

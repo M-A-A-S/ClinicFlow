@@ -101,17 +101,16 @@ namespace ClinicFlow.WebUI.Controllers
         #endregion
 
         #region ========================= Update =========================
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Edit([FromQuery] int labOrderItemId)
         {
-            var item = await GetEntityOrNull(_service.GetByIdAsync(id));
+            var result = await _service.GetByOrderItemIdAsync(labOrderItemId);
 
-            if (item is null)
+            if (!result.IsSuccess || result.Data == null)
             {
                 return NotFound();
             }
 
-
-            return View(item);
+            return View(result.Data);
         }
 
         [HttpPost]

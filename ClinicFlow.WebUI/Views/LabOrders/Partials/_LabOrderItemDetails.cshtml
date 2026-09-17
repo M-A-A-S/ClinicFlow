@@ -59,13 +59,33 @@
                                     }
                                     else
                                     {
-                                        <a asp-controller="LabResults"
+                                        @* <a asp-controller="LabResults"
                                            asp-action="Details"
                                            asp-route-id="@item.Result.Id"
                                            class="btn btn-sm btn-info">
                                             <i class="fa fa-eye me-1"></i>
                                             @Localizer["ViewResult"]
-                                        </a>
+                                        </a> *@
+
+                                        <div class="btn-group btn-group-sm" role="group">
+                                            <a asp-controller="LabResults"
+                                               asp-action="Details"
+                                               asp-route-id="@item.Result.Id"
+                                               class="btn btn-info"
+                                               title="@Localizer["ViewResult"]">
+                                                <i class="fa fa-eye me-1"></i>
+                                                @Localizer["ViewResult"]
+                                            </a>
+
+                                            <a asp-controller="LabResults"
+                                               asp-action="Edit"
+                                               asp-route-labOrderItemId="@item.Id"
+                                               class="btn btn-warning"
+                                               title="@Localizer["EditResult"]">
+                                                <i class="fa fa-edit me-1"></i>
+                                                @Localizer["EditResult"]
+                                            </a>
+                                        </div>
                                     }
                                 </td>
 

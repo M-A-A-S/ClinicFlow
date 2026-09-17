@@ -1146,4 +1146,7 @@
   <data name="NoParametersFound" xml:space="preserve">
     <value>لا توجد تحاليل فرعية</value>
   </data>
+  <data name="EditResult" xml:space="preserve">
+    <value>تعديل النتيجة</value>
+  </data>
 </root>

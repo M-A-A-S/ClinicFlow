@@ -970,6 +970,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit Result.
+        /// </summary>
+        public static string EditResult {
+            get {
+                return ResourceManager.GetString("EditResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string Email {
