@@ -16,6 +16,8 @@ namespace ClinicFlow.Application.Services
         Task<Result<LabTestDTO>> GetByIdAsync(int id);
         Task<Result<IEnumerable<LabTestDTO>>> GetAllAsync();
         Task<Result<PagedResult<LabTestDTO>>> GetAllAsync(LabTestFilterDTO filter);
+        Task<Result<IEnumerable<LabTestSearchDTO>>> GetForSelectAsync();
+
 
     }
 }

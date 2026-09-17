@@ -178,6 +178,39 @@ namespace ClinicFlow.Infrastructure.Services
             }
         }
 
+        public async Task<Result<IEnumerable<LabTestSearchDTO>>> GetForSelectAsync()
+        {
+            try
+            {
+                var query = _appDbContext.LabTests
+                .AsNoTracking();
+
+                var items = await query
+                    .Take(20)
+                    .Select(x => new LabTestSearchDTO
+                    {
+                        Id = x.Id,
+                        NameEn = x.NameEn,
+                        NameAr = x.NameAr,
+                    })
+                    .ToListAsync();
+
+                return Result<IEnumerable<LabTestSearchDTO>>.Success(items);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(
+                    ex,
+                    "Error loading items for select");
+
+                return Result<IEnumerable<LabTestSearchDTO>>
+                    .Failure(
+                        ResultCodes.UnexpectedError,
+                        HttpStatusCodes.InternalServerError,
+                        "An unexpected error occurred.");
+            }
+        }
+
         #endregion
 
         #region ========================= Update =========================

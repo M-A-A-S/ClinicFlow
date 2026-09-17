@@ -1,4 +1,5 @@
 ﻿using ClinicFlow.Domain.DTOs.LabOrder;
+using ClinicFlow.Domain.DTOs.LabTest;
 using ClinicFlow.Domain.Utilities;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace ClinicFlow.Application.Services
         Task<Result<LabOrderDTO>> GetByIdAsync(int id);
         Task<Result<IEnumerable<LabOrderDTO>>> GetAllAsync();
         Task<Result<PagedResult<LabOrderDTO>>> GetAllAsync(LabOrderFilterDTO filter);
+        
 
     }
 }
