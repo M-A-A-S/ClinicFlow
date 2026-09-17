@@ -36,6 +36,19 @@ namespace ClinicFlow.Domain.Extensions
                         NameEn = Entity.OrderItem.LabTest.NameEn,
                         NameAr = Entity.OrderItem.LabTest.NameAr,
                         Price = Entity.OrderItem.LabTest.Price,
+                    },
+
+                    LabOrder = Entity.OrderItem.LabOrder == null ? null : new LabOrderDTO
+                    {
+                        Id = Entity.OrderItem.LabOrder.Id,
+                        OrderDate = Entity.OrderItem.LabOrder.OrderDate,
+
+                        Patient = Entity.OrderItem.LabOrder.Patient == null ? null : new PatientDTO
+                        {
+                            Id = Entity.OrderItem.LabOrder.Patient.Id,
+                            FullName = Entity.OrderItem.LabOrder.Patient.FullName,
+                            PhoneNumber = Entity.OrderItem.LabOrder.Patient.PhoneNumber,
+                        }
                     }
                 },
 

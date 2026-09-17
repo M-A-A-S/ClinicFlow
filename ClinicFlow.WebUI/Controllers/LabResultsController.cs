@@ -1,7 +1,9 @@
 ﻿using ClinicFlow.Application.Services;
 using ClinicFlow.Domain.DTOs.LabResult;
+using ClinicFlow.Domain.DTOs.Patient;
 using ClinicFlow.Domain.Resources.Shared;
 using ClinicFlow.Domain.Utilities;
+using ClinicFlow.Infrastructure.Services;
 using ClinicFlow.WebUI.ViewModels.LabResult;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -15,17 +17,20 @@ namespace ClinicFlow.WebUI.Controllers
 
         #region ========================= Fields & Properties =========================
         private readonly ILabResultService _service;
+        private readonly IPatientService _patientService;
 
         #endregion
 
         #region ========================= Constructors =========================
         public LabResultsController(
             ILabResultService service,
-            IStringLocalizer<SharedResource> localizer
+            IStringLocalizer<SharedResource> localizer,
+            IPatientService patientService
 
             ) : base(localizer)
         {
             _service = service;
+            _patientService = patientService;
         }
         #endregion
 
@@ -45,6 +50,7 @@ namespace ClinicFlow.WebUI.Controllers
                 Filter = filter,
             };
 
+            await LoadLabResultFilterData();
 
             return View(viewModel);
         }
@@ -173,7 +179,19 @@ namespace ClinicFlow.WebUI.Controllers
 
         #region ========================= Helpers =========================
 
+        private async Task LoadLabResultFilterData()
+        {
+            var patientsResult = await _patientService.GetForSelectAsync();
 
+            var patients = patientsResult.Data
+                ?? Enumerable.Empty<PatientSearchDTO>();
+
+            ViewBag.Patients = patients.Select(x => new SelectListItem
+            {
+                Value = x.Id.ToString(),
+                Text = x.FullName
+            });
+        }
         #endregion
 
     }
