@@ -1113,4 +1113,7 @@
   <data name="LabTestRequired" xml:space="preserve">
     <value>يرجى اختيار تحليل مخبري لكل عنصر في الطلب</value>
   </data>
+  <data name="PleaseSelectLabTest" xml:space="preserve">
+    <value>يرجى اختيار تحليل مخبري أولاً</value>
+  </data>
 </root>

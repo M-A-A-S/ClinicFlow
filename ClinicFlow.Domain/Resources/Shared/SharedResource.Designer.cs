@@ -2059,6 +2059,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Order Item.
+        /// </summary>
+        public static string OrderItem {
+            get {
+                return ResourceManager.GetString("OrderItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Other.
         /// </summary>
         public static string Other {
@@ -2235,6 +2244,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string PleaseSelectDoctor {
             get {
                 return ResourceManager.GetString("PleaseSelectDoctor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select a laboratory test first.
+        /// </summary>
+        public static string PleaseSelectLabTest {
+            get {
+                return ResourceManager.GetString("PleaseSelectLabTest", resourceCulture);
             }
         }
         

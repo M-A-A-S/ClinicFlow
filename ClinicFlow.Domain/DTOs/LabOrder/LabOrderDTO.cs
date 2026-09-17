@@ -36,7 +36,7 @@ namespace ClinicFlow.Domain.DTOs.LabOrder
         public VisitDTO? Visit { get; set; }
         public PatientDTO? Patient { get; set; }
 
-        public ICollection<LabOrderItemDTO> Items { get; set; }
+        public IList<LabOrderItemDTO> Items { get; set; }
             = new List<LabOrderItemDTO>();
 
     }

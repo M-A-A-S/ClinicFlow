@@ -1092,6 +1092,9 @@
   <data name="NoParametersAdded" xml:space="preserve">
     <value>No parameters added</value>
   </data>
+  <data name="OrderItem" xml:space="preserve">
+    <value>Order Item</value>
+  </data>
   <data name="InvalidDateRange" xml:space="preserve">
     <value>The from date cannot be later than the to date</value>
   </data>
@@ -1109,5 +1112,8 @@
   </data>
   <data name="LabTestRequired" xml:space="preserve">
     <value>Please select a laboratory test for each order item</value>
+  </data>
+  <data name="PleaseSelectLabTest" xml:space="preserve">
+    <value>Please select a laboratory test first</value>
   </data>
 </root>

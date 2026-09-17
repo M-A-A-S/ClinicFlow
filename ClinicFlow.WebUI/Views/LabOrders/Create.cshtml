@@ -1,0 +1,39 @@
+﻿@using ClinicFlow.Domain.DTOs.LabOrder
+@model LabOrderDTO
+
+
+<div class="card shadow-sm">
+
+    <div class="card-header text-white">
+        <h5>@Localizer["Create"] @Localizer["LabOrder"]</h5>
+    </div>
+
+    <div class="card-body">
+
+        <form asp-action="Create" method="post">
+
+            <partial name="Partials/_LabOrderForm" model="Model" />
+
+            <button type="submit" class="btn btn-success">
+                @Localizer["Save"]
+            </button>
+
+            <a asp-action="Index" class="btn btn-secondary">
+                @Localizer["Cancel"]
+            </a>
+
+        </form>
+
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        const removeText = '@Html.Raw(Localizer["Remove"])';
+        const selectTest = '@Html.Raw(Localizer["PleaseSelectLabTest"])';
+    </script>
+
+    <script src="~/js/lab-order-form.js" asp-append-version="true"></script>
+}

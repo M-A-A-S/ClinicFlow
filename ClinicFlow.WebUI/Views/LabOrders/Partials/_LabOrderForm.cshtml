@@ -1,5 +1,30 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@using ClinicFlow.Domain.DTOs.LabOrder
+@model LabOrderDTO
+
+
+<div class="row g-3 mb-2">
+
+    @* ================= Patient ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="PatientId" class="form-label"></label>
+        <select asp-for="PatientId"
+                id="patientId"
+                class="form-select select2"
+                asp-items="ViewBag.Patients">
+            <option value="">
+                @Localizer["Select"]
+            </option>
+        </select>
+        <span asp-validation-for="PatientId" class="text-danger"></span>
+    </div>
+
+    @* ================= Order Date ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="OrderDate" class="form-label"></label>
+        <input asp-for="OrderDate" type="date" class="form-control" />
+        <span asp-validation-for="OrderDate" class="text-danger"></span>
+    </div>
+
+</div>
+
+<partial name="Partials/_LabOrderItemForm" model="Model" />
