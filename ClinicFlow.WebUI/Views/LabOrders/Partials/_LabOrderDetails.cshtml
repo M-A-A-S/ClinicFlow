@@ -1,5 +1,28 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using ClinicFlow.Domain.DTOs.LabOrder
+@model LabOrderDTO
+
 @{
+    bool isArabic = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
 }
+
+
+<div class="row mb-2">
+
+    @* ================= Patient ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["Patient"]</div>
+        <div>@(Model.Patient == null ? "-" : Model.Patient.FullName)</div>
+    </div>
+
+    @* ================= OrderDate ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["OrderDate"]</div>
+        <div>@Model.OrderDate</div>
+    </div>
+</div>
+
+
+
+<partial name="Partials/_LabOrderItemDetails" model="Model" />
+
+

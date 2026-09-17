@@ -150,6 +150,7 @@ namespace ClinicFlow.Infrastructure.Services
             {
                 var item = await _appDbContext.LabOrders
                     .AsNoTracking()
+                    .Include(x => x.Patient)
                     .Include(x => x.Items)
                         .ThenInclude(x => x.LabTest)
                     .FirstOrDefaultAsync(x => x.Id == id);

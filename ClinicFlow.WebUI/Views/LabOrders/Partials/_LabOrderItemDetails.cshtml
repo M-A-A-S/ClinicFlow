@@ -1,5 +1,64 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using ClinicFlow.Domain.DTOs.LabOrder
+@model LabOrderDTO
+
 @{
+    bool isArabic = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
 }
+
+<div class="card">
+    <div class="card-header text-white">
+            <strong>@Localizer["Items"]</strong>
+    </div>
+
+    <div class="card-body">
+
+        @if (Model.Items?.Any() == true)
+        {
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover align-middle mb-0">
+
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>@Localizer["LabTest"]</th>
+                            <th>@Localizer["Status"]</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                            @foreach (var item in Model.Items)
+                        {
+                            <tr>
+                                <td>
+                                    @(Model.Items.IndexOf(item) + 1)
+                                </td>
+
+                                <td>
+                                    @(isArabic 
+                                        ? item?.LabTest?.NameAr ?? item?.LabTest?.NameEn ?? "-"
+                                        : item?.LabTest?.NameEn ?? item?.LabTest?.NameAr ?? "-")
+                                </td>
+
+                                <td>
+                                    <span class="badge @item.Status.ToCssClass()">
+                                        @Localizer[item.Status.ToString()]
+                                    </span>
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+        }
+        else
+        {
+            <div class="text-center text-muted py-4">
+                <i class="fa fa-stethoscope fa-2x mb-2"></i>
+                <div>@Localizer["NoItemsFound"]</div>
+            </div>
+        }
+
+    </div>
+</div>
