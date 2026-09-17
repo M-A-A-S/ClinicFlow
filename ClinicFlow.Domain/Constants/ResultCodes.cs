@@ -84,5 +84,13 @@ namespace ClinicFlow.Domain.Constants
         
         public const string InvalidPriceRange = "InvalidPriceRange";
 
+        public const string InvalidDateRange = "InvalidDateRange";
+        public const string LabOrderMustHaveItems = "LabOrderMustHaveItems";
+        public const string InvalidVisit = "InvalidVisit";
+        public const string LabOrderDuplicateItems = "LabOrderDuplicateItems";
+        public const string LabOrderInvalidItem = "LabOrderInvalidItem";
+        public const string LabTestRequired = "LabTestRequired";
+        public const string PatientRequired = "PatientRequired";
+
     }
 }

@@ -1092,4 +1092,22 @@
   <data name="NoParametersAdded" xml:space="preserve">
     <value>No parameters added</value>
   </data>
+  <data name="InvalidDateRange" xml:space="preserve">
+    <value>The from date cannot be later than the to date</value>
+  </data>
+  <data name="LabOrderMustHaveItems" xml:space="preserve">
+    <value>A lab order must contain at least one item</value>
+  </data>
+  <data name="InvalidVisit" xml:space="preserve">
+    <value>The selected visit is not valid. Please select a valid visit</value>
+  </data>
+  <data name="LabOrderDuplicateItems" xml:space="preserve">
+    <value>The lab order contains duplicate items. Please remove the duplicate tests</value>
+  </data>
+  <data name="LabOrderInvalidItem" xml:space="preserve">
+    <value>One of the lab order items is invalid. Please review the selected tests</value>
+  </data>
+  <data name="LabTestRequired" xml:space="preserve">
+    <value>Please select a laboratory test for each order item</value>
+  </data>
 </root>

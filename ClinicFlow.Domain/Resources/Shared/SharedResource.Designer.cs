@@ -1294,6 +1294,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The from date cannot be later than the to date.
+        /// </summary>
+        public static string InvalidDateRange {
+            get {
+                return ResourceManager.GetString("InvalidDateRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The selected diagnosis is invalid..
         /// </summary>
         public static string InvalidDiagnosis {
@@ -1353,6 +1362,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string InvalidSpecialty {
             get {
                 return ResourceManager.GetString("InvalidSpecialty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The selected visit is not valid. Please select a valid visit.
+        /// </summary>
+        public static string InvalidVisit {
+            get {
+                return ResourceManager.GetString("InvalidVisit", resourceCulture);
             }
         }
         
@@ -1501,6 +1519,24 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The lab order contains duplicate items. Please remove the duplicate tests.
+        /// </summary>
+        public static string LabOrderDuplicateItems {
+            get {
+                return ResourceManager.GetString("LabOrderDuplicateItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to One of the lab order items is invalid. Please review the selected tests.
+        /// </summary>
+        public static string LabOrderInvalidItem {
+            get {
+                return ResourceManager.GetString("LabOrderInvalidItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lab Order Item.
         /// </summary>
         public static string LabOrderItem {
@@ -1515,6 +1551,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string LabOrderItems {
             get {
                 return ResourceManager.GetString("LabOrderItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A lab order must contain at least one item.
+        /// </summary>
+        public static string LabOrderMustHaveItems {
+            get {
+                return ResourceManager.GetString("LabOrderMustHaveItems", resourceCulture);
             }
         }
         
@@ -1605,6 +1650,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string LabTestParameters {
             get {
                 return ResourceManager.GetString("LabTestParameters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select a laboratory test for each order item.
+        /// </summary>
+        public static string LabTestRequired {
+            get {
+                return ResourceManager.GetString("LabTestRequired", resourceCulture);
             }
         }
         

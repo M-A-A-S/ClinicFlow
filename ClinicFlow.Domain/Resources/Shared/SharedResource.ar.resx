@@ -1086,13 +1086,31 @@
   <data name="Parameter" xml:space="preserve">
     <value>المؤشر</value>
   </data>
-  <data name="OrderItem" xml:space="preserve">
-    <value>عنصر طلب الفحص</value>
-  </data>
   <data name="InvalidPriceRange" xml:space="preserve">
     <value>لا يمكن أن يكون الحد الأدنى للسعر أكبر من الحد الأقصى للسعر</value>
   </data>
   <data name="NoParametersAdded" xml:space="preserve">
     <value>لم تتم إضافة أي مؤشرات</value>
+  </data>
+  <data name="OrderItem" xml:space="preserve">
+    <value>عنصر طلب الفحص</value>
+  </data>
+  <data name="InvalidDateRange" xml:space="preserve">
+    <value>لا يمكن أن يكون تاريخ البداية لاحقًا لتاريخ النهاية</value>
+  </data>
+  <data name="LabOrderMustHaveItems" xml:space="preserve">
+    <value>يجب أن يحتوي طلب المختبر على عنصر واحد على الأقل</value>
+  </data>
+  <data name="InvalidVisit" xml:space="preserve">
+    <value>الزيارة المحددة غير صالحة. يرجى اختيار زيارة صحيحة</value>
+  </data>
+  <data name="LabOrderDuplicateItems" xml:space="preserve">
+    <value>يحتوي طلب المختبر على عناصر مكررة. يرجى إزالة التحاليل المكررة</value>
+  </data>
+  <data name="LabOrderInvalidItem" xml:space="preserve">
+    <value>أحد عناصر طلب المختبر غير صالح. يرجى مراجعة التحاليل المحددة</value>
+  </data>
+  <data name="LabTestRequired" xml:space="preserve">
+    <value>يرجى اختيار تحليل مخبري لكل عنصر في الطلب</value>
   </data>
 </root>

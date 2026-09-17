@@ -36,8 +36,8 @@ namespace ClinicFlow.Infrastructure.Data
         public DbSet<LabCategory> LabCategories { get; set; }
         public DbSet<LabTest> LabTests { get; set; }
         public DbSet<LabTestParameter> LabTestParameters { get; set; }
-        public DbSet<LabOrder> LabOrder { get; set; }
-        public DbSet<LabOrderItem> LabOrderItem { get; set; }
+        public DbSet<LabOrder> LabOrders { get; set; }
+        public DbSet<LabOrderItem> LabOrderItems { get; set; }
         public DbSet<LabResult> LabResults { get; set; }
         public DbSet<LabResultValue> LabResultValues { get; set; }
 
