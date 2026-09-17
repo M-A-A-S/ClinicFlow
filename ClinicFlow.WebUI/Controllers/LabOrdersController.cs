@@ -1,6 +1,7 @@
 ﻿using ClinicFlow.Application.Services;
 using ClinicFlow.Domain.DTOs.LabOrder;
 using ClinicFlow.Domain.DTOs.LabTest;
+using ClinicFlow.Domain.DTOs.Patient;
 using ClinicFlow.Domain.Resources.Shared;
 using ClinicFlow.Domain.Utilities;
 using ClinicFlow.WebUI.ViewModels.LabOrder;
@@ -17,6 +18,7 @@ namespace ClinicFlow.WebUI.Controllers
         #region ========================= Fields & Properties =========================
         private readonly ILabOrderService _service;
         private readonly ILabTestService _labTestService;
+        private readonly IPatientService _patientService;
 
         #endregion
 
@@ -24,12 +26,14 @@ namespace ClinicFlow.WebUI.Controllers
         public LabOrdersController(
             ILabOrderService service,
             IStringLocalizer<SharedResource> localizer,
-            ILabTestService labTestService
+            ILabTestService labTestService,
+            IPatientService patientService
 
             ) : base(localizer)
         {
             _service = service;
             _labTestService = labTestService;
+            _patientService = patientService;
         }
         #endregion
 
@@ -49,7 +53,7 @@ namespace ClinicFlow.WebUI.Controllers
                 Filter = filter,
             };
 
-            await LoadLabOrderFormData();
+            await LoadLabOrderFilterData();
 
             return View(viewModel);
         }
@@ -179,9 +183,24 @@ namespace ClinicFlow.WebUI.Controllers
 
         #region ========================= Helpers =========================
 
+        private async Task LoadLabOrderFilterData()
+        {
+            var patientsResult = await _patientService.GetForSelectAsync();
+
+            var patients = patientsResult.Data
+                ?? Enumerable.Empty<PatientSearchDTO>();
+
+            ViewBag.Patients = patients.Select(x => new SelectListItem
+            {
+                Value = x.Id.ToString(),
+                Text = x.FullName
+            });
+        }
+
         private async Task LoadLabOrderFormData()
         {
             var labTestsResult = await _labTestService.GetForSelectAsync();
+            var patientsResult = await _patientService.GetForSelectAsync();
 
             var isArabic =
                 CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
@@ -189,10 +208,19 @@ namespace ClinicFlow.WebUI.Controllers
             var labTests = labTestsResult.Data
                 ?? Enumerable.Empty<LabTestSearchDTO>();
 
+            var patients = patientsResult.Data
+                ?? Enumerable.Empty<PatientSearchDTO>();
+
             ViewBag.LabTests = labTests.Select(x => new SelectListItem
             {
                 Value = x.Id.ToString(),
                 Text = isArabic ? x.NameAr : x.NameEn
+            });
+
+            ViewBag.Patients = patients.Select(x => new SelectListItem
+            {
+                Value = x.Id.ToString(),
+                Text = x.FullName
             });
 
         }

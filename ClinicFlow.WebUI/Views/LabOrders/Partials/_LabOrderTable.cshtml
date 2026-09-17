@@ -1,0 +1,88 @@
+﻿@using ClinicFlow.Domain.Enums
+@using ClinicFlow.WebUI.ViewModels.Common
+@using ClinicFlow.WebUI.ViewModels.LabOrder;
+@model LabOrderIndexVM
+
+@{
+    var routes = Model.Filter.ToRouteDictionary();
+
+    var isArabic = CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "ar";
+
+    var columns = new List<TableColumnVM>
+    {
+        new TableColumnVM
+        {
+            Column = "PatientId",
+            Title = Localizer["Patient"]
+        },
+        new TableColumnVM
+        {
+            Column = "OrderDate",
+            Title = Localizer["OrderDate"]
+        },
+    };
+
+}
+
+@if (Model.PagedResult.Items == null || !Model.PagedResult.Items.Any())
+{
+    <div class="alert alert-info">
+        @Localizer["NoRecordsFound"]
+    </div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    @foreach (var column in columns)
+                    {
+                        <th>
+                            @if (column.IsSortable)
+                            {
+                                <partial name="Partials/_SortableHeader"
+                                         model='new SortHeaderVM
+                                         {
+                                             Column = column.Column,
+                                             Title = column.Title,
+                                             Filter = Model.Filter,
+                                             Routes = routes
+                                         }' />
+                                        }
+                            else
+                            {
+                                @column.Title
+                            }
+                        </th>
+                    }
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model.PagedResult.Items)
+                {
+                    <tr>
+                        <td>@(item.Patient == null ? "-" : item.Patient.FullName)</td>
+
+                        <td>@item.OrderDate</td>
+
+
+                        <td>
+
+                            <div class="d-flex gap-1 align-items-center">
+                                <partial name="Partials/_Actions"
+                                         model='new ActionButtonsVM
+                                         {
+                                             Controller = "LabOrders",
+                                             Id = item.Id
+                                         }' />
+                    </div>
+                </td>
+
+                    </tr>
+                        }
+            </tbody>
+        </table>
+    </div>
+}

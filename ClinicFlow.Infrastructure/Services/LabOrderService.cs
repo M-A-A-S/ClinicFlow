@@ -432,7 +432,17 @@ namespace ClinicFlow.Infrastructure.Services
                 var search = filter.Search.Trim();
 
                 query = query.Where(x =>
-                    (x.Visit != null && x.Visit.VisitNumber.Contains(search)));
+                    (x.Visit != null &&
+                     x.Visit.VisitNumber.Contains(search))
+                    ||
+                    (x.Patient != null &&
+                     (
+                         (x.Patient.FullName != null &&
+                          x.Patient.FullName.Contains(search))
+                         ||
+                         (x.Patient.PhoneNumber != null &&
+                          x.Patient.PhoneNumber.Contains(search))
+                     )));
             }
 
             // ========================== Visit ==========================
