@@ -925,6 +925,24 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Duplicate parameter entries are not allowed.
+        /// </summary>
+        public static string DuplicateParameters {
+            get {
+                return ResourceManager.GetString("DuplicateParameters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A lab result already exists for this order item.
+        /// </summary>
+        public static string DuplicateResultExists {
+            get {
+                return ResourceManager.GetString("DuplicateResultExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The same specialty has been selected more than once..
         /// </summary>
         public static string DuplicateSpecialty {
@@ -1326,6 +1344,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string InvalidMedicine {
             get {
                 return ResourceManager.GetString("InvalidMedicine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid test parameter provided.
+        /// </summary>
+        public static string InvalidParameter {
+            get {
+                return ResourceManager.GetString("InvalidParameter", resourceCulture);
             }
         }
         
@@ -2068,6 +2095,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Lab order item is required.
+        /// </summary>
+        public static string OrderItemRequired {
+            get {
+                return ResourceManager.GetString("OrderItemRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Other.
         /// </summary>
         public static string Other {
@@ -2091,6 +2127,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string Parameter {
             get {
                 return ResourceManager.GetString("Parameter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parameter is required.
+        /// </summary>
+        public static string ParameterRequired {
+            get {
+                return ResourceManager.GetString("ParameterRequired", resourceCulture);
             }
         }
         
@@ -2883,6 +2928,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string Values {
             get {
                 return ResourceManager.GetString("Values", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to At least one result value must be provided.
+        /// </summary>
+        public static string ValuesRequired {
+            get {
+                return ResourceManager.GetString("ValuesRequired", resourceCulture);
             }
         }
         

@@ -1116,4 +1116,22 @@
   <data name="PleaseSelectLabTest" xml:space="preserve">
     <value>Please select a laboratory test first</value>
   </data>
+  <data name="OrderItemRequired" xml:space="preserve">
+    <value>Lab order item is required</value>
+  </data>
+  <data name="DuplicateResultExists" xml:space="preserve">
+    <value>A lab result already exists for this order item</value>
+  </data>
+  <data name="ValuesRequired" xml:space="preserve">
+    <value>At least one result value must be provided</value>
+  </data>
+  <data name="DuplicateParameters" xml:space="preserve">
+    <value>Duplicate parameter entries are not allowed</value>
+  </data>
+  <data name="InvalidParameter" xml:space="preserve">
+    <value>Invalid test parameter provided</value>
+  </data>
+  <data name="ParameterRequired" xml:space="preserve">
+    <value>Parameter is required</value>
+  </data>
 </root>

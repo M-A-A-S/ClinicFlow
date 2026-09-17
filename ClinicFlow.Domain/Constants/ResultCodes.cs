@@ -92,5 +92,12 @@ namespace ClinicFlow.Domain.Constants
         public const string LabTestRequired = "LabTestRequired";
         public const string PatientRequired = "PatientRequired";
 
+        public const string OrderItemRequired = "OrderItemRequired";
+        public const string DuplicateResultExists = "DuplicateResultExists";
+        public const string ValuesRequired = "ValuesRequired";
+        public const string DuplicateParameters = "DuplicateParameters";
+        public const string InvalidParameter = "InvalidParameter";
+        public const string ParameterRequired = "ParameterRequired";
+
     }
 }

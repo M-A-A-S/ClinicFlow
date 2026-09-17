@@ -1116,4 +1116,22 @@
   <data name="PleaseSelectLabTest" xml:space="preserve">
     <value>يرجى اختيار تحليل مخبري أولاً</value>
   </data>
+  <data name="OrderItemRequired" xml:space="preserve">
+    <value>عنصر طلب المختبر مطلوب</value>
+  </data>
+  <data name="DuplicateResultExists" xml:space="preserve">
+    <value>يوجد نتيجة مختبر بالفعل لطلب الإجراء هذا</value>
+  </data>
+  <data name="ValuesRequired" xml:space="preserve">
+    <value>يجب تقديم قيمة نتيجة واحدة على الأقل</value>
+  </data>
+  <data name="DuplicateParameters" xml:space="preserve">
+    <value>لا يُسمح بتكرار نفس المعلمة</value>
+  </data>
+  <data name="InvalidParameter" xml:space="preserve">
+    <value>المعلمة المحددة غير صالحة</value>
+  </data>
+  <data name="ParameterRequired" xml:space="preserve">
+    <value>رقم المعلمة مطلوب</value>
+  </data>
 </root>
