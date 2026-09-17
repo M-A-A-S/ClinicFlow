@@ -182,7 +182,9 @@ namespace ClinicFlow.Infrastructure.Services
                     .AsNoTracking()
                     .Include(x => x.OrderItem)
                         .ThenInclude(x => x.LabTest)
-                            .ThenInclude(x => x.Parameters)
+                    .Include(x => x.OrderItem)
+                        .ThenInclude(x => x.LabOrder)
+                            .ThenInclude(x => x.Patient)
                     .Include(x => x.Values)
                         .ThenInclude(x => x.Parameter)
                     .FirstOrDefaultAsync(x => x.Id == id);

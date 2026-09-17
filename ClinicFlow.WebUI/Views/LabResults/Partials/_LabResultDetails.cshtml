@@ -1,0 +1,32 @@
+﻿@using ClinicFlow.Domain.DTOs.LabResult
+@model LabResultDTO
+
+@{
+    bool isArabic = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+}
+
+<div class="row g-3 mb-3 align-items-center">
+    @* ================= Patient ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label class="form-label text-muted mb-1 d-block">@Localizer["Patient"]</label>
+        <span class="fw-bold fs-6">@(Model?.OrderItem?.LabOrder?.Patient?.FullName ?? "-")</span>
+    </div>
+
+    @* ================= LabTest ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label class="form-label text-muted mb-1 d-block">@Localizer["LabTest"]</label>
+        <span class="fw-bold fs-6">
+            @(isArabic
+                        ? Model?.OrderItem?.LabTest?.NameAr
+                        : Model?.OrderItem?.LabTest?.NameEn)
+        </span>
+    </div>
+
+    @* ================= Result Date ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label class="form-label text-muted mb-1 d-block">@Localizer["ResultDate"]</label>
+        <span class="fw-bold fs-6">@Model?.ResultDate.ToString("yyyy-MM-dd HH:mm")</span>
+    </div>
+</div>
+
+<partial name="Partials/_LabResultValueDetails" model="Model" />
