@@ -1,6 +1,7 @@
 ﻿using ClinicFlow.Domain.DTOs.LabCategory;
 using ClinicFlow.Domain.DTOs.LabOrder;
 using ClinicFlow.Domain.DTOs.LabOrderItem;
+using ClinicFlow.Domain.DTOs.Patient;
 using ClinicFlow.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,13 @@ namespace ClinicFlow.Domain.Extensions
                 VisitId = Entity.VisitId,
                 PatientId = Entity.PatientId,
                 OrderDate = Entity.OrderDate,
+
+                Patient = Entity.Patient == null ? null : new PatientDTO()
+                {
+                    Id = Entity.Patient.Id,
+                    FullName = Entity.Patient.FullName,
+                    PhoneNumber = Entity.Patient.PhoneNumber
+                },
 
                 Items = Entity.Items
                     .Select(x => new LabOrderItemDTO
@@ -46,6 +54,13 @@ namespace ClinicFlow.Domain.Extensions
                 VisitId = Entity.VisitId,
                 PatientId = Entity.PatientId,
                 OrderDate = Entity.OrderDate,
+
+                Patient = Entity.Patient == null ? null : new PatientDTO()
+                {
+                    Id = Entity.Patient.Id,
+                    FullName = Entity.Patient.FullName,
+                    PhoneNumber = Entity.Patient.PhoneNumber
+                },
 
                 Items = Entity.Items
                     .Select(x => new LabOrderItemDTO
