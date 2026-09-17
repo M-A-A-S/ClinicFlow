@@ -1,6 +1,7 @@
 ﻿using ClinicFlow.Domain.DTOs.LabCategory;
 using ClinicFlow.Domain.DTOs.LabOrder;
 using ClinicFlow.Domain.DTOs.LabOrderItem;
+using ClinicFlow.Domain.DTOs.LabResult;
 using ClinicFlow.Domain.DTOs.LabTest;
 using ClinicFlow.Domain.DTOs.Patient;
 using ClinicFlow.Domain.Entities;
@@ -73,6 +74,7 @@ namespace ClinicFlow.Domain.Extensions
                 Items = Entity.Items
                     .Select(x => new LabOrderItemDTO
                     {
+                        Id = x.Id,
                         LabOrderId = x.LabOrderId,
                         LabTestId = x.LabTestId,
                         Status = x.Status,
@@ -82,6 +84,12 @@ namespace ClinicFlow.Domain.Extensions
                             Id = x.LabTest.Id,
                             NameEn = x.LabTest.NameEn,
                             NameAr = x.LabTest.NameAr
+                        },
+
+                        Result = x.Result == null ? null : new LabResultDTO
+                        {
+                            Id = x.Result.Id,
+                            ResultDate = x.Result.ResultDate
                         }
                     })
                 .ToList()

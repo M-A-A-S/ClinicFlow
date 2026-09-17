@@ -65,16 +65,16 @@ namespace ClinicFlow.WebUI.Controllers
         #endregion
 
         #region ========================= Create =========================
-        public async Task<IActionResult> Create(int labOrderItemId)
+        public async Task<IActionResult> Create([FromQuery]int labOrderItemId)
         {
-            var item = await GetEntityOrNull(_service.GetByOrderItemIdAsync(labOrderItemId));
+            var result = await _service.GetByOrderItemIdAsync(labOrderItemId);
 
-            if (item is null)
+            if (!result.IsSuccess || result.Data == null)
             {
                 return NotFound();
             }
 
-            return View(item);
+            return View(result.Data);
         }
 
         [HttpPost]

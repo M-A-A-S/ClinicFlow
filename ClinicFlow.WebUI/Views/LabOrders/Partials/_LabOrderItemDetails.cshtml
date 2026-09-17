@@ -22,6 +22,7 @@
                             <th>#</th>
                             <th>@Localizer["LabTest"]</th>
                             <th>@Localizer["Status"]</th>
+                            <th class="text-center">@Localizer["Actions"]</th>
                         </tr>
                     </thead>
 
@@ -43,6 +44,29 @@
                                     <span class="badge @item.Status.ToCssClass()">
                                         @Localizer[item.Status.ToString()]
                                     </span>
+                                </td>
+
+                                <td class="text-center">
+                            @if (item.Result == null)
+                                    {
+                                        <a asp-controller="LabResults"
+                                           asp-action="Create"
+                                           asp-route-labOrderItemId="@item.Id"
+                                           class="btn btn-sm btn-primary">
+                                            <i class="fa fa-plus me-1"></i>
+                                            @Localizer["EnterResult"]
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a asp-controller="LabResults"
+                                           asp-action="Details"
+                                           asp-route-id="@item.Result.Id"
+                                           class="btn btn-sm btn-info">
+                                            <i class="fa fa-eye me-1"></i>
+                                            @Localizer["ViewResult"]
+                                        </a>
+                                    }
                                 </td>
 
                             </tr>

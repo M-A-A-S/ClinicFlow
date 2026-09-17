@@ -1,0 +1,38 @@
+﻿@using ClinicFlow.Domain.DTOs.LabResult
+@model LabResultDTO
+
+
+@{
+    bool isArabic = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+}
+
+<div class="row g-3 mb-3 align-items-center">
+
+    <input type="hidden" asp-for="LabOrderItemId" />
+
+    @* ================= Patient ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label class="form-label text-muted mb-1 d-block">@Localizer["Patient"]</label>
+        <span class="fw-bold">@(Model?.OrderItem?.LabOrder?.Patient?.FullName ?? "-")</span>
+    </div>
+
+    @* ================= LabTest ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label class="form-label text-muted mb-1 d-block">@Localizer["LabTest"]</label>
+        <span class="fw-bold">
+            @(isArabic
+                        ? Model?.OrderItem?.LabTest?.NameAr
+                        : Model?.OrderItem?.LabTest?.NameEn)
+        </span>
+    </div>
+
+    @* ================= Result Date ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="ResultDate" class="form-label mb-1">@Localizer["ResultDate"]</label>
+        <input asp-for="ResultDate" type="datetime-local" class="form-control form-control-sm" />
+        <span asp-validation-for="ResultDate" class="text-danger small"></span>
+    </div>
+
+</div>
+
+<partial name="Partials/_LabResultValueForm" model="Model" />

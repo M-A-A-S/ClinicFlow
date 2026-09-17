@@ -1033,6 +1033,24 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter Result.
+        /// </summary>
+        public static string EnterResult {
+            get {
+                return ResourceManager.GetString("EnterResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter value.
+        /// </summary>
+        public static string EnterValue {
+            get {
+                return ResourceManager.GetString("EnterValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Female.
         /// </summary>
         public static string Female {
@@ -1893,6 +1911,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string NoParametersAdded {
             get {
                 return ResourceManager.GetString("NoParametersAdded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No parameters found.
+        /// </summary>
+        public static string NoParametersFound {
+            get {
+                return ResourceManager.GetString("NoParametersFound", resourceCulture);
             }
         }
         
@@ -2937,6 +2964,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string ValuesRequired {
             get {
                 return ResourceManager.GetString("ValuesRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View Result.
+        /// </summary>
+        public static string ViewResult {
+            get {
+                return ResourceManager.GetString("ViewResult", resourceCulture);
             }
         }
         

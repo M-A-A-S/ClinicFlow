@@ -1,7 +1,12 @@
 ﻿using ClinicFlow.Application.Services;
 using ClinicFlow.Domain.Constants;
+using ClinicFlow.Domain.DTOs.LabOrder;
+using ClinicFlow.Domain.DTOs.LabOrderItem;
 using ClinicFlow.Domain.DTOs.LabResult;
 using ClinicFlow.Domain.DTOs.LabResultValue;
+using ClinicFlow.Domain.DTOs.LabTest;
+using ClinicFlow.Domain.DTOs.LabTestParameter;
+using ClinicFlow.Domain.DTOs.Patient;
 using ClinicFlow.Domain.Entities;
 using ClinicFlow.Domain.Enums;
 using ClinicFlow.Domain.Extensions;
@@ -209,22 +214,88 @@ namespace ClinicFlow.Infrastructure.Services
         {
             try
             {
-                var item = await _appDbContext.LabResults
+                var labResult = await _appDbContext.LabResults
                     .AsNoTracking()
                     .Include(x => x.OrderItem)
                         .ThenInclude(x => x.LabTest)
-                            .ThenInclude(x => x.Parameters)
+                    .Include(x => x.OrderItem)
+                        .ThenInclude(x => x.LabOrder)
+                            .ThenInclude(x => x.Patient)
                     .Include(x => x.Values)
                         .ThenInclude(x => x.Parameter)
                     .FirstOrDefaultAsync(x => x.LabOrderItemId == orderItemId);
 
-                if (item == null)
+                if (labResult != null)
+                {
+                    return Result<LabResultDTO>.Success(labResult.ToDTO());
+                }
+
+                var orderItem = await _appDbContext.LabOrderItems
+                    .AsNoTracking()
+                    .Include(x => x.LabTest)
+                        .ThenInclude(x => x.Parameters)
+                    .Include(x => x.LabOrder)
+                        .ThenInclude(x => x.Patient)
+                    .FirstOrDefaultAsync(x => x.Id == orderItemId);
+
+                if (orderItem == null || orderItem.LabTest == null)
                 {
                     return Result<LabResultDTO>.Failure(
                         ResultCodes.NotFound,
-                        HttpStatusCodes.NotFound);
+                        HttpStatusCodes.NotFound,
+                        "Lab order item or associated lab test was not found");
                 }
-                return Result<LabResultDTO>.Success(item.ToDTO());
+
+                var parameters = orderItem.LabTest.Parameters ?? Enumerable.Empty<LabTestParameter>();
+
+                var newDTO = new LabResultDTO
+                {
+                    LabOrderItemId = orderItem.Id,
+                    ResultDate = DateTime.Now,
+
+                    OrderItem = new LabOrderItemDTO
+                    {
+                        Id = orderItem.Id,
+
+                        LabTest = new LabTestDTO
+                        {
+                            Id = orderItem.LabTest.Id,
+                            NameEn  = orderItem.LabTest.NameEn,
+                            NameAr = orderItem.LabTest.NameAr,
+                        },
+
+                        LabOrder = orderItem.LabOrder == null ? null : new LabOrderDTO
+                        {
+                            Id = orderItem.LabOrder.Id,
+                            OrderDate = orderItem.LabOrder.OrderDate,
+
+                            Patient = orderItem.LabOrder.Patient == null ? null : new PatientDTO
+                            {
+                                Id = orderItem.LabOrder.Patient.Id,
+                                FullName = orderItem.LabOrder.Patient.FullName,
+                                PhoneNumber = orderItem.LabOrder.Patient.PhoneNumber,
+                            }
+                        }
+                    },
+
+                    Values = parameters.Select(x => new LabResultValueDTO
+                    {
+                        ParameterId = x.Id,
+                        Unit = x.Unit,
+                        NormalRange = x.NormalRange,
+                        Value = string.Empty,
+
+                        Parameter = new LabTestParameterDTO
+                        {
+                            Id = x.Id,
+                            NameEn = x.NameEn,
+                            NameAr = x.NameAr
+                        }
+                    }).ToList()
+                };
+
+
+                return Result<LabResultDTO>.Success(newDTO);
             }
             catch (Exception ex)
             {

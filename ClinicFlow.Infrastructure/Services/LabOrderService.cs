@@ -1,7 +1,6 @@
 ﻿using ClinicFlow.Application.Services;
 using ClinicFlow.Domain.Constants;
 using ClinicFlow.Domain.DTOs.LabOrder;
-using ClinicFlow.Domain.DTOs.LabOrder;
 using ClinicFlow.Domain.DTOs.LabOrderItem;
 using ClinicFlow.Domain.DTOs.LabTest;
 using ClinicFlow.Domain.Entities;
@@ -153,6 +152,8 @@ namespace ClinicFlow.Infrastructure.Services
                     .Include(x => x.Patient)
                     .Include(x => x.Items)
                         .ThenInclude(x => x.LabTest)
+                    .Include(x => x.Items)
+                        .ThenInclude(x => x.Result)
                     .FirstOrDefaultAsync(x => x.Id == id);
 
                 if (item == null)
@@ -176,9 +177,7 @@ namespace ClinicFlow.Infrastructure.Services
                     HttpStatusCodes.InternalServerError,
                     "An unexpected error occurred.");
             }
-        }
-
-       
+        }   
 
         #endregion
 

@@ -1,0 +1,93 @@
+﻿@using ClinicFlow.Domain.DTOs.LabResult
+@using ClinicFlow.Domain.Enums
+@model LabResultDTO
+
+@{
+    bool isArabic = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+    var hasValues = Model?.Values != null && Model.Values.Any();
+}
+
+<div class="table-responsive mt-4">
+    <table class="table table-hover align-middle mb-0">
+        <thead>
+            <tr>
+                <th>@Localizer["Parameter"]</th>
+                <th>@Localizer["Result"]</th>
+                <th style="width: 150px;">@Localizer["Flag"]</th>
+                <th>@Localizer["Unit"]</th>
+                <th>@Localizer["NormalRange"]</th>
+            </tr>
+        </thead>
+
+        <tbody id="items-container">
+            @if (hasValues)
+            {
+                for (var i = 0; i < Model.Values.Count; i++)
+                {
+                    var valueItem = Model.Values[i];
+
+                    <tr class="lab-result-value-row" data-item-id="@valueItem.Id">
+
+                        @* Parameter Name *@
+                        <td>
+                            <span class="parameter-name fw-semibold">
+                                @(isArabic? valueItem.Parameter?.NameAr : valueItem.Parameter?.NameEn)
+                            </span>
+
+                            <input type="hidden" name="Values.Index" value="@i" />
+                            <input type="hidden" name="Values[@i].Id" value="@valueItem.Id" />
+                            <input type="hidden" name="Values[@i].ParameterId" value="@valueItem.ParameterId" />
+                        </td>
+
+                        @* Result Value Input *@
+                        <td>
+                            <input type="text"
+                                   class="form-control form-control-sm result-value-input"
+                                   name="Values[@i].Value"
+                                   value="@valueItem.Value"
+                                   placeholder="@Localizer["EnterValue"]"
+                                   required />
+
+                            <input type="hidden" name="Values[@i].NumericValue" value="@valueItem.NumericValue" />
+                        </td>
+
+                        @* Flag Dropdown (Separate Column) *@
+                        <td>
+                            <select class="form-select form-select-sm flag-select"
+                                    name="Values[@i].Flag">
+                                @foreach (LabResultFlag flag in Enum.GetValues(typeof(LabResultFlag)))
+                                {
+                                    <option value="@((int)flag)" selected="@(valueItem.Flag == flag)">
+                                        @Localizer[flag.ToString()]
+                                    </option>
+                                }
+                            </select>
+                        </td>
+
+                        @* Unit *@
+                        <td>
+                            <span class="text-muted">@valueItem.Unit</span>
+                            <input type="hidden" name="Values[@i].Unit" value="@valueItem.Unit" />
+                        </td>
+
+                        @* Normal Range *@
+                        <td>
+                            <span class="text-muted">@valueItem.NormalRange</span>
+                            <input type="hidden" name="Values[@i].NormalRange" value="@valueItem.NormalRange" />
+                        </td>
+
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+    @* Empty State *@
+    <div id="items-empty"
+         class="text-center text-muted py-4 @(hasValues ? "d-none" : "")">
+        <i class="fa fa-notes-medical fa-2x mb-2"></i>
+        <div>
+            @Localizer["NoParametersFound"]
+        </div>
+    </div>
+</div>

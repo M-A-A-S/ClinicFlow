@@ -1134,4 +1134,16 @@
   <data name="ParameterRequired" xml:space="preserve">
     <value>Parameter is required</value>
   </data>
+  <data name="EnterResult" xml:space="preserve">
+    <value>Enter Result</value>
+  </data>
+  <data name="ViewResult" xml:space="preserve">
+    <value>View Result</value>
+  </data>
+  <data name="EnterValue" xml:space="preserve">
+    <value>Enter value</value>
+  </data>
+  <data name="NoParametersFound" xml:space="preserve">
+    <value>No parameters found</value>
+  </data>
 </root>

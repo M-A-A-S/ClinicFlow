@@ -1134,4 +1134,16 @@
   <data name="ParameterRequired" xml:space="preserve">
     <value>رقم المعلمة مطلوب</value>
   </data>
+  <data name="EnterResult" xml:space="preserve">
+    <value>إدخال النتيجة</value>
+  </data>
+  <data name="ViewResult" xml:space="preserve">
+    <value>عرض النتيجة</value>
+  </data>
+  <data name="EnterValue" xml:space="preserve">
+    <value>أدخل القيمة</value>
+  </data>
+  <data name="NoParametersFound" xml:space="preserve">
+    <value>لا توجد تحاليل فرعية</value>
+  </data>
 </root>

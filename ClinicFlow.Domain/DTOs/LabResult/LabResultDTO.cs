@@ -27,7 +27,7 @@ namespace ClinicFlow.Domain.DTOs.LabResult
         public DateTime ResultDate { get; set; } = DateTime.Now;
 
         public LabOrderItemDTO? OrderItem { get; set; }
-        public ICollection<LabResultValueDTO> Values { get; set; }
+        public IList<LabResultValueDTO> Values { get; set; }
             = new List<LabResultValueDTO>();
 
     }
