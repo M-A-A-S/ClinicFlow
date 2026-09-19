@@ -214,6 +214,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Amount.
+        /// </summary>
+        public static string Amount {
+            get {
+                return ResourceManager.GetString("Amount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A-.
         /// </summary>
         public static string ANegative {
@@ -340,6 +349,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bank Transfer.
+        /// </summary>
+        public static string BankTransfer {
+            get {
+                return ResourceManager.GetString("BankTransfer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Blood Type.
         /// </summary>
         public static string BloodType {
@@ -367,7 +385,16 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bond Categories.
+        ///   Looks up a localized string similar to Voucher / Bond.
+        /// </summary>
+        public static string Bond {
+            get {
+                return ResourceManager.GetString("Bond", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Voucher Categories.
         /// </summary>
         public static string BondCategories {
             get {
@@ -376,11 +403,38 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bonds.
+        ///   Looks up a localized string similar to Voucher Category.
+        /// </summary>
+        public static string BondCategory {
+            get {
+                return ResourceManager.GetString("BondCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Voucher Number.
+        /// </summary>
+        public static string BondNumber {
+            get {
+                return ResourceManager.GetString("BondNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vouchers / Bonds.
         /// </summary>
         public static string Bonds {
             get {
                 return ResourceManager.GetString("Bonds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Voucher / Bond Type.
+        /// </summary>
+        public static string BondType {
+            get {
+                return ResourceManager.GetString("BondType", resourceCulture);
             }
         }
         
@@ -457,11 +511,29 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cash.
+        /// </summary>
+        public static string Cash {
+            get {
+                return ResourceManager.GetString("Cash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Category.
         /// </summary>
         public static string Category {
             get {
                 return ResourceManager.GetString("Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Category ID.
+        /// </summary>
+        public static string CategoryId {
+            get {
+                return ResourceManager.GetString("CategoryId", resourceCulture);
             }
         }
         
@@ -799,6 +871,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Discount Amount.
+        /// </summary>
+        public static string DiscountAmount {
+            get {
+                return ResourceManager.GetString("DiscountAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Display Order.
         /// </summary>
         public static string DisplayOrder {
@@ -1123,6 +1204,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to General.
+        /// </summary>
+        public static string General {
+            get {
+                return ResourceManager.GetString("General", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Generic Name (Arabic).
         /// </summary>
         public static string GenericNameAr {
@@ -1164,6 +1254,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string GoBack {
             get {
                 return ResourceManager.GetString("GoBack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grand Total.
+        /// </summary>
+        public static string GrandTotal {
+            get {
+                return ResourceManager.GetString("GrandTotal", resourceCulture);
             }
         }
         
@@ -1483,11 +1582,83 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invoice Date.
+        /// </summary>
+        public static string InvoiceDate {
+            get {
+                return ResourceManager.GetString("InvoiceDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invoice Item.
+        /// </summary>
+        public static string InvoiceItem {
+            get {
+                return ResourceManager.GetString("InvoiceItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invoice Items.
+        /// </summary>
+        public static string InvoiceItems {
+            get {
+                return ResourceManager.GetString("InvoiceItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invoice Item Type.
+        /// </summary>
+        public static string InvoiceItemType {
+            get {
+                return ResourceManager.GetString("InvoiceItemType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invoice Number.
+        /// </summary>
+        public static string InvoiceNumber {
+            get {
+                return ResourceManager.GetString("InvoiceNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invoice Payment.
+        /// </summary>
+        public static string InvoicePayment {
+            get {
+                return ResourceManager.GetString("InvoicePayment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invoice Payments.
+        /// </summary>
+        public static string InvoicePayments {
+            get {
+                return ResourceManager.GetString("InvoicePayments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invoices.
         /// </summary>
         public static string Invoices {
             get {
                 return ResourceManager.GetString("Invoices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invoice Status.
+        /// </summary>
+        public static string InvoiceStatus {
+            get {
+                return ResourceManager.GetString("InvoiceStatus", resourceCulture);
             }
         }
         
@@ -1501,11 +1672,29 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Issue Date.
+        /// </summary>
+        public static string IssueDate {
+            get {
+                return ResourceManager.GetString("IssueDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Items.
         /// </summary>
         public static string Items {
             get {
                 return ResourceManager.GetString("Items", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item Type.
+        /// </summary>
+        public static string ItemType {
+            get {
+                return ResourceManager.GetString("ItemType", resourceCulture);
             }
         }
         
@@ -1533,6 +1722,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string JournalEntries {
             get {
                 return ResourceManager.GetString("JournalEntries", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lab Test.
+        /// </summary>
+        public static string Lab {
+            get {
+                return ResourceManager.GetString("Lab", resourceCulture);
             }
         }
         
@@ -1852,6 +2050,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Network / Card.
+        /// </summary>
+        public static string NetworkCard {
+            get {
+                return ResourceManager.GetString("NetworkCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Next.
         /// </summary>
         public static string Next {
@@ -2158,6 +2365,24 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Paid.
+        /// </summary>
+        public static string Paid {
+            get {
+                return ResourceManager.GetString("Paid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Paid Amount.
+        /// </summary>
+        public static string PaidAmount {
+            get {
+                return ResourceManager.GetString("PaidAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Parameter.
         /// </summary>
         public static string Parameter {
@@ -2181,6 +2406,42 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string Parameters {
             get {
                 return ResourceManager.GetString("Parameters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Partially Paid.
+        /// </summary>
+        public static string PartiallyPaid {
+            get {
+                return ResourceManager.GetString("PartiallyPaid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Party Type.
+        /// </summary>
+        public static string Party {
+            get {
+                return ResourceManager.GetString("Party", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Party ID.
+        /// </summary>
+        public static string PartyId {
+            get {
+                return ResourceManager.GetString("PartyId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Party Type.
+        /// </summary>
+        public static string PartyType {
+            get {
+                return ResourceManager.GetString("PartyType", resourceCulture);
             }
         }
         
@@ -2239,11 +2500,47 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Payment Voucher (Money Out).
+        /// </summary>
+        public static string Payment {
+            get {
+                return ResourceManager.GetString("Payment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Payment Date.
+        /// </summary>
+        public static string PaymentDate {
+            get {
+                return ResourceManager.GetString("PaymentDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Payment Method.
+        /// </summary>
+        public static string PaymentMethod {
+            get {
+                return ResourceManager.GetString("PaymentMethod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Payment Methods.
         /// </summary>
         public static string PaymentMethods {
             get {
                 return ResourceManager.GetString("PaymentMethods", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Payment Method Type.
+        /// </summary>
+        public static string PaymentMethodType {
+            get {
+                return ResourceManager.GetString("PaymentMethodType", resourceCulture);
             }
         }
         
@@ -2563,11 +2860,56 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Receipt Voucher (Money In).
+        /// </summary>
+        public static string Receipt {
+            get {
+                return ResourceManager.GetString("Receipt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Receipt Number.
+        /// </summary>
+        public static string ReceiptNumber {
+            get {
+                return ResourceManager.GetString("ReceiptNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Recorded At.
         /// </summary>
         public static string RecordedAt {
             get {
                 return ResourceManager.GetString("RecordedAt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reference ID.
+        /// </summary>
+        public static string ReferenceId {
+            get {
+                return ResourceManager.GetString("ReferenceId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reference Number.
+        /// </summary>
+        public static string ReferenceNumber {
+            get {
+                return ResourceManager.GetString("ReferenceNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remaining Amount.
+        /// </summary>
+        public static string RemainingAmount {
+            get {
+                return ResourceManager.GetString("RemainingAmount", resourceCulture);
             }
         }
         
@@ -2761,6 +3103,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Medical Service.
+        /// </summary>
+        public static string Service {
+            get {
+                return ResourceManager.GetString("Service", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Service Start Time.
         /// </summary>
         public static string ServiceStartAt {
@@ -2833,6 +3184,24 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Subtotal.
+        /// </summary>
+        public static string Subtotal {
+            get {
+                return ResourceManager.GetString("Subtotal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Supplier / Vendor.
+        /// </summary>
+        public static string Supplier {
+            get {
+                return ResourceManager.GetString("Supplier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Syrup.
         /// </summary>
         public static string Syrup {
@@ -2856,6 +3225,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string Tablet {
             get {
                 return ResourceManager.GetString("Tablet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tax Amount.
+        /// </summary>
+        public static string TaxAmount {
+            get {
+                return ResourceManager.GetString("TaxAmount", resourceCulture);
             }
         }
         
@@ -2896,6 +3274,24 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Total Price.
+        /// </summary>
+        public static string Total {
+            get {
+                return ResourceManager.GetString("Total", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        public static string Type {
+            get {
+                return ResourceManager.GetString("Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to An unexpected error occurred..
         /// </summary>
         public static string UnexpectedError {
@@ -2914,11 +3310,29 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unit Price.
+        /// </summary>
+        public static string UnitPrice {
+            get {
+                return ResourceManager.GetString("UnitPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unknown.
         /// </summary>
         public static string Unknown {
             get {
                 return ResourceManager.GetString("Unknown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unpaid.
+        /// </summary>
+        public static string Unpaid {
+            get {
+                return ResourceManager.GetString("Unpaid", resourceCulture);
             }
         }
         

@@ -43,6 +43,13 @@ namespace ClinicFlow.Infrastructure.Data
         public DbSet<LabResult> LabResults { get; set; }
         public DbSet<LabResultValue> LabResultValues { get; set; }
 
+        public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<InvoiceItem> InvoiceItems { get; set; }
+        public DbSet<PaymentMethod> PaymentMethods { get; set; }
+        public DbSet<InvoicePayment> InvoicePayments { get; set; }
+        public DbSet<BondCategory> BondCategories { get; set; }
+        public DbSet<Bond> Bonds { get; set; }
+
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
         int SaveChanges();
         Task<IDbContextTransaction> BeginTransactionAsync(CancellationToken cancellationToken = default);
