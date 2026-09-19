@@ -1933,6 +1933,24 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Maximum Amount.
+        /// </summary>
+        public static string MaxAmount {
+            get {
+                return ResourceManager.GetString("MaxAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximum Total.
+        /// </summary>
+        public static string MaxGrandTotal {
+            get {
+                return ResourceManager.GetString("MaxGrandTotal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Maximum price.
         /// </summary>
         public static string MaxPrice {
@@ -1983,6 +2001,24 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string Medicines {
             get {
                 return ResourceManager.GetString("Medicines", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimum Amount.
+        /// </summary>
+        public static string MinAmount {
+            get {
+                return ResourceManager.GetString("MinAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimum Total.
+        /// </summary>
+        public static string MinGrandTotal {
+            get {
+                return ResourceManager.GetString("MinGrandTotal", resourceCulture);
             }
         }
         

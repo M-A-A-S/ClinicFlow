@@ -1325,4 +1325,9 @@
     <value>Party Type</value>
   </data>
 
+	<data name="MinGrandTotal" xml:space="preserve"><value>Minimum Total</value></data>
+	<data name="MaxGrandTotal" xml:space="preserve"><value>Maximum Total</value></data>
+	<data name="MinAmount" xml:space="preserve"><value>Minimum Amount</value></data>
+	<data name="MaxAmount" xml:space="preserve"><value>Maximum Amount</value></data>
+
 </root>

@@ -1318,6 +1318,10 @@
 	<data name="PartyType" xml:space="preserve">
     <value>نوع جهة التعامل</value>
   </data>
-	
-	
+
+	<data name="MinGrandTotal" xml:space="preserve"><value>الحد الأدنى للإجمالي</value></data>
+	<data name="MaxGrandTotal" xml:space="preserve"><value>الحد الأقصى للإجمالي</value></data>
+	<data name="MinAmount" xml:space="preserve"><value>الحد الأدنى للمبلغ</value></data>
+	<data name="MaxAmount" xml:space="preserve"><value>الحد الأقصى للمبلغ</value></data>
+
 </root>

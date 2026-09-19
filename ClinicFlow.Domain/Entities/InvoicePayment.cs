@@ -5,7 +5,6 @@ namespace ClinicFlow.Domain.Entities
 {
     public class InvoicePayment : BaseEntity
     {
-        [Required]
         public string ReceiptNumber { get; set; } = string.Empty;
         public int InvoiceId { get; set; }
 
