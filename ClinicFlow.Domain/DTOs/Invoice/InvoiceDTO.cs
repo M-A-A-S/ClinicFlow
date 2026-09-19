@@ -72,13 +72,13 @@ namespace ClinicFlow.Domain.DTOs.Invoice
             Name = nameof(SharedResource.PaidAmount),
             ResourceType = typeof(SharedResource)
         )]
-        public decimal PaidAmount { get; private set; }
+        public decimal PaidAmount { get; set; }
 
         [Display(
             Name = nameof(SharedResource.RemainingAmount),
             ResourceType = typeof(SharedResource)
         )]
-        public decimal RemainingAmount { get; private set; }
+        public decimal RemainingAmount { get; set; }
 
         public PatientDTO? Patient { get; set; }
 

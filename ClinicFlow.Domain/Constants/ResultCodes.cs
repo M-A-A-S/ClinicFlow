@@ -99,5 +99,13 @@ namespace ClinicFlow.Domain.Constants
         public const string InvalidParameter = "InvalidParameter";
         public const string ParameterRequired = "ParameterRequired";
 
+        public const string InvoiceNumberRequired = "InvoiceNumberRequired";
+        public const string InvoiceMustHaveItems = "InvoiceMustHaveItems";
+        public const string InvoiceDuplicateItems = "InvoiceDuplicateItems";
+        public const string InvoiceInvalidItem = "InvoiceInvalidItem";
+        public const string InvoiceItemQuantityInvalid = "InvoiceItemQuantityInvalid";
+        public const string InvoiceItemUnitPriceInvalid = "InvoiceItemUnitPriceInvalid";
+        public const string InvalidAmountRange = "InvalidAmountRange";
+
     }
 }

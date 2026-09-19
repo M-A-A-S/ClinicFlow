@@ -1348,6 +1348,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Minimum amount cannot be greater than maximum amount.
+        /// </summary>
+        public static string InvalidAmountRange {
+            get {
+                return ResourceManager.GetString("InvalidAmountRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The selected appointment is invalid..
         /// </summary>
         public static string InvalidAppointment {

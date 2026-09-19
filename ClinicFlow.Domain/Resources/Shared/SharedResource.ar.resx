@@ -127,10 +127,10 @@
     <value>المواعيد</value>
   </data>
   <data name="BondCategories" xml:space="preserve">
-    <value>تصنيفات السندات</value>
+    <value>فئات السندات</value>
   </data>
   <data name="Bonds" xml:space="preserve">
-    <value>السندات</value>
+    <value>سندات</value>
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>لوحة التحكم</value>
@@ -139,7 +139,7 @@
     <value>الأطباء</value>
   </data>
   <data name="Invoices" xml:space="preserve">
-    <value>الفواتير</value>
+    <value>فواتير</value>
   </data>
   <data name="JournalEntries" xml:space="preserve">
     <value>القيود اليومية</value>
@@ -208,7 +208,7 @@
     <value>الوصف</value>
   </data>
   <data name="Notes" xml:space="preserve">
-    <value>الملاحظات</value>
+    <value>ملاحظات</value>
   </data>
   <data name="IdentifiedAt" xml:space="preserve">
     <value>تاريخ اكتشاف الحساسية</value>
@@ -511,7 +511,7 @@
     <value>الطبيب المحدد غير صالح.</value>
   </data>
   <data name="Medicine" xml:space="preserve">
-    <value>الدواء</value>
+    <value>دواء</value>
   </data>
   <data name="Medicines" xml:space="preserve">
     <value>الأدوية</value>
@@ -1149,179 +1149,154 @@
   <data name="EditResult" xml:space="preserve">
     <value>تعديل النتيجة</value>
   </data>
-
-	<data name="Invoice" xml:space="preserve">
-    <value>فاتورة</value>
-  </data>
-	<data name="Invoices" xml:space="preserve">
-    <value>فواتير</value>
-  </data>
-	<data name="InvoiceItem" xml:space="preserve">
+  <data name="InvoiceItem" xml:space="preserve">
     <value>بند الفاتورة</value>
   </data>
-	<data name="InvoiceItems" xml:space="preserve">
+  <data name="InvoiceItems" xml:space="preserve">
     <value>بنود الفاتورة</value>
   </data>
-	<data name="PaymentMethod" xml:space="preserve">
+  <data name="PaymentMethod" xml:space="preserve">
     <value>طريقة الدفع</value>
   </data>
-	<data name="PaymentMethods" xml:space="preserve">
-    <value>طرق الدفع</value>
-  </data>
-	<data name="InvoicePayment" xml:space="preserve">
+  <data name="InvoicePayment" xml:space="preserve">
     <value>دفعة الفاتورة</value>
   </data>
-	<data name="InvoicePayments" xml:space="preserve">
+  <data name="InvoicePayments" xml:space="preserve">
     <value>دفوعات الفواتير</value>
   </data>
-
-	<data name="BondCategory" xml:space="preserve">
+  <data name="BondCategory" xml:space="preserve">
     <value>فئة السند</value>
   </data>
-	<data name="BondCategories" xml:space="preserve">
-    <value>فئات السندات</value>
-  </data>
-	<data name="Bond" xml:space="preserve">
+  <data name="Bond" xml:space="preserve">
     <value>سند</value>
   </data>
-	<data name="Bonds" xml:space="preserve">
-    <value>سندات</value>
-  </data>
-	<data name="InvoiceNumber" xml:space="preserve">
+  <data name="InvoiceNumber" xml:space="preserve">
     <value>رقم الفاتورة</value>
   </data>
-	<data name="InvoiceDate" xml:space="preserve">
+  <data name="InvoiceDate" xml:space="preserve">
     <value>تاريخ الفاتورة</value>
   </data>
-	<data name="Subtotal" xml:space="preserve">
+  <data name="Subtotal" xml:space="preserve">
     <value>المجموع الفرعي</value>
   </data>
-	<data name="DiscountAmount" xml:space="preserve">
+  <data name="DiscountAmount" xml:space="preserve">
     <value>قيمة الخصم</value>
   </data>
-	<data name="TaxAmount" xml:space="preserve">
+  <data name="TaxAmount" xml:space="preserve">
     <value>قيمة الضريبة</value>
   </data>
-	<data name="GrandTotal" xml:space="preserve">
+  <data name="GrandTotal" xml:space="preserve">
     <value>المجموع الكلي</value>
   </data>
-	<data name="PaidAmount" xml:space="preserve">
+  <data name="PaidAmount" xml:space="preserve">
     <value>المبلغ المدفوع</value>
   </data>
-	<data name="RemainingAmount" xml:space="preserve">
+  <data name="RemainingAmount" xml:space="preserve">
     <value>المبلغ المتبقي</value>
   </data>
-	<data name="ItemType" xml:space="preserve">
+  <data name="ItemType" xml:space="preserve">
     <value>نوع البند</value>
   </data>
-	<data name="ReferenceId" xml:space="preserve">
+  <data name="ReferenceId" xml:space="preserve">
     <value>الرقم المرجعي</value>
   </data>
-	<data name="Quantity" xml:space="preserve">
-    <value>الكمية</value>
-  </data>
-	<data name="UnitPrice" xml:space="preserve">
+  <data name="UnitPrice" xml:space="preserve">
     <value>سعر الوحدة</value>
   </data>
-	<data name="Total" xml:space="preserve">
+  <data name="Total" xml:space="preserve">
     <value>الإجمالي</value>
   </data>
-	<data name="Description" xml:space="preserve">
-    <value>الوصف</value>
-  </data>
-	<data name="Type" xml:space="preserve">
+  <data name="Type" xml:space="preserve">
     <value>النوع</value>
   </data>
-	<data name="ReceiptNumber" xml:space="preserve">
+  <data name="ReceiptNumber" xml:space="preserve">
     <value>رقم الإيصال</value>
   </data>
-	<data name="Amount" xml:space="preserve">
+  <data name="Amount" xml:space="preserve">
     <value>المبلغ</value>
   </data>
-	<data name="PaymentMethodId" xml:space="preserve">
-    <value>معرف طريقة الدفع</value>
-  </data>
-	<data name="PaymentDate" xml:space="preserve">
+  <data name="PaymentDate" xml:space="preserve">
     <value>تاريخ الدفع</value>
   </data>
-	<data name="Notes" xml:space="preserve">
-    <value>ملاحظات</value>
-  </data>
-	<data name="ReferenceNumber" xml:space="preserve">
+  <data name="ReferenceNumber" xml:space="preserve">
     <value>رقم المرجع</value>
   </data>
-	<data name="BondNumber" xml:space="preserve">
+  <data name="BondNumber" xml:space="preserve">
     <value>رقم السند</value>
   </data>
-	<data name="IssueDate" xml:space="preserve">
+  <data name="IssueDate" xml:space="preserve">
     <value>تاريخ الإصدار</value>
   </data>
-	<data name="Party" xml:space="preserve">
+  <data name="Party" xml:space="preserve">
     <value>جهة التعامل</value>
   </data>
-
-	<data name="Unpaid" xml:space="preserve">
+  <data name="Unpaid" xml:space="preserve">
     <value>غير مدفوع</value>
   </data>
-	<data name="PartiallyPaid" xml:space="preserve">
+  <data name="PartiallyPaid" xml:space="preserve">
     <value>مدفوع جزئياً</value>
   </data>
-	<data name="Paid" xml:space="preserve">
+  <data name="Paid" xml:space="preserve">
     <value>مدفوع بالكامل</value>
   </data>
-	<data name="Lab" xml:space="preserve">
+  <data name="Lab" xml:space="preserve">
     <value>تحليل طبي</value>
   </data>
-	<data name="Medicine" xml:space="preserve">
-    <value>دواء</value>
-  </data>
-	<data name="Service" xml:space="preserve">
+  <data name="Service" xml:space="preserve">
     <value>خدمة طبية</value>
   </data>
-	<data name="Cash" xml:space="preserve">
+  <data name="Cash" xml:space="preserve">
     <value>نقداً</value>
   </data>
-	<data name="NetworkCard" xml:space="preserve">
+  <data name="NetworkCard" xml:space="preserve">
     <value>بطاقة صراف / شبكة</value>
   </data>
-	<data name="BankTransfer" xml:space="preserve">
+  <data name="BankTransfer" xml:space="preserve">
     <value>تحويل بنكي</value>
   </data>
-	<data name="Receipt" xml:space="preserve">
+  <data name="Receipt" xml:space="preserve">
     <value>سند قبض (مقبوضات)</value>
   </data>
-	<data name="Payment" xml:space="preserve">
+  <data name="Payment" xml:space="preserve">
     <value>سند صرف (مصروفات)</value>
   </data>
-	<data name="General" xml:space="preserve">
+  <data name="General" xml:space="preserve">
     <value>عام</value>
   </data>
-	<data name="Supplier" xml:space="preserve">
+  <data name="Supplier" xml:space="preserve">
     <value>مورد</value>
   </data>
-	<data name="Doctor" xml:space="preserve">
-    <value>طبيب</value>
-  </data>
-
-	<data name="InvoiceStatus" xml:space="preserve">
+  <data name="InvoiceStatus" xml:space="preserve">
     <value>حالة الفاتورة</value>
   </data>
-	<data name="InvoiceItemType" xml:space="preserve">
+  <data name="InvoiceItemType" xml:space="preserve">
     <value>نوع بند الفاتورة</value>
   </data>
-	<data name="PaymentMethodType" xml:space="preserve">
+  <data name="PaymentMethodType" xml:space="preserve">
     <value>نوع طريقة الدفع</value>
   </data>
-	<data name="BondType" xml:space="preserve">
+  <data name="BondType" xml:space="preserve">
     <value>نوع السند</value>
   </data>
-	<data name="PartyType" xml:space="preserve">
+  <data name="PartyType" xml:space="preserve">
     <value>نوع جهة التعامل</value>
   </data>
-
-	<data name="MinGrandTotal" xml:space="preserve"><value>الحد الأدنى للإجمالي</value></data>
-	<data name="MaxGrandTotal" xml:space="preserve"><value>الحد الأقصى للإجمالي</value></data>
-	<data name="MinAmount" xml:space="preserve"><value>الحد الأدنى للمبلغ</value></data>
-	<data name="MaxAmount" xml:space="preserve"><value>الحد الأقصى للمبلغ</value></data>
-
+  <data name="MinGrandTotal" xml:space="preserve">
+    <value>الحد الأدنى للإجمالي</value>
+  </data>
+  <data name="MaxGrandTotal" xml:space="preserve">
+    <value>الحد الأقصى للإجمالي</value>
+  </data>
+  <data name="MinAmount" xml:space="preserve">
+    <value>الحد الأدنى للمبلغ</value>
+  </data>
+  <data name="MaxAmount" xml:space="preserve">
+    <value>الحد الأقصى للمبلغ</value>
+  </data>
+  <data name="PaymentMethodId" xml:space="preserve">
+    <value>معرف طريقة الدفع</value>
+  </data>
+  <data name="InvalidAmountRange" xml:space="preserve">
+    <value>الحد الأدنى للمبلغ لا يمكن أن يكون أكبر من الحد الأقصى</value>
+  </data>
 </root>
