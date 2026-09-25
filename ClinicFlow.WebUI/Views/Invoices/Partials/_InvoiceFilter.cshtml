@@ -1,0 +1,81 @@
+﻿@using ClinicFlow.WebUI.ViewModels.Invoice;
+@model InvoiceIndexVM
+
+<form method="get" class="card shadow-sm mb-4">
+    <div class="card-body">
+        <div class="row g-3 align-items-end">
+            @* ========================== Search ========================== *@
+            <div class="col-12 col-md-6 col-xl-3">
+                <label asp-for="Filter.Search" class="form-label">@Localizer["Search"]</label>
+                <input asp-for="Filter.Search"
+                       class="form-control"
+                       placeholder="@Localizer["Search"]" />
+            </div>
+
+            @* ========================== Patient ========================== *@
+            <div class="col-12 col-md-6 col-xl-3">
+                <label asp-for="Filter.PatientId" class="form-label">@Localizer["Patient"]</label>
+                <select asp-for="Filter.PatientId"
+                        id="patientId"
+                        class="form-select select2"
+                        asp-items="ViewBag.Patients">
+                    <option value="">
+                        @Localizer["Select"]
+                    </option>
+                </select>
+            </div>
+
+            @* ========================== FromDate ========================== *@
+            <div class="col-12 col-md-6 col-xl-3">
+                <label asp-for="Filter.FromDate" class="form-label">@Localizer["FromDate"]</label>
+                <input asp-for="Filter.FromDate"
+                       type="date"
+                       class="form-control"
+                       placeholder="@Localizer["Search"]" />
+            </div>
+
+            @* ========================== ToDate ========================== *@
+            <div class="col-12 col-md-6 col-xl-3">
+                <label asp-for="Filter.ToDate" class="form-label">@Localizer["ToDate"]</label>
+                <input asp-for="Filter.ToDate"
+                       type="date"
+                       class="form-control"
+                       placeholder="@Localizer["Search"]" />
+            </div>
+
+            @* ========================== MaxGrandTotal ========================== *@
+            <div class="col-12 col-md-6 col-xl-3">
+                <label asp-for="Filter.MaxGrandTotal" class="form-label">@Localizer["MaxGrandTotal"]</label>
+                <input asp-for="Filter.MaxGrandTotal"
+                       class="form-control"
+                       placeholder="@Localizer["MaxGrandTotal"]" />
+            </div>
+
+            @* ========================== MinGrandTotal ========================== *@
+            <div class="col-12 col-md-6 col-xl-3">
+                <label asp-for="Filter.ToDate" class="form-label">@Localizer["MinGrandTotal"]</label>
+                <input asp-for="Filter.MinGrandTotal"
+                       class="form-control"
+                       placeholder="@Localizer["MinGrandTotal"]" />
+            </div>
+
+            @* ========================== Actions ========================== *@
+            <div class="col-auto">
+                <button type="submit"
+                        class="btn btn-primary">
+                    <i class="fa fa-search me-1"></i>
+                    @Localizer["Search"]
+                </button>
+            </div>
+
+            <div class="col-auto">
+                <a asp-action="Index"
+                   class="btn btn-outline-secondary">
+                    <i class="fa fa-times me-1"></i>
+                    @Localizer["Clear"]
+                </a>
+            </div>
+
+        </div>
+    </div>
+</form>

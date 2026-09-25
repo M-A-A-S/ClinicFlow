@@ -1,0 +1,152 @@
+﻿@using ClinicFlow.Domain.Enums
+@using ClinicFlow.WebUI.ViewModels.Common
+@using ClinicFlow.WebUI.ViewModels.Invoice;
+@model InvoiceIndexVM
+
+@{
+    var routes = Model.Filter.ToRouteDictionary();
+
+    var isArabic = CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "ar";
+
+    var columns = new List<TableColumnVM>
+    {
+        new TableColumnVM
+        {
+            Column = "InvoiceNumber",
+            Title = Localizer["InvoiceNumber"]
+        },
+        new TableColumnVM
+        {
+            Column = "PatientId",
+            Title = Localizer["Patient"]
+        },
+        new TableColumnVM
+        {
+            Column = "InvoiceDate",
+            Title = Localizer["InvoiceDate"]
+        },
+        new TableColumnVM
+        {
+            Column = "Status",
+            Title = Localizer["Status"],
+            IsSortable = false
+        },
+        new TableColumnVM
+        {
+            Column = "Subtotal",
+            Title = Localizer["Subtotal"]
+        },
+        new TableColumnVM
+        {
+            Column = "DiscountAmount",
+            Title = Localizer["DiscountAmount"]
+        },
+        new TableColumnVM
+        {
+            Column = "TaxAmount",
+            Title = Localizer["TaxAmount"]
+        },
+        new TableColumnVM
+        {
+            Column = "GrandTotal",
+            Title = Localizer["GrandTotal"]
+        },
+        new TableColumnVM
+        {
+            Column = "PaidAmount",
+            Title = Localizer["PaidAmount"]
+        },
+        new TableColumnVM
+        {
+            Column = "RemainingAmount",
+            Title = Localizer["RemainingAmount"]
+        },
+        new TableColumnVM
+        {
+            Column = string.Empty,
+            Title = Localizer["Actions"],
+            IsSortable = false
+        }
+    };
+
+}
+
+@if (Model.PagedResult.Items == null || !Model.PagedResult.Items.Any())
+{
+    <div class="alert alert-info">
+        @Localizer["NoRecordsFound"]
+    </div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    @foreach (var column in columns)
+                    {
+                        <th>
+                            @if (column.IsSortable)
+                            {
+                                <partial name="Partials/_SortableHeader"
+                                         model='new SortHeaderVM
+                                         {
+                                             Column = column.Column,
+                                             Title = column.Title,
+                                             Filter = Model.Filter,
+                                             Routes = routes
+                                         }' />
+                                        }
+                            else
+                            {
+                                @column.Title
+                            }
+                        </th>
+                    }
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model.PagedResult.Items)
+                {
+                    <tr>
+
+                        <td>@item.InvoiceNumber</td>
+
+                        <td>@(item.Patient == null ? "-" : item.Patient.FullName)</td>
+
+                        <td>@item.InvoiceDate</td>
+
+                        <td>@item.Status</td>
+
+                        <td>@item.Subtotal</td>
+
+                        <td>@item.DiscountAmount</td>
+
+                        <td>@item.TaxAmount</td>
+
+                        <td>@item.GrandTotal</td>
+
+                        <td>@item.PaidAmount</td>
+
+                        <td>@item.RemainingAmount</td>
+
+
+                        <td>
+
+                            <div class="d-flex gap-1 align-items-center">
+                                <partial name="Partials/_Actions"
+                                         model='new ActionButtonsVM
+                                         {
+                                             Controller = "Invoices",
+                                             Id = item.Id
+                                         }' />
+                    </div>
+                </td>
+
+                    </tr>
+                        }
+            </tbody>
+        </table>
+    </div>
+}
