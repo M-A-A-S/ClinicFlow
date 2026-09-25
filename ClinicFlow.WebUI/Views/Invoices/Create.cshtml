@@ -1,0 +1,71 @@
+﻿@using ClinicFlow.Domain.DTOs.Invoice
+@model InvoiceDTO
+
+<form asp-action="Create" method="post" id="invoice-form">
+<div class="card shadow-sm">
+
+    <div class="card-header text-white d-flex align-items-center justify-content-between">
+        <h5>@Localizer["Create"] @Localizer["Invoice"]</h5>
+
+        <div>
+            <button type="submit" class="btn btn-success">
+                <i class="fa fa-save me-1"></i>
+                @Localizer["Save"]
+            </button>
+
+            <a asp-action="Index" class="btn btn-secondary">
+
+                <i class="fa fa-arrow-left me-1"></i>
+                @Localizer["Cancel"]
+            </a>
+        </div>
+
+    </div>
+
+    <div class="card-body">
+
+        
+
+            <partial name="Partials/Form/_InvoiceForm" model="Model" />
+
+            @* <button type="submit" class="btn btn-success">
+                @Localizer["Save"]
+            </button>
+
+            <a asp-action="Index" class="btn btn-secondary">
+                @Localizer["Cancel"]
+            </a> *@
+
+        
+
+    </div>
+</div>
+
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        const removeText = '@Html.Raw(Localizer["Remove"])';
+        const selectTest = '@Html.Raw(Localizer["PleaseSelectLabTest"])';
+
+        const invoiceMessages = {
+            selectItemType: '@Html.Raw(Localizer["PleaseSelectItemType"])',
+            selectItem: '@Html.Raw(Localizer["PleaseSelectItem"])',
+            quantityGreaterThanZero: '@Html.Raw(Localizer["QuantityMustBeGreaterThanZero"])',
+            unitPriceCannotBeNegative: '@Html.Raw(Localizer["UnitPriceCannotBeNegative"])',
+
+            selectPaymentType: '@Html.Raw(Localizer["PleaseSelectPaymentType"])',
+            selectPaymentMethod: '@Html.Raw(Localizer["PleaseSelectPaymentMethod"])',
+            amountGreaterThanZero: '@Html.Raw(Localizer["AmountMustBeGreaterThanZero"])',
+            selectPaymentDate: '@Html.Raw(Localizer["PleaseSelectPaymentDate"])',
+            receiptGreaterThanRemaining: '@Html.Raw(Localizer["ReceiptCannotBeGreaterThanRemaining"])',
+
+            paymentMustEqualGrandTotal: '@Html.Raw(Localizer["PaymentMustEqualGrandTotal"])'
+        };
+
+    </script>
+
+    <script src="~/js/invoice-form.js" asp-append-version="true"></script>
+}

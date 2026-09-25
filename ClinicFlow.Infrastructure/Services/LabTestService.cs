@@ -192,6 +192,7 @@ namespace ClinicFlow.Infrastructure.Services
                         Id = x.Id,
                         NameEn = x.NameEn,
                         NameAr = x.NameAr,
+                        Price = x.Price
                     })
                     .ToListAsync();
 

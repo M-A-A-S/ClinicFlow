@@ -1,0 +1,49 @@
+﻿@using ClinicFlow.Domain.DTOs.Invoice
+@using ClinicFlow.Domain.Enums
+@model InvoiceDTO
+
+
+<div class="row g-3 mb-2">
+
+    @* ================= Patient ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="PatientId" class="form-label"></label>
+        <select asp-for="PatientId"
+                id="patientId"
+                class="form-select select2"
+                asp-items="ViewBag.Patients">
+            <option value="">
+                @Localizer["Select"]
+            </option>
+        </select>
+        <span asp-validation-for="PatientId" class="text-danger"></span>
+    </div>
+
+    @* ================= Invoice Date ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="InvoiceDate" class="form-label"></label>
+        <input asp-for="InvoiceDate" type="date" class="form-control" />
+        <span asp-validation-for="InvoiceDate" class="text-danger"></span>
+    </div>
+
+    @* ================= InvoiceStatus ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="Status" class="form-label"></label>
+        <select asp-for="Status"
+                asp-items="Html.GetEnumSelectList<InvoiceStatus>()"
+                class="form-select">
+        </select>
+        <span asp-validation-for="Status" class="text-danger"></span>
+    </div>
+
+</div>
+
+<partial name="Partials/Form/_InvoiceItemFormTable" model="Model" />
+
+<partial name="Partials/Form/_AddInvoiceItemModal" model="Model" />
+
+<partial name="Partials/Form/_InvoicePaymentFromTable" model="Model" />
+
+<partial name="Partials/Form/_AddInvoicePaymentModal" model="Model" />
+
+<partial name="Partials/Form/_InvoiceSummary" model="Model" />

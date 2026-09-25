@@ -1230,6 +1230,9 @@
   <data name="Party" xml:space="preserve">
     <value>جهة التعامل</value>
   </data>
+  <data name="PartyId" xml:space="preserve">
+    <value>معرف جهة التعامل</value>
+  </data>
   <data name="Unpaid" xml:space="preserve">
     <value>غير مدفوع</value>
   </data>
@@ -1293,10 +1296,58 @@
   <data name="MaxAmount" xml:space="preserve">
     <value>الحد الأقصى للمبلغ</value>
   </data>
+  <data name="InvalidAmountRange" xml:space="preserve">
+    <value>الحد الأدنى للمبلغ لا يمكن أن يكون أكبر من الحد الأقصى</value>
+  </data>
   <data name="PaymentMethodId" xml:space="preserve">
     <value>معرف طريقة الدفع</value>
   </data>
-  <data name="InvalidAmountRange" xml:space="preserve">
-    <value>الحد الأدنى للمبلغ لا يمكن أن يكون أكبر من الحد الأقصى</value>
+  <data name="PleaseSelectItemType" xml:space="preserve">
+    <value>يرجى اختيار نوع البند</value>
+  </data>
+  <data name="PleaseSelectItem" xml:space="preserve">
+    <value>يرجى اختيار البند</value>
+  </data>
+  <data name="QuantityMustBeGreaterThanZero" xml:space="preserve">
+    <value>يجب أن تكون الكمية أكبر من صفر</value>
+  </data>
+  <data name="UnitPriceCannotBeNegative" xml:space="preserve">
+    <value>لا يمكن أن يكون سعر الوحدة سالبًا</value>
+  </data>
+  <data name="PleaseSelectPaymentType" xml:space="preserve">
+    <value>يرجى اختيار نوع العملية</value>
+  </data>
+  <data name="PleaseSelectPaymentMethod" xml:space="preserve">
+    <value>يرجى اختيار طريقة الدفع</value>
+  </data>
+  <data name="AmountMustBeGreaterThanZero" xml:space="preserve">
+    <value>يجب أن يكون المبلغ أكبر من صفر</value>
+  </data>
+  <data name="PleaseSelectPaymentDate" xml:space="preserve">
+    <value>يرجى اختيار تاريخ الدفع</value>
+  </data>
+  <data name="ReceiptCannotBeGreaterThanRemaining" xml:space="preserve">
+    <value>لا يمكن أن يكون الإيصال أكبر من المبلغ المتبقي</value>
+  </data>
+  <data name="InvoiceNumberRequired" xml:space="preserve">
+    <value>رقم الفاتورة مطلوب</value>
+  </data>
+  <data name="InvoiceMustHaveItems" xml:space="preserve">
+    <value>يجب أن تحتوي الفاتورة على بند واحد على الأقل</value>
+  </data>
+  <data name="InvoiceDuplicateItems" xml:space="preserve">
+    <value>تحتوي الفاتورة على بنود مكررة</value>
+  </data>
+  <data name="InvoiceInvalidItem" xml:space="preserve">
+    <value>تحتوي الفاتورة على بند غير صالح</value>
+  </data>
+  <data name="InvoiceItemQuantityInvalid" xml:space="preserve">
+    <value>يجب أن تكون كمية البند أكبر من صفر</value>
+  </data>
+  <data name="InvoiceItemUnitPriceInvalid" xml:space="preserve">
+    <value>لا يمكن أن يكون سعر وحدة البند سالبًا</value>
+  </data>
+  <data name="PaymentMustEqualGrandTotal" xml:space="preserve">
+    <value>يجب أن يساوي المبلغ المدفوع إجمالي الفاتورة</value>
   </data>
 </root>

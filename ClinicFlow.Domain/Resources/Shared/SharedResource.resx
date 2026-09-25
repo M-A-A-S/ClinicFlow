@@ -1302,4 +1302,55 @@
   <data name="InvalidAmountRange" xml:space="preserve">
     <value>Minimum amount cannot be greater than maximum amount</value>
   </data>
+  <data name="PaymentMethodId" xml:space="preserve">
+    <value>Payment Method Id</value>
+  </data>
+  <data name="PleaseSelectItemType" xml:space="preserve">
+    <value>Please select item type</value>
+  </data>
+  <data name="PleaseSelectItem" xml:space="preserve">
+    <value>Please select an item</value>
+  </data>
+  <data name="QuantityMustBeGreaterThanZero" xml:space="preserve">
+    <value>Quantity must be greater than zero</value>
+  </data>
+  <data name="UnitPriceCannotBeNegative" xml:space="preserve">
+    <value>Unit price cannot be negative</value>
+  </data>
+  <data name="PleaseSelectPaymentType" xml:space="preserve">
+    <value>Please select payment type</value>
+  </data>
+  <data name="PleaseSelectPaymentMethod" xml:space="preserve">
+    <value>Please select payment method</value>
+  </data>
+  <data name="AmountMustBeGreaterThanZero" xml:space="preserve">
+    <value>Amount must be greater than zero</value>
+  </data>
+  <data name="PleaseSelectPaymentDate" xml:space="preserve">
+    <value>Please select payment date</value>
+  </data>
+  <data name="ReceiptCannotBeGreaterThanRemaining" xml:space="preserve">
+    <value>Receipt cannot be greater than remaining amount</value>
+  </data>
+  <data name="InvoiceNumberRequired" xml:space="preserve">
+    <value>Invoice number is required</value>
+  </data>
+  <data name="InvoiceMustHaveItems" xml:space="preserve">
+    <value>The invoice must have at least one item</value>
+  </data>
+  <data name="InvoiceDuplicateItems" xml:space="preserve">
+    <value>The invoice contains duplicate items</value>
+  </data>
+  <data name="InvoiceInvalidItem" xml:space="preserve">
+    <value>The invoice contains an invalid item</value>
+  </data>
+  <data name="InvoiceItemQuantityInvalid" xml:space="preserve">
+    <value>The item quantity must be greater than zero</value>
+  </data>
+  <data name="InvoiceItemUnitPriceInvalid" xml:space="preserve">
+    <value>The item unit price cannot be negative</value>
+  </data>
+  <data name="PaymentMustEqualGrandTotal" xml:space="preserve">
+    <value>The paid amount must equal the invoice grand total</value>
+  </data>
 </root>

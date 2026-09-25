@@ -1,0 +1,253 @@
+﻿@using ClinicFlow.Domain.DTOs.Invoice
+@using ClinicFlow.Domain.Enums
+
+@model InvoiceDTO
+
+<div class="modal fade"
+     id="invoiceItemModal"
+     tabindex="-1"
+     aria-labelledby="invoiceItemModalLabel"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+
+        <div class="modal-content">
+
+
+            @* ================= Header ================= *@
+
+            <div class="modal-header">
+
+                <h5 class="modal-title "
+                    id="invoiceItemModalLabel">
+
+                    <i class="fa fa-file-invoice me-2"></i>
+
+                    @Localizer["Add"] @Localizer["InvoiceItem"]
+
+                </h5>
+
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="@Localizer["Close"]">
+                </button>
+
+            </div>
+
+
+            @* ================= Body ================= *@
+
+            <div class="modal-body">
+
+                <div class="row g-3">
+
+
+                    @* ================= Item Type ================= *@
+
+                    <div class="col-md-6">
+
+                        <label class="form-label">
+                            @Localizer["ItemType"]
+                        </label>
+
+                        <select id="invoiceItemType"
+                                class="form-select">
+
+                            <option value="">
+                                @Localizer["Select"]
+                            </option>
+
+                            @foreach (var type in Enum.GetValues<InvoiceItemType>())
+                            {
+                                <option value="@type" 
+                                    data-display-name="@Localizer[type.ToString()]">
+                                    @Localizer[type.ToString()]
+                                </option>
+                            }
+
+                        </select>
+
+                    </div>
+
+
+                    @* ================= Item ================= *@
+
+                    <div class="col-md-6">
+
+                        <label class="form-label">
+                            @Localizer["InvoiceItem"]
+                        </label>
+
+                        <select id="invoiceItemId"
+                                class="form-select">
+
+                            <option value="">
+                                @Localizer["Select"]
+                            </option>
+
+                            @* Doctors *@
+                            @* @foreach (SelectListItem doctor in ViewBag.Doctors)
+                            {
+                                <option value="@doctor.Value"
+                                        data-item-type="Visit">
+                                    @doctor.Text
+                                </option>
+                            } *@
+                            @foreach (var item in ViewBag.Doctors)
+                            {
+                                <option value="@item.Id"
+                                        data-item-type="Visit"
+                                        data-unit-price="@item.UnitPrice">
+                                        @item.Name
+                                </option>
+                            }
+
+                            @* Medicines  *@
+                            @* @foreach (SelectListItem medicine in ViewBag.Medicines)
+                            {
+                                <option value="@medicine .Value"
+                                        data-item-type="Medicine">
+                                    @medicine.Text
+                                </option>
+                            } *@
+
+                            @foreach (var item in ViewBag.Medicines)
+                            {
+                                <option value="@item.Id"
+                                        data-item-type="Medicine"
+                                        data-unit-price="@item.UnitPrice">
+                                    @item.Name
+                                </option>
+                            }
+
+                            @* Lab Tests *@
+                            @* @foreach (SelectListItem labTest in ViewBag.LabTests)
+                            {
+                                <option value="@labTest.Value"
+                                        data-item-type="Lab">
+                                    @labTest.Text
+                                </option>
+                            } *@
+
+                            @foreach (var item in ViewBag.LabTests)
+                            {
+                                <option value="@item.Id"
+                                        data-item-type="Lab"
+                                        data-unit-price="@item.UnitPrice">
+                                    @item.Name
+                                </option>
+                            }
+
+                        </select>
+
+                    </div>
+
+
+                    @* ================= Description ================= *@
+
+                    <div class="col-12">
+
+                        <label class="form-label">
+                            @Localizer["Description"]
+                        </label>
+
+                        <textarea id="invoiceItemDescription"
+                                  class="form-control"
+                                  rows="3"></textarea>
+
+                    </div>
+
+
+                    @* ================= Quantity ================= *@
+
+                    <div class="col-md-6">
+
+                        <label class="form-label">
+                            @Localizer["Quantity"]
+                        </label>
+
+                        <input type="number"
+                               id="invoiceItemQuantity"
+                               class="form-control"
+                               min="0.01"
+                               step="0.01"
+                               value="1" />
+
+                    </div>
+
+                    @* ================= Unit Price ================= *@
+
+                    <div class="col-md-6">
+
+                        <label class="form-label">
+                            @Localizer["UnitPrice"]
+                        </label>
+
+                        <input type="number"
+                               id="invoiceItemUnitPrice"
+                               class="form-control"
+                               min="0"
+                               step="0.01"
+                               value="0"
+                               readonly/>
+
+                    </div>
+
+                    @* ================= Total ================= *@
+
+                    <div class="col-12">
+
+                        <div class="alert alert-light border mb-0">
+
+                            <div class="d-flex justify-content-between">
+
+                                <strong>
+                                    @Localizer["Total"]
+                                </strong>
+
+                                <strong id="invoiceItemTotal">
+                                    0.00
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            @* ================= Footer ================= *@
+
+            <div class="modal-footer">
+
+                <button type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                        
+                    @Localizer["Cancel"]
+
+                </button>
+
+                        @* id="save-invoice-item" *@
+                <button type="button"
+                    id="add-item"
+                        class="btn btn-primary">
+
+                    <i class="fa fa-plus me-1"></i>
+
+                    @Localizer["Add"] @Localizer["InvoiceItem"]
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

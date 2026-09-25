@@ -1,8 +1,10 @@
 ﻿using ClinicFlow.Application.Services;
+using ClinicFlow.Domain.DTOs.Doctor;
 using ClinicFlow.Domain.DTOs.Invoice;
 using ClinicFlow.Domain.DTOs.LabTest;
 using ClinicFlow.Domain.DTOs.Medicine;
 using ClinicFlow.Domain.DTOs.Patient;
+using ClinicFlow.Domain.DTOs.PaymentMethod;
 using ClinicFlow.Domain.Resources.Shared;
 using ClinicFlow.Domain.Utilities;
 using ClinicFlow.WebUI.ViewModels.Invoice;
@@ -21,6 +23,7 @@ namespace ClinicFlow.WebUI.Controllers
         private readonly IPatientService _patientService;
         private readonly IDoctorService _doctorService;
         private readonly ILabTestService _labTestService;
+        private readonly IPaymentMethodService _paymentMethodService;
 
         #endregion
 
@@ -31,7 +34,8 @@ namespace ClinicFlow.WebUI.Controllers
             IMedicineService medicineService,
             IPatientService patientService,
             IDoctorService doctorService,
-            ILabTestService labTestService
+            ILabTestService labTestService,
+            IPaymentMethodService paymentMethodService
 
             ) : base(localizer)
         {
@@ -40,6 +44,7 @@ namespace ClinicFlow.WebUI.Controllers
             _patientService = patientService;
             _doctorService = doctorService;
             _labTestService = labTestService;
+            _paymentMethodService = paymentMethodService;
         }
         #endregion
 
@@ -208,6 +213,8 @@ namespace ClinicFlow.WebUI.Controllers
             var labTestsResult = await _labTestService.GetForSelectAsync();
             var patientsResult = await _patientService.GetForSelectAsync();
             var medicinesResult = await _medicineService.GetForSelectAsync();
+            var doctorsResult = await _doctorService.GetForSelectAsync();
+            var paymentMethodsResult = await _paymentMethodService.GetForSelectAsync();
 
             var isArabic =
                 CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
@@ -221,11 +228,40 @@ namespace ClinicFlow.WebUI.Controllers
             var medicines = medicinesResult.Data
                 ?? Enumerable.Empty<MedicineSearchDTO>();
 
-            ViewBag.LabTests = labTests.Select(x => new SelectListItem
+            var doctors = doctorsResult.Data
+                ?? Enumerable.Empty<DoctorSearchDTO>();
+
+            var paymentMethods = paymentMethodsResult.Data
+                ?? Enumerable.Empty<PaymentMethodSearchDTO>();
+
+
+            ViewBag.Doctors = doctors.Select(x => new
             {
-                Value = x.Id.ToString(),
-                Text = isArabic ? x.NameAr : x.NameEn
+                Id = x.Id,
+                Name = x.FullName,
+                UnitPrice = x.ConsultationFee
             });
+
+            ViewBag.Medicines = medicines.Select(x => new
+            {
+                Id = x.Id,
+                Name = isArabic ? x.NameAr : x.NameEn,
+                UnitPrice = 100, // TODO: Add price attribte to Medicine Model
+            });
+
+            ViewBag.LabTests = labTests.Select(x => new
+            {
+                Id = x.Id,
+                Name = isArabic ? x.NameAr : x.NameEn,
+                UnitPrice = x.Price
+            });
+
+
+            //ViewBag.LabTests = labTests.Select(x => new SelectListItem
+            //{
+            //    Value = x.Id.ToString(),
+            //    Text = isArabic ? x.NameAr : x.NameEn
+            //});
 
             ViewBag.Patients = patients.Select(x => new SelectListItem
             {
@@ -233,11 +269,23 @@ namespace ClinicFlow.WebUI.Controllers
                 Text = x.FullName
             });
 
-            ViewBag.Medicines = medicines.Select(x => new SelectListItem
+            ViewBag.PaymentMethods = paymentMethods.Select(x => new SelectListItem
             {
                 Value = x.Id.ToString(),
                 Text = isArabic ? x.NameAr : x.NameEn
             });
+
+            //ViewBag.Medicines = medicines.Select(x => new SelectListItem
+            //{
+            //    Value = x.Id.ToString(),
+            //    Text = isArabic ? x.NameAr : x.NameEn
+            //});
+
+            //ViewBag.Doctors = doctors.Select(x => new SelectListItem
+            //{
+            //    Value = x.Id.ToString(),
+            //    Text = x.FullName
+            //});
 
         }
 

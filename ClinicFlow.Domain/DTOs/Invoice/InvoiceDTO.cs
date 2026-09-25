@@ -82,9 +82,9 @@ namespace ClinicFlow.Domain.DTOs.Invoice
 
         public PatientDTO? Patient { get; set; }
 
-        public ICollection<InvoiceItemDTO> Items { get; set; }
+        public IList<InvoiceItemDTO> Items { get; set; }
             = new List<InvoiceItemDTO>();
-        public ICollection<InvoicePaymentDTO> Payments { get; set; }
+        public IList<InvoicePaymentDTO> Payments { get; set; }
             = new List<InvoicePaymentDTO>();
     }
 }

@@ -3,6 +3,7 @@ using ClinicFlow.Domain.Constants;
 using ClinicFlow.Domain.DTOs.Invoice;
 using ClinicFlow.Domain.DTOs.InvoiceItem;
 using ClinicFlow.Domain.Entities;
+using ClinicFlow.Domain.Enums;
 using ClinicFlow.Domain.Extensions;
 using ClinicFlow.Domain.Utilities;
 using ClinicFlow.Infrastructure.Data;
@@ -57,6 +58,8 @@ namespace ClinicFlow.Infrastructure.Services
                 {
                     entity.InvoiceNumber = await GenerateInvoiceNumberAsync();
                 }
+
+                await AssignReceiptNumbersAsync(entity.Payments);
 
                 entity.RecalculateTotals();
 
@@ -322,6 +325,81 @@ namespace ClinicFlow.Infrastructure.Services
             }
 
             return $"{prefix}{nextNumber:D4}";
+
+        }
+
+        private async Task<string> GenerateReceiptNumberAsync()
+        {
+            var now = DateTime.UtcNow;
+            var prefix = $"RCT-{now:yyyy-MM}-";
+
+            var lastReceiptNumber = await _appDbContext.InvoicePayments
+                .AsNoTracking()
+                .Where(x =>
+                    x.Type == BondType.Receipt &&
+                    x.ReceiptNumber != null &&
+                    x.ReceiptNumber.StartsWith(prefix))
+                .OrderByDescending(x => x.ReceiptNumber)
+                .Select(x => x.ReceiptNumber)
+                .FirstOrDefaultAsync();
+
+            var nextNumber = 1;
+
+            if (!string.IsNullOrWhiteSpace(lastReceiptNumber))
+            {
+                var numberPart = lastReceiptNumber.Substring(prefix.Length);
+
+                if (int.TryParse(numberPart, out var lastNumber))
+                {
+                    nextNumber = lastNumber + 1;
+                }
+            }
+
+            return $"{prefix}{nextNumber:D4}";
+        }
+
+        private async Task AssignReceiptNumbersAsync(IEnumerable<InvoicePayment> payments)
+        {
+            var receipts = payments
+                .Where(x =>
+                    x.Type == BondType.Receipt &&
+                    string.IsNullOrWhiteSpace(x.ReceiptNumber))
+                .ToList();
+
+            if (receipts.Count == 0)
+            {
+                return;
+            }
+
+            var prefix = $"RCT-{DateTime.UtcNow:yyyy-MM}-";
+
+            var lastReceiptNumber = await _appDbContext.InvoicePayments
+                .AsNoTracking()
+                .Where(x =>
+                    x.Type == BondType.Receipt &&
+                    x.ReceiptNumber != null &&
+                    x.ReceiptNumber.StartsWith(prefix))
+                .OrderByDescending(x => x.ReceiptNumber)
+                .Select(x => x.ReceiptNumber)
+                .FirstOrDefaultAsync();
+
+            var nextNumber = 1;
+
+            if (!string.IsNullOrWhiteSpace(lastReceiptNumber))
+            {
+                var numberPart = lastReceiptNumber.Substring(prefix.Length);
+
+                if (int.TryParse(numberPart, out var lastNumber))
+                {
+                    nextNumber = lastNumber + 1;
+                }
+            }
+
+            foreach (var payment in receipts)
+            {
+                payment.ReceiptNumber = $"{prefix}{nextNumber:D4}";
+                nextNumber++;
+            }
 
         }
 

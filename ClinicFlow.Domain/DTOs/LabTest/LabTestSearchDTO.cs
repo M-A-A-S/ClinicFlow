@@ -24,5 +24,11 @@ namespace ClinicFlow.Domain.DTOs.LabTest
         )]
         public string? NameAr { get; set; }
 
+        [Display(
+            Name = nameof(SharedResource.Price),
+            ResourceType = typeof(SharedResource)
+        )]
+        public decimal Price { get; set; }
+
     }
 }
