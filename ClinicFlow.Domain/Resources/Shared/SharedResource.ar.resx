@@ -1350,4 +1350,7 @@
   <data name="PaymentMustEqualGrandTotal" xml:space="preserve">
     <value>يجب أن يساوي المبلغ المدفوع إجمالي الفاتورة</value>
   </data>
+  <data name="Summary" xml:space="preserve">
+    <value>الملخص</value>
+  </data>
 </root>

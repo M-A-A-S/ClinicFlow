@@ -62,6 +62,7 @@ namespace ClinicFlow.Domain.Extensions
                         PaymentMethodId = x.PaymentMethodId,
                         PaymentDate = x.PaymentDate,
                         ReferenceNumber = x.ReferenceNumber,
+                        Notes = x.Notes,
 
                         PaymentMethod = x.PaymentMethod == null ? null : new PaymentMethodDTO
                         {
@@ -127,6 +128,7 @@ namespace ClinicFlow.Domain.Extensions
                         PaymentMethodId = x.PaymentMethodId,
                         PaymentDate = x.PaymentDate,
                         ReferenceNumber = x.ReferenceNumber,
+                        Notes = x.Notes,
 
                         PaymentMethod = x.PaymentMethod == null ? null : new PaymentMethodDTO
                         {
@@ -182,6 +184,7 @@ namespace ClinicFlow.Domain.Extensions
                         PaymentMethodId = x.PaymentMethodId,
                         PaymentDate = x.PaymentDate,
                         ReferenceNumber = x.ReferenceNumber,
+                        Notes = x.Notes,
                     })
                 .ToList()
 

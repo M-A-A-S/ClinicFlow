@@ -1,0 +1,51 @@
+﻿@using ClinicFlow.Domain.DTOs.Invoice
+@model InvoiceDTO
+
+
+<div class="row g-3 mb-2">
+
+    @* ================= Patient ================= *@
+    <div class="col-sm-6 col-md-4">
+
+        <label class="form-label">
+            @Localizer["Patient"]
+        </label>
+
+        <div class="form-control">
+            @Model?.Patient?.FullName
+        </div>
+
+    </div>
+
+
+    @* ================= Invoice Date ================= *@
+    <div class="col-sm-6 col-md-4">
+
+        <label class="form-label">
+            @Localizer["InvoiceDate"]
+        </label>
+
+        <div class="form-control">
+            @Model.InvoiceDate.ToString("d")
+        </div>
+
+    </div>
+
+
+    @* ================= Invoice Status ================= *@
+    <div class="col-sm-6 col-md-4">
+
+        <label class="form-label">
+            @Localizer["Status"]
+        </label>
+
+        <div class="form-control">
+            <span class="badge @Model.Status.ToCssClass()">
+                @Localizer[Model.Status.ToString()]
+            </span>
+        </div>
+
+    </div>
+
+</div>
+

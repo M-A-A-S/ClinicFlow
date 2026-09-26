@@ -1,0 +1,153 @@
+﻿@using ClinicFlow.Domain.DTOs.Invoice
+@model InvoiceDTO
+
+@{
+    bool isArabic = CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "ar";
+}
+
+
+<div class="mt-4">
+
+    <h5 class="mb-3">
+        <i class="fa fa-money-bill-wave me-2"></i>
+        @Localizer["InvoicePayments"]
+    </h5>
+
+    <div class="table-responsive">
+
+        <table class="table table-hover align-middle mb-0">
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        @Localizer["Type"]
+                    </th>
+
+                    <th>
+                        @Localizer["Amount"]
+                    </th>
+
+                    <th>
+                        @Localizer["PaymentMethod"]
+                    </th>
+
+                    <th>
+                        @Localizer["PaymentDate"]
+                    </th>
+
+                    <th>
+                        @Localizer["ReferenceNumber"]
+                    </th>
+
+                    <th>
+                        @Localizer["Notes"]
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="payments-container">
+
+                @if (Model.Payments != null && Model.Payments.Any())
+                {
+                    foreach (var payment in Model.Payments)
+                    {
+                        <tr class="invoice-payment-row">
+
+                            @* ================= Type ================= *@
+                            <td>
+
+                                <span class="payment-type-text">
+                                    @Localizer[payment.Type.ToString()]
+                                </span>
+
+                            </td>
+
+
+                            @* ================= Amount ================= *@
+                            <td>
+
+                                <span>
+                                    @payment.Amount
+                                </span>
+
+                            </td>
+
+
+                            @* ================= PaymentMethod ================= *@
+                            <td>
+
+                                <span>
+                                    @(isArabic? payment.PaymentMethod.NameAr : payment.PaymentMethod.NameEn)
+                                </span>
+
+                            </td>
+
+
+                            @* ================= PaymentDate ================= *@
+                            <td>
+
+                                <span>
+                                    @payment.PaymentDate
+                                </span>
+
+                            </td>
+
+
+                            @* ================= ReferenceNumber ================= *@
+                            <td>
+
+                                <span>
+                                    @(
+                                                                string.IsNullOrWhiteSpace(payment.ReferenceNumber)
+                                                                ? "-"
+                                                                : payment.ReferenceNumber
+                                                                )
+                                </span>
+
+                            </td>
+
+
+                            @* ================= Notes ================= *@
+                            <td>
+
+                                <span>
+                                    @(
+                                                                string.IsNullOrWhiteSpace(payment.Notes)
+                                                                ? "-"
+                                                                : payment.Notes
+                                                                )
+                        </span>
+
+                            </td>
+
+                        </tr>
+                                }
+                }
+
+            </tbody>
+
+        </table>
+
+
+        @* ================= Empty State ================= *@
+
+        <div id="payments-empty"
+             class="text-center text-muted py-4 @(Model.Payments != null && Model.Payments.Any() ? "d-none" : "")">
+
+            <i class="fa fa-money-bill-wave fa-2x mb-2"></i>
+
+            <div>
+                @Localizer["NoPaymentsFound"]
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+

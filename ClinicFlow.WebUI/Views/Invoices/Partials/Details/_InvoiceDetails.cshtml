@@ -1,0 +1,12 @@
+﻿@using ClinicFlow.Domain.DTOs.Invoice
+@model InvoiceDTO
+
+<div class="container-fluid">
+	<partial name="Partials/Details/_InvoiceDetailsHeader" model="Model" />
+
+	<partial name="Partials/Details/_InvoiceDetailsItems" model="Model" /> 
+
+	<partial name="Partials/Details/_InvoiceDetailsPayments" model="Model" /> 
+
+	<partial name="Partials/Details/_InvoiceDetailsSummary" model="Model" />
+</div>
