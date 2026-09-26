@@ -117,7 +117,11 @@ else
 
                         <td>@item.InvoiceDate</td>
 
-                        <td>@item.Status</td>
+                        <td>
+                            <span class="badge @item.Status.ToCssClass()">
+                                @Localizer[item.Status.ToString()]
+                            </span>
+                        </td>
 
                         <td>@item.Subtotal</td>
 
