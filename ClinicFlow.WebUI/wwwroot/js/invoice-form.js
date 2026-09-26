@@ -78,8 +78,9 @@ $(document).ready(function () {
                 $option.data('unit-price')
             ) || 0;
 
-        $('#invoiceItemDescription')
-            .val(itemName);
+        //$('#invoiceItemDescription')
+        //    .val(itemName);
+
 
         $('#invoiceItemUnitPrice')
             .val(unitPrice.toFixed(2));
@@ -388,19 +389,30 @@ $(document).ready(function () {
 
             </td>
 
-                <td>
+            <td>
+
+                <span>
+                    ${escapeHtml(data.itemName)}
+                </span>
+
+                <input type="hidden"
+                       name="Items[${index}].ReferenceName"
+                       value="${escapeHtml(data.itemName)}"
+                       class="item-reference-name-input" />
+
+            </td>
+
+            <td>
 
                 <span>
                     ${escapeHtml(
-                        data.description || data.itemName
+                        data.description
                     )}
                 </span>
 
                 <input type="hidden"
                        name="Items[${index}].Description"
-                       value="${escapeHtml(
-                        data.description || data.itemName
-                    )}"
+                       value="${escapeHtml(data.description)}"
                        class="item-description-input" />
 
             </td>

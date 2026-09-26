@@ -1395,4 +1395,10 @@
   <data name="PaymentAmountMustEqualInvoiceTotal" xml:space="preserve">
     <value>يجب أن يساوي إجمالي المدفوعات إجمالي الفاتورة بالكامل</value>
   </data>
+  <data name="Item" xml:space="preserve">
+    <value>العنصر</value>
+  </data>
+  <data name="ItemName" xml:space="preserve">
+    <value>اسم الصنف</value>
+  </data>
 </root>

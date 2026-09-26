@@ -1398,4 +1398,10 @@
   <data name="PaymentAmountMustEqualInvoiceTotal" xml:space="preserve">
     <value>The total payment amount must exactly equal the invoice total</value>
   </data>
+  <data name="Item" xml:space="preserve">
+    <value>Item</value>
+  </data>
+  <data name="ItemName" xml:space="preserve">
+    <value>Item Name</value>
+  </data>
 </root>

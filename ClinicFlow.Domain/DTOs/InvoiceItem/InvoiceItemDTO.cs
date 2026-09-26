@@ -69,5 +69,8 @@ namespace ClinicFlow.Domain.DTOs.InvoiceItem
         public string? Description { get; set; }
 
         public InvoiceDTO? Invoice { get; set; }
+
+        // for just UI
+        public string? ReferenceName { get; set; }
     }
 }

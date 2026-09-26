@@ -192,7 +192,12 @@ namespace ClinicFlow.Infrastructure.Services
                         ResultCodes.NotFound,
                         HttpStatusCodes.NotFound);
                 }
-                return Result<InvoiceDTO>.Success(item.ToDTO());
+
+                var dto = item.ToDTO();
+
+                await LoadReferenceNamesAsync(dto.Items);
+
+                return Result<InvoiceDTO>.Success(dto);
             }
             catch (Exception ex)
             {
@@ -321,6 +326,109 @@ namespace ClinicFlow.Infrastructure.Services
 
         #region ========================= Helpers =========================
 
+        private async Task LoadReferenceNamesAsync(
+            ICollection<InvoiceItemDTO> items)
+        {
+            bool isArabic = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+
+            if (items == null || items.Count == 0)
+            {
+                return;
+            }
+
+            var referenceNames = 
+                new Dictionary<(InvoiceItemType Type, int Id), string>();
+
+            // ============= Medicine =============
+            var medicineIds = items
+                .Where(x => x.ItemType == InvoiceItemType.Medicine)
+                .Select(x => x.ReferenceId)
+                .Where(x => x > 0)
+                .Distinct()
+                .ToList();
+
+            if (medicineIds.Count > 0)
+            {
+                var medicines = await _appDbContext.Medicines
+                    .AsNoTracking()
+                    .Where(x => medicineIds.Contains(x.Id))
+                    .Select(x => new
+                    {
+                        x.Id,
+                        Name = isArabic ? x.NameAr : x.NameEn
+                    })
+                    .ToListAsync();
+
+                foreach (var medicine in medicines)
+                {
+                    referenceNames[(InvoiceItemType.Medicine, medicine.Id)] = medicine.Name;
+                }
+            }
+
+            // ============= Lab =============
+            var labIds = items
+                .Where(x => x.ItemType == InvoiceItemType.Lab)
+                .Select(x => x.ReferenceId)
+                .Where(x => x > 0)
+                .Distinct()
+                .ToList();
+
+            if (labIds.Count > 0)
+            {
+                var labTests = await _appDbContext.LabTests
+                    .AsNoTracking()
+                    .Where(x => labIds.Contains(x.Id))
+                    .Select(x => new
+                    {
+                        x.Id,
+                        Name = isArabic ? x.NameAr : x.NameEn
+                    })
+                    .ToListAsync();
+
+                foreach (var labTest in labTests)
+                {
+                    referenceNames[(InvoiceItemType.Lab, labTest.Id)] = labTest.Name;
+                }
+            }
+
+            // ============= Visit =============
+            // ============= Assign names =============
+            var visitIds = items
+                .Where(x => x.ItemType == InvoiceItemType.Visit)
+                .Select(x => x.ReferenceId)
+                .Where(x => x > 0)
+                .Distinct()
+                .ToList();
+
+            if (visitIds.Count > 0)
+            {
+                var visits = await _appDbContext.Doctors
+                    .AsNoTracking()
+                    .Where(x => visitIds.Contains(x.Id))
+                    .Select(x => new
+                    {
+                        x.Id,
+                        Name = x.FullName
+                    })
+                    .ToListAsync();
+
+                foreach (var visit in visits)
+                {
+                    referenceNames[(InvoiceItemType.Visit, visit.Id)] = visit.Name;
+                }
+            }
+
+            // ============= Assign names =============
+            foreach (var item in items)
+            {
+                referenceNames.TryGetValue((item.ItemType, item.ReferenceId),
+                    out var referenceName);
+                    
+                item.ReferenceName = referenceName;
+            }
+        
+        }
+
         private async Task<string> GenerateInvoiceNumberAsync()
         {
             var now = DateTime.UtcNow;
@@ -346,35 +454,6 @@ namespace ClinicFlow.Infrastructure.Services
 
             return $"{prefix}{nextNumber:D5}";
         }
-
-        //private async Task<string> GenerateInvoiceNumberAsync()
-        //{
-        //    var now = DateTime.UtcNow;
-
-        //    var prefix = $"INV-{now:yyyy-MM}-";
-
-        //    var lastInvoiceNumber = await _appDbContext.Invoices
-        //        .IgnoreQueryFilters()
-        //        .Where(x => x.InvoiceNumber.StartsWith(prefix))
-        //        .OrderByDescending(x => x.InvoiceNumber)
-        //        .Select(x => x.InvoiceNumber)
-        //        .FirstOrDefaultAsync();
-
-        //    var nextNumber = 1;
-
-        //    if (!string.IsNullOrWhiteSpace(lastInvoiceNumber))
-        //    {
-        //        var numberPart = lastInvoiceNumber.Substring(prefix.Length);
-
-        //        if (int.TryParse(numberPart, out var lastNumber))
-        //        {
-        //            nextNumber = lastNumber + 1;
-        //        }
-        //    }
-
-        //    return $"{prefix}{nextNumber:D5}";
-
-        //}
 
         private async Task AssignReceiptNumbersAsync(IEnumerable<InvoicePayment> payments)
         {
@@ -421,52 +500,6 @@ namespace ClinicFlow.Infrastructure.Services
             }
 
         }
-
-        //private async Task AssignReceiptNumbersAsync(IEnumerable<InvoicePayment> payments)
-        //{
-        //    var receipts = payments
-        //        .Where(x =>
-        //            x.Type == BondType.Receipt &&
-        //            string.IsNullOrWhiteSpace(x.ReceiptNumber))
-        //        .ToList();
-
-        //    if (receipts.Count == 0)
-        //    {
-        //        return;
-        //    }
-
-        //    var prefix = $"RCT-{DateTime.UtcNow:yyyy-MM}-";
-
-        //    var lastReceiptNumber = await _appDbContext.InvoicePayments
-        //        .IgnoreQueryFilters()
-        //        .AsNoTracking()
-        //        .Where(x =>
-        //            x.Type == BondType.Receipt &&
-        //            x.ReceiptNumber != null &&
-        //            x.ReceiptNumber.StartsWith(prefix))
-        //        .OrderByDescending(x => x.ReceiptNumber)
-        //        .Select(x => x.ReceiptNumber)
-        //        .FirstOrDefaultAsync();
-
-        //    var nextNumber = 1;
-
-        //    if (!string.IsNullOrWhiteSpace(lastReceiptNumber))
-        //    {
-        //        var numberPart = lastReceiptNumber.Substring(prefix.Length);
-
-        //        if (int.TryParse(numberPart, out var lastNumber))
-        //        {
-        //            nextNumber = lastNumber + 1;
-        //        }
-        //    }
-
-        //    foreach (var payment in receipts)
-        //    {
-        //        payment.ReceiptNumber = $"{prefix}{nextNumber:D5}";
-        //        nextNumber++;
-        //    }
-
-        //}
 
         private async Task<Result<bool>> ApplyItemPricesAsync(
             ICollection<InvoiceItem> items)

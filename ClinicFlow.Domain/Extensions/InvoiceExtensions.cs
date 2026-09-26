@@ -115,6 +115,7 @@ namespace ClinicFlow.Domain.Extensions
                         UnitPrice = x.UnitPrice,
                         Total = x.Total,
                         Description = x.Description,
+                        ReferenceName = null
                     })
                 .ToList(),
 

@@ -18,6 +18,9 @@
                         @Localizer["ItemType"]
                     </th>
                     <th>
+                        @Localizer["ItemName"]
+                    </th>
+                    <th>
                         @Localizer["Description"]
                     </th>
                     <th>
@@ -52,6 +55,14 @@
 
                             </td>
 
+                            @* ================= Type ================= *@
+                            <td>
+
+                                <span>
+                                    @item.ReferenceName
+                                </span>
+
+                            </td>
 
                             @* ================= Description ================= *@
                             <td>
@@ -61,6 +72,8 @@
                                 </span>
 
                             </td>
+
+                            
 
 
                             @* ================= Quantity ================= *@

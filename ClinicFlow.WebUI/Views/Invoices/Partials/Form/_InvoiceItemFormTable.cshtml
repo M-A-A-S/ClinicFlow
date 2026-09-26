@@ -33,6 +33,10 @@
                 </th>
 
                 <th>
+                    @Localizer["ItemName"]
+                </th>
+
+                <th>
                     @Localizer["Description"]
                 </th>
 
@@ -96,6 +100,19 @@
                                 @Localizer[item.ItemType.ToString()]
                             </span>
 
+                        </td>
+
+
+                        @* ================= Item ================= *@
+                        <td>
+                            <span>
+                                @item.ReferenceName
+                            </span>
+
+                            <input type="hidden"
+                                   class="item-reference-name-input"
+                                   name="Items[@i].ReferenceName"
+                                   value="@item.ReferenceName" />
                         </td>
 
 
