@@ -52,6 +52,11 @@ namespace ClinicFlow.Infrastructure.Configurations
                 .IsRequired()
                 .HasDefaultValue(true);
 
+            builder.Property(x => x.Price)
+                .HasPrecision(18, 2)
+                .HasDefaultValue(0.00m)
+                .IsRequired();
+
             builder.Property(x => x.CreatedAt)
                 .HasDefaultValueSql("GETUTCDATE()")
                 .IsRequired();
@@ -74,6 +79,7 @@ namespace ClinicFlow.Infrastructure.Configurations
                     DosageForm = "Tablet",
                     Route = "Oral",
                     IsActive = true,
+                    Price = 100,
                     CreatedAt = DateTime.UtcNow
                 },
                 new Medicine
@@ -87,6 +93,7 @@ namespace ClinicFlow.Infrastructure.Configurations
                     DosageForm = "Capsule",
                     Route = "Oral",
                     IsActive = true,
+                    Price = 100,
                     CreatedAt = DateTime.UtcNow
                 },
                 new Medicine
@@ -100,6 +107,7 @@ namespace ClinicFlow.Infrastructure.Configurations
                     DosageForm = "Tablet",
                     Route = "Oral",
                     IsActive = true,
+                    Price = 100,
                     CreatedAt = DateTime.UtcNow
                 },
                 new Medicine
@@ -113,6 +121,7 @@ namespace ClinicFlow.Infrastructure.Configurations
                     DosageForm = "Capsule",
                     Route = "Oral",
                     IsActive = true,
+                    Price = 100,
                     CreatedAt = DateTime.UtcNow
                 },
                 new Medicine
@@ -126,6 +135,7 @@ namespace ClinicFlow.Infrastructure.Configurations
                     DosageForm = "Tablet",
                     Route = "Oral",
                     IsActive = true,
+                    Price = 100,
                     CreatedAt = DateTime.UtcNow
                 },
                 new Medicine
@@ -139,6 +149,7 @@ namespace ClinicFlow.Infrastructure.Configurations
                     DosageForm = "Tablet",
                     Route = "Oral",
                     IsActive = true,
+                    Price = 100,
                     CreatedAt = DateTime.UtcNow
                 },
                 new Medicine
@@ -152,6 +163,7 @@ namespace ClinicFlow.Infrastructure.Configurations
                     DosageForm = "Tablet",
                     Route = "Oral",
                     IsActive = true,
+                    Price = 100,
                     CreatedAt = DateTime.UtcNow
                 },
                 new Medicine
@@ -165,6 +177,7 @@ namespace ClinicFlow.Infrastructure.Configurations
                     DosageForm = "Inhaler",
                     Route = "Inhalation",
                     IsActive = true,
+                    Price = 100,
                     CreatedAt = DateTime.UtcNow
                 },
                 new Medicine
@@ -178,6 +191,7 @@ namespace ClinicFlow.Infrastructure.Configurations
                     DosageForm = "Tablet",
                     Route = "Oral",
                     IsActive = true,
+                    Price = 100,
                     CreatedAt = DateTime.UtcNow
                 },
                 new Medicine
@@ -191,6 +205,7 @@ namespace ClinicFlow.Infrastructure.Configurations
                     DosageForm = "Tablet",
                     Route = "Oral",
                     IsActive = true,
+                    Price = 100,
                     CreatedAt = DateTime.UtcNow
                 },
                 new Medicine
@@ -204,6 +219,7 @@ namespace ClinicFlow.Infrastructure.Configurations
                     DosageForm = "Tablet",
                     Route = "Oral",
                     IsActive = true,
+                    Price = 100,
                     CreatedAt = DateTime.UtcNow
                 },
                 new Medicine
@@ -217,6 +233,7 @@ namespace ClinicFlow.Infrastructure.Configurations
                     DosageForm = "Cream",
                     Route = "Topical",
                     IsActive = true,
+                    Price = 100,
                     CreatedAt = DateTime.UtcNow
                 }
             };

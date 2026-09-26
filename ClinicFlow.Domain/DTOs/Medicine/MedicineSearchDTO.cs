@@ -37,5 +37,11 @@ namespace ClinicFlow.Domain.DTOs.Medicine
         )]
         public string GenericNameAr { get; set; }
 
+        [Display(
+            Name = nameof(SharedResource.Price),
+            ResourceType = typeof(SharedResource)
+        )]
+        public decimal Price { get; set; }
+
     }
 }

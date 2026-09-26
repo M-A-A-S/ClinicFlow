@@ -78,6 +78,16 @@ namespace ClinicFlow.Domain.DTOs.Medicine
         )]
         public bool IsActive { get; set; } = true;
 
+        [Display(
+            Name = nameof(SharedResource.Price),
+            ResourceType = typeof(SharedResource)
+        )]
+        [Required(
+            ErrorMessageResourceName = nameof(SharedResource.Required),
+            ErrorMessageResourceType = typeof(SharedResource)
+        )]
+        public decimal Price { get; set; }
+
         public ICollection<PrescriptionItemDTO> PrescriptionItems { get; set; }
             = new List<PrescriptionItemDTO>();
 

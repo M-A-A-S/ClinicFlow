@@ -23,7 +23,8 @@ namespace ClinicFlow.Domain.Extensions
                 Strength = Entity.Strength,
                 DosageForm = Entity.DosageForm,
                 Route = Entity.Route,
-                IsActive = Entity.IsActive
+                IsActive = Entity.IsActive,
+                Price = Entity.Price,
             };
 
 
@@ -44,7 +45,8 @@ namespace ClinicFlow.Domain.Extensions
                 Strength = Entity.Strength,
                 DosageForm = Entity.DosageForm,
                 Route = Entity.Route,
-                IsActive = Entity.IsActive
+                IsActive = Entity.IsActive,
+                Price = Entity.Price,
             };
         }
 
@@ -65,7 +67,8 @@ namespace ClinicFlow.Domain.Extensions
                 Strength = DTO.Strength,
                 DosageForm = DTO.DosageForm,
                 Route = DTO.Route,
-                IsActive = DTO.IsActive
+                IsActive = DTO.IsActive,
+                Price = DTO.Price,
             };
         }
 
@@ -83,6 +86,7 @@ namespace ClinicFlow.Domain.Extensions
             Entity.DosageForm = DTO.DosageForm;
             Entity.Route = DTO.Route;
             Entity.IsActive = DTO.IsActive;
+            Entity.Price = DTO.Price;
 
             Entity.UpdatedAt = DateTime.UtcNow;
 

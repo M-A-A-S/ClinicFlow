@@ -246,7 +246,7 @@ namespace ClinicFlow.WebUI.Controllers
             {
                 Id = x.Id,
                 Name = isArabic ? x.NameAr : x.NameEn,
-                UnitPrice = 100, // TODO: Add price attribte to Medicine Model
+                UnitPrice = x.Price
             });
 
             ViewBag.LabTests = labTests.Select(x => new

@@ -20,6 +20,8 @@ namespace ClinicFlow.Domain.Entities
 
         public bool IsActive { get; set; } = true;
 
+        public decimal Price { get; set; }
+
         public ICollection<PrescriptionItem> PrescriptionItems { get; set; }
             = new List<PrescriptionItem>();
     }

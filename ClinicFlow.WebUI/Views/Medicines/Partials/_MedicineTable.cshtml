@@ -44,6 +44,11 @@
         },
         new TableColumnVM
         {
+            Column = "Price",
+            Title = Localizer["Price"]
+        },
+        new TableColumnVM
+        {
             Column = "IsActive",
             Title = Localizer["IsActive"],
             IsSortable = false
@@ -110,6 +115,8 @@ else
                         <td>@item.DosageForm</td>
 
                         <td>@item.Route</td>
+
+                        <td>@item.Price</td>
 
                         <td>
                             <span class="badge @(item.IsActive ? "bg-success" : "bg-danger")">
