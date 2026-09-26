@@ -3,10 +3,17 @@
 
 <div class="card shadow-sm">
 
-    <div class="card-header text-white">
+    <div class="card-header text-white d-flex align-items-center justify-content-between">
         <h5>
             @Localizer["Details"] @Localizer["Invoice"]
         </h5>
+
+        <div>
+            <a asp-action="Index"
+               class="btn btn-secondary">
+                @Localizer["GoBack"]
+            </a>
+        </div>
     </div>
 
     <div class="card-body">
@@ -23,10 +30,7 @@
             @Localizer["Edit"]
         </a> *@
 
-        <a asp-action="Index"
-           class="btn btn-secondary">
-            @Localizer["GoBack"]
-        </a>
+        
 
     </div>
 
