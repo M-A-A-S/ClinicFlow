@@ -231,6 +231,7 @@ namespace ClinicFlow.Infrastructure.Services
                         Id = x.Id,
                         FullName = x.FullName,
                         PhoneNumber = x.PhoneNumber,
+                        ConsultationFee = x.ConsultationFee
                     })
                     .ToListAsync();
 

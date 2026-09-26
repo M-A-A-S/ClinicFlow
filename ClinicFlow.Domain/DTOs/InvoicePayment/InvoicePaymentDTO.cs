@@ -77,5 +77,8 @@ namespace ClinicFlow.Domain.DTOs.InvoicePayment
 
         public virtual PaymentMethodDTO? PaymentMethod { get; set; } = null!;
         public virtual InvoiceDTO? Invoice { get; set; } = null!;
+
+        // for just UI
+        public string? PaymentMethodName { get; set; }
     }
 }

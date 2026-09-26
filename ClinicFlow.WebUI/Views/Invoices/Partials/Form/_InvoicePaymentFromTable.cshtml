@@ -112,13 +112,13 @@
                         @* ================= PaymentMethod ================= *@
                         <td>
                             <span>
-                                @item.PaymentMethod
+                                @(item.PaymentMethodName != null ? item.PaymentMethodName :  isArabic? item.PaymentMethod?.NameAr : item.PaymentMethod?.NameEn)
                             </span>
 
                             <input type="hidden"
                                    class="payment-method-input"
-                                   name="Payments[@i].PaymentMethod"
-                                   value="@item.PaymentMethod" />
+                                   name="Payments[@i].PaymentMethodId"
+                                   value="@item.PaymentMethodId" />
                         </td>
 
 

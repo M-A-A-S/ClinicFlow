@@ -133,10 +133,24 @@ $(document).ready(function () {
             return;
         }
 
-        if (invoiceItemExists(data.itemId)) {
-            showInvoiceItemError(
-                'This item has already been added.'
-            );
+        //if (invoiceItemExists(data.itemType, data.itemId)) {
+        //    showInvoiceItemError(
+        //        'This item has already been added.'
+        //    );
+
+        //    return;
+        //}
+
+        const $existingRow = findInvoiceItemRow(data.itemType, data.itemId);
+
+        if ($existingRow.length > 0) {
+            updateExistingInvoiceItem($existingRow, data.quantity);
+
+            updateInvoiceSummary();
+
+            resetInvoiceItemModal();
+
+            closeInvoiceItemModal();
 
             return;
         }
@@ -167,17 +181,13 @@ $(document).ready(function () {
         console.log('itemId -> ', itemId)
         console.log('itemName -> ', itemName)
 
-        const description =
-            $('#invoiceItemDescription').val().trim();
+        const description = $('#invoiceItemDescription').val().trim();
 
-        const quantity =
-            parseFloat($('#invoiceItemQuantity').val()) || 0;
+        const quantity = parseFloat($('#invoiceItemQuantity').val()) || 0;
 
-        const unitPrice =
-            parseFloat($('#invoiceItemUnitPrice').val()) || 0;
+        const unitPrice =  parseFloat($('#invoiceItemUnitPrice').val()) || 0;
 
-        const total =
-            quantity * unitPrice;
+        const total = quantity * unitPrice;
 
         return {
             itemType: itemType,
@@ -189,6 +199,29 @@ $(document).ready(function () {
             unitPrice: unitPrice,
             total: total
         };
+    }
+
+    function updateExistingInvoiceItem($row, additionalQuantity) {
+        const $quantityInput = $row.find('.item-quantity-input');
+
+        const currentQuantity = parseFloat($quantityInput.val()) || 0;
+
+        const newQuantity = currentQuantity + additionalQuantity;
+
+        $quantityInput.val(newQuantity);
+
+        $row.find('.item-quantity-display').text(newQuantity);
+
+        const unitPrice = parseFloat($row.find('.item-unitPrice-input').val()) || 0;
+
+        const newTotal = newQuantity * unitPrice;
+
+        $row.find('item-total-input').val(newTotal);
+
+        $row.find('.item-total-display').text(newTotal.toFixed(2));
+
+
+
     }
 
     function validateInvoiceItem(data) {
@@ -231,27 +264,64 @@ $(document).ready(function () {
         return true;
     }
 
-    function invoiceItemExists(itemId) {
+    function invoiceItemExists(itemType, referenceId) {
         let exists = false;
 
         $('#items-container')
             .children('.invoice-item-row')
             .each(function () {
 
-                const existingItemId =
+                const existingItemType =
                     $(this)
-                        .find('.item-id-input')
+                        .find('.item-type-input')
                         .val();
 
-                if (existingItemId === itemId) {
+                const existingReferenceId =
+                    $(this)
+                        .find('.item-reference-id-input')
+                        .val();
+
+                if (
+                    String(existingItemType) == String(itemType) &&
+                    String(existingReferenceId) == String(referenceId)
+                ) {
 
                     exists = true;
-
                     return false;
                 }
             });
 
         return exists;
+    }
+
+    function findInvoiceItemRow(itemType, referenceId) {
+        let $row = $();
+
+        $('#items-container')
+            .children('.invoice-item-row')
+            .each(function () {
+
+                const existingItemType =
+                    $(this)
+                        .find('.item-type-input')
+                        .val();
+
+                const existingReferenceId =
+                    $(this)
+                        .find('.item-reference-id-input')
+                        .val();
+
+                if (
+                    String(existingItemType) == String(itemType) &&
+                    String(existingReferenceId) == String(referenceId)
+                ) {
+
+                    $row = $(this);
+                    return false;
+                }
+            });
+
+        return $row;
     }
 
     function showInvoiceItemError(message) {
@@ -337,7 +407,7 @@ $(document).ready(function () {
 
                 <td>
 
-                <span>
+                <span class="item-quantity-display">
                     ${data.quantity}
                 </span>
 
@@ -363,7 +433,7 @@ $(document).ready(function () {
 
                 <<td>
 
-                <span>
+                <span class="item-total-display">
                     ${data.total.toFixed(2)}
                 </span>
 
@@ -573,14 +643,14 @@ $(document).ready(function () {
             return;
         }
 
-        if (invoicePaymentExists(data)) {
+        //if (invoicePaymentExists(data)) {
 
-            showInvoicePaymentError(
-                'This payment has already been added.'
-            );
+        //    showInvoicePaymentError(
+        //        'This payment has already been added.'
+        //    );
 
-            return;
-        }
+        //    return;
+        //}
 
         addPayment(data);
 
@@ -852,6 +922,11 @@ $(document).ready(function () {
                        name="Payments[${index}].PaymentMethodId"
                        value="${escapeHtml(data.paymentMethod)}"
                        class="payment-method-input" />
+
+                <input type="hidden"
+                       name="Payments[${index}].PaymentMethodName"
+                       value="${escapeHtml(data.paymentMethodName)}"
+                       class="payment-method-name-input" />
 
             </td>
 

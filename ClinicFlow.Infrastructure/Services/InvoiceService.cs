@@ -324,31 +324,57 @@ namespace ClinicFlow.Infrastructure.Services
         private async Task<string> GenerateInvoiceNumberAsync()
         {
             var now = DateTime.UtcNow;
-
             var prefix = $"INV-{now:yyyy-MM}-";
 
-            var lastInvoiceNumber = await _appDbContext.Invoices
+            var existingNumbers = await _appDbContext.Invoices
                 .IgnoreQueryFilters()
                 .Where(x => x.InvoiceNumber.StartsWith(prefix))
-                .OrderByDescending(x => x.InvoiceNumber)
                 .Select(x => x.InvoiceNumber)
-                .FirstOrDefaultAsync();
+                .ToListAsync();
 
             var nextNumber = 1;
 
-            if (!string.IsNullOrWhiteSpace(lastInvoiceNumber))
+            if (existingNumbers.Count > 0)
             {
-                var numberPart = lastInvoiceNumber.Substring(prefix.Length);
+                var maxNumber = existingNumbers
+                    .Select(num => num.Substring(prefix.Length))
+                    .Select(numStr => int.TryParse(numStr, out var parsed) ? parsed : 0)
+                    .Max();
 
-                if (int.TryParse(numberPart, out var lastNumber))
-                {
-                    nextNumber = lastNumber + 1;
-                }
+                nextNumber = maxNumber + 1;
             }
 
             return $"{prefix}{nextNumber:D5}";
-
         }
+
+        //private async Task<string> GenerateInvoiceNumberAsync()
+        //{
+        //    var now = DateTime.UtcNow;
+
+        //    var prefix = $"INV-{now:yyyy-MM}-";
+
+        //    var lastInvoiceNumber = await _appDbContext.Invoices
+        //        .IgnoreQueryFilters()
+        //        .Where(x => x.InvoiceNumber.StartsWith(prefix))
+        //        .OrderByDescending(x => x.InvoiceNumber)
+        //        .Select(x => x.InvoiceNumber)
+        //        .FirstOrDefaultAsync();
+
+        //    var nextNumber = 1;
+
+        //    if (!string.IsNullOrWhiteSpace(lastInvoiceNumber))
+        //    {
+        //        var numberPart = lastInvoiceNumber.Substring(prefix.Length);
+
+        //        if (int.TryParse(numberPart, out var lastNumber))
+        //        {
+        //            nextNumber = lastNumber + 1;
+        //        }
+        //    }
+
+        //    return $"{prefix}{nextNumber:D5}";
+
+        //}
 
         private async Task AssignReceiptNumbersAsync(IEnumerable<InvoicePayment> payments)
         {
@@ -365,7 +391,8 @@ namespace ClinicFlow.Infrastructure.Services
 
             var prefix = $"RCT-{DateTime.UtcNow:yyyy-MM}-";
 
-            var lastReceiptNumber = await _appDbContext.InvoicePayments
+            var existingReceiptNumbers = await _appDbContext.InvoicePayments
+                .IgnoreQueryFilters()
                 .AsNoTracking()
                 .Where(x =>
                     x.Type == BondType.Receipt &&
@@ -373,18 +400,18 @@ namespace ClinicFlow.Infrastructure.Services
                     x.ReceiptNumber.StartsWith(prefix))
                 .OrderByDescending(x => x.ReceiptNumber)
                 .Select(x => x.ReceiptNumber)
-                .FirstOrDefaultAsync();
+                .ToListAsync();
 
             var nextNumber = 1;
 
-            if (!string.IsNullOrWhiteSpace(lastReceiptNumber))
+            if (existingReceiptNumbers.Count > 0)
             {
-                var numberPart = lastReceiptNumber.Substring(prefix.Length);
+                var maxNumber = existingReceiptNumbers
+                    .Select(num => num.Substring(prefix.Length))
+                    .Select(numStr => int.TryParse(numStr, out var parsed) ? parsed : 0)
+                    .Max();
 
-                if (int.TryParse(numberPart, out var lastNumber))
-                {
-                    nextNumber = lastNumber + 1;
-                }
+                nextNumber = maxNumber + 1;
             }
 
             foreach (var payment in receipts)
@@ -394,6 +421,52 @@ namespace ClinicFlow.Infrastructure.Services
             }
 
         }
+
+        //private async Task AssignReceiptNumbersAsync(IEnumerable<InvoicePayment> payments)
+        //{
+        //    var receipts = payments
+        //        .Where(x =>
+        //            x.Type == BondType.Receipt &&
+        //            string.IsNullOrWhiteSpace(x.ReceiptNumber))
+        //        .ToList();
+
+        //    if (receipts.Count == 0)
+        //    {
+        //        return;
+        //    }
+
+        //    var prefix = $"RCT-{DateTime.UtcNow:yyyy-MM}-";
+
+        //    var lastReceiptNumber = await _appDbContext.InvoicePayments
+        //        .IgnoreQueryFilters()
+        //        .AsNoTracking()
+        //        .Where(x =>
+        //            x.Type == BondType.Receipt &&
+        //            x.ReceiptNumber != null &&
+        //            x.ReceiptNumber.StartsWith(prefix))
+        //        .OrderByDescending(x => x.ReceiptNumber)
+        //        .Select(x => x.ReceiptNumber)
+        //        .FirstOrDefaultAsync();
+
+        //    var nextNumber = 1;
+
+        //    if (!string.IsNullOrWhiteSpace(lastReceiptNumber))
+        //    {
+        //        var numberPart = lastReceiptNumber.Substring(prefix.Length);
+
+        //        if (int.TryParse(numberPart, out var lastNumber))
+        //        {
+        //            nextNumber = lastNumber + 1;
+        //        }
+        //    }
+
+        //    foreach (var payment in receipts)
+        //    {
+        //        payment.ReceiptNumber = $"{prefix}{nextNumber:D5}";
+        //        nextNumber++;
+        //    }
+
+        //}
 
         private async Task<Result<bool>> ApplyItemPricesAsync(
             ICollection<InvoiceItem> items)
