@@ -107,5 +107,17 @@ namespace ClinicFlow.Domain.Constants
         public const string InvoiceItemUnitPriceInvalid = "InvoiceItemUnitPriceInvalid";
         public const string InvalidAmountRange = "InvalidAmountRange";
 
+        public const string InvalidPayment = "InvalidPayment";
+        public const string PaymentAmountInvalid = "PaymentAmountInvalid";
+        public const string PaymentMethodRequired = "PaymentMethodRequired";
+        public const string PaymentDateRequired = "PaymentDateRequired";
+        public const string PaymentAmountExceedsInvoiceTotal = "PaymentAmountExceedsInvoiceTotal";
+        public const string LabTestNotFound = "LabTestNotFound";
+        public const string MedicineNotFound = "MedicineNotFound";
+        public const string InvoiceItemReferenceRequired = "InvoiceItemReferenceRequired";
+        public const string InvoiceTotalInvalid = "InvoiceTotalInvalid";
+        public const string PaymentAmountMustEqualInvoiceTotal = "PaymentAmountMustEqualInvoiceTotal";
+
+
     }
 }

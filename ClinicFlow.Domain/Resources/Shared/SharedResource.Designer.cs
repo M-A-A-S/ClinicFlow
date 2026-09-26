@@ -1510,6 +1510,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The payment information is invalid.
+        /// </summary>
+        public static string InvalidPayment {
+            get {
+                return ResourceManager.GetString("InvalidPayment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The prescription date is invalid..
         /// </summary>
         public static string InvalidPrescriptionDate {
@@ -1627,6 +1636,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The selected invoice item type is invalid.
+        /// </summary>
+        public static string InvoiceInvalidItemType {
+            get {
+                return ResourceManager.GetString("InvoiceInvalidItemType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invoice Item.
         /// </summary>
         public static string InvoiceItem {
@@ -1641,6 +1659,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string InvoiceItemQuantityInvalid {
             get {
                 return ResourceManager.GetString("InvoiceItemQuantityInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select a valid item.
+        /// </summary>
+        public static string InvoiceItemReferenceRequired {
+            get {
+                return ResourceManager.GetString("InvoiceItemReferenceRequired", resourceCulture);
             }
         }
         
@@ -1731,6 +1758,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string InvoiceStatus {
             get {
                 return ResourceManager.GetString("InvoiceStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The invoice total must be greater than zero.
+        /// </summary>
+        public static string InvoiceTotalInvalid {
+            get {
+                return ResourceManager.GetString("InvoiceTotalInvalid", resourceCulture);
             }
         }
         
@@ -1960,6 +1996,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The selected laboratory test was not found.
+        /// </summary>
+        public static string LabTestNotFound {
+            get {
+                return ResourceManager.GetString("LabTestNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lab Test Parameter.
         /// </summary>
         public static string LabTestParameter {
@@ -2055,6 +2100,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string MedicineName {
             get {
                 return ResourceManager.GetString("MedicineName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The selected medicine was not found.
+        /// </summary>
+        public static string MedicineNotFound {
+            get {
+                return ResourceManager.GetString("MedicineNotFound", resourceCulture);
             }
         }
         
@@ -2590,6 +2644,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The selected patient was not found.
+        /// </summary>
+        public static string PatientNotFound {
+            get {
+                return ResourceManager.GetString("PatientNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Patient is required..
         /// </summary>
         public static string PatientRequired {
@@ -2617,11 +2680,47 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The total payment amount cannot exceed the invoice total.
+        /// </summary>
+        public static string PaymentAmountExceedsInvoiceTotal {
+            get {
+                return ResourceManager.GetString("PaymentAmountExceedsInvoiceTotal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The payment amount must be greater than zero.
+        /// </summary>
+        public static string PaymentAmountInvalid {
+            get {
+                return ResourceManager.GetString("PaymentAmountInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The total payment amount must exactly equal the invoice total.
+        /// </summary>
+        public static string PaymentAmountMustEqualInvoiceTotal {
+            get {
+                return ResourceManager.GetString("PaymentAmountMustEqualInvoiceTotal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Payment Date.
         /// </summary>
         public static string PaymentDate {
             get {
                 return ResourceManager.GetString("PaymentDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter a payment date.
+        /// </summary>
+        public static string PaymentDateRequired {
+            get {
+                return ResourceManager.GetString("PaymentDateRequired", resourceCulture);
             }
         }
         
@@ -2640,6 +2739,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string PaymentMethodId {
             get {
                 return ResourceManager.GetString("PaymentMethodId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select a payment method.
+        /// </summary>
+        public static string PaymentMethodRequired {
+            get {
+                return ResourceManager.GetString("PaymentMethodRequired", resourceCulture);
             }
         }
         
@@ -2667,6 +2775,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string PaymentMustEqualGrandTotal {
             get {
                 return ResourceManager.GetString("PaymentMustEqualGrandTotal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Payment is required for this invoice.
+        /// </summary>
+        public static string PaymentRequired {
+            get {
+                return ResourceManager.GetString("PaymentRequired", resourceCulture);
             }
         }
         
@@ -3297,6 +3414,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string Service {
             get {
                 return ResourceManager.GetString("Service", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The selected service was not found.
+        /// </summary>
+        public static string ServiceNotFound {
+            get {
+                return ResourceManager.GetString("ServiceNotFound", resourceCulture);
             }
         }
         

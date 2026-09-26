@@ -59,9 +59,31 @@ namespace ClinicFlow.Infrastructure.Services
                     entity.InvoiceNumber = await GenerateInvoiceNumberAsync();
                 }
 
-                await AssignReceiptNumbersAsync(entity.Payments);
+                var priceResult = await ApplyItemPricesAsync(entity.Items);
+
+                if (!priceResult.IsSuccess)
+                {
+                    return Result<int>.Failure(
+                        priceResult.Code,
+                        priceResult.StatusCode);
+                }
 
                 entity.RecalculateTotals();
+
+                // =============== Validate Payments ===============
+                var paymentValidationResult = ValidatePayments(
+                    entity.Payments,
+                    entity.GrandTotal);
+
+                if (!paymentValidationResult.IsSuccess)
+                {
+                    return Result<int>.Failure(
+                            paymentValidationResult.Code,
+                            paymentValidationResult.StatusCode);
+                }
+
+                await AssignReceiptNumbersAsync(entity.Payments);
+
 
                 _appDbContext.Invoices.Add(entity);
                 await _appDbContext.SaveChangesAsync();
@@ -324,38 +346,8 @@ namespace ClinicFlow.Infrastructure.Services
                 }
             }
 
-            return $"{prefix}{nextNumber:D4}";
+            return $"{prefix}{nextNumber:D5}";
 
-        }
-
-        private async Task<string> GenerateReceiptNumberAsync()
-        {
-            var now = DateTime.UtcNow;
-            var prefix = $"RCT-{now:yyyy-MM}-";
-
-            var lastReceiptNumber = await _appDbContext.InvoicePayments
-                .AsNoTracking()
-                .Where(x =>
-                    x.Type == BondType.Receipt &&
-                    x.ReceiptNumber != null &&
-                    x.ReceiptNumber.StartsWith(prefix))
-                .OrderByDescending(x => x.ReceiptNumber)
-                .Select(x => x.ReceiptNumber)
-                .FirstOrDefaultAsync();
-
-            var nextNumber = 1;
-
-            if (!string.IsNullOrWhiteSpace(lastReceiptNumber))
-            {
-                var numberPart = lastReceiptNumber.Substring(prefix.Length);
-
-                if (int.TryParse(numberPart, out var lastNumber))
-                {
-                    nextNumber = lastNumber + 1;
-                }
-            }
-
-            return $"{prefix}{nextNumber:D4}";
         }
 
         private async Task AssignReceiptNumbersAsync(IEnumerable<InvoicePayment> payments)
@@ -397,9 +389,123 @@ namespace ClinicFlow.Infrastructure.Services
 
             foreach (var payment in receipts)
             {
-                payment.ReceiptNumber = $"{prefix}{nextNumber:D4}";
+                payment.ReceiptNumber = $"{prefix}{nextNumber:D5}";
                 nextNumber++;
             }
+
+        }
+
+        private async Task<Result<bool>> ApplyItemPricesAsync(
+            ICollection<InvoiceItem> items)
+        {
+            var priceResult = await LoadItemPricesAsync(items);
+
+            if (!priceResult.IsSuccess)
+            {
+                return Result<bool>.Failure(
+                    priceResult.Code,
+                    priceResult.StatusCode);
+            }
+
+            var priceMap = priceResult.Data;
+
+            foreach (var item in items)
+            {
+                var key = (item.ItemType, item.ReferenceId);
+                if (!priceMap.TryGetValue(key, out var unitPrice))
+                {
+                    return Result<bool>.Failure(
+                        ResultCodes.InvoiceInvalidItem,
+                        HttpStatusCodes.BadRequest);
+                }
+
+                item.UnitPrice = unitPrice;
+                item.Total = item.Quantity * item.UnitPrice;
+            }
+
+            return Result<bool>.Success(true);
+        }
+
+        private async Task<Result<Dictionary<(InvoiceItemType Type, int Id), decimal>>> LoadItemPricesAsync(
+            ICollection<InvoiceItem> items)
+        {
+            var prices = new Dictionary<(InvoiceItemType Type, int Id), decimal>();
+
+            if (items == null || items.Count == 0)
+            {
+                return Result<Dictionary<(InvoiceItemType, int), decimal>>.Success(prices);
+            }
+
+            var grouped = items
+                .Where(x => x.ReferenceId > 0)
+                .GroupBy(x => x.ItemType)
+                .ToDictionary(g => g.Key, g => g.Select(x => x.ReferenceId).Distinct().ToList());
+
+            // ==================== Medicines ====================
+            if (grouped.TryGetValue(InvoiceItemType.Medicine, out var medIds) && medIds.Count > 0)
+            {
+                var medPrices = await _appDbContext.Medicines
+                    .AsNoTracking()
+                    .Where(x => medIds.Contains(x.Id))
+                    .ToDictionaryAsync(x => x.Id, x => x.Price);
+
+                foreach (var id in medIds)
+                {
+                    if (!medPrices.TryGetValue(id, out var price))
+                    {
+                        return Result<Dictionary<(InvoiceItemType, int), decimal>>.Failure(
+                            ResultCodes.MedicineNotFound,
+                            HttpStatusCodes.NotFound);
+                    }
+
+                    prices[(InvoiceItemType.Medicine, id)] = price;
+                }
+            }
+
+            // ==================== Lab ====================
+            if (grouped.TryGetValue(InvoiceItemType.Lab, out var labIds) && labIds.Count > 0)
+            {
+                var labPrices = await _appDbContext.LabTests
+                    .AsNoTracking()
+                    .Where(x => labIds.Contains(x.Id))
+                    .ToDictionaryAsync(x => x.Id, x => x.Price);
+
+                foreach (var id in labIds)
+                {
+                    if (!labPrices.TryGetValue(id, out var price))
+                    {
+                        return Result<Dictionary<(InvoiceItemType, int), decimal>>.Failure(
+                            ResultCodes.LabTestNotFound,
+                            HttpStatusCodes.NotFound);
+                    }
+
+                    prices[(InvoiceItemType.Lab, id)] = price;
+                }
+            }
+
+            // ==================== Doctor Visits ====================
+            if (grouped.TryGetValue(InvoiceItemType.Visit, out var visitIds) && visitIds.Count > 0)
+            {
+                var visitPrices = await _appDbContext.Doctors
+                    .AsNoTracking()
+                    .Where(x => visitIds.Contains(x.Id))
+                    .ToDictionaryAsync(x => x.Id, x => x.ConsultationFee);
+
+                foreach (var id in visitIds)
+                {
+                    if (!visitPrices.TryGetValue(id, out var price))
+                    {
+                        return Result<Dictionary<(InvoiceItemType, int), decimal>>.Failure(
+                            ResultCodes.VisitNotFound,
+                            HttpStatusCodes.NotFound);
+                    }
+
+                    prices[(InvoiceItemType.Visit, id)] = price;
+                }
+            }
+
+
+            return Result<Dictionary<(InvoiceItemType, int), decimal>>.Success(prices);
 
         }
 
@@ -553,11 +659,84 @@ namespace ClinicFlow.Infrastructure.Services
                         HttpStatusCodes.BadRequest);
                 }
 
+                if (item.ReferenceId <= 0)
+                {
+                    return Result<bool>.Failure(
+                        ResultCodes.InvoiceItemReferenceRequired,
+                        HttpStatusCodes.BadRequest);
+                }
+
             }
 
             return Result<bool>.Success(true);
 
         }
+
+        private Result<bool> ValidatePayments(
+            ICollection<InvoicePayment> payments, decimal invoiceTotal)
+        {
+            if (invoiceTotal <= 0)
+            {
+                return Result<bool>.Failure(
+                    ResultCodes.InvoiceTotalInvalid,
+                    HttpStatusCodes.BadRequest);
+            }
+
+            if (payments == null || payments.Count == 0)
+            {
+                return Result<bool>.Success(true);
+            }
+
+            foreach (var payment in payments)
+            {
+                if (payment == null)
+                {
+                    return Result<bool>.Failure(
+                        ResultCodes.InvalidPayment,
+                        HttpStatusCodes.BadRequest);
+                }
+
+                if (payment.Type != BondType.Receipt)
+                {
+                    continue;
+                }
+
+                if (payment.Amount <= 0)
+                {
+                    return Result<bool>.Failure(
+                        ResultCodes.PaymentAmountInvalid,
+                        HttpStatusCodes.BadRequest);
+                }
+
+                if (payment.PaymentMethodId <= 0)
+                {
+                    return Result<bool>.Failure(
+                        ResultCodes.PaymentMethodRequired,
+                        HttpStatusCodes.BadRequest);
+                }
+
+                if (payment.PaymentDate == default)
+                {
+                    return Result<bool>.Failure(
+                        ResultCodes.PaymentDateRequired,
+                        HttpStatusCodes.BadRequest);
+                }
+            }
+
+            var totalPayments = payments
+                .Where(x => x.Type == BondType.Receipt)
+                .Sum(x => x.Amount);
+
+            if (totalPayments != invoiceTotal)
+            {
+                return Result<bool>.Failure(
+                    ResultCodes.PaymentAmountMustEqualInvoiceTotal,
+                    HttpStatusCodes.BadRequest);
+            }
+
+            return Result<bool>.Success(true);
+        }
+
 
         private Result<bool> ValidateFilter(InvoiceFilterDTO filter)
         {

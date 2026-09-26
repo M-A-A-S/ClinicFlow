@@ -1356,4 +1356,46 @@
   <data name="Summary" xml:space="preserve">
     <value>Summary</value>
   </data>
+  <data name="PatientNotFound" xml:space="preserve">
+    <value>The selected patient was not found</value>
+  </data>
+  <data name="InvoiceInvalidItemType" xml:space="preserve">
+    <value>The selected invoice item type is invalid</value>
+  </data>
+  <data name="InvoiceItemReferenceRequired" xml:space="preserve">
+    <value>Please select a valid item</value>
+  </data>
+  <data name="MedicineNotFound" xml:space="preserve">
+    <value>The selected medicine was not found</value>
+  </data>
+  <data name="LabTestNotFound" xml:space="preserve">
+    <value>The selected laboratory test was not found</value>
+  </data>
+  <data name="ServiceNotFound" xml:space="preserve">
+    <value>The selected service was not found</value>
+  </data>
+  <data name="InvalidPayment" xml:space="preserve">
+    <value>The payment information is invalid</value>
+  </data>
+  <data name="PaymentAmountInvalid" xml:space="preserve">
+    <value>The payment amount must be greater than zero</value>
+  </data>
+  <data name="PaymentMethodRequired" xml:space="preserve">
+    <value>Please select a payment method</value>
+  </data>
+  <data name="PaymentDateRequired" xml:space="preserve">
+    <value>Please enter a payment date</value>
+  </data>
+  <data name="PaymentAmountExceedsInvoiceTotal" xml:space="preserve">
+    <value>The total payment amount cannot exceed the invoice total</value>
+  </data>
+  <data name="InvoiceTotalInvalid" xml:space="preserve">
+    <value>The invoice total must be greater than zero</value>
+  </data>
+  <data name="PaymentRequired" xml:space="preserve">
+    <value>Payment is required for this invoice</value>
+  </data>
+  <data name="PaymentAmountMustEqualInvoiceTotal" xml:space="preserve">
+    <value>The total payment amount must exactly equal the invoice total</value>
+  </data>
 </root>

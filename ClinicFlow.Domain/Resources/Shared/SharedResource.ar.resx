@@ -1353,4 +1353,46 @@
   <data name="Summary" xml:space="preserve">
     <value>الملخص</value>
   </data>
+  <data name="PatientNotFound" xml:space="preserve">
+    <value>المريض المحدد غير موجود</value>
+  </data>
+  <data name="InvoiceInvalidItemType" xml:space="preserve">
+    <value>نوع بند الفاتورة المحدد غير صالح</value>
+  </data>
+  <data name="InvoiceItemReferenceRequired" xml:space="preserve">
+    <value>يرجى اختيار بند صالح</value>
+  </data>
+  <data name="MedicineNotFound" xml:space="preserve">
+    <value>الدواء المحدد غير موجود</value>
+  </data>
+  <data name="LabTestNotFound" xml:space="preserve">
+    <value>الفحص المخبري المحدد غير موجود</value>
+  </data>
+  <data name="ServiceNotFound" xml:space="preserve">
+    <value>الخدمة المحددة غير موجودة</value>
+  </data>
+  <data name="InvalidPayment" xml:space="preserve">
+    <value>بيانات الدفع غير صالحة</value>
+  </data>
+  <data name="PaymentAmountInvalid" xml:space="preserve">
+    <value>يجب أن يكون مبلغ الدفع أكبر من صفر</value>
+  </data>
+  <data name="PaymentMethodRequired" xml:space="preserve">
+    <value>يرجى اختيار طريقة الدفع</value>
+  </data>
+  <data name="PaymentDateRequired" xml:space="preserve">
+    <value>يرجى إدخال تاريخ الدفع</value>
+  </data>
+  <data name="PaymentAmountExceedsInvoiceTotal" xml:space="preserve">
+    <value>لا يمكن أن يتجاوز إجمالي المدفوعات إجمالي الفاتورة</value>
+  </data>
+  <data name="InvoiceTotalInvalid" xml:space="preserve">
+    <value>يجب أن يكون إجمالي الفاتورة أكبر من صفر</value>
+  </data>
+  <data name="PaymentRequired" xml:space="preserve">
+    <value>يجب دفع الفاتورة بالكامل</value>
+  </data>
+  <data name="PaymentAmountMustEqualInvoiceTotal" xml:space="preserve">
+    <value>يجب أن يساوي إجمالي المدفوعات إجمالي الفاتورة بالكامل</value>
+  </data>
 </root>

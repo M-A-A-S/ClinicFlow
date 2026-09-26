@@ -164,6 +164,9 @@ $(document).ready(function () {
         const itemId = $selectedItem.val();
         const itemName = $selectedItem.text().trim();
 
+        console.log('itemId -> ', itemId)
+        console.log('itemName -> ', itemName)
+
         const description =
             $('#invoiceItemDescription').val().trim();
 
@@ -180,7 +183,7 @@ $(document).ready(function () {
             itemType: itemType,
             itemTypeName,
             itemId: itemId,
-            itemName: $selectedItem.text().trim(),
+            itemName: itemName,
             description: description,
             quantity: quantity,
             unitPrice: unitPrice,
@@ -297,6 +300,12 @@ $(document).ready(function () {
                        name="Items[${index}].Id"
                        value="0"
                        class="item-id-input" />
+
+                <input type="hidden"
+                       name="Items[${index}].ReferenceId"
+                       value="${data.itemId}"
+                       class="item-reference-id-input" />
+
 
                 <input type="hidden"
                        name="Items[${index}].ItemType"
@@ -454,6 +463,12 @@ $(document).ready(function () {
                     $row,
                     '.item-id-input',
                     `Items[${index}].Id`
+                );
+
+                updateItemInputName(
+                    $row,
+                    '.item-reference-id-input',
+                    `Items[${index}].ReferenceId`
                 );
 
                 updateItemInputName(
