@@ -242,7 +242,9 @@ html[dir="rtl"] .input-group > .input-group-text {
 .form-label {
     margin-bottom: 0px;
 }
-
+.form-select:disabled {
+    background-color: var(--elevated-background);
+}
 
 /* ===================================================
    Global Autofill Overrides (All Inputs, Light & Dark)
@@ -1088,3 +1090,23 @@ html[dir="rtl"] .submenu a {
     color: white;
 }
 /* End Tabs */
+
+/* Start Modal */
+.modal-content {
+    background-color: var(--card-background);
+}
+[dir="rtl"] .modal-header {
+    direction: rtl;
+}
+
+[dir="rtl"] .modal-header > .btn-close {
+    margin-right: auto;
+    margin-left: 0;
+}
+.btn-close {
+    filter: none;
+}
+[data-theme="dark"] .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+/* End Modal */
