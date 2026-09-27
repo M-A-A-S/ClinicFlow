@@ -1,4 +1,5 @@
 ﻿using ClinicFlow.Domain.DTOs.Common;
+using ClinicFlow.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace ClinicFlow.Domain.DTOs.PaymentMethod
 {
     public class PaymentMethodFilterDTO : BaseFilterDTO
     {
+        public PaymentMethodType? Type { get; set; }
     }
 }
