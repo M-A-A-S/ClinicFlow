@@ -117,6 +117,13 @@ namespace ClinicFlow.Domain.Constants
         public const string InvoiceItemReferenceRequired = "InvoiceItemReferenceRequired";
         public const string InvoiceTotalInvalid = "InvoiceTotalInvalid";
         public const string PaymentAmountMustEqualInvoiceTotal = "PaymentAmountMustEqualInvoiceTotal";
+        
+        public const string AmountInvalid = "AmountInvalid";
+        public const string CategoryMismatch = "CategoryMismatch";
+        public const string PaymentMethodNotFound = "PaymentMethodNotFound";
+        public const string CategoryNotFound = "CategoryNotFound";
+        public const string PartyIdRequired = "PartyIdRequired";
+        public const string PartyNotFound = "PartyNotFound";
 
 
     }

@@ -1233,6 +1233,9 @@
   <data name="PartyId" xml:space="preserve">
     <value>معرف جهة التعامل</value>
   </data>
+  <data name="CategoryId" xml:space="preserve">
+    <value>الفئة</value>
+  </data>
   <data name="Unpaid" xml:space="preserve">
     <value>غير مدفوع</value>
   </data>
@@ -1400,5 +1403,23 @@
   </data>
   <data name="ItemName" xml:space="preserve">
     <value>اسم الصنف</value>
+  </data>
+  <data name="AmountInvalid" xml:space="preserve">
+    <value>يجب أن تكون قيمة السند أكبر من الصفر</value>
+  </data>
+  <data name="CategoryMismatch" xml:space="preserve">
+    <value>نوع السند لا يتوافق مع نوع الفئة المختارة</value>
+  </data>
+  <data name="PaymentMethodNotFound" xml:space="preserve">
+    <value>طريقة الدفع المختارة غير موجودة</value>
+  </data>
+  <data name="CategoryNotFound" xml:space="preserve">
+    <value>الفئة المختارة غير موجودة</value>
+  </data>
+  <data name="PartyIdRequired" xml:space="preserve">
+    <value>معرف الجهة مطلوب لنوع الجهة المحدد</value>
+  </data>
+  <data name="PartyNotFound" xml:space="preserve">
+    <value>الجهة المحددة (مريض، مورد، أو طبيب) غير موجودة</value>
   </data>
 </root>

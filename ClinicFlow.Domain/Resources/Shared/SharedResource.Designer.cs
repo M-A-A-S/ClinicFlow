@@ -223,6 +223,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bond amount must be greater than zero.
+        /// </summary>
+        public static string AmountInvalid {
+            get {
+                return ResourceManager.GetString("AmountInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Amount must be greater than zero.
         /// </summary>
         public static string AmountMustBeGreaterThanZero {
@@ -543,6 +552,24 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string CategoryId {
             get {
                 return ResourceManager.GetString("CategoryId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bond type does not match the selected category type.
+        /// </summary>
+        public static string CategoryMismatch {
+            get {
+                return ResourceManager.GetString("CategoryMismatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selected category does not exist.
+        /// </summary>
+        public static string CategoryNotFound {
+            get {
+                return ResourceManager.GetString("CategoryNotFound", resourceCulture);
             }
         }
         
@@ -2617,6 +2644,24 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Party ID is required for the selected party type.
+        /// </summary>
+        public static string PartyIdRequired {
+            get {
+                return ResourceManager.GetString("PartyIdRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The specified party (Patient, Supplier, or Doctor) was not found.
+        /// </summary>
+        public static string PartyNotFound {
+            get {
+                return ResourceManager.GetString("PartyNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Party Type.
         /// </summary>
         public static string PartyType {
@@ -2757,6 +2802,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string PaymentMethodId {
             get {
                 return ResourceManager.GetString("PaymentMethodId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selected payment method does not exist.
+        /// </summary>
+        public static string PaymentMethodNotFound {
+            get {
+                return ResourceManager.GetString("PaymentMethodNotFound", resourceCulture);
             }
         }
         

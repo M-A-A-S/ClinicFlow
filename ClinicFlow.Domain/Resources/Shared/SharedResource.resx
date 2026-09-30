@@ -1404,4 +1404,22 @@
   <data name="ItemName" xml:space="preserve">
     <value>Item Name</value>
   </data>
+  <data name="AmountInvalid" xml:space="preserve">
+    <value>Bond amount must be greater than zero</value>
+  </data>
+  <data name="CategoryMismatch" xml:space="preserve">
+    <value>Bond type does not match the selected category type</value>
+  </data>
+  <data name="PaymentMethodNotFound" xml:space="preserve">
+    <value>Selected payment method does not exist</value>
+  </data>
+  <data name="CategoryNotFound" xml:space="preserve">
+    <value>Selected category does not exist</value>
+  </data>
+  <data name="PartyIdRequired" xml:space="preserve">
+    <value>Party ID is required for the selected party type</value>
+  </data>
+  <data name="PartyNotFound" xml:space="preserve">
+    <value>The specified party (Patient, Supplier, or Doctor) was not found</value>
+  </data>
 </root>

@@ -20,6 +20,7 @@ namespace ClinicFlow.Infrastructure
             IConfiguration configuration)
         {
 
+            services.AddScoped<IBondService, BondService>();
             services.AddScoped<IBondCategoryService, BondCategoryService>();
             services.AddScoped<IPaymentMethodService, PaymentMethodService>();
             services.AddScoped<IInvoiceService, InvoiceService>();
