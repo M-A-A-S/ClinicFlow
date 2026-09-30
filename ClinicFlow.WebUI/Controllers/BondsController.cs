@@ -57,6 +57,9 @@ namespace ClinicFlow.WebUI.Controllers
                 PagedResult = getAllResult.Data ?? new PagedResult<BondDTO>(),
                 Filter = filter,
             };
+
+            await LoadBondFilterData();
+
             return View(viewModel);
         }
 
@@ -78,6 +81,8 @@ namespace ClinicFlow.WebUI.Controllers
         #region ========================= Create =========================
         public async Task<IActionResult> Create()
         {
+            await LoadBondFormData();
+
             return View(new BondDTO());
         }
 
@@ -87,6 +92,8 @@ namespace ClinicFlow.WebUI.Controllers
         {
             if (InvalidModel())
             {
+                await LoadBondFormData();
+
                 return View(DTO);
             }
 
@@ -95,6 +102,7 @@ namespace ClinicFlow.WebUI.Controllers
             if (!addResult.IsSuccess)
             {
                 Error(addResult.Code);
+                await LoadBondFormData();
                 return View(DTO);
             }
 
@@ -113,6 +121,8 @@ namespace ClinicFlow.WebUI.Controllers
                 return NotFound();
             }
 
+            await LoadBondFormData();
+
             return View(item);
         }
 
@@ -122,6 +132,8 @@ namespace ClinicFlow.WebUI.Controllers
         {
             if (InvalidModel())
             {
+                await LoadBondFormData();
+
                 return View(DTO);
             }
 
@@ -129,6 +141,7 @@ namespace ClinicFlow.WebUI.Controllers
             if (!updateResult.IsSuccess)
             {
                 Error(updateResult.Code);
+                await LoadBondFormData();
                 return View(DTO);
             }
 

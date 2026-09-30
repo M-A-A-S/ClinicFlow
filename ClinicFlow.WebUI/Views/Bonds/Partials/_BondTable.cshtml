@@ -1,0 +1,170 @@
+﻿@using ClinicFlow.WebUI.ViewModels.Common
+@using ClinicFlow.WebUI.ViewModels.Bond;
+@model BondIndexVM
+
+@{
+    bool isArabic = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+}
+@{
+    var routes = Model.Filter.ToRouteDictionary();
+
+    var columns = new List<TableColumnVM>
+    {
+        new TableColumnVM
+        {
+            Column = "BondNumber",
+            Title = Localizer["BondNumber"]
+        },
+        new TableColumnVM
+        {
+            Column = "IssueDate",
+            Title = Localizer["IssueDate"]
+        },
+        new TableColumnVM
+        {
+            Column = "Type",
+            Title = Localizer["Type"],
+            IsSortable = false
+        },
+        new TableColumnVM
+        {
+            Column = "Party",
+            Title = Localizer["Party"],
+            IsSortable = false
+        },
+        new TableColumnVM
+        {
+            Column = "CategoryId",
+            Title = Localizer["Category"],
+        },
+        new TableColumnVM
+        {
+            Column = "PaymentMethodId",
+            Title = Localizer["PaymentMethod"],
+        },
+        new TableColumnVM
+        {
+            Column = "Amount",
+            Title = Localizer["Amount"],
+        },
+        new TableColumnVM
+        {
+            Column = "ReferenceNumber",
+            Title = Localizer["ReferenceNumber"],
+        },
+        new TableColumnVM
+        {
+            Column = "Notes",
+            Title = Localizer["Notes"],
+        },
+        new TableColumnVM
+        {
+            Column = string.Empty,
+            Title = Localizer["Actions"],
+            IsSortable = false
+        }
+    };
+
+}
+
+@if (!Model.PagedResult.Items.Any())
+{
+    <div class="alert alert-info">
+        @Localizer["NoRecordsFound"]
+    </div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    @foreach (var column in columns)
+                    {
+                        <th>
+                            @if (column.IsSortable)
+                            {
+                                <partial name="Partials/_SortableHeader"
+                                         model='new SortHeaderVM
+                                         {
+                                             Column = column.Column,
+                                             Title = column.Title,
+                                             Filter = Model.Filter,
+                                             Routes = routes
+                                         }' />
+                                        }
+                            else
+                            {
+                                @column.Title
+                            }
+                        </th>
+                    }
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model.PagedResult.Items)
+                {
+                    <tr>
+                        <td>@item.BondNumber</td>
+
+                        <td>@item.IssueDate</td>
+
+                        <td>
+                            <span>
+                                @Localizer[item.Type.ToString()]
+                            </span>
+                        </td>
+
+                        <td>
+                            <span>
+                                @Localizer[item.Party.ToString()]
+                            </span>
+                        </td>
+
+                        <td>
+                            @if (item.Category == null)
+                            {
+                                <text>-</text>
+                            }
+                            else
+                            {
+                                @(isArabic ? item.Category.NameAr : item.Category.NameEn)
+                            }
+                            </td>
+
+                        <td>
+                            @if (item.PaymentMethod == null)
+                            {
+                                <text>-</text>
+                            }
+                            else
+                            {
+                                @(isArabic ? item.PaymentMethod.NameAr : item.PaymentMethod.NameEn)
+                            }
+                            </td>
+
+                        <td>@item.Amount</td>
+
+                        <td>@item.ReferenceNumber</td>
+
+                        <td>@item.Notes</td>
+
+
+                        <td>
+
+                            <div class="d-flex gap-1 align-items-center">
+                                <partial name="Partials/_Actions"
+                                         model='new ActionButtonsVM
+                                         {
+                                             Controller = "Bonds",
+                                             Id = item.Id
+                                         }' />
+                    </div>
+                </td>
+            </tr>
+                        }
+            </tbody>
+        </table>
+    </div>
+}
