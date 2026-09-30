@@ -214,6 +214,7 @@ namespace ClinicFlow.Infrastructure.Services
                         Id = x.Id,
                         NameEn = x.NameEn,
                         NameAr = x.NameAr,
+                        Type = x.Type
                     })
                     .ToListAsync();
 

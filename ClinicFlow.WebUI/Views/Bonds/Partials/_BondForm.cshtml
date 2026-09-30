@@ -1,5 +1,162 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@using ClinicFlow.Domain.DTOs.Bond
+@using ClinicFlow.Domain.Enums
+@model BondDTO
+
+
+<div class="row g-3 mb-2">
+
+    @* ================= IssueDate ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="IssueDate" class="form-label"></label>
+        <input asp-for="IssueDate" type="datetime-local" class="form-control" />
+        <span asp-validation-for="IssueDate" class="text-danger"></span>
+    </div>
+
+    @* ================= Amount ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="Amount" class="form-label"></label>
+        <input asp-for="Amount" type="number" class="form-control" />
+        <span asp-validation-for="Amount" class="text-danger"></span>
+    </div>
+
+    @* ================= PaymentMethod ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="PaymentMethodId" class="form-label"></label>
+        <select asp-for="PaymentMethodId"
+                id="paymentMethodId"
+                class="form-select select2">
+            <option value="">
+                @Localizer["Select"]
+            </option>
+
+            @if (ViewBag.PaymentMethods != null)
+            {
+                foreach (var item in ViewBag.PaymentMethods)
+                {
+                    <option value="@item.Id">
+                        @item.Name
+                    </option>
+                }
+            }
+            
+
+        </select>
+        <span asp-validation-for="PaymentMethodId" class="text-danger"></span>
+    </div>
+
+    @* ================= Category ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="CategoryId" class="form-label"></label>
+        <select asp-for="CategoryId"
+                id="categoryId"
+                class="form-select select2">
+            <option value="">
+                @Localizer["Select"]
+            </option>
+
+            @if (ViewBag.BondCategories != null)
+            {
+                foreach (var item in ViewBag.BondCategories)
+                {
+                    <option value="@item.Id" data-type="@((int)item.Type)">
+                        @item.Name
+                    </option>
+                }
+            }
+            
+
+        </select>
+        <span asp-validation-for="CategoryId" class="text-danger"></span>
+    </div>
+
+    @* ================= Type ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="Type" class="form-label"></label>
+        <select asp-for="Type"
+                id="typeId"
+                class="form-select select2"
+                asp-items="Html.GetEnumSelectList<BondType>()">
+            <option value="">
+                @Localizer["Select"]
+            </option>
+        </select>
+        <span asp-validation-for="Type" class="text-danger"></span>
+    </div>
+
+    @* ================= PartyType ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="Party" class="form-label"></label>
+        <select asp-for="Party"
+                id="partyTypeSelect"
+                class="form-select select2">
+            <option value="">@Localizer["Select"]</option>
+
+            <option value="@((int)PartyType.General)"
+                    data-enum-name="General">
+                @Localizer["General"]
+            </option>
+            <option 
+                value="@((int)PartyType.Patient)" 
+                data-enum-name="Patient">
+                @Localizer["Patient"]
+            </option>  
+            <option 
+                value="@((int)PartyType.Doctor)" 
+                data-enum-name="Doctor">
+                @Localizer["Doctor"]
+            </option>
+        </select>
+        <span asp-validation-for="Party" class="text-danger"></span>
+    </div>
+
+    @* ================= Party ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="PartyId" class="form-label"></label>
+        <select asp-for="PartyId"
+                id="partyEntitySelect"
+                class="form-select select2">
+            <option value="">
+                @Localizer["Select"]
+            </option>
+
+            @if (ViewBag.Patients != null)
+            {
+                foreach (var item in ViewBag.Patients)
+                {
+                    <option value="@item.Id" data-party-type="Patient">
+                        @item.FullName
+                    </option>
+                }
+            }
+            
+            @if (ViewBag.Doctors != null)
+            {
+                foreach (var item in ViewBag.Doctors)
+                {
+                    <option value="@item.Id" data-party-type="Doctor">
+                        @item.FullName
+                    </option>
+                }
+            }
+
+            
+
+        </select>
+        <span asp-validation-for="PartyId" class="text-danger"></span>
+    </div>
+
+    @* ================= ReferenceNumber ================= *@
+    <div class="col-12">
+        <label asp-for="ReferenceNumber" class="form-label"></label>
+        <input asp-for="ReferenceNumber" class="form-control" />
+        <span asp-validation-for="ReferenceNumber" class="text-danger"></span>
+    </div>
+
+    @* ================= Notes ================= *@
+    <div class="col-12">
+        <label asp-for="Notes" class="form-label"></label>
+        <textarea asp-for="Notes" class="form-control" rows="3"></textarea>
+        <span asp-validation-for="Notes" class="text-danger"></span>
+    </div>
+
+</div>

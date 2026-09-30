@@ -77,6 +77,10 @@ namespace ClinicFlow.Domain.DTOs.Bond
             Name = nameof(SharedResource.PaymentMethod),
             ResourceType = typeof(SharedResource)
         )]
+        [Required(
+            ErrorMessageResourceName = nameof(SharedResource.Required),
+            ErrorMessageResourceType = typeof(SharedResource)
+        )]
         public int PaymentMethodId { get; set; }
 
         [Display(
