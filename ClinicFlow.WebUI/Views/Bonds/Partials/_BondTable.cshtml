@@ -111,13 +111,13 @@ else
                         <td>@item.IssueDate</td>
 
                         <td>
-                            <span>
+                            <span class="badge @item.Type.ToCssClass()">
                                 @Localizer[item.Type.ToString()]
                             </span>
                         </td>
 
                         <td>
-                            <span>
+                            <span class="badge @item.Party.ToCssClass()">
                                 @Localizer[item.Party.ToString()]
                             </span>
                         </td>

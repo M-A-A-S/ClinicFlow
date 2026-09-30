@@ -28,9 +28,9 @@
 
             @* ========================== PartyType ========================== *@
             <div class="col-12 col-md-6 col-xl-3">
-                <label asp-for="Filter.Type" class="form-label">@Localizer["PartyType"]</label>
-                <select asp-for="Filter.Type"
-                        id="typeId"
+                <label asp-for="Filter.Party" class="form-label">@Localizer["PartyType"]</label>
+                <select asp-for="Filter.Party"
+                        id="partyTypeId"
                         class="form-select select2"
                         asp-items="Html.GetEnumSelectList<PartyType>()">
                     <option value="">
@@ -56,7 +56,7 @@
             <div class="col-12 col-md-6 col-xl-3">
                 <label asp-for="Filter.PaymentMethodId" class="form-label">@Localizer["PaymentMethod"]</label>
                 <select asp-for="Filter.PaymentMethodId"
-                        id="categoryId"
+                        id="paymentMethodId"
                         class="form-select select2"
                         asp-items="ViewBag.PaymentMethods">
                     <option value="">
