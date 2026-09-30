@@ -370,6 +370,12 @@ namespace ClinicFlow.Infrastructure.Services
                     x.NameEn.Contains(search) ||
                     x.NameAr.Contains(search));
             }
+
+            if (filter.Type.HasValue)
+            {
+                query = query.Where(x => x.Type == filter.Type.Value);
+            }
+
             return query;
         }
 

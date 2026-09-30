@@ -1,4 +1,5 @@
 ﻿using ClinicFlow.Domain.DTOs.Common;
+using ClinicFlow.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,7 @@ namespace ClinicFlow.Domain.DTOs.BondCategory
 {
     public class BondCategoryFilterDTO : BaseFilterDTO
     {
+        public BondType? Type { get; set; }
+
     }
 }
