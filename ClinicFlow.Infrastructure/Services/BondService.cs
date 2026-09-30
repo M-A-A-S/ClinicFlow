@@ -1,7 +1,6 @@
 ﻿using ClinicFlow.Application.Services;
 using ClinicFlow.Domain.Constants;
 using ClinicFlow.Domain.DTOs.Bond;
-using ClinicFlow.Domain.DTOs.LabOrder;
 using ClinicFlow.Domain.Entities;
 using ClinicFlow.Domain.Enums;
 using ClinicFlow.Domain.Extensions;
