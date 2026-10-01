@@ -1367,6 +1367,10 @@ $(document).ready(function () {
                     total += amount;
                 }
 
+                if (type === 'Payment') {
+                    total -= amount;
+                }
+
             });
 
         return total;

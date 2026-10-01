@@ -100,7 +100,7 @@ namespace ClinicFlow.Infrastructure.Services
                 }
 
 
-                //_appDbContext.Invoices.Add(entity);
+                _appDbContext.Invoices.Add(entity);
                 await _appDbContext.SaveChangesAsync();
                 return Result<int>.Success(entity.Id, ResultCodes.CreatedSuccessfully);
 
@@ -609,9 +609,14 @@ namespace ClinicFlow.Infrastructure.Services
 
         private async Task AssignReceiptNumbersAsync(IEnumerable<InvoicePayment> payments)
         {
+            //var receipts = payments
+            //    .Where(x =>
+            //        x.Type == BondType.Receipt &&
+            //        string.IsNullOrWhiteSpace(x.ReceiptNumber))
+            //    .ToList();
+
             var receipts = payments
                 .Where(x =>
-                    x.Type == BondType.Receipt &&
                     string.IsNullOrWhiteSpace(x.ReceiptNumber))
                 .ToList();
 
@@ -622,11 +627,21 @@ namespace ClinicFlow.Infrastructure.Services
 
             var prefix = $"RCT-{DateTime.UtcNow:yyyy-MM}-";
 
+            //var existingReceiptNumbers = await _appDbContext.InvoicePayments
+            //    .IgnoreQueryFilters()
+            //    .AsNoTracking()
+            //    .Where(x =>
+            //        x.Type == BondType.Receipt &&
+            //        x.ReceiptNumber != null &&
+            //        x.ReceiptNumber.StartsWith(prefix))
+            //    .OrderByDescending(x => x.ReceiptNumber)
+            //    .Select(x => x.ReceiptNumber)
+            //    .ToListAsync();
+
             var existingReceiptNumbers = await _appDbContext.InvoicePayments
                 .IgnoreQueryFilters()
                 .AsNoTracking()
                 .Where(x =>
-                    x.Type == BondType.Receipt &&
                     x.ReceiptNumber != null &&
                     x.ReceiptNumber.StartsWith(prefix))
                 .OrderByDescending(x => x.ReceiptNumber)
@@ -981,9 +996,19 @@ namespace ClinicFlow.Infrastructure.Services
                 }
             }
 
-            var totalPayments = payments
+            var totalReceiptsAmount = payments
                 .Where(x => x.Type == BondType.Receipt)
                 .Sum(x => x.Amount);
+
+            var totalPaymentsAmount = payments
+                .Where(x => x.Type == BondType.Payment)
+                .Sum(x => x.Amount);
+
+            //var totalPayments = payments
+            //    .Where(x => x.Type == BondType.Receipt)
+            //    .Sum(x => x.Amount);
+
+            var totalPayments = totalReceiptsAmount - totalPaymentsAmount;
 
             if (totalPayments != invoiceTotal)
             {
