@@ -36,6 +36,16 @@ namespace ClinicFlow.Infrastructure.Configurations
             .IsRequired()
             .HasDefaultValue(true);
 
+            builder.HasMany(x => x.InvoicePayments)
+                .WithOne(x => x.PaymentMethod)
+                .HasForeignKey(x => x.PaymentMethodId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasMany(x => x.Bonds)
+                .WithOne(x => x.PaymentMethod)
+                .HasForeignKey(x => x.PaymentMethodId)
+                .OnDelete(DeleteBehavior.Restrict);
+
             builder.HasData(LoadPaymentMethods());
 
         }

@@ -22,10 +22,41 @@
     @* ================= Type ================= *@
     <div class="col-sm-6 col-md-4">
         <label asp-for="Type" class="form-label"></label>
-        <select asp-for="Type"
+        @* <select asp-for="Type"
                 asp-items="Html.GetEnumSelectList<PaymentMethodType>()"
                 class="form-select">
-        </select>
+        </select> *@
+        @if (Model.CanChangeType)
+        {
+            <select asp-for="Type"
+                    class="form-select">
+
+                <option value="">
+                    @Localizer["Select"]
+                </option>
+
+                @foreach (var item in Enum.GetValues<PaymentMethodType>())
+                {
+                    var disableCash =
+                    item == PaymentMethodType.Cash;
+
+
+                    <option value="@((int)item)" disabled="@disableCash">
+                        @Localizer[item.ToString()]
+                    </option>
+                }
+
+            </select>
+        }
+        else
+        {
+            <input type="hidden" asp-for="Type" />
+
+            <div class="form-control">
+                @Localizer[Model.Type.ToString()]
+            </div>
+        }
+
         <span asp-validation-for="Type" class="text-danger"></span>
     </div>
 

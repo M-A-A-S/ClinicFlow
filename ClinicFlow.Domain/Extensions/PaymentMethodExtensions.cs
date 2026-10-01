@@ -1,5 +1,6 @@
 ﻿using ClinicFlow.Domain.DTOs.PaymentMethod;
 using ClinicFlow.Domain.Entities;
+using ClinicFlow.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,16 @@ namespace ClinicFlow.Domain.Extensions
                 NameEn = entity.NameEn,
                 NameAr = entity.NameAr,
                 Type = entity.Type,
-                IsActive = entity.IsActive
+                IsActive = entity.IsActive,
+
+                CanDelete = 
+                    entity.Type != PaymentMethodType.Cash &&
+                    !entity.InvoicePayments.Any() &&
+                    !entity.Bonds.Any(),
+
+                CanChangeType =
+                    !entity.InvoicePayments.Any() &&
+                    !entity.Bonds.Any(),
             };
 
 

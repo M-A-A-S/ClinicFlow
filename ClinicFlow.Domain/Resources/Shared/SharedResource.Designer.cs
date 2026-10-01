@@ -556,6 +556,24 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The cash payment method cannot be deleted.
+        /// </summary>
+        public static string CashPaymentMethodCannotBeDeleted {
+            get {
+                return ResourceManager.GetString("CashPaymentMethodCannotBeDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A cash payment method already exists.
+        /// </summary>
+        public static string CashPaymentMethodExists {
+            get {
+                return ResourceManager.GetString("CashPaymentMethodExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Category.
         /// </summary>
         public static string Category {
@@ -2883,6 +2901,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string PaymentMethodId {
             get {
                 return ResourceManager.GetString("PaymentMethodId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This payment method cannot be deleted because it is already in use.
+        /// </summary>
+        public static string PaymentMethodInUse {
+            get {
+                return ResourceManager.GetString("PaymentMethodInUse", resourceCulture);
             }
         }
         

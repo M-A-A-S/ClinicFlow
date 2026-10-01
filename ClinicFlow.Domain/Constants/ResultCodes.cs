@@ -135,6 +135,10 @@ namespace ClinicFlow.Domain.Constants
         public const string LabOrderNotFound = "LabOrderNotFound";
         public const string LabOrderInvoiceExists = "LabOrderInvoiceExists";
 
+        public const string CashPaymentMethodExists = "CashPaymentMethodExists";
+        public const string CashPaymentMethodCannotBeDeleted = "CashPaymentMethodCannotBeDeleted";
+        public const string PaymentMethodInUse = "PaymentMethodInUse";
+
 
     }
 }

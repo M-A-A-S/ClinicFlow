@@ -2,6 +2,7 @@
 using ClinicFlow.Domain.Constants;
 using ClinicFlow.Domain.DTOs.PaymentMethod;
 using ClinicFlow.Domain.Entities;
+using ClinicFlow.Domain.Enums;
 using ClinicFlow.Domain.Extensions;
 using ClinicFlow.Domain.Utilities;
 using ClinicFlow.Infrastructure.Data;
@@ -138,6 +139,7 @@ namespace ClinicFlow.Infrastructure.Services
             {
                 var item = await _appDbContext.PaymentMethods
                     .AsNoTracking()
+                    .Select(PaymentMethodExtensions.ToDTOExpression)
                     .FirstOrDefaultAsync(x => x.Id == id);
 
                 if (item == null)
@@ -146,7 +148,7 @@ namespace ClinicFlow.Infrastructure.Services
                         ResultCodes.NotFound,
                         HttpStatusCodes.NotFound);
                 }
-                return Result<PaymentMethodDTO>.Success(item.ToDTO());
+                return Result<PaymentMethodDTO>.Success(item);
             }
             catch (Exception ex)
             {
@@ -286,6 +288,18 @@ namespace ClinicFlow.Infrastructure.Services
         {
             try
             {
+
+                var validationResult = await ValidatePaymentMethodDeleteAsync(id);
+
+
+                if (!validationResult.IsSuccess)
+                {
+                    return Result<bool>.Failure(
+                        validationResult.Code,
+                        validationResult.StatusCode,
+                        validationResult.Message);
+                }
+
                 var item = await _appDbContext.PaymentMethods
                     .FirstOrDefaultAsync(x => x.Id == id);
 
@@ -294,7 +308,7 @@ namespace ClinicFlow.Infrastructure.Services
                     return Result<bool>.Failure(
                         ResultCodes.NotFound,
                         HttpStatusCodes.NotFound);
-                }
+                }             
 
                 item.IsDeleted = true;
                 item.UpdatedAt = DateTime.UtcNow;
@@ -353,8 +367,71 @@ namespace ClinicFlow.Infrastructure.Services
                     HttpStatusCodes.Conflict);
             }
 
+            if (dto.Type == PaymentMethodType.Cash)
+            {
+                bool cashExists = await _appDbContext.PaymentMethods
+                    .AnyAsync(x =>
+                        x.Type == PaymentMethodType.Cash &&
+                        (excludedId == null || x.Id != excludedId));
+
+                if (cashExists)
+                {
+                    return Result<bool>.Failure(
+                    ResultCodes.CashPaymentMethodExists,
+                    HttpStatusCodes.BadRequest);
+                }
+                
+            }
+
             return Result<bool>.Success(true);
 
+        }
+
+        private async Task<Result<bool>> ValidatePaymentMethodDeleteAsync(int id)
+        {
+
+            var paymentMethod = await _appDbContext.PaymentMethods
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+            if (paymentMethod == null)
+            {
+                return Result<bool>.Failure(
+                ResultCodes.PaymentMethodNotFound,
+                HttpStatusCodes.NotFound);
+            }
+
+            if (paymentMethod.Type == PaymentMethodType.Cash)
+            {
+                return Result<bool>.Failure(
+                    ResultCodes.CashPaymentMethodCannotBeDeleted,
+                    HttpStatusCodes.BadRequest,
+                    "Cannot delete the cash payment method.");
+            }
+
+            bool hasInvoicePayments = await _appDbContext.InvoicePayments
+            .AnyAsync(x => x.PaymentMethodId == id);
+
+            if (hasInvoicePayments)
+            {
+                return Result<bool>.Failure(
+                    ResultCodes.PaymentMethodInUse,
+                    HttpStatusCodes.Conflict,
+                    "Cannot delete this payment method because it is associated with existing invoice payments.");
+            }
+
+            bool hasBonds = await _appDbContext.Bonds
+                .AnyAsync(x => x.PaymentMethodId == id);
+
+            if (hasBonds)
+            {
+                return Result<bool>.Failure(
+                    ResultCodes.PaymentMethodInUse,
+                    HttpStatusCodes.Conflict,
+                    "Cannot delete this payment method because it is associated with existing bonds.");
+            }
+
+            return Result<bool>.Success(true);
         }
 
         private IQueryable<PaymentMethod> ApplyFilters(

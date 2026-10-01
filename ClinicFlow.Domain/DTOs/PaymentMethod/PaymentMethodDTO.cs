@@ -58,5 +58,9 @@ namespace ClinicFlow.Domain.DTOs.PaymentMethod
         public ICollection<InvoicePaymentDTO> InvoicePayments { get; set; }
             = new List<InvoicePaymentDTO>();
         public ICollection<BondDTO> Bonds { get; set; } = new List<BondDTO>();
+
+
+        public bool CanDelete { get; set; } = true;
+        public bool CanChangeType { get; set; } = true;
     }
 }

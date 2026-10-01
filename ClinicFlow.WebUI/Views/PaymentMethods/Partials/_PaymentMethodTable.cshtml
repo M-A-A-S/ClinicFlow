@@ -1,4 +1,5 @@
-﻿@using ClinicFlow.WebUI.ViewModels.Common
+﻿@using ClinicFlow.Domain.Enums
+@using ClinicFlow.WebUI.ViewModels.Common
 @using ClinicFlow.WebUI.ViewModels.PaymentMethod;
 @model PaymentMethodIndexVM
 
@@ -101,7 +102,8 @@ else
                                          model='new ActionButtonsVM
                                          {
                                              Controller = "PaymentMethods",
-                                             Id = item.Id
+                                             Id = item.Id,
+                                            ShowDelete = item.CanDelete
                                          }' />
                     </div>
                 </td>
