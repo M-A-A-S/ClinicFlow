@@ -390,6 +390,7 @@ namespace ClinicFlow.WebUI.Controllers
             var invoice = new InvoiceDTO
             {
                 PatientId = labOrder.PatientId,
+                Patient = labOrder.Patient,
                 InvoiceDate = DateTime.Now,
                 LabOrderId = labOrder.Id,
             };

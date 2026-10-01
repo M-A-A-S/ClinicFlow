@@ -7,21 +7,50 @@
     @* ================= Patient ================= *@
     <div class="col-sm-6 col-md-4">
         <label asp-for="PatientId" class="form-label"></label>
-        <select asp-for="PatientId"
-                id="patientId"
-                class="form-select select2"
-                asp-items="ViewBag.Patients">
-            <option value="">
-                @Localizer["Select"]
-            </option>
-        </select>
+
+        @if (Model.InvoiceId.HasValue)
+        {
+            <input type="hidden" asp-for="PatientId" />
+
+            <input type="text"
+                   class="form-control"
+                   value="@Model.Patient?.FullName"
+                   readonly />
+        }
+        else
+        {
+            <select asp-for="PatientId"
+                    id="patientId"
+                    class="form-select select2"
+                    asp-items="ViewBag.Patients">
+                <option value="">
+                    @Localizer["Select"]
+                </option>
+            </select>
+        }
+
+        
         <span asp-validation-for="PatientId" class="text-danger"></span>
     </div>
 
     @* ================= Order Date ================= *@
     <div class="col-sm-6 col-md-4">
         <label asp-for="OrderDate" class="form-label"></label>
-        <input asp-for="OrderDate" type="date" class="form-control" />
+
+        @if (Model.InvoiceId.HasValue)
+        {
+            <input asp-for="OrderDate"
+                   type="date"
+                   class="form-control"
+                   readonly />
+        }
+        else
+        {
+            <input asp-for="OrderDate"
+                   type="date"
+                   class="form-control" />
+        }
+
         <span asp-validation-for="OrderDate" class="text-danger"></span>
     </div>
 

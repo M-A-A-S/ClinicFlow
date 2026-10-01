@@ -20,56 +20,62 @@
 
         @* ================= Add Item ================= *@
 
-        <div class="row g-3 align-items-end">
+        @if (!Model.InvoiceId.HasValue)
+        {
+            <div class="row g-3 align-items-end">
 
-            @* ================= LabTest ================= *@
-            <div class="col-sm-6 col-md-4">
-                <label for="labTestId" class="form-label">
-                    @Localizer["LabTest"]
-                </label>
+                @* ================= LabTest ================= *@
+                <div class="col-sm-6 col-md-4">
+                    <label for="labTestId" class="form-label">
+                        @Localizer["LabTest"]
+                    </label>
 
-                <select id="labTestId"
-                        class="form-select select2"
-                        asp-items="ViewBag.LabTests">
-                    <option value="">
-                        @Localizer["Select"]
-                    </option>
-                </select>
+                    <select id="labTestId"
+                            class="form-select select2"
+                            asp-items="ViewBag.LabTests">
+                        <option value="">
+                            @Localizer["Select"]
+                        </option>
+                    </select>
+                </div>
+
+
+                @* ================= Status ================= *@
+                <div class="col-sm-6 col-md-4">
+                    <label for="status" class="form-label">
+                        @Localizer["Status"]
+                    </label>
+
+                    <select id="status"
+                            asp-items="Html.GetEnumSelectList<LabStatus>()"
+                            class="form-select">
+                    </select>
+                </div>
+
+
+                @* ================= Add ================= *@
+                <div class="col-sm-6 col-md-2">
+
+                    <button type="button"
+                            id="add-item"
+                            class="btn btn-primary w-100">
+
+                        <i class="fa fa-plus me-1"></i>
+                        @Localizer["Add"]
+
+                    </button>
+
+                </div>
+
             </div>
+        }
 
-
-            @* ================= Status ================= *@
-            <div class="col-sm-6 col-md-4">
-                <label for="status" class="form-label">
-                    @Localizer["Status"]
-                </label>
-
-                <select id="status"
-                        asp-items="Html.GetEnumSelectList<LabStatus>()"
-                        class="form-select">
-                </select>
-            </div>
-
-
-            @* ================= Add ================= *@
-            <div class="col-sm-6 col-md-2">
-
-                <button type="button"
-                        id="add-item"
-                        class="btn btn-primary w-100">
-
-                    <i class="fa fa-plus me-1"></i>
-                    @Localizer["Add"]
-
-                </button>
-
-            </div>
-
-        </div>
+        
 
 
         @* ================= Items Table ================= *@
 
+        
         <div class="table-responsive mt-4">
 
             <table class="table table-hover align-middle mb-0">
@@ -155,13 +161,18 @@
                                 @* ================= Remove ================= *@
                                 <td class="text-center">
 
-                                    <button type="button"
-                                            class="btn btn-sm btn-outline-danger remove-item"
-                                            title="@Localizer["Remove"]">
+                                    @if (!Model.InvoiceId.HasValue)
+                                    {
+                                        <button type="button"
+                                                class="btn btn-sm btn-outline-danger remove-item"
+                                                title="@Localizer["Remove"]">
 
-                                        <i class="fa fa-trash"></i>
+                                            <i class="fa fa-trash"></i>
 
-                                    </button>
+                                        </button>
+                                    }
+
+                                    
 
                                 </td>
 

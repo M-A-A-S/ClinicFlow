@@ -102,7 +102,11 @@ namespace ClinicFlow.WebUI.Controllers
             }
 
             Success(addResult.Code);
-            return RedirectToAction(nameof(Index));
+            //return RedirectToAction(nameof(Index));
+            return RedirectToAction(
+                nameof(Create),
+                "Invoices",
+                new { labOrderId = addResult.Data });
         }
         #endregion
 
