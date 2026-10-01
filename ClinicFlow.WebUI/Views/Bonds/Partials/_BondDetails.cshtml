@@ -1,5 +1,98 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using ClinicFlow.Domain.DTOs.Bond
+@model BondDTO
+
 @{
+	bool isArabic = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
 }
+
+<div class="row">
+
+    @* ================= BondNumber ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["BondNumber"]</div>
+        <div>
+            @(string.IsNullOrWhiteSpace(Model.BondNumber) ? "-" : Model.BondNumber)
+        </div>
+    </div>
+
+    @* ================= IssueDate ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["IssueDate"]</div>
+        <div>@Model.IssueDate.ToString("yyyy-MM-dd HH:mm")</div>
+    </div>
+
+    @* ================= Amount ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["Amount"]</div>
+        <div>@Model.Amount.ToString("N2")</div>
+    </div>
+
+    @* ================= Type ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["Type"]</div>
+        <div>
+            <span class="badge @Model.Type.ToCssClass()">
+                @Localizer[Model.Type.ToString()]
+            </span>
+        </div>
+    </div>
+
+    @* ================= Party ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["Party"]</div>
+        <div>
+            <span class="badge @Model.Party.ToCssClass()">
+                @Localizer[Model.Party.ToString()]
+            </span>
+        </div>
+    </div>
+
+    @* ================= Category ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["Category"]</div>
+        <div>
+            @if (Model.Category == null)
+            {
+                <span class="text-muted">-</span>
+            }
+            else
+            {
+                @(isArabic? Model.Category.NameAr : Model.Category.NameEn)
+            }
+        </div>
+    </div>
+
+    @* ================= PaymentMethod ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["PaymentMethod"]</div>
+        <div>
+            @if (Model.PaymentMethod == null)
+            {
+                <span class="text-muted">-</span>
+            }
+            else
+            {
+                @(isArabic? Model.PaymentMethod.NameAr : Model.PaymentMethod.NameEn)
+            }
+        </div>
+    </div>
+
+    @* ================= ReferenceNumber ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["ReferenceNumber"]</div>
+        <div>
+            @(string.IsNullOrWhiteSpace(Model.ReferenceNumber) ? "-" : Model.ReferenceNumber)
+        </div>
+    </div>
+
+    @* ================= Notes ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["Notes"]</div>
+        <div>
+            @(string.IsNullOrWhiteSpace(Model.Notes) ? "-" : Model.Notes)
+        </div>
+    </div>
+
+</div>
+
+
