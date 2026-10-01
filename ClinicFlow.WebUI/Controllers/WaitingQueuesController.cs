@@ -1,5 +1,6 @@
 ﻿using ClinicFlow.Application.Services;
 using ClinicFlow.Domain.DTOs.WaitingQueue;
+using ClinicFlow.Domain.Entities;
 using ClinicFlow.Domain.Resources.Shared;
 using ClinicFlow.Domain.Utilities;
 using ClinicFlow.WebUI.ViewModels.WaitingQueue;
@@ -106,7 +107,11 @@ namespace ClinicFlow.WebUI.Controllers
             }
 
             Success(addResult.Code);
-            return RedirectToAction(nameof(Index));
+            //return RedirectToAction(nameof(Index));
+            return RedirectToAction(
+                nameof(Create),
+                "Invoices",
+                new { waitingQueueId = addResult.Data });
         }
         #endregion
 
