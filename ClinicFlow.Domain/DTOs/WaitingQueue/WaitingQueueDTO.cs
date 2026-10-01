@@ -1,6 +1,7 @@
 ﻿using ClinicFlow.Domain.DTOs.Appointment;
 using ClinicFlow.Domain.DTOs.Clinic;
 using ClinicFlow.Domain.DTOs.Doctor;
+using ClinicFlow.Domain.DTOs.Invoice;
 using ClinicFlow.Domain.DTOs.Patient;
 using ClinicFlow.Domain.Enums;
 using ClinicFlow.Domain.Resources.Shared;
@@ -101,6 +102,9 @@ namespace ClinicFlow.Domain.DTOs.WaitingQueue
             ResourceType = typeof(SharedResource)
         )]
         public QueueStatus Status { get; set; } = QueueStatus.Waiting;
+
+        public int? InvoiceId { get; set; }
+        public InvoiceDTO? Invoice { get; set; }
 
         public AppointmentDTO? Appointment { get; set; }
         public PatientDTO? Patient { get; set; }

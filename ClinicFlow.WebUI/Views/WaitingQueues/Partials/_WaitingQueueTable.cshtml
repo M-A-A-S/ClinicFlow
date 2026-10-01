@@ -70,6 +70,18 @@
         },
         new TableColumnVM
         {
+            Column = "Invoice",
+            Title = Localizer["Invoice"],
+            IsSortable = false
+        },
+        new TableColumnVM
+        {
+            Column = "InvoiceStatus",
+            Title = Localizer["InvoiceStatus"],
+            IsSortable = false
+        },
+        new TableColumnVM
+        {
             Column = string.Empty,
             Title = Localizer["Actions"],
             IsSortable = false
@@ -148,11 +160,62 @@ else
                         </td>
 
                         <td>
+                            @if (item.InvoiceId == null)
+                            {
+                                @* <a asp-controller="Invoices"
+                                   asp-action="Create"
+                                   asp-route-waitingQueueId="@item.Id"
+                                   class="btn btn-icon btn-outline-primary tooltip-btn"
+                                   data-tooltip="@Localizer["CreateInvoice"]">
+                                    <i class="fa fa-file-invoice me-1"></i>
+                                </a> *@
+                                <a asp-controller="Invoices"
+                                   asp-action="Create"
+                                   asp-route-waitingQueueId="@item.Id"
+                                   class="btn btn-sm btn-outline-primary text-nowrap">
+
+                                    <i class="fa fa-file-invoice me-1"></i>
+                                    @Localizer["CreateInvoice"]
+
+                                </a>
+                            }
+                            else
+                            {
+                                <a asp-controller="Invoices"
+                                   asp-action="Details"
+                                   asp-route-id="@item.InvoiceId"
+                                   class="btn btn-sm btn-outline-secondary text-nowrap">
+
+                                    <i class="fa fa-receipt me-1"></i>
+                                    @Localizer["ViewInvoice"]
+
+                                </a>
+                            }
+                        </td>
+
+                        <td>
+                            @if (!item.InvoiceId.HasValue)
+                            {
+                                <span class="badge bg-secondary">
+                                    @Localizer["NoInvoice"]
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="badge @item.Invoice?.Status.ToCssClass()">
+                                    @Localizer[item?.Invoice?.Status.ToString() ?? ""]
+                                </span>
+                            }
+                        </td>
+
+                        <td>
                             <div class="d-flex gap-1 align-items-center">
                                 <partial name="Partials/_Actions"
                                          model='new ActionButtonsVM
                                          {
                                              Controller = "WaitingQueues",
+                                             ShowDelete = !item.InvoiceId.HasValue,
+                                             ShowEdit = !item.InvoiceId.HasValue,
                                              Id = item.Id
                                          }' />
                             </div>

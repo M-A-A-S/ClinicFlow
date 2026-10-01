@@ -1,6 +1,7 @@
 ﻿using ClinicFlow.Domain.DTOs.Appointment;
 using ClinicFlow.Domain.DTOs.Clinic;
 using ClinicFlow.Domain.DTOs.Doctor;
+using ClinicFlow.Domain.DTOs.Invoice;
 using ClinicFlow.Domain.DTOs.Patient;
 using ClinicFlow.Domain.DTOs.Prescription;
 using ClinicFlow.Domain.DTOs.VisitDiagnosis;
@@ -100,6 +101,9 @@ namespace ClinicFlow.Domain.DTOs.Visit
             ResourceType = typeof(SharedResource)
         )]
         public DateTime? CompletedAt { get; set; }
+
+        public int? InvoiceId { get; set; }
+        public InvoiceDTO? Invoice { get; set; }
 
         public PatientDTO? Patient { get; set; }
         public DoctorDTO? Doctor { get; set; }

@@ -125,6 +125,16 @@ namespace ClinicFlow.Domain.Constants
         public const string PartyIdRequired = "PartyIdRequired";
         public const string PartyNotFound = "PartyNotFound";
 
+        public const string InvoiceSourceOnlyOne = "InvoiceSourceOnlyOne";
+        public const string WaitingQueueNotFound = "WaitingQueueNotFound";
+        public const string WaitingQueueInvoiceExists = "WaitingQueueInvoiceExists";
+        public const string AppointmentNotFound = "AppointmentNotFound";
+        public const string AppointmentInvoiceExists = "AppointmentInvoiceExists";
+        //public const string VisitNotFound = "VisitNotFound";
+        public const string VisitInvoiceExists = "VisitInvoiceExists";
+        public const string LabOrderNotFound = "LabOrderNotFound";
+        public const string LabOrderInvoiceExists = "LabOrderInvoiceExists";
+
 
     }
 }

@@ -1,10 +1,13 @@
 ﻿using ClinicFlow.Application.Services;
 using ClinicFlow.Domain.DTOs.Doctor;
 using ClinicFlow.Domain.DTOs.Invoice;
+using ClinicFlow.Domain.DTOs.InvoiceItem;
 using ClinicFlow.Domain.DTOs.LabTest;
 using ClinicFlow.Domain.DTOs.Medicine;
 using ClinicFlow.Domain.DTOs.Patient;
 using ClinicFlow.Domain.DTOs.PaymentMethod;
+using ClinicFlow.Domain.Entities;
+using ClinicFlow.Domain.Enums;
 using ClinicFlow.Domain.Resources.Shared;
 using ClinicFlow.Domain.Utilities;
 using ClinicFlow.WebUI.ViewModels.Invoice;
@@ -24,6 +27,10 @@ namespace ClinicFlow.WebUI.Controllers
         private readonly IDoctorService _doctorService;
         private readonly ILabTestService _labTestService;
         private readonly IPaymentMethodService _paymentMethodService;
+        private readonly IWaitingQueueService _waitingQueueService;
+        private readonly IAppointmentService _appointmentService;
+        private readonly IVisitService _visitService;
+        private readonly ILabOrderService _labOrderService;
 
         #endregion
 
@@ -35,7 +42,11 @@ namespace ClinicFlow.WebUI.Controllers
             IPatientService patientService,
             IDoctorService doctorService,
             ILabTestService labTestService,
-            IPaymentMethodService paymentMethodService
+            IPaymentMethodService paymentMethodService,
+            IWaitingQueueService waitingQueueService,
+            IAppointmentService appointmentService,
+            IVisitService visitService,
+            ILabOrderService labOrderService
 
             ) : base(localizer)
         {
@@ -45,6 +56,10 @@ namespace ClinicFlow.WebUI.Controllers
             _doctorService = doctorService;
             _labTestService = labTestService;
             _paymentMethodService = paymentMethodService;
+            _waitingQueueService = waitingQueueService;
+            _appointmentService = appointmentService;
+            _visitService = visitService;
+            _labOrderService = labOrderService;
         }
         #endregion
 
@@ -85,12 +100,51 @@ namespace ClinicFlow.WebUI.Controllers
         #endregion
 
         #region ========================= Create =========================
-        public async Task<IActionResult> Create()
+        public async Task<IActionResult> Create(
+            int? waitingQueueId,
+            int? labOrderId,
+            int? appointmentId,
+            int? visitId)
         {
             await LoadInvoiceFormData();
 
-            return View(new InvoiceDTO());
+
+            InvoiceDTO? invoice;
+
+
+            if (waitingQueueId.HasValue)
+            {
+                invoice = await BuildFromWaitingQueueAsync(waitingQueueId.Value);
+            }
+            else if (labOrderId.HasValue)
+            {
+                invoice = await BuildFromLabOrderAsync(labOrderId.Value);
+            }
+            else if (appointmentId.HasValue)
+            {
+                invoice = await BuildFromAppointmentAsync(appointmentId.Value);
+            }
+            else if (visitId.HasValue)
+            {
+                invoice = await BuildFromVisitAsync(visitId.Value);
+            }
+            else
+            {
+                invoice = new InvoiceDTO();
+            }
+
+            if (invoice is null)
+            {
+                return NotFound();
+            }
+
+            return View(invoice);
+
+            //await LoadInvoiceFormData();
+
+            //return View(new InvoiceDTO());
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -193,6 +247,180 @@ namespace ClinicFlow.WebUI.Controllers
         #endregion
 
         #region ========================= Helpers =========================
+
+        private async Task<InvoiceDTO?> BuildFromAppointmentAsync(int id)
+        {
+            var result = await _appointmentService.GetByIdAsync(id);
+
+            if (!result.IsSuccess || result.Data == null)
+            {
+                return null;
+            }
+
+            var appointment = result.Data;
+
+            if (appointment.InvoiceId.HasValue)
+            {
+                return null;
+            }
+
+            var fee = appointment.Doctor.ConsultationFee;
+
+            var invoice = new InvoiceDTO
+            {
+                PatientId = appointment.PatientId,
+                Patient = appointment.Patient,
+                InvoiceDate = DateTime.Now,
+                AppointmentId = appointment.Id,
+            };
+
+            invoice.Items.Add(new InvoiceItemDTO
+            {
+                ItemType = InvoiceItemType.Visit,
+                ReferenceId = appointment.Doctor.Id,
+                ReferenceName = appointment.Doctor.FullName,
+                Description = $"Consultation with Dr. {appointment.Doctor.FullName}",
+                UnitPrice = fee,
+                Quantity = 1,
+                Total = fee
+            });
+
+            return invoice;
+        }
+
+        private async Task<InvoiceDTO?> BuildFromWaitingQueueAsync(int id)
+        {
+            var result = await _waitingQueueService.GetByIdAsync(id);
+
+            if (!result.IsSuccess || result.Data == null)
+            {
+                return null;
+            }
+
+            var queue = result.Data;
+
+            if (queue.InvoiceId.HasValue)
+            {
+                return null;
+            }
+
+            var fee = queue.Doctor.ConsultationFee;
+
+            var invoice = new InvoiceDTO
+            {
+                PatientId = queue.PatientId,
+                Patient = queue.Patient,
+                InvoiceDate = DateTime.Now,
+                WaitingQueueId = queue.Id,
+            };
+
+            invoice.Items.Add(new InvoiceItemDTO
+            {
+                ItemType = InvoiceItemType.Visit,
+                ReferenceId = queue.Doctor.Id,
+                ReferenceName = queue.Doctor.FullName,
+                Description = $"Consultation with Dr. {queue.Doctor.FullName}",
+                UnitPrice = fee,
+                Quantity = 1,
+                Total = fee
+            });
+
+            return invoice;
+
+        }
+ 
+        private async Task<InvoiceDTO?> BuildFromVisitAsync(int id)
+        {
+            var result = await _visitService.GetByIdAsync(id);
+
+            if (!result.IsSuccess || result.Data == null)
+            {
+                return null;
+            }
+
+            var visit = result.Data;
+
+            if (visit.InvoiceId.HasValue)
+            {
+                return null;
+            }
+
+            var fee = visit.Doctor.ConsultationFee;
+
+            var invoice = new InvoiceDTO
+            {
+                PatientId = visit.PatientId,
+                Patient = visit.Patient,
+                InvoiceDate = DateTime.Now,
+                VisitId = visit.Id,
+            };
+
+            invoice.Items.Add(new InvoiceItemDTO
+            {
+                ItemType = InvoiceItemType.Visit,
+                ReferenceId = visit.Doctor.Id,
+                ReferenceName = visit.Doctor.FullName,
+                Description = $"Consultation with Dr. {visit.Doctor.FullName}",
+                UnitPrice = fee,
+                Quantity = 1,
+                Total = fee
+            });
+
+            return invoice;
+        }
+
+        private async Task<InvoiceDTO?> BuildFromLabOrderAsync(int id)
+        {
+            var result = await _labOrderService.GetByIdAsync(id);
+
+            if (!result.IsSuccess || result.Data == null)
+            {
+                return null;
+            }
+
+            var labOrder = result.Data;
+
+            if (labOrder.InvoiceId.HasValue)
+            {
+                return null;
+            }
+
+            bool isArabic = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+
+            var invoice = new InvoiceDTO
+            {
+                PatientId = labOrder.PatientId,
+                InvoiceDate = DateTime.Now,
+                LabOrderId = labOrder.Id,
+            };
+
+            foreach (var item in labOrder.Items)
+            {
+                var test = item.LabTest;
+
+                if (test == null)
+                {
+                    continue;
+                }
+
+                var testName = isArabic
+                    ? test.NameAr
+                    : test.NameEn;
+
+                invoice.Items.Add(new InvoiceItemDTO
+                {
+                    ItemType = InvoiceItemType.Lab,
+                    ReferenceId = item.LabTestId,
+                    ReferenceName = testName,
+                    Description = testName,
+                    UnitPrice = test.Price,
+                    Quantity = 1,
+                    Total = test.Price
+                });
+            }
+
+            return invoice;
+        }
 
         private async Task LoadInvoiceFilterData()
         {

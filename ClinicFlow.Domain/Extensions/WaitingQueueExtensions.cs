@@ -9,6 +9,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using ClinicFlow.Domain.DTOs.Invoice;
 
 namespace ClinicFlow.Domain.Extensions
 {
@@ -30,6 +31,14 @@ namespace ClinicFlow.Domain.Extensions
                 Priority = Entity.Priority,
                 Status = Entity.Status,
                 AppointmentId = Entity.AppointmentId,
+
+                InvoiceId = Entity.InvoiceId,
+                Invoice = Entity.Invoice == null ? null : new InvoiceDTO
+                {
+                    Id = Entity.Invoice.Id,
+                    InvoiceNumber = Entity.Invoice.InvoiceNumber,
+                    Status = Entity.Invoice.Status,
+                },
 
                 Patient = Entity.Patient == null
                     ? null
@@ -86,6 +95,14 @@ namespace ClinicFlow.Domain.Extensions
                 Status = Entity.Status,
                 AppointmentId = Entity.AppointmentId,
 
+                InvoiceId = Entity.InvoiceId,
+                Invoice = Entity.Invoice == null ? null : new InvoiceDTO
+                {
+                    Id = Entity.Invoice.Id,
+                    InvoiceNumber = Entity.Invoice.InvoiceNumber,
+                    Status = Entity.Invoice.Status,
+                },
+
                 Patient = new PatientDTO
                 {
                     Id = Entity.Patient.Id,
@@ -97,7 +114,8 @@ namespace ClinicFlow.Domain.Extensions
                 {
                     Id = Entity.Doctor.Id,
                     FullName = Entity.Doctor.FullName,
-                    PhoneNumber = Entity.Doctor.PhoneNumber
+                    PhoneNumber = Entity.Doctor.PhoneNumber,
+                    ConsultationFee = Entity.Doctor.ConsultationFee
                 },
 
                 Clinic = new ClinicDTO

@@ -1,6 +1,7 @@
 ﻿using ClinicFlow.Domain.DTOs.Appointment;
 using ClinicFlow.Domain.DTOs.Clinic;
 using ClinicFlow.Domain.DTOs.Doctor;
+using ClinicFlow.Domain.DTOs.Invoice;
 using ClinicFlow.Domain.DTOs.Patient;
 using ClinicFlow.Domain.Entities;
 using System;
@@ -28,6 +29,14 @@ namespace ClinicFlow.Domain.Extensions
                 Reason = Entity.Reason,
                 Notes = Entity.Notes,
                 Status = Entity.Status,
+
+                InvoiceId = Entity.InvoiceId,
+                Invoice = Entity.Invoice == null ? null : new InvoiceDTO
+                {
+                    Id = Entity.Invoice.Id,
+                    InvoiceNumber = Entity.Invoice.InvoiceNumber,
+                    Status = Entity.Invoice.Status,
+                },
 
                 Patient = Entity.Patient == null
                     ? null
@@ -81,6 +90,14 @@ namespace ClinicFlow.Domain.Extensions
                 Notes = Entity.Notes,
                 Status = Entity.Status,
 
+                InvoiceId = Entity.InvoiceId,
+                Invoice = Entity.Invoice == null ? null : new InvoiceDTO
+                {
+                    Id = Entity.Invoice.Id,
+                    InvoiceNumber = Entity.Invoice.InvoiceNumber,
+                    Status = Entity.Invoice.Status,
+                },
+
                 Patient = new PatientDTO
                 {
                     Id = Entity.Patient.Id,
@@ -92,7 +109,8 @@ namespace ClinicFlow.Domain.Extensions
                 {
                     Id = Entity.Doctor.Id,
                     FullName = Entity.Doctor.FullName,
-                    PhoneNumber = Entity.Doctor.PhoneNumber
+                    PhoneNumber = Entity.Doctor.PhoneNumber,
+                    ConsultationFee = Entity.Doctor.ConsultationFee
                 },
 
                 Clinic = new ClinicDTO

@@ -304,6 +304,24 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An invoice already exists for this appointment.
+        /// </summary>
+        public static string AppointmentInvoiceExists {
+            get {
+                return ResourceManager.GetString("AppointmentInvoiceExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The appointment could not be found.
+        /// </summary>
+        public static string AppointmentNotFound {
+            get {
+                return ResourceManager.GetString("AppointmentNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Appointment Number.
         /// </summary>
         public static string AppointmentNumber {
@@ -727,6 +745,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Consultation.
+        /// </summary>
+        public static string Consultation {
+            get {
+                return ResourceManager.GetString("Consultation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Consultation Fee.
         /// </summary>
         public static string ConsultationFee {
@@ -759,6 +786,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string CreatedSuccessfully {
             get {
                 return ResourceManager.GetString("CreatedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create Invoice.
+        /// </summary>
+        public static string CreateInvoice {
+            get {
+                return ResourceManager.GetString("CreateInvoice", resourceCulture);
             }
         }
         
@@ -1780,6 +1816,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An invoice can only be linked to one source.
+        /// </summary>
+        public static string InvoiceSourceOnlyOne {
+            get {
+                return ResourceManager.GetString("InvoiceSourceOnlyOne", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invoice Status.
         /// </summary>
         public static string InvoiceStatus {
@@ -1794,6 +1839,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string InvoiceTotalInvalid {
             get {
                 return ResourceManager.GetString("InvoiceTotalInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invoice Type.
+        /// </summary>
+        public static string InvoiceType {
+            get {
+                return ResourceManager.GetString("InvoiceType", resourceCulture);
             }
         }
         
@@ -1942,6 +1996,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An invoice already exists for this laboratory order.
+        /// </summary>
+        public static string LabOrderInvoiceExists {
+            get {
+                return ResourceManager.GetString("LabOrderInvoiceExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lab Order Item.
         /// </summary>
         public static string LabOrderItem {
@@ -1965,6 +2028,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string LabOrderMustHaveItems {
             get {
                 return ResourceManager.GetString("LabOrderMustHaveItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The laboratory order could not be found.
+        /// </summary>
+        public static string LabOrderNotFound {
+            get {
+                return ResourceManager.GetString("LabOrderNotFound", resourceCulture);
             }
         }
         
@@ -2307,6 +2379,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string NoDiagnosesAdded {
             get {
                 return ResourceManager.GetString("NoDiagnosesAdded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Invoice.
+        /// </summary>
+        public static string NoInvoice {
+            get {
+                return ResourceManager.GetString("NoInvoice", resourceCulture);
             }
         }
         
@@ -3796,6 +3877,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to View Invoice.
+        /// </summary>
+        public static string ViewInvoice {
+            get {
+                return ResourceManager.GetString("ViewInvoice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to View Result.
         /// </summary>
         public static string ViewResult {
@@ -3877,6 +3967,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An invoice already exists for this visit.
+        /// </summary>
+        public static string VisitInvoiceExists {
+            get {
+                return ResourceManager.GetString("VisitInvoiceExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Visit not found..
         /// </summary>
         public static string VisitNotFound {
@@ -3954,6 +4053,24 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string WaitingQueueDateInPast {
             get {
                 return ResourceManager.GetString("WaitingQueueDateInPast", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An invoice already exists for this waiting queue.
+        /// </summary>
+        public static string WaitingQueueInvoiceExists {
+            get {
+                return ResourceManager.GetString("WaitingQueueInvoiceExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The waiting queue could not be found.
+        /// </summary>
+        public static string WaitingQueueNotFound {
+            get {
+                return ResourceManager.GetString("WaitingQueueNotFound", resourceCulture);
             }
         }
         

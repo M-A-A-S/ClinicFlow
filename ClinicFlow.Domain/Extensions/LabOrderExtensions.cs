@@ -1,4 +1,5 @@
-﻿using ClinicFlow.Domain.DTOs.LabCategory;
+﻿using ClinicFlow.Domain.DTOs.Invoice;
+using ClinicFlow.Domain.DTOs.LabCategory;
 using ClinicFlow.Domain.DTOs.LabOrder;
 using ClinicFlow.Domain.DTOs.LabOrderItem;
 using ClinicFlow.Domain.DTOs.LabResult;
@@ -23,6 +24,14 @@ namespace ClinicFlow.Domain.Extensions
                 VisitId = Entity.VisitId,
                 PatientId = Entity.PatientId,
                 OrderDate = Entity.OrderDate,
+
+                InvoiceId = Entity.InvoiceId,
+                Invoice = Entity.Invoice == null ? null : new InvoiceDTO
+                {
+                    Id = Entity.Invoice.Id,
+                    InvoiceNumber = Entity.Invoice.InvoiceNumber,
+                    Status = Entity.Invoice.Status,
+                },
 
                 Patient = Entity.Patient == null ? null : new PatientDTO()
                 {
@@ -64,6 +73,14 @@ namespace ClinicFlow.Domain.Extensions
                 PatientId = Entity.PatientId,
                 OrderDate = Entity.OrderDate,
 
+                InvoiceId = Entity.InvoiceId,
+                Invoice = Entity.Invoice == null ? null : new InvoiceDTO
+                {
+                    Id = Entity.Invoice.Id,
+                    InvoiceNumber = Entity.Invoice.InvoiceNumber,
+                    Status = Entity.Invoice.Status,
+                },
+
                 Patient = Entity.Patient == null ? null : new PatientDTO()
                 {
                     Id = Entity.Patient.Id,
@@ -83,7 +100,8 @@ namespace ClinicFlow.Domain.Extensions
                         {
                             Id = x.LabTest.Id,
                             NameEn = x.LabTest.NameEn,
-                            NameAr = x.LabTest.NameAr
+                            NameAr = x.LabTest.NameAr,
+                            Price = x.LabTest.Price
                         },
 
                         Result = x.Result == null ? null : new LabResultDTO

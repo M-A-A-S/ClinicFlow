@@ -9,13 +9,16 @@ using ClinicFlow.Domain.Utilities;
 using ClinicFlow.Infrastructure.Data;
 using ClinicFlow.Infrastructure.Extensions;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace ClinicFlow.Infrastructure.Services
 {
@@ -85,7 +88,19 @@ namespace ClinicFlow.Infrastructure.Services
                 await AssignReceiptNumbersAsync(entity.Payments);
 
 
-                _appDbContext.Invoices.Add(entity);
+                // =============== Link to it's source ===============
+                var sourceResult = await LinkInvoiceToSourceAsync(dto, entity);
+
+                if (!sourceResult.IsSuccess)
+                {
+                    return Result<int>.Failure(
+                        sourceResult.Code,
+                        sourceResult.StatusCode,
+                        sourceResult.Message);
+                }
+
+
+                //_appDbContext.Invoices.Add(entity);
                 await _appDbContext.SaveChangesAsync();
                 return Result<int>.Success(entity.Id, ResultCodes.CreatedSuccessfully);
 
@@ -325,6 +340,143 @@ namespace ClinicFlow.Infrastructure.Services
         #endregion
 
         #region ========================= Helpers =========================
+
+
+        private async Task<Result<bool>> LinkInvoiceToSourceAsync(
+            InvoiceDTO dto,
+            Invoice entity)
+        {
+
+            // ================== Validate source count ==================
+            var sourceCount =
+                (dto.WaitingQueueId.HasValue ? 1 : 0) +
+                (dto.AppointmentId.HasValue ? 1 : 0) +
+                (dto.VisitId.HasValue ? 1 : 0) +
+                (dto.LabOrderId.HasValue ? 1 : 0);
+
+            // No source = allowed for a manual invoice
+            if (sourceCount == 0)
+            {
+                return Result<bool>.Success(true);
+            }
+
+            // An invoice can only belong to one source
+            if (sourceCount > 1)
+            {
+                return Result<bool>.Failure(
+                    ResultCodes.InvoiceSourceOnlyOne,
+                    HttpStatusCodes.BadRequest,
+                    "An invoice can only be linked to one source.");
+            }
+
+            // ================== Waiting Queue ==================
+            if (dto.WaitingQueueId.HasValue)
+            {
+                var queue = await _appDbContext.WaitingQueues
+                    .FirstOrDefaultAsync(x => x.Id == dto.WaitingQueueId.Value);
+
+                if (queue == null)
+                {
+                    return Result<bool>.Failure(
+                        ResultCodes.WaitingQueueNotFound,
+                        HttpStatusCodes.NotFound,
+                        "The waiting queue could not be found.");
+                }
+
+                if (queue.InvoiceId.HasValue)
+                {
+                    return Result<bool>.Failure(
+                        ResultCodes.WaitingQueueInvoiceExists,
+                        HttpStatusCodes.Conflict,
+                         "An invoice already exists for this waiting queue.");
+                }
+
+                queue.Invoice = entity;
+                return Result<bool>.Success(true);
+            }
+
+            // ================== Appointment ==================
+            if (dto.AppointmentId.HasValue)
+            {
+                var appointment = await _appDbContext.Appointments
+                    .FirstOrDefaultAsync(x => x.Id == dto.AppointmentId.Value);
+
+                if (appointment == null)
+                {
+                    return Result<bool>.Failure(
+                        ResultCodes.AppointmentNotFound,
+                        HttpStatusCodes.NotFound,
+                        "The appointment could not be found.");
+                }
+
+                if (appointment.InvoiceId.HasValue)
+                {
+                    return Result<bool>.Failure(
+                        ResultCodes.AppointmentInvoiceExists,
+                        HttpStatusCodes.Conflict,
+                         "An invoice already exists for this appointment.");
+                }
+
+                appointment.Invoice = entity;
+                return Result<bool>.Success(true);
+            }
+
+            // ================== Visit ==================
+            if (dto.VisitId.HasValue)
+            {
+                var visit = await _appDbContext.Visits
+                    .FirstOrDefaultAsync(x => x.Id == dto.VisitId.Value);
+
+                if (visit == null)
+                {
+                    return Result<bool>.Failure(
+                        ResultCodes.VisitNotFound,
+                        HttpStatusCodes.NotFound,
+                         "The visit could not be found.");
+                }
+
+                if (visit.InvoiceId.HasValue)
+                {
+                    return Result<bool>.Failure(
+                        ResultCodes.VisitInvoiceExists,
+                        HttpStatusCodes.Conflict,
+                         "An invoice already exists for this visit.");
+                }
+
+                visit.Invoice = entity;
+                return Result<bool>.Success(true);
+            }
+
+            // ================== Lab Order ==================
+            if (dto.LabOrderId.HasValue)
+            {
+                var labOrder = await _appDbContext.LabOrders
+                    .FirstOrDefaultAsync(x => x.Id == dto.LabOrderId.Value);
+
+                if (labOrder == null)
+                {
+                    return Result<bool>.Failure(
+                        ResultCodes.LabOrderNotFound,
+                        HttpStatusCodes.NotFound,
+                        "The laboratory order could not be found.");
+                }
+
+                if (labOrder.InvoiceId.HasValue)
+                {
+                    return Result<bool>.Failure(
+                        ResultCodes.LabOrderInvoiceExists,
+                        HttpStatusCodes.Conflict,
+                         "An invoice already exists for this lab order.");
+                }
+
+                labOrder.Invoice = entity;
+                return Result<bool>.Success(true);
+            }
+
+
+            return Result<bool>.Success(true);
+
+        }
 
         private async Task LoadReferenceNamesAsync(
             ICollection<InvoiceItemDTO> items)

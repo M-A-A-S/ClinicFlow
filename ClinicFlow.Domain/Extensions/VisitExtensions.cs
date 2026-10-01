@@ -1,7 +1,14 @@
-﻿using ClinicFlow.Domain.DTOs.Visit;
-using ClinicFlow.Domain.DTOs.Clinic;
+﻿using ClinicFlow.Domain.DTOs.Clinic;
+using ClinicFlow.Domain.DTOs.Diagnosis;
 using ClinicFlow.Domain.DTOs.Doctor;
+using ClinicFlow.Domain.DTOs.Invoice;
+using ClinicFlow.Domain.DTOs.Medicine;
 using ClinicFlow.Domain.DTOs.Patient;
+using ClinicFlow.Domain.DTOs.Prescription;
+using ClinicFlow.Domain.DTOs.PrescriptionItem;
+using ClinicFlow.Domain.DTOs.Visit;
+using ClinicFlow.Domain.DTOs.VisitDiagnosis;
+using ClinicFlow.Domain.DTOs.VitalSign;
 using ClinicFlow.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -9,12 +16,6 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using ClinicFlow.Domain.DTOs.Prescription;
-using ClinicFlow.Domain.DTOs.PrescriptionItem;
-using ClinicFlow.Domain.DTOs.VitalSign;
-using ClinicFlow.Domain.DTOs.VisitDiagnosis;
-using ClinicFlow.Domain.DTOs.Diagnosis;
-using ClinicFlow.Domain.DTOs.Medicine;
 
 namespace ClinicFlow.Domain.Extensions
 {
@@ -35,6 +36,14 @@ namespace ClinicFlow.Domain.Extensions
                 Complaint = Entity.Complaint,
                 ClinicalNotes = Entity.ClinicalNotes,
                 CompletedAt = Entity.CompletedAt,
+
+                InvoiceId = Entity.InvoiceId,
+                Invoice = Entity.Invoice == null ? null : new InvoiceDTO
+                {
+                    Id = Entity.Invoice.Id,
+                    InvoiceNumber = Entity.Invoice.InvoiceNumber,
+                    Status = Entity.Invoice.Status,
+                },
 
                 Patient = Entity.Patient == null
                     ? null
@@ -90,6 +99,14 @@ namespace ClinicFlow.Domain.Extensions
                 ClinicalNotes = Entity.ClinicalNotes,
                 CompletedAt = Entity.CompletedAt,
 
+                InvoiceId = Entity.InvoiceId,
+                Invoice = Entity.Invoice == null ? null : new InvoiceDTO
+                {
+                    Id = Entity.Invoice.Id,
+                    InvoiceNumber = Entity.Invoice.InvoiceNumber,
+                    Status = Entity.Invoice.Status,
+                },
+
                 Patient = new PatientDTO
                 {
                     Id = Entity.Patient.Id,
@@ -101,7 +118,8 @@ namespace ClinicFlow.Domain.Extensions
                 {
                     Id = Entity.Doctor.Id,
                     FullName = Entity.Doctor.FullName,
-                    PhoneNumber = Entity.Doctor.PhoneNumber
+                    PhoneNumber = Entity.Doctor.PhoneNumber,
+                    ConsultationFee = Entity.Doctor.ConsultationFee
                 },
 
                 Clinic = new ClinicDTO

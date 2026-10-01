@@ -1,4 +1,5 @@
-﻿using ClinicFlow.Domain.DTOs.LabOrderItem;
+﻿using ClinicFlow.Domain.DTOs.Invoice;
+using ClinicFlow.Domain.DTOs.LabOrderItem;
 using ClinicFlow.Domain.DTOs.Patient;
 using ClinicFlow.Domain.DTOs.Visit;
 using ClinicFlow.Domain.Resources.Shared;
@@ -32,6 +33,10 @@ namespace ClinicFlow.Domain.DTOs.LabOrder
             ResourceType = typeof(SharedResource)
         )]
         public DateTime OrderDate { get; set; } = DateTime.Now;
+
+
+        public int? InvoiceId { get; set; }
+        public InvoiceDTO? Invoice { get; set; }
 
         public VisitDTO? Visit { get; set; }
         public PatientDTO? Patient { get; set; }

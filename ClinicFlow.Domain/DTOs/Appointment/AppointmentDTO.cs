@@ -1,5 +1,6 @@
 ﻿using ClinicFlow.Domain.DTOs.Clinic;
 using ClinicFlow.Domain.DTOs.Doctor;
+using ClinicFlow.Domain.DTOs.Invoice;
 using ClinicFlow.Domain.DTOs.Patient;
 using ClinicFlow.Domain.DTOs.Visit;
 using ClinicFlow.Domain.DTOs.WaitingQueue;
@@ -97,6 +98,9 @@ namespace ClinicFlow.Domain.DTOs.Appointment
         )]
 
         public string? Notes { get; set; }
+
+        public int? InvoiceId { get; set; }
+        public InvoiceDTO? Invoice { get; set; }
 
         public PatientDTO? Patient { get; set; }
         public ClinicDTO? Clinic { get; set; }

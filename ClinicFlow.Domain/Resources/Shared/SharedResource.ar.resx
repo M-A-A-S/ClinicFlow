@@ -1422,4 +1422,43 @@
   <data name="PartyNotFound" xml:space="preserve">
     <value>الجهة المحددة (مريض، مورد، أو طبيب) غير موجودة</value>
   </data>
+  <data name="CreateInvoice" xml:space="preserve">
+    <value>إنشاء فاتورة</value>
+  </data>
+  <data name="InvoiceType" xml:space="preserve">
+    <value>نوع الفاتورة</value>
+  </data>
+  <data name="NoInvoice" xml:space="preserve">
+    <value>لا توجد فاتورة</value>
+  </data>
+  <data name="Consultation" xml:space="preserve">
+    <value>استشارة</value>
+  </data>
+  <data name="InvoiceSourceOnlyOne" xml:space="preserve">
+    <value>يمكن ربط الفاتورة بمصدر واحد فقط</value>
+  </data>
+  <data name="WaitingQueueNotFound" xml:space="preserve">
+    <value>تعذر العثور على قائمة الانتظار</value>
+  </data>
+  <data name="WaitingQueueInvoiceExists" xml:space="preserve">
+    <value>توجد فاتورة بالفعل لقائمة الانتظار هذه</value>
+  </data>
+  <data name="AppointmentNotFound" xml:space="preserve">
+    <value>تعذر العثور على الموعد</value>
+  </data>
+  <data name="AppointmentInvoiceExists" xml:space="preserve">
+    <value>توجد فاتورة بالفعل لهذا الموعد</value>
+  </data>
+  <data name="VisitInvoiceExists" xml:space="preserve">
+    <value>توجد فاتورة بالفعل لهذه الزيارة</value>
+  </data>
+  <data name="LabOrderNotFound" xml:space="preserve">
+    <value>تعذر العثور على طلب المختبر</value>
+  </data>
+  <data name="LabOrderInvoiceExists" xml:space="preserve">
+    <value>توجد فاتورة بالفعل لطلب المختبر هذا</value>
+  </data>
+  <data name="ViewInvoice" xml:space="preserve">
+    <value>عرض الفاتورة</value>
+  </data>
 </root>

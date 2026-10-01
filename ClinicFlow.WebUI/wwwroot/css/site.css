@@ -245,11 +245,13 @@ html[dir="rtl"] .input-group > .input-group-text {
 .form-select:disabled {
     background-color: var(--elevated-background);
 }
-
+.select2-container--default.select2-container--disabled .select2-selection--single {
+    background-color: var(--elevated-background);
+    color: var(--text-color);
+}
 /* ===================================================
    Global Autofill Overrides (All Inputs, Light & Dark)
    =================================================== */
-
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,

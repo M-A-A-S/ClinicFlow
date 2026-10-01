@@ -8,16 +8,22 @@
 }
 
 <div class="d-flex justify-content-end">
-    <button type="button"
-            id="open-add-item-modal-btn"
-            class="btn btn-primary btn-sm"
-            data-bs-toggle="modal"
-            data-bs-target="#invoiceItemModal">
 
-        <i class="fa fa-plus me-1"></i>
-        @Localizer["Add"] @Localizer["InvoiceItem"]
+    @if (!Model.HasSource)
+    {
+        <button type="button"
+                id="open-add-item-modal-btn"
+                class="btn btn-primary btn-sm"
+                data-bs-toggle="modal"
+                disabled="@Model.HasSource"
+                data-bs-target="#invoiceItemModal">
 
-    </button>
+            <i class="fa fa-plus me-1"></i>
+            @Localizer["Add"] @Localizer["InvoiceItem"]
+
+        </button>
+    }
+    
 </div>
 
 <div class="table-responsive mt-4">
@@ -172,13 +178,18 @@
                         @* ================= Remove ================= *@
                         <td class="text-center">
 
-                            <button type="button"
-                                    class="btn btn-sm btn-outline-danger remove-item"
-                                    title="@Localizer["Remove"]">
+                            @if (!Model.HasSource)
+                            {
+                                <button type="button"
+                                    disabled="@Model.HasSource"
+                                        class="btn btn-sm btn-outline-danger remove-item"
+                                        title="@Localizer["Remove"]">
 
-                                <i class="fa fa-trash"></i>
+                                    <i class="fa fa-trash"></i>
 
-                            </button>
+                                </button>
+                            }
+                            
 
                         </td>
 

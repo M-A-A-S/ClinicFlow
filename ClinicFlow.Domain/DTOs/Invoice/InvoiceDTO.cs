@@ -86,5 +86,16 @@ namespace ClinicFlow.Domain.DTOs.Invoice
             = new List<InvoiceItemDTO>();
         public IList<InvoicePaymentDTO> Payments { get; set; }
             = new List<InvoicePaymentDTO>();
+
+
+        public int? WaitingQueueId { get; set; }
+        public int? AppointmentId { get; set; }
+        public int? VisitId { get; set; }
+        public int? LabOrderId { get; set; }
+        public bool HasSource => 
+            WaitingQueueId.HasValue || 
+            AppointmentId.HasValue || 
+            VisitId.HasValue || 
+            LabOrderId.HasValue;
     }
 }

@@ -68,25 +68,25 @@ namespace ClinicFlow.Infrastructure.Configurations
                 .HasForeignKey(x => x.InvoiceId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasMany(x => x.Appointments)
+            builder.HasOne(x => x.WaitingQueue)
                 .WithOne(x => x.Invoice)
-                .HasForeignKey(x => x.InvoiceId)
-                .OnDelete(DeleteBehavior.SetNull);
+                .HasForeignKey<WaitingQueue>(x => x.InvoiceId)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasMany(x => x.WaitingQueues)
+            builder.HasOne(x => x.Appointment)
                 .WithOne(x => x.Invoice)
-                .HasForeignKey(x => x.InvoiceId)
-                .OnDelete(DeleteBehavior.SetNull);
+                .HasForeignKey<Appointment>(x => x.InvoiceId)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasMany(x => x.Visits)
+            builder.HasOne(x => x.Visit)
                 .WithOne(x => x.Invoice)
-                .HasForeignKey(x => x.InvoiceId)
-                .OnDelete(DeleteBehavior.SetNull);
+                .HasForeignKey<Visit>(x => x.InvoiceId)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasMany(x => x.LabOrders)
+            builder.HasOne(x => x.LabOrder)
                 .WithOne(x => x.Invoice)
-                .HasForeignKey(x => x.InvoiceId)
-                .OnDelete(DeleteBehavior.SetNull);
+                .HasForeignKey<LabOrder>(x => x.InvoiceId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasIndex(x => x.InvoiceNumber)
                 .IsUnique()

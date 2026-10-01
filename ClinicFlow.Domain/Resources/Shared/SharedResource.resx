@@ -1422,4 +1422,43 @@
   <data name="PartyNotFound" xml:space="preserve">
     <value>The specified party (Patient, Supplier, or Doctor) was not found</value>
   </data>
+  <data name="CreateInvoice" xml:space="preserve">
+    <value>Create Invoice</value>
+  </data>
+  <data name="InvoiceType" xml:space="preserve">
+    <value>Invoice Type</value>
+  </data>
+  <data name="NoInvoice" xml:space="preserve">
+    <value>No Invoice</value>
+  </data>
+  <data name="Consultation" xml:space="preserve">
+    <value>Consultation</value>
+  </data>
+  <data name="InvoiceSourceOnlyOne" xml:space="preserve">
+    <value>An invoice can only be linked to one source</value>
+  </data>
+  <data name="WaitingQueueNotFound" xml:space="preserve">
+    <value>The waiting queue could not be found</value>
+  </data>
+  <data name="WaitingQueueInvoiceExists" xml:space="preserve">
+    <value>An invoice already exists for this waiting queue</value>
+  </data>
+  <data name="AppointmentNotFound" xml:space="preserve">
+    <value>The appointment could not be found</value>
+  </data>
+  <data name="AppointmentInvoiceExists" xml:space="preserve">
+    <value>An invoice already exists for this appointment</value>
+  </data>
+  <data name="VisitInvoiceExists" xml:space="preserve">
+    <value>An invoice already exists for this visit</value>
+  </data>
+  <data name="LabOrderNotFound" xml:space="preserve">
+    <value>The laboratory order could not be found</value>
+  </data>
+  <data name="LabOrderInvoiceExists" xml:space="preserve">
+    <value>An invoice already exists for this laboratory order</value>
+  </data>
+  <data name="ViewInvoice" xml:space="preserve">
+    <value>View Invoice</value>
+  </data>
 </root>
