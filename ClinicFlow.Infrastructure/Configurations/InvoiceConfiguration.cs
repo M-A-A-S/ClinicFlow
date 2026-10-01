@@ -68,6 +68,26 @@ namespace ClinicFlow.Infrastructure.Configurations
                 .HasForeignKey(x => x.InvoiceId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            builder.HasMany(x => x.Appointments)
+                .WithOne(x => x.Invoice)
+                .HasForeignKey(x => x.InvoiceId)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            builder.HasMany(x => x.WaitingQueues)
+                .WithOne(x => x.Invoice)
+                .HasForeignKey(x => x.InvoiceId)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            builder.HasMany(x => x.Visits)
+                .WithOne(x => x.Invoice)
+                .HasForeignKey(x => x.InvoiceId)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            builder.HasMany(x => x.LabOrders)
+                .WithOne(x => x.Invoice)
+                .HasForeignKey(x => x.InvoiceId)
+                .OnDelete(DeleteBehavior.SetNull);
+
             builder.HasIndex(x => x.InvoiceNumber)
                 .IsUnique()
                 .HasDatabaseName("UX_Invoices_InvoiceNumber")

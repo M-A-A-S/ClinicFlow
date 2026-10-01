@@ -21,6 +21,9 @@ namespace ClinicFlow.Domain.Entities
 
         public DateTime? CompletedAt { get; set; }
 
+        public int? InvoiceId { get; set; }
+        public Invoice? Invoice { get; set; }
+
         public Patient Patient { get; set; }
         public Doctor Doctor { get; set; }
         public Clinic Clinic { get; set; }

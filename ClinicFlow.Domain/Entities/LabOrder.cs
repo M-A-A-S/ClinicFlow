@@ -6,6 +6,9 @@
         public int? PatientId { get; set; }
         public DateTime OrderDate { get; set; } = DateTime.Now;
 
+        public int? InvoiceId { get; set; }
+        public Invoice? Invoice { get; set; }
+
         public Visit? Visit { get; set; }
         public Patient? Patient { get; set; }
         public ICollection<LabOrderItem> Items { get; set; }

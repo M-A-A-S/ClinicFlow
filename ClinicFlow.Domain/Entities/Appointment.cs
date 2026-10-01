@@ -27,6 +27,9 @@ namespace ClinicFlow.Domain.Entities
         public string? Reason { get; set; }
         public string? Notes { get; set; }
 
+        public int? InvoiceId { get; set; }
+        public Invoice? Invoice { get; set; }
+
         public Patient Patient { get; set; }
         public Clinic Clinic { get; set; }
         public Doctor Doctor { get; set; }

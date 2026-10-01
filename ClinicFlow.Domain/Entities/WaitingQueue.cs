@@ -23,6 +23,9 @@ namespace ClinicFlow.Domain.Entities
         public QueuePriority Priority { get; set; } = QueuePriority.Normal;
         public QueueStatus Status { get; set; } = QueueStatus.Waiting;
 
+        public int? InvoiceId { get; set; }
+        public Invoice? Invoice { get; set; }
+
         public Appointment? Appointment { get; set; }
         public Patient Patient { get; set; }
         public Doctor Doctor { get; set; }

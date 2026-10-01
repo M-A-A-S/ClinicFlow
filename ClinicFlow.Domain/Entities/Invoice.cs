@@ -32,6 +32,11 @@ namespace ClinicFlow.Domain.Entities
         public ICollection<InvoicePayment> Payments { get; set; }
             = new List<InvoicePayment>();
 
+        public ICollection<Appointment> Appointments { get; set; } = new List<Appointment>();
+        public ICollection<WaitingQueue> WaitingQueues { get; set; } = new List<WaitingQueue>();
+        public ICollection<Visit> Visits { get; set; } = new List<Visit>();
+        public ICollection<LabOrder> LabOrders { get; set; } = new List<LabOrder>();
+
 
         public void RecalculateTotals()
         {
