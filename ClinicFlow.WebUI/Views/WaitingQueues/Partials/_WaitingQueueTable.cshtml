@@ -68,12 +68,12 @@
             Title = Localizer["Priority"],
             IsSortable = false
         },
-        new TableColumnVM
-        {
-            Column = "Invoice",
-            Title = Localizer["Invoice"],
-            IsSortable = false
-        },
+        // new TableColumnVM
+        // {
+        //     Column = "Invoice",
+        //     Title = Localizer["Invoice"],
+        //     IsSortable = false
+        // },
         new TableColumnVM
         {
             Column = "InvoiceStatus",
@@ -131,21 +131,21 @@ else
                     <tr>
                         <td>@item.WaitingQueueNumber</td>
 
-                        <td>@item?.Patient?.FullName</td>
+                        <td>@(item?.Patient?.FullName ?? "-")</td>
 
-                        <td>@(isArabic? item?.Clinic?.NameAr : item?.Clinic?.NameEn)</td>
+                        <td>@(isArabic ? item?.Clinic?.NameAr : item?.Clinic?.NameEn ?? "-")</td>
 
-                        <td>@item?.Doctor?.FullName</td>
+                        <td>@(item?.Doctor?.FullName ?? "-")</td>
 
-                        <td>@item.WaitingQueueDate</td>
+                        <td>@item.WaitingQueueDate.ToString("d")</td>
 
-                        <td>@item.JoinedAt</td>
+                        <td>@(item.JoinedAt.ToString("g") ?? "-")</td>
 
-                        <td>@item.CalledAt</td>
+                        <td>@(item.CalledAt?.ToString("g") ?? "-")</td>
 
-                        <td>@item.ServiceStartAt</td>
+                        <td>@(item.ServiceStartAt?.ToString("g") ?? "-")</td>
 
-                        <td>@item.CompletedAt</td>
+                        <td>@(item.CompletedAt?.ToString("g") ?? "-")</td>
 
                         <td>
                             <span class="badge @item.Status.ToCssClass()">
@@ -159,16 +159,9 @@ else
                             </span>
                         </td>
 
-                        <td>
+                        @* <td>
                             @if (item.InvoiceId == null)
                             {
-                                @* <a asp-controller="Invoices"
-                                   asp-action="Create"
-                                   asp-route-waitingQueueId="@item.Id"
-                                   class="btn btn-icon btn-outline-primary tooltip-btn"
-                                   data-tooltip="@Localizer["CreateInvoice"]">
-                                    <i class="fa fa-file-invoice me-1"></i>
-                                </a> *@
                                 <a asp-controller="Invoices"
                                    asp-action="Create"
                                    asp-route-waitingQueueId="@item.Id"
@@ -191,7 +184,7 @@ else
 
                                 </a>
                             }
-                        </td>
+                        </td> *@
 
                         <td>
                             @if (!item.InvoiceId.HasValue)
@@ -211,6 +204,29 @@ else
                         <td>
                             <div class="d-flex gap-1 align-items-center">
 
+                                @* Invoice Actions *@
+                                @if (!item.InvoiceId.HasValue)
+                                {
+                                    <a asp-controller="Invoices"
+                                       asp-action="Create"
+                                       asp-route-waitingQueueId="@item.Id"
+                                       class="btn btn-icon btn-outline-primary tooltip-btn"
+                                       data-tooltip="@Localizer["CreateInvoice"]">
+                                        <i class="fa fa-file-invoice"></i>
+                                    </a> 
+                                }
+                                else
+                                {
+                                    <a asp-controller="Invoices"
+                                       asp-action="Details"
+                                       asp-route-id="@item.InvoiceId"
+                                       class="btn btn-icon btn-outline-secondary tooltip-btn"
+                                       data-tooltip="@Localizer["ViewInvoice"]">
+                                        <i class="fa fa-receipt"></i>
+                                    </a>
+                                }
+
+                                @* Visit Actions *@
                                 @if (!item.VisitId.HasValue && item.InvoiceId.HasValue)
                                 {
                                     <a asp-controller="Visits"
