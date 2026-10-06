@@ -9,11 +9,14 @@
 
 <div class="row g-3 mb-2">
 
+    <input type="hidden" asp-for="AppointmentId"  />
+
+
     @* ================= Patient ================= *@
     <div class="col-sm-6 col-md-4">
         <label asp-for="PatientId" class="form-label"></label>
 
-        @if (Model.InvoiceId.HasValue)
+        @if (Model.InvoiceId.HasValue || Model.AppointmentId.HasValue)
         {
             <input type="hidden" asp-for="PatientId" />
 
@@ -42,7 +45,7 @@
     <div class="col-sm-6 col-md-4">
         <label asp-for="ClinicId" class="form-label"></label>
 
-        @if (Model.InvoiceId.HasValue)
+        @if (Model.InvoiceId.HasValue || Model.AppointmentId.HasValue)
         {
             <input type="hidden" asp-for="ClinicId" />
 
@@ -71,7 +74,7 @@
     <div class="col-sm-6 col-md-4">
         <label asp-for="DoctorId" class="form-label"></label>
 
-        @if (Model.InvoiceId.HasValue)
+        @if (Model.InvoiceId.HasValue || Model.AppointmentId.HasValue)
         {
             <input type="hidden" asp-for="DoctorId" />
 
@@ -100,7 +103,7 @@
     <div class="col-sm-6 col-md-4">
         <label asp-for="WaitingQueueDate" class="form-label"></label>
 
-        @if (Model.InvoiceId.HasValue)
+        @if (Model.InvoiceId.HasValue || Model.AppointmentId.HasValue)
         {
             <input asp-for="WaitingQueueDate"
                    type="date"
@@ -121,7 +124,7 @@
     <div class="col-sm-6 col-md-4">
         <label asp-for="JoinedAt" class="form-label"></label>
 
-        @if (Model.InvoiceId.HasValue)
+        @if (Model.InvoiceId.HasValue || Model.AppointmentId.HasValue)
         {
             <input asp-for="JoinedAt"
                    type="date"

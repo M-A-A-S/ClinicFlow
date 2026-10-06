@@ -3,6 +3,7 @@ using ClinicFlow.Domain.DTOs.Clinic;
 using ClinicFlow.Domain.DTOs.Doctor;
 using ClinicFlow.Domain.DTOs.Invoice;
 using ClinicFlow.Domain.DTOs.Patient;
+using ClinicFlow.Domain.DTOs.Visit;
 using ClinicFlow.Domain.Enums;
 using ClinicFlow.Domain.Resources.Shared;
 using System;
@@ -110,6 +111,11 @@ namespace ClinicFlow.Domain.DTOs.WaitingQueue
         public PatientDTO? Patient { get; set; }
         public DoctorDTO? Doctor { get; set; }
         public ClinicDTO? Clinic { get; set; }
+
+        public VisitDTO? Visit { get; set; }
+
+        // For UI
+        public int? VisitId { get; set; }
 
     }
 }

@@ -144,6 +144,8 @@ namespace ClinicFlow.Infrastructure.Services
                     .Include(x => x.Doctor)
                     .Include(x => x.Patient)
                     .Include(x => x.Clinic)
+                    .Include(x => x.WaitingQueue)
+                        .ThenInclude(x => x.Visit)
                     .FirstOrDefaultAsync(x => x.Id == id);
 
                 if (item == null)

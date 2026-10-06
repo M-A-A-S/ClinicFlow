@@ -268,6 +268,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This appointment has already been checked in.
+        /// </summary>
+        public static string AppointmentAlreadyCheckedIn {
+            get {
+                return ResourceManager.GetString("AppointmentAlreadyCheckedIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This appointment is already linked to another visit..
         /// </summary>
         public static string AppointmentAlreadyUsed {
@@ -615,6 +624,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string CheckedIn {
             get {
                 return ResourceManager.GetString("CheckedIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check In.
+        /// </summary>
+        public static string CheckIn {
+            get {
+                return ResourceManager.GetString("CheckIn", resourceCulture);
             }
         }
         
@@ -3292,11 +3310,29 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A visit has already been started for this queue.
+        /// </summary>
+        public static string QueueAlreadyHasVisit {
+            get {
+                return ResourceManager.GetString("QueueAlreadyHasVisit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Queue Date.
         /// </summary>
         public static string QueueDate {
             get {
                 return ResourceManager.GetString("QueueDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Queue not found.
+        /// </summary>
+        public static string QueueNotFound {
+            get {
+                return ResourceManager.GetString("QueueNotFound", resourceCulture);
             }
         }
         
@@ -3661,6 +3697,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Start Visit.
+        /// </summary>
+        public static string StartVisit {
+            get {
+                return ResourceManager.GetString("StartVisit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Status.
         /// </summary>
         public static string Status {
@@ -3913,11 +3958,29 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to View Queue.
+        /// </summary>
+        public static string ViewQueue {
+            get {
+                return ResourceManager.GetString("ViewQueue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to View Result.
         /// </summary>
         public static string ViewResult {
             get {
                 return ResourceManager.GetString("ViewResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View Visit.
+        /// </summary>
+        public static string ViewVisit {
+            get {
+                return ResourceManager.GetString("ViewVisit", resourceCulture);
             }
         }
         

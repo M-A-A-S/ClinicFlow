@@ -107,6 +107,11 @@ namespace ClinicFlow.Domain.DTOs.Appointment
         public DoctorDTO? Doctor { get; set; }
 
         public WaitingQueueDTO? WaitingQueue { get; set; }
+        //public VisitDTO? Visit { get; set; }
+
+        // For UI
+        public int? WaitingQueueId { get; set; }
+        public int? VisitId { get; set; }
         public VisitDTO? Visit { get; set; }
 
     }

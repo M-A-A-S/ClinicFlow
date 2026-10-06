@@ -159,9 +159,14 @@ namespace ClinicFlow.Domain.Extensions
             ArgumentNullException.ThrowIfNull(Entity);
             ArgumentNullException.ThrowIfNull(DTO);
 
-            Entity.PatientId = DTO.PatientId;
-            Entity.DoctorId = DTO.DoctorId;
-            Entity.ClinicId = DTO.ClinicId;
+            if (!Entity.AppointmentId.HasValue)
+            {
+                Entity.PatientId = DTO.PatientId;
+                Entity.DoctorId = DTO.DoctorId;
+                Entity.ClinicId = DTO.ClinicId;
+                Entity.AppointmentId = DTO.AppointmentId;
+            }
+            
             Entity.WaitingQueueNumber = DTO.WaitingQueueNumber;
             Entity.WaitingQueueDate = DTO.WaitingQueueDate;
             Entity.JoinedAt = DTO.JoinedAt;
@@ -170,7 +175,7 @@ namespace ClinicFlow.Domain.Extensions
             Entity.CompletedAt = DTO.CompletedAt;
             Entity.Priority = DTO.Priority;
             Entity.Status = DTO.Status;
-            Entity.AppointmentId = DTO.AppointmentId;
+            
 
             Entity.UpdatedAt = DateTime.UtcNow;
 

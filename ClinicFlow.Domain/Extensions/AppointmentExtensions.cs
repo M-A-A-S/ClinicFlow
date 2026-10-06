@@ -3,6 +3,8 @@ using ClinicFlow.Domain.DTOs.Clinic;
 using ClinicFlow.Domain.DTOs.Doctor;
 using ClinicFlow.Domain.DTOs.Invoice;
 using ClinicFlow.Domain.DTOs.Patient;
+using ClinicFlow.Domain.DTOs.Visit;
+using ClinicFlow.Domain.DTOs.WaitingQueue;
 using ClinicFlow.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -17,7 +19,7 @@ namespace ClinicFlow.Domain.Extensions
     public static class AppointmentExtensions
     {
         public static Expression<Func<Appointment, AppointmentDTO>>
-            ToDTOExpression => Entity => new AppointmentDTO
+            ToDTOExpression => static Entity => new AppointmentDTO
             {
                 Id = Entity.Id,
                 AppointmentNumber = Entity.AppointmentNumber,
@@ -30,6 +32,7 @@ namespace ClinicFlow.Domain.Extensions
                 Notes = Entity.Notes,
                 Status = Entity.Status,
 
+                // =================== Invoice ===================
                 InvoiceId = Entity.InvoiceId,
                 Invoice = Entity.Invoice == null ? null : new InvoiceDTO
                 {
@@ -38,6 +41,7 @@ namespace ClinicFlow.Domain.Extensions
                     Status = Entity.Invoice.Status,
                 },
 
+                // =================== Patient ===================
                 Patient = Entity.Patient == null
                     ? null
                     : new PatientDTO
@@ -48,6 +52,7 @@ namespace ClinicFlow.Domain.Extensions
                         Email = Entity.Patient.Email,
                     },
 
+                // =================== Doctor ===================
                 Doctor = Entity.Doctor == null
                     ? null
                     : new DoctorDTO
@@ -58,6 +63,7 @@ namespace ClinicFlow.Domain.Extensions
                         Email = Entity.Doctor.Email,
                     },
 
+                // =================== Clinic ===================
                 Clinic = Entity.Clinic == null
                     ? null
                     : new ClinicDTO
@@ -65,7 +71,63 @@ namespace ClinicFlow.Domain.Extensions
                         Id = Entity.Clinic.Id,
                         NameEn = Entity.Clinic.NameEn,
                         NameAr = Entity.Clinic.NameAr,
-                    }
+                    },
+
+                // =================== Waiting Queue ===================
+                WaitingQueueId = Entity.WaitingQueue == null
+                    ? null
+                    : Entity.WaitingQueue.Id,
+
+                WaitingQueue = Entity.WaitingQueue == null
+                    ? null
+                    : new WaitingQueueDTO
+                    {
+                        Id = Entity.WaitingQueue.Id,
+                        WaitingQueueNumber = Entity.WaitingQueue.WaitingQueueNumber,
+                        WaitingQueueDate = Entity.WaitingQueue.WaitingQueueDate,
+                        JoinedAt = Entity.WaitingQueue.JoinedAt,
+                        CalledAt = Entity.WaitingQueue.CalledAt,
+                        ServiceStartAt = Entity.WaitingQueue.ServiceStartAt,
+                        CompletedAt = Entity.WaitingQueue.CompletedAt,
+                        Priority = Entity.WaitingQueue.Priority,
+                        Status = Entity.WaitingQueue.Status,
+                        AppointmentId = Entity.WaitingQueue.AppointmentId,
+                        PatientId = Entity.WaitingQueue.PatientId,
+                        DoctorId = Entity.WaitingQueue.DoctorId,
+                        ClinicId = Entity.WaitingQueue.ClinicId,
+                        InvoiceId = Entity.WaitingQueue.InvoiceId,
+
+                        //Visit inside WaitingQueue
+                        VisitId = Entity.WaitingQueue.Visit == null
+                            ? null
+                            : Entity.WaitingQueue.Visit.Id,
+                    },
+
+                // =================== Visit ===================
+                VisitId = Entity.WaitingQueue == null || Entity.WaitingQueue.Visit == null
+                    ? null
+                    : Entity.WaitingQueue.Visit.Id,
+
+                Visit = Entity.WaitingQueue == null ||
+                Entity.WaitingQueue.Visit == null 
+                ? null
+                : new VisitDTO
+                { 
+                    Id = Entity.WaitingQueue.Visit.Id,
+                    VisitNumber = Entity.WaitingQueue.Visit.VisitNumber,
+                    PatientId = Entity.WaitingQueue.Visit.PatientId,
+                    DoctorId = Entity.WaitingQueue.Visit.DoctorId,
+                    ClinicId = Entity.WaitingQueue.Visit.ClinicId,
+                    WaitingQueueId = Entity.WaitingQueue.Visit.WaitingQueueId,
+                    VisitDate = Entity.WaitingQueue.Visit.VisitDate,
+                    Status = Entity.WaitingQueue.Visit.Status,
+                    Complaint = Entity.WaitingQueue.Visit.Complaint,
+                    ClinicalNotes = Entity.WaitingQueue.Visit.ClinicalNotes,
+                    CompletedAt = Entity.WaitingQueue.Visit.CompletedAt,
+                    InvoiceId = Entity.WaitingQueue.Visit.InvoiceId,
+                }
+
+
 
             };
 
@@ -118,6 +180,60 @@ namespace ClinicFlow.Domain.Extensions
                     Id = Entity.Clinic.Id,
                     NameEn = Entity.Clinic.NameEn,
                     NameAr = Entity.Clinic.NameAr,
+                },
+
+                // =================== Waiting Queue ===================
+                WaitingQueueId = Entity.WaitingQueue == null
+                    ? null
+                    : Entity.WaitingQueue.Id,
+
+                WaitingQueue = Entity.WaitingQueue == null
+                    ? null
+                    : new WaitingQueueDTO
+                    {
+                        Id = Entity.WaitingQueue.Id,
+                        WaitingQueueNumber = Entity.WaitingQueue.WaitingQueueNumber,
+                        WaitingQueueDate = Entity.WaitingQueue.WaitingQueueDate,
+                        JoinedAt = Entity.WaitingQueue.JoinedAt,
+                        CalledAt = Entity.WaitingQueue.CalledAt,
+                        ServiceStartAt = Entity.WaitingQueue.ServiceStartAt,
+                        CompletedAt = Entity.WaitingQueue.CompletedAt,
+                        Priority = Entity.WaitingQueue.Priority,
+                        Status = Entity.WaitingQueue.Status,
+                        AppointmentId = Entity.WaitingQueue.AppointmentId,
+                        PatientId = Entity.WaitingQueue.PatientId,
+                        DoctorId = Entity.WaitingQueue.DoctorId,
+                        ClinicId = Entity.WaitingQueue.ClinicId,
+                        InvoiceId = Entity.WaitingQueue.InvoiceId,
+
+                        //Visit inside WaitingQueue
+                        VisitId = Entity.WaitingQueue.Visit == null
+                            ? null
+                            : Entity.WaitingQueue.Visit.Id,
+                    },
+
+                // =================== Visit ===================
+                VisitId = Entity.WaitingQueue == null || Entity.WaitingQueue.Visit == null
+                    ? null
+                    : Entity.WaitingQueue.Visit.Id,
+
+                Visit = Entity.WaitingQueue == null ||
+                Entity.WaitingQueue.Visit == null
+                ? null
+                : new VisitDTO
+                {
+                    Id = Entity.WaitingQueue.Visit.Id,
+                    VisitNumber = Entity.WaitingQueue.Visit.VisitNumber,
+                    PatientId = Entity.WaitingQueue.Visit.PatientId,
+                    DoctorId = Entity.WaitingQueue.Visit.DoctorId,
+                    ClinicId = Entity.WaitingQueue.Visit.ClinicId,
+                    WaitingQueueId = Entity.WaitingQueue.Visit.WaitingQueueId,
+                    VisitDate = Entity.WaitingQueue.Visit.VisitDate,
+                    Status = Entity.WaitingQueue.Visit.Status,
+                    Complaint = Entity.WaitingQueue.Visit.Complaint,
+                    ClinicalNotes = Entity.WaitingQueue.Visit.ClinicalNotes,
+                    CompletedAt = Entity.WaitingQueue.Visit.CompletedAt,
+                    InvoiceId = Entity.WaitingQueue.Visit.InvoiceId,
                 }
 
             };

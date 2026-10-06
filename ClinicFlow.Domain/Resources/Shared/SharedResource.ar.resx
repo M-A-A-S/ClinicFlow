@@ -1470,4 +1470,25 @@
   <data name="PaymentMethodInUse" xml:space="preserve">
     <value>لا يمكن حذف طريقة الدفع هذه لأنها مستخدمة بالفعل</value>
   </data>
+  <data name="AppointmentAlreadyCheckedIn" xml:space="preserve">
+    <value>تم تسجيل حضور هذا الموعد مسبقًا</value>
+  </data>
+  <data name="QueueAlreadyHasVisit" xml:space="preserve">
+    <value>تم بدء زيارة لهذا المريض بالفعل</value>
+  </data>
+  <data name="QueueNotFound" xml:space="preserve">
+    <value>لم يتم العثور على إدخال قائمة الانتظار</value>
+  </data>
+  <data name="ViewQueue" xml:space="preserve">
+    <value>عرض قائمة الانتظار</value>
+  </data>
+  <data name="StartVisit" xml:space="preserve">
+    <value>بدء الزيارة</value>
+  </data>
+  <data name="ViewVisit" xml:space="preserve">
+    <value>عرض الزيارة</value>
+  </data>
+  <data name="CheckIn" xml:space="preserve">
+    <value>تسجيل الحضور</value>
+  </data>
 </root>

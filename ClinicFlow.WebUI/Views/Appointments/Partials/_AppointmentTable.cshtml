@@ -132,13 +132,55 @@ else
                         <td>
 
                             <div class="d-flex gap-1 align-items-center">
+
+                                @if (!item.WaitingQueueId.HasValue)
+                                {
+                                    <a asp-controller="WaitingQueues"
+                                       asp-action="Create"
+                                       asp-route-appointmentId="@item.Id"
+                                       class="btn btn-icon btn-outline-info tooltip-btn"
+                                       data-tooltip="@Localizer["CheckIn"]">
+                                        <i class="fa fa-user-clock me-1"></i>
+                                    </a>
+                                }
+                                else if (!item.VisitId.HasValue)
+                                {
+                                    <a asp-controller="WaitingQueues"
+                                       asp-action="Details"
+                                       asp-route-id="@item.WaitingQueueId"
+                                       class="btn btn-icon btn-outline-info tooltip-btn"
+                                       data-tooltip="@Localizer["ViewQueue"]">
+                                        <i class="fa fa-list-ol me-1"></i>
+                                    </a>
+
+                                    <a asp-controller="Visits"
+                                       asp-action="Create"
+                                       asp-route-waitingQueueId="@item.WaitingQueueId"
+                                       class="btn btn-icon btn-outline-info tooltip-btn"
+                                       data-tooltip="@Localizer["StartVisit"]">
+                                        <i class="fa fa-stethoscope me-1"></i>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a asp-controller="Visits"
+                                       asp-action="Details"
+                                       asp-route-id="@item.VisitId"
+                                       class="btn btn-icon btn-outline-info tooltip-btn"
+                                       data-tooltip="@Localizer["ViewVisit"]">
+                                        <i class="fa fa-eye me-1"></i>
+                                    </a>
+                                }
+
                                 <partial name="Partials/_Actions"
                                          model='new ActionButtonsVM
                                          {
                                              Controller = "Appointments",
                                              Id = item.Id
                                          }' />
-                    </div>
+
+                                        
+                            </div>
                 </td>
 
             </tr>

@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -49,6 +50,15 @@ namespace ClinicFlow.Infrastructure.Services
                     return Result<int>.Failure(
                         validationResult.Code,
                         validationResult.StatusCode);
+                }
+
+                var appointmentResult = await HandleAppointmentQueueAsync(DTO);
+
+                if (!appointmentResult.IsSuccess)
+                {
+                    return Result<int>.Failure(
+                        appointmentResult.Code,
+                        appointmentResult.StatusCode);
                 }
 
                 DTO.WaitingQueueNumber = await GenerateWaitingQueueNumberAsync(DTO);
@@ -198,6 +208,16 @@ namespace ClinicFlow.Infrastructure.Services
                         HttpStatusCodes.NotFound);
                 }
 
+                var appointmentResult = await
+                    HandleAppointmentQueueUpdateAsync(item, DTO);
+
+                if (!appointmentResult.IsSuccess)
+                {
+                    return Result<bool>.Failure(
+                        appointmentResult.Code,
+                        appointmentResult.StatusCode);
+                }
+
                 item.UpdateEntity(DTO);
 
 
@@ -260,6 +280,98 @@ namespace ClinicFlow.Infrastructure.Services
         #endregion
 
         #region ========================= Helpers =========================
+
+        private async Task<Result<bool>> HandleAppointmentQueueAsync(WaitingQueueDTO dto)
+        {
+            // Walk-in patient
+            if (!dto.AppointmentId.HasValue)
+            {
+                return Result<bool>.Success(true);
+            }
+
+            var appointment = await _appDbContext.Appointments
+                .FirstOrDefaultAsync(x =>
+                    x.Id == dto.AppointmentId.Value);
+
+            if (appointment == null)
+            {
+                return Result<bool>.Failure(
+                    ResultCodes.AppointmentNotFound,
+                    HttpStatusCodes.NotFound);
+            }
+
+            var existingQueue = await _appDbContext.WaitingQueues
+                .FirstOrDefaultAsync(x => x.AppointmentId == appointment.Id);
+
+            if (existingQueue != null)
+            {
+                return Result<bool>.Failure(
+                    ResultCodes.AppointmentAlreadyCheckedIn,
+                    HttpStatusCodes.BadRequest);
+            }
+
+            //if (dto.PatientId != appointment.PatientId)
+            //{
+            //    return Result<bool>.Failure(
+            //        ResultCodes.NotFound,
+            //        HttpStatusCodes.NotFound);
+            //}
+
+            //if (dto.DoctorId != appointment.DoctorId)
+            //{
+            //    return Result<bool>.Failure(
+            //        ResultCodes.NotFound,
+            //        HttpStatusCodes.NotFound);
+            //}
+
+            //if (dto.ClinicId != appointment.ClinicId)
+            //{
+            //    return Result<bool>.Failure(
+            //        ResultCodes.NotFound,
+            //        HttpStatusCodes.NotFound);
+            //}
+
+            dto.PatientId = appointment.PatientId;
+            dto.DoctorId = appointment.DoctorId;
+            dto.ClinicId = appointment.ClinicId;
+
+            
+
+            return Result<bool>.Success(true);
+
+        }
+
+        private async Task<Result<bool>> HandleAppointmentQueueUpdateAsync(
+            WaitingQueue item,
+            WaitingQueueDTO dto)
+        {
+            // Walk-in patient
+
+            if (!item.AppointmentId.HasValue)
+            {
+                return Result<bool>.Success(true);
+            }
+
+            var appointment = await _appDbContext.Appointments
+                .FirstOrDefaultAsync(x =>
+                    x.Id == item.AppointmentId.Value);
+
+            if (appointment == null)
+            {
+                return Result<bool>.Failure(
+                    ResultCodes.AppointmentNotFound,
+                    HttpStatusCodes.NotFound);
+            }
+
+            item.PatientId = appointment.PatientId;
+            item.ClinicId = appointment.ClinicId;
+            item.DoctorId = appointment.DoctorId;
+
+            item.AppointmentId = appointment.Id;
+
+            return Result<bool>.Success(true);
+
+        }
 
         private async Task<int> GenerateWaitingQueueNumberAsync(
             WaitingQueueDTO DTO)

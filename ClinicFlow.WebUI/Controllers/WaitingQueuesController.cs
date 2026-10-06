@@ -20,6 +20,7 @@ namespace ClinicFlow.WebUI.Controllers
         private readonly IDoctorService _doctorService;
         private readonly IClinicService _clinicService;
         private readonly IClinicDoctorService _clinicDoctorService;
+        private readonly IAppointmentService _appointmentService;
 
         #endregion
 
@@ -30,7 +31,8 @@ namespace ClinicFlow.WebUI.Controllers
             IPatientService patientService,
             IDoctorService doctorService,
             IClinicService clinicService,
-            IClinicDoctorService clinicDoctorService
+            IClinicDoctorService clinicDoctorService,
+            IAppointmentService appointmentService
 
             ) : base(localizer)
         {
@@ -39,6 +41,7 @@ namespace ClinicFlow.WebUI.Controllers
             _doctorService = doctorService;
             _clinicService = clinicService;
             _clinicDoctorService = clinicDoctorService;
+            _appointmentService = appointmentService;
         }
         #endregion
 
@@ -79,12 +82,53 @@ namespace ClinicFlow.WebUI.Controllers
         #endregion
 
         #region ========================= Create =========================
-        public async Task<IActionResult> Create()
+        public async Task<IActionResult> Create(int? appointmentId)
         {
+
+            if (!appointmentId.HasValue)
+            {
+                await LoadWaitingQueueFormData();
+
+                return View(new WaitingQueueDTO());
+            }
+
+            var appointmentResult = await _appointmentService.GetByIdAsync(appointmentId.Value);
+
+            if (!appointmentResult.IsSuccess || appointmentResult.Data == null)
+            {
+                return NotFound();
+            }
+
+            if (appointmentResult.Data.WaitingQueueId != null ||
+                appointmentResult.Data.WaitingQueue != null)
+            {
+                return RedirectToAction(
+                    nameof(Details),
+                    new { id = appointmentResult.Data.WaitingQueueId.Value });
+            }
+
+
             await LoadWaitingQueueFormData();
 
-            return View(new WaitingQueueDTO());
+            var dto = new WaitingQueueDTO();
+
+            dto.AppointmentId = appointmentResult.Data.Id;
+            dto.PatientId = appointmentResult.Data.PatientId;
+            dto.ClinicId = appointmentResult.Data.ClinicId;
+            dto.DoctorId = appointmentResult.Data.DoctorId;
+
+
+            return View(dto);
+
+
         }
+        
+        //public async Task<IActionResult> Create()
+        //{
+        //    await LoadWaitingQueueFormData();
+
+        //    return View(new WaitingQueueDTO());
+        //}
 
         [HttpPost]
         [ValidateAntiForgeryToken]

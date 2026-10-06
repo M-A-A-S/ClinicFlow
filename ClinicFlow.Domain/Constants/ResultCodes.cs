@@ -139,6 +139,10 @@ namespace ClinicFlow.Domain.Constants
         public const string CashPaymentMethodCannotBeDeleted = "CashPaymentMethodCannotBeDeleted";
         public const string PaymentMethodInUse = "PaymentMethodInUse";
 
+        public const string AppointmentAlreadyCheckedIn = "AppointmentAlreadyCheckedIn";
+        public const string QueueAlreadyHasVisit = "QueueAlreadyHasVisit";
+        public const string QueueNotFound = "QueueNotFound";
+
 
     }
 }
