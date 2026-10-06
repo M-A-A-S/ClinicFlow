@@ -10,6 +10,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using ClinicFlow.Domain.DTOs.Invoice;
+using ClinicFlow.Domain.DTOs.Visit;
 
 namespace ClinicFlow.Domain.Extensions
 {
@@ -67,7 +68,30 @@ namespace ClinicFlow.Domain.Extensions
                         Id = Entity.Clinic.Id,
                         NameEn = Entity.Clinic.NameEn,
                         NameAr = Entity.Clinic.NameAr,
+                    },
+
+                // ================ Visit ================
+                VisitId = Entity.Visit == null
+                    ? null
+                    : Entity.Visit.Id,
+
+                Visit = Entity.Visit == null ? null :
+                    new VisitDTO
+                    {
+                        Id = Entity.Visit.Id,
+                        VisitNumber = Entity.Visit.VisitNumber,
+                        PatientId = Entity.Visit.PatientId,
+                        ClinicId = Entity.Visit.ClinicId,
+                        DoctorId = Entity.Visit.DoctorId,
+                        WaitingQueueId = Entity.Visit.WaitingQueueId,
+                        VisitDate = Entity.Visit.VisitDate,
+                        Status = Entity.Visit.Status,
+                        Complaint = Entity.Visit.Complaint,
+                        ClinicalNotes = Entity.Visit.ClinicalNotes,
+                        CompletedAt = Entity.Visit.CompletedAt,
+                        InvoiceId = Entity.Visit.InvoiceId,
                     }
+
 
             };
 

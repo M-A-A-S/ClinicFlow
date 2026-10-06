@@ -142,6 +142,9 @@ namespace ClinicFlow.Domain.Constants
         public const string AppointmentAlreadyCheckedIn = "AppointmentAlreadyCheckedIn";
         public const string QueueAlreadyHasVisit = "QueueAlreadyHasVisit";
         public const string QueueNotFound = "QueueNotFound";
+        public const string QueueRequired = "QueueRequired";
+        public const string QueueAlreadyCompleted = "QueueAlreadyCompleted";
+        public const string CompleteVisit = "CompleteVisit";
 
 
     }

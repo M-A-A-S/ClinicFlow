@@ -58,6 +58,26 @@ namespace ClinicFlow.Infrastructure.Services
                         validationResult.StatusCode);
                 }
 
+                var queueResult = await HandleWaitingQueueVisitAsync(DTO);
+                
+                if (!queueResult.IsSuccess)
+                {
+                    return Result<int>.Failure(
+                        queueResult.Code,
+                        queueResult.StatusCode);
+                }
+
+                var queue = queueResult.Data;
+                if (queue != null)
+                {
+                    DTO.PatientId = queue.PatientId;
+                    DTO.ClinicId = queue.ClinicId;
+                    DTO.DoctorId = queue.DoctorId;
+                    DTO.WaitingQueueId = queue.Id;
+
+                }
+
+
                 DTO.VisitNumber = await GenerateVisitNumberAsync();
 
                 if (DTO.Prescription != null)
@@ -66,6 +86,7 @@ namespace ClinicFlow.Infrastructure.Services
                 }
 
                 var entity = DTO.ToEntity();
+
 
                 _appDbContext.Visits.Add(entity);
                 await _appDbContext.SaveChangesAsync();
@@ -215,6 +236,25 @@ namespace ClinicFlow.Infrastructure.Services
                         .ThenInclude(x => x.Items)
                     .FirstOrDefaultAsync(x => x.Id == id);
 
+                var queueResult = await HandleWaitingQueueVisitAsync(DTO);
+
+                if (!queueResult.IsSuccess)
+                {
+                    return Result<bool>.Failure(
+                        queueResult.Code,
+                        queueResult.StatusCode);
+                }
+
+                var queue = queueResult.Data;
+                if (queue != null)
+                {
+                    DTO.PatientId = queue.PatientId;
+                    DTO.ClinicId = queue.ClinicId;
+                    DTO.DoctorId = queue.DoctorId;
+                    DTO.WaitingQueueId = queue.Id;
+
+                }
+
                 if (item == null)
                 {
                     return Result<bool>.Failure(
@@ -288,6 +328,38 @@ namespace ClinicFlow.Infrastructure.Services
         #endregion
 
         #region ========================= Helpers =========================
+
+        private async Task<Result<WaitingQueue>> HandleWaitingQueueVisitAsync(
+            VisitDTO dto)
+        {
+            var queue = await _appDbContext.WaitingQueues
+                .Include(x => x.Visit)
+                .FirstOrDefaultAsync(x => x.Id == dto.WaitingQueueId);
+
+            if (queue == null)
+            {
+                return Result<WaitingQueue>.Failure(
+                    ResultCodes.QueueNotFound,
+                    HttpStatusCodes.NotFound);
+            }
+
+            // A queue can only have one visit
+            if (queue.Visit != null)
+            {
+                return Result<WaitingQueue>.Failure(
+                    ResultCodes.QueueAlreadyHasVisit,
+                    HttpStatusCodes.BadRequest);
+            }
+
+            if (queue.Status == QueueStatus.Completed)
+            {
+                return Result<WaitingQueue>.Failure(
+                    ResultCodes.QueueAlreadyCompleted,
+                    HttpStatusCodes.BadRequest);
+            }
+
+            return Result<WaitingQueue>.Success(queue);
+        }
 
         private async Task<string> GenerateVisitNumberAsync()
         {

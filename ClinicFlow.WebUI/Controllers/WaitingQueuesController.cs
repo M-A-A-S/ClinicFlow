@@ -117,18 +117,15 @@ namespace ClinicFlow.WebUI.Controllers
             dto.ClinicId = appointmentResult.Data.ClinicId;
             dto.DoctorId = appointmentResult.Data.DoctorId;
 
+            dto.Patient = appointmentResult.Data.Patient;
+            dto.Clinic = appointmentResult.Data.Clinic;
+            dto.Doctor = appointmentResult.Data.Doctor;
+
 
             return View(dto);
 
 
-        }
-        
-        //public async Task<IActionResult> Create()
-        //{
-        //    await LoadWaitingQueueFormData();
-
-        //    return View(new WaitingQueueDTO());
-        //}
+        }     
 
         [HttpPost]
         [ValidateAntiForgeryToken]

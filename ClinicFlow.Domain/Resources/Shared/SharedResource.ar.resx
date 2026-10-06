@@ -1491,4 +1491,13 @@
   <data name="CheckIn" xml:space="preserve">
     <value>تسجيل الحضور</value>
   </data>
+  <data name="QueueRequired" xml:space="preserve">
+    <value>يجب تحديد إدخال قائمة الانتظار لبدء الزيارة</value>
+  </data>
+  <data name="QueueAlreadyCompleted" xml:space="preserve">
+    <value>تم إكمال إدخال قائمة الانتظار هذا مسبقًا</value>
+  </data>
+  <data name="CompleteVisit" xml:space="preserve">
+    <value>إكمال الزيارة</value>
+  </data>
 </root>

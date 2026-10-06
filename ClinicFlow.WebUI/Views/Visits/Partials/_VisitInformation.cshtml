@@ -3,6 +3,10 @@
 
 @model VisitDTO
 
+@{
+    bool isArabic = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+}
+
 <div class="card shadow-sm border-0 mb-4">
 
     <div class="card-header bg-transparent border-bottom py-3">
@@ -21,6 +25,8 @@
 
         <div class="row g-3">
 
+            <input type="hidden" asp-for="WaitingQueueId" />
+
             <!-- Patient -->
 
             <div class="col-sm-6 col-lg-4">
@@ -29,16 +35,30 @@
                        class="form-label fw-medium">
                 </label>
 
-                <select asp-for="PatientId"
-                        id="patientId"
-                        class="form-select select2"
-                        asp-items="ViewBag.Patients">
+                @if (Model.WaitingQueueId.HasValue)
+                {
+                    <input type="hidden" asp-for="PatientId" />
 
-                    <option value="">
-                        @Localizer["Select"]
-                    </option>
+                    <input type="text"
+                           class="form-control"
+                           value="@Model.Patient?.FullName"
+                    readonly />
+                }
+                else
+                {
+                    <select asp-for="PatientId"
+                            id="patientId"
+                            class="form-select select2"
+                            asp-items="ViewBag.Patients">
 
-                </select>
+                        <option value="">
+                            @Localizer["Select"]
+                        </option>
+
+                    </select>
+                }
+
+                
 
                 <span asp-validation-for="PatientId"
                       class="text-danger small">
@@ -55,16 +75,30 @@
                        class="form-label fw-medium">
                 </label>
 
-                <select asp-for="ClinicId"
-                        id="clinicId"
-                        class="form-select select2"
-                        asp-items="ViewBag.Clinics">
+                @if (Model.WaitingQueueId.HasValue)
+                {
+                    <input type="hidden" asp-for="ClinicId" />
 
-                    <option value="">
-                        @Localizer["Select"]
-                    </option>
+                    <input type="text"
+                           class="form-control"
+                           value="@(isArabic? Model.Clinic?.NameAr ?? "-" : Model.Clinic?.NameEn ?? "-")"
+                    readonly />
+                }
+                else
+                {
+                    <select asp-for="ClinicId"
+                            id="clinicId"
+                            class="form-select select2"
+                            asp-items="ViewBag.Clinics">
 
-                </select>
+                        <option value="">
+                            @Localizer["Select"]
+                        </option>
+
+                    </select>
+                }
+
+                
 
                 <span asp-validation-for="ClinicId"
                       class="text-danger small">
@@ -81,16 +115,30 @@
                        class="form-label fw-medium">
                 </label>
 
-                <select asp-for="DoctorId"
-                        id="doctorId"
-                        class="form-select select2"
-                        asp-items="ViewBag.Doctors">
+                @if (Model.WaitingQueueId.HasValue)
+                {
+                    <input type="hidden" asp-for="DoctorId" />
 
-                    <option value="">
-                        @Localizer["Select"]
-                    </option>
+                    <input type="text"
+                           class="form-control"
+                           value="@Model.Doctor?.FullName"
+                           readonly />
+                }
+                else
+                {
+                    <select asp-for="DoctorId"
+                            id="doctorId"
+                            class="form-select select2"
+                            asp-items="ViewBag.Doctors">
 
-                </select>
+                        <option value="">
+                            @Localizer["Select"]
+                        </option>
+
+                    </select>
+                }
+
+                
 
                 <span asp-validation-for="DoctorId"
                       class="text-danger small">

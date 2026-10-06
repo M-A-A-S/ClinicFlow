@@ -772,6 +772,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Complete Visit.
+        /// </summary>
+        public static string CompleteVisit {
+            get {
+                return ResourceManager.GetString("CompleteVisit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirmed.
         /// </summary>
         public static string Confirmed {
@@ -3310,6 +3319,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This waiting queue entry has already been completed.
+        /// </summary>
+        public static string QueueAlreadyCompleted {
+            get {
+                return ResourceManager.GetString("QueueAlreadyCompleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A visit has already been started for this queue.
         /// </summary>
         public static string QueueAlreadyHasVisit {
@@ -3351,6 +3369,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string QueuePriority {
             get {
                 return ResourceManager.GetString("QueuePriority", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A waiting queue is required to start a visit.
+        /// </summary>
+        public static string QueueRequired {
+            get {
+                return ResourceManager.GetString("QueueRequired", resourceCulture);
             }
         }
         

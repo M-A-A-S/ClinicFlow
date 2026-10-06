@@ -1491,4 +1491,13 @@
   <data name="CheckIn" xml:space="preserve">
     <value>Check In</value>
   </data>
+  <data name="QueueRequired" xml:space="preserve">
+    <value>A waiting queue is required to start a visit</value>
+  </data>
+  <data name="QueueAlreadyCompleted" xml:space="preserve">
+    <value>This waiting queue entry has already been completed</value>
+  </data>
+  <data name="CompleteVisit" xml:space="preserve">
+    <value>Complete Visit</value>
+  </data>
 </root>

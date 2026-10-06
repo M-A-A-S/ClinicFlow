@@ -210,6 +210,28 @@ else
 
                         <td>
                             <div class="d-flex gap-1 align-items-center">
+
+                                @if (!item.VisitId.HasValue && item.InvoiceId.HasValue)
+                                {
+                                    <a asp-controller="Visits"
+                                       asp-action="Create"
+                                       asp-route-waitingQueueId="@item.Id"
+                                       class="btn btn-icon btn-outline-info tooltip-btn"
+                                       data-tooltip="@Localizer["StartVisit"]">
+                                        <i class="fa fa-stethoscope"></i>
+                                    </a>
+                                }
+                                else if (item.VisitId.HasValue)
+                                {
+                                    <a asp-controller="Visits"
+                                       asp-action="Details"
+                                       asp-route-id="@item.VisitId"
+                                       class="btn btn-icon btn-outline-success tooltip-btn"
+                                       data-tooltip="@Localizer["ViewVisit"]">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                }
+
                                 <partial name="Partials/_Actions"
                                          model='new ActionButtonsVM
                                          {

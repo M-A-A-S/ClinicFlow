@@ -1,11 +1,15 @@
 ﻿using ClinicFlow.Application.Services;
 using ClinicFlow.Domain.DTOs.Visit;
+using ClinicFlow.Domain.DTOs.WaitingQueue;
+using ClinicFlow.Domain.Entities;
 using ClinicFlow.Domain.Resources.Shared;
 using ClinicFlow.Domain.Utilities;
+using ClinicFlow.Infrastructure.Services;
 using ClinicFlow.WebUI.ViewModels.Visit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Localization;
+using Microsoft.JSInterop.Infrastructure;
 using System.Globalization;
 
 namespace ClinicFlow.WebUI.Controllers
@@ -20,6 +24,7 @@ namespace ClinicFlow.WebUI.Controllers
         private readonly IClinicDoctorService _clinicDoctorService;
         private readonly IDiagnosisService _diagnosisService;
         private readonly IMedicineService _medicineService;
+        private readonly IWaitingQueueService _waitingQueueService;
 
         #endregion
 
@@ -32,7 +37,8 @@ namespace ClinicFlow.WebUI.Controllers
             IClinicService clinicService,
             IClinicDoctorService clinicDoctorService,
             IDiagnosisService diagnosisService,
-            IMedicineService medicineService
+            IMedicineService medicineService,
+            IWaitingQueueService waitingQueueService
 
             ) : base(localizer)
         {
@@ -43,6 +49,7 @@ namespace ClinicFlow.WebUI.Controllers
             _clinicDoctorService = clinicDoctorService;
             _diagnosisService = diagnosisService;
             _medicineService = medicineService;
+            _waitingQueueService = waitingQueueService;
         }
         #endregion
 
@@ -83,11 +90,53 @@ namespace ClinicFlow.WebUI.Controllers
         #endregion
 
         #region ========================= Create =========================
-        public async Task<IActionResult> Create()
+        public async Task<IActionResult> Create(int? waitingQueueId)
         {
+            if (!waitingQueueId.HasValue)
+            {
+                await LoadVisitFormData();
+                return View(new VisitDTO());
+            }
+
+            var waitingQueueResult = await _waitingQueueService.GetByIdAsync(waitingQueueId.Value);
+
+            if (!waitingQueueResult.IsSuccess || waitingQueueResult.Data == null)
+            {
+                return NotFound();
+            }
+
+            if (waitingQueueResult.Data.VisitId != null ||
+                waitingQueueResult.Data.Visit != null)
+            {
+                return RedirectToAction(
+                    nameof(Details),
+                    new { id = waitingQueueResult.Data.VisitId.Value });
+            }
+
+
             await LoadVisitFormData();
-            return View(new VisitDTO());
+
+            var dto = new VisitDTO();
+
+            dto.WaitingQueueId = waitingQueueResult.Data.Id;
+            dto.PatientId = waitingQueueResult.Data.PatientId;
+            dto.ClinicId = waitingQueueResult.Data.ClinicId;
+            dto.DoctorId = waitingQueueResult.Data.DoctorId;
+
+            dto.Patient = waitingQueueResult.Data.Patient;
+            dto.Clinic = waitingQueueResult.Data.Clinic;
+            dto.Doctor = waitingQueueResult.Data.Doctor;
+
+
+            return View(dto);
+
         }
+
+        //public async Task<IActionResult> Create()
+        //{
+        //    await LoadVisitFormData();
+        //    return View(new VisitDTO());
+        //}
 
         [HttpPost]
         [ValidateAntiForgeryToken]

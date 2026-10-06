@@ -109,7 +109,7 @@ namespace ClinicFlow.Domain.DTOs.Visit
         public DoctorDTO? Doctor { get; set; }
         public ClinicDTO? Clinic { get; set; }
         public WaitingQueueDTO? WaitingQueue { get; set; }
-        public AppointmentDTO? Appointment { get; set; }
+        //public AppointmentDTO? Appointment { get; set; }
 
 
         //public ICollection<VitalSignDTO> VitalSigns { get; set; } = new List<VitalSignDTO>();
@@ -121,6 +121,7 @@ namespace ClinicFlow.Domain.DTOs.Visit
 
         public PrescriptionDTO? Prescription { get; set; } = null;
         public VitalSignDTO? VitalSign { get; set; }
+
 
     }
 }
