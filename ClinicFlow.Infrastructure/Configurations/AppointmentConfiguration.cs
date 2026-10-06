@@ -78,17 +78,17 @@ namespace ClinicFlow.Infrastructure.Configurations
                 .HasForeignKey(x => x.DoctorId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // One Appointment -> Zero or One Queue
-            builder.HasOne(x => x.WaitingQueue)
-                .WithOne(x => x.Appointment)
-                .HasForeignKey<WaitingQueue>(x => x.AppointmentId)
-                .OnDelete(DeleteBehavior.Restrict);
+            //// One Appointment -> Zero or One Queue
+            //builder.HasOne(x => x.WaitingQueue)
+            //    .WithOne(x => x.Appointment)
+            //    .HasForeignKey<WaitingQueue>(x => x.AppointmentId)
+            //    .OnDelete(DeleteBehavior.Restrict);
 
-            // One Appointment -> Zero or One Visit
-            builder.HasOne(x => x.Visit)
-                .WithOne(x => x.Appointment)
-                .HasForeignKey<Visit>(x => x.AppointmentId)
-                .OnDelete(DeleteBehavior.Restrict);
+            //// One Appointment -> Zero or One Visit
+            //builder.HasOne(x => x.Visit)
+            //    .WithOne(x => x.Appointment)
+            //    .HasForeignKey<Visit>(x => x.AppointmentId)
+            //    .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

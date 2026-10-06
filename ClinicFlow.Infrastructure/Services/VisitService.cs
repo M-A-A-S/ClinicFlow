@@ -208,7 +208,7 @@ namespace ClinicFlow.Infrastructure.Services
                     .Include(x => x.Doctor)
                     .Include(x => x.Clinic)
                     .Include(x => x.WaitingQueue)
-                    .Include(x => x.Appointment)
+                    //.Include(x => x.Appointment)
                     .Include(x => x.VitalSign)
                     .Include(x => x.VisitDiagnoses)
                     .Include(x => x.Prescription)
@@ -692,19 +692,19 @@ namespace ClinicFlow.Infrastructure.Services
                     "The appointment does not belong to the selected clinic");
             }
 
-            var appointmentAlreadyUsed = await _appDbContext.Visits
-                .AsNoTracking()
-                .AnyAsync(x =>
-                    x.AppointmentId == DTO.AppointmentId.Value &&
-                    (!excludedId.HasValue || x.Id != excludedId.Value));
+            //var appointmentAlreadyUsed = await _appDbContext.Visits
+            //    .AsNoTracking()
+            //    .AnyAsync(x =>
+            //        x.AppointmentId == DTO.AppointmentId.Value &&
+            //        (!excludedId.HasValue || x.Id != excludedId.Value));
 
-            if (appointmentAlreadyUsed)
-            {
-                return Result<bool>.Failure(
-                    ResultCodes.AppointmentAlreadyUsed,
-                    HttpStatusCodes.BadRequest,
-                    "This appointment is already linked to another visit");
-            }
+            //if (appointmentAlreadyUsed)
+            //{
+            //    return Result<bool>.Failure(
+            //        ResultCodes.AppointmentAlreadyUsed,
+            //        HttpStatusCodes.BadRequest,
+            //        "This appointment is already linked to another visit");
+            //}
 
             return Result<bool>.Success(true);
         }

@@ -30,7 +30,7 @@ namespace ClinicFlow.Domain.Extensions
                 DoctorId = Entity.DoctorId,
                 ClinicId = Entity.ClinicId,
                 WaitingQueueId = Entity.WaitingQueueId,
-                AppointmentId = Entity.AppointmentId,
+                //AppointmentId = Entity.AppointmentId,
                 VisitDate = Entity.VisitDate,
                 Status = Entity.Status,
                 Complaint = Entity.Complaint,
@@ -92,7 +92,7 @@ namespace ClinicFlow.Domain.Extensions
                 DoctorId = Entity.DoctorId,
                 ClinicId = Entity.ClinicId,
                 WaitingQueueId = Entity.WaitingQueueId,
-                AppointmentId = Entity.AppointmentId,
+                //AppointmentId = Entity.AppointmentId,
                 VisitDate = Entity.VisitDate,
                 Status = Entity.Status,
                 Complaint = Entity.Complaint,
@@ -207,7 +207,7 @@ namespace ClinicFlow.Domain.Extensions
                 DoctorId = DTO.DoctorId,
                 ClinicId = DTO.ClinicId,
                 WaitingQueueId = DTO.WaitingQueueId,
-                AppointmentId = DTO.AppointmentId,
+                //AppointmentId = DTO.AppointmentId,
                 VisitDate = DTO.VisitDate,
                 Status = DTO.Status,
                 Complaint = DTO.Complaint,
@@ -278,7 +278,7 @@ namespace ClinicFlow.Domain.Extensions
             Entity.DoctorId = DTO.DoctorId;
             Entity.ClinicId = DTO.ClinicId;
             Entity.WaitingQueueId = DTO.WaitingQueueId;
-            Entity.AppointmentId = DTO.AppointmentId;
+            //Entity.AppointmentId = DTO.AppointmentId;
             Entity.VisitDate = DTO.VisitDate;
             Entity.Status = DTO.Status;
             Entity.Complaint = DTO.Complaint;

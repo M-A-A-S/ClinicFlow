@@ -35,8 +35,8 @@ namespace ClinicFlow.Infrastructure.Configurations
             builder.Property(x => x.WaitingQueueId)
                 .IsRequired(false);
 
-            builder.Property(x => x.AppointmentId)
-                .IsRequired(false);
+            //builder.Property(x => x.AppointmentId)
+            //    .IsRequired(false);
 
             builder.Property(x => x.VisitDate)
                 .IsRequired();
@@ -86,15 +86,15 @@ namespace ClinicFlow.Infrastructure.Configurations
 
             // Queue
             builder.HasOne(x => x.WaitingQueue)
-                .WithOne()
+                .WithOne(x => x.Visit)
                 .HasForeignKey<Visit>(x => x.WaitingQueueId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // Appointment
-            builder.HasOne(x => x.Appointment)
-                .WithOne(x => x.Visit)
-                .HasForeignKey<Visit>(x => x.AppointmentId)
-                .OnDelete(DeleteBehavior.Restrict);
+            //// Appointment
+            //builder.HasOne(x => x.Appointment)
+            //    .WithOne(x => x.Visit)
+            //    .HasForeignKey<Visit>(x => x.AppointmentId)
+            //    .OnDelete(DeleteBehavior.Restrict);
 
             // One Queue -> maximum one Visit
             builder.HasIndex(x => x.WaitingQueueId)
@@ -103,10 +103,10 @@ namespace ClinicFlow.Infrastructure.Configurations
                 .HasFilter("[WaitingQueueId] IS NOT NULL AND [IsDeleted] = 0");
 
             // One Appointment -> maximum one Visit
-            builder.HasIndex(x => x.AppointmentId)
-                .IsUnique()
-                .HasDatabaseName("UX_Visits_Appointment")
-                .HasFilter("[AppointmentId] IS NOT NULL AND [IsDeleted] = 0");
+            //builder.HasIndex(x => x.AppointmentId)
+            //    .IsUnique()
+            //    .HasDatabaseName("UX_Visits_Appointment")
+            //    .HasFilter("[AppointmentId] IS NOT NULL AND [IsDeleted] = 0");
         }
     }
 }

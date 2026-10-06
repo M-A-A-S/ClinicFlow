@@ -35,7 +35,7 @@ namespace ClinicFlow.Domain.Entities
         public Doctor Doctor { get; set; }
 
         public WaitingQueue? WaitingQueue { get; set; }
-        public Visit? Visit { get; set; }
+        //public Visit? Visit { get; set; }
 
 
 

@@ -30,5 +30,7 @@ namespace ClinicFlow.Domain.Entities
         public Patient Patient { get; set; }
         public Doctor Doctor { get; set; }
         public Clinic Clinic { get; set; }
+
+        public Visit? Visit { get; set; }
     }
 }

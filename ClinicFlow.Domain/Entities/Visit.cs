@@ -11,7 +11,7 @@ namespace ClinicFlow.Domain.Entities
         public int ClinicId { get; set; }
 
         public int? WaitingQueueId { get; set; }
-         public int? AppointmentId { get; set; }
+         //public int? AppointmentId { get; set; }
 
         public DateTime VisitDate { get; set; } = DateTime.UtcNow;
         public VisitStatus Status { get; set; } = VisitStatus.Open;
@@ -28,7 +28,7 @@ namespace ClinicFlow.Domain.Entities
         public Doctor Doctor { get; set; }
         public Clinic Clinic { get; set; }
         public WaitingQueue? WaitingQueue { get; set; }
-        public Appointment? Appointment { get; set; }
+        //public Appointment? Appointment { get; set; }
 
 
         //public ICollection<VitalSign> VitalSigns { get; set; } = new List<VitalSign>();
