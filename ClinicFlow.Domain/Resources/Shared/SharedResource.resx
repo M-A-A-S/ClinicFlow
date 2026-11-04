@@ -292,7 +292,7 @@
     <value>Server error occurred</value>
   </data>
   <data name="NotFound" xml:space="preserve">
-    <value>Record not found</value>
+    <value>The requested role was not found.</value>
   </data>
   <data name="InvalidData" xml:space="preserve">
     <value>The provided data is invalid.</value>
@@ -313,7 +313,7 @@
     <value>Validation error</value>
   </data>
   <data name="UnexpectedError" xml:space="preserve">
-    <value>An unexpected error occurred.</value>
+    <value>An unexpected error occurred. Please try again later.</value>
   </data>
   <data name="NameArExists" xml:space="preserve">
     <value>Arabic name already exists.</value>
@@ -1499,5 +1499,35 @@
   </data>
   <data name="CompleteVisit" xml:space="preserve">
     <value>Complete Visit</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="NameExists" xml:space="preserve">
+    <value>This role name already exists. Please choose a different name.</value>
+  </data>
+  <data name="BadRequest" xml:space="preserve">
+    <value>Bad Request. The operation could not be completed.</value>
+  </data>
+  <data name="CannotDeleteCriticalRole" xml:space="preserve">
+    <value>Cannot delete a critical system role (e.g., Admin or SuperAdmin).</value>
+  </data>
+  <data name="Administration" xml:space="preserve">
+    <value>Administration</value>
   </data>
 </root>

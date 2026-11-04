@@ -1,0 +1,100 @@
+﻿@using ClinicFlow.Domain.DTOs.Identity.Role
+@using ClinicFlow.WebUI.ViewModels.Common
+@model IEnumerable<RoleDTO>
+
+@{
+    bool isArabic = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar";
+}
+@{
+
+    var columns = new List<TableColumnVM>
+    {
+        new TableColumnVM
+        {
+            Column = "Name",
+            Title = Localizer["Name"],
+            IsSortable = false
+        },
+        new TableColumnVM
+        {
+            Column = string.Empty,
+            Title = Localizer["Actions"],
+            IsSortable = false
+        }
+    };
+
+}
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">
+        @Localizer["NoRecordsFound"]
+    </div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    @foreach (var column in columns)
+                    {
+                        <th>
+                            @if (column.IsSortable)
+                            {
+                                <partial name="Partials/_SortableHeader"
+                                         model='new SortHeaderVM
+                                         {
+                                             Column = column.Column,
+                                             Title = column.Title,
+                                         }' />
+                                        }
+                            else
+                            {
+                                @column.Title
+                            }
+                        </th>
+                    }
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+
+
+                        <td>
+
+                            <div class="d-flex gap-1 align-items-center">
+
+                                <a asp-action="Edit"
+                                   asp-route-id="@item.Id"
+                                   class="btn btn-icon btn-outline-primary tooltip-btn"
+                                   data-tooltip="@Localizer["Edit"]">
+                                    <i class="fa fa-pen"></i>
+                                </a>
+
+                                <a asp-action="Details"
+                                   asp-route-id="@item.Id"
+                                   class="btn btn-icon btn-outline-info tooltip-btn"
+                                   data-tooltip="@Localizer["Details"]">
+                                    <i class="fa fa-info"></i>
+                                </a>
+                                <a asp-action="Delete"
+                                   asp-route-id="@item.Id"
+                                   class="btn btn-icon btn-outline-danger tooltip-btn"
+                                   data-tooltip="@Localizer["Delete"]">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+
+
+                    </div>
+                </td>
+            </tr>
+                        }
+            </tbody>
+        </table>
+    </div>
+}

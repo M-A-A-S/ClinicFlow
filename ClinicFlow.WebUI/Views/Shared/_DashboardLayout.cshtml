@@ -322,6 +322,42 @@
 								Action = "Index"
 								},
 
+								new()
+								{
+								Key = "PaymentMethods",
+								Icon = "fa-credit-card",
+								Controller = "PaymentMethods",
+								Action = "Index"
+								},
+
+								// ==========================================
+								// NEW: Administration / System Management
+								// ==========================================
+								new()
+								{
+								Key = "Administration",
+								Icon = "fa-gear",
+								Controller = "",
+								Action = "",
+								Children =
+								{
+								new()
+								{
+								Key = "Users",
+								Icon = "fa-users-gear",
+								Controller = "Account", // Users
+								Action = "Index"
+								},
+								new()
+								{
+								Key = "Roles",
+								Icon = "fa-user-shield",
+								Controller = "Roles",
+								Action = "Index"
+								}
+								}
+								}
+
 
 								};
 				}

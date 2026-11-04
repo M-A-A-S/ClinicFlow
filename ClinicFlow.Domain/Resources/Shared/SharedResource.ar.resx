@@ -292,7 +292,7 @@
     <value>حدث خطأ في الخادم</value>
   </data>
   <data name="NotFound" xml:space="preserve">
-    <value>السجل غير موجود</value>
+    <value>لم يتم العثور على الدور المطلوب.</value>
   </data>
   <data name="InvalidData" xml:space="preserve">
     <value>البيانات المدخلة غير صالحة.</value>
@@ -313,7 +313,7 @@
     <value>خطأ في التحقق من البيانات</value>
   </data>
   <data name="UnexpectedError" xml:space="preserve">
-    <value>حدث خطأ غير متوقع.</value>
+    <value>حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى لاحقاً.</value>
   </data>
   <data name="NameArExists" xml:space="preserve">
     <value>الاسم باللغة العربية موجود بالفعل.</value>
@@ -1499,5 +1499,35 @@
   </data>
   <data name="CompleteVisit" xml:space="preserve">
     <value>إكمال الزيارة</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>الدور</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>المستخدم</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>الأدوار</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>المستخدمون</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>الاسم</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>كلمة المرور</value>
+  </data>
+  <data name="NameExists" xml:space="preserve">
+    <value>اسم الدور هذا موجود بالفعل. يرجى اختيار اسم مختلف.</value>
+  </data>
+  <data name="BadRequest" xml:space="preserve">
+    <value>طلب غير صالح. تعذر إكمال العملية.</value>
+  </data>
+  <data name="CannotDeleteCriticalRole" xml:space="preserve">
+    <value>لا يمكن حذف دور نظامي حاسم (مثل المدير أو المدير العام).</value>
+  </data>
+  <data name="Administration" xml:space="preserve">
+    <value>الإدارة</value>
   </data>
 </root>

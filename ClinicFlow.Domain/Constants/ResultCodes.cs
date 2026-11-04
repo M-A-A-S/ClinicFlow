@@ -12,6 +12,7 @@ namespace ClinicFlow.Domain.Constants
         public const string NotFound = "NotFound";
         public const string InvalidData = "InvalidData";
         public const string InvalidDate = "InvalidDate";
+        public const string BadRequest = "BadRequest";
 
         public const string CreatedSuccessfully = "CreatedSuccessfully";
         public const string UpdatedSuccessfully = "UpdatedSuccessfully";
@@ -21,6 +22,7 @@ namespace ClinicFlow.Domain.Constants
         public const string ValidationError = "ValidationError";
         public const string UnexpectedError = "UnexpectedError";
 
+        public const string NameExists = "NameExists";
         public const string NameEnExists = "NameEnExists";
         public const string NameArExists = "NameArExists";
         public const string PhoneNumberAlreadyExists = "PhoneNumberAlreadyExists";
@@ -145,6 +147,8 @@ namespace ClinicFlow.Domain.Constants
         public const string QueueRequired = "QueueRequired";
         public const string QueueAlreadyCompleted = "QueueAlreadyCompleted";
         public const string CompleteVisit = "CompleteVisit";
+
+        public const string CannotDeleteCriticalRole = "CannotDeleteCriticalRole";
 
 
     }

@@ -1,0 +1,16 @@
+﻿@using ClinicFlow.Domain.DTOs.Identity.Role
+@model IEnumerable<RoleDTO>
+
+
+<div class="d-flex align-items-center justify-content-between my-4">
+    <h2>@Localizer["Roles"]</h2>
+
+    <a asp-action="Create" class="btn btn-primary">
+        <i class="fa fa-plus me-1"></i>
+        @Localizer["CreateNew"]
+    </a>
+</div>
+
+
+<partial name="Partials/_RoleTable" />
+

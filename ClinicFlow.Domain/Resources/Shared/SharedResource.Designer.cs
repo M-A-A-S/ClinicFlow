@@ -178,6 +178,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Administration.
+        /// </summary>
+        public static string Administration {
+            get {
+                return ResourceManager.GetString("Administration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All.
         /// </summary>
         public static string All {
@@ -394,6 +403,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bad Request. The operation could not be completed..
+        /// </summary>
+        public static string BadRequest {
+            get {
+                return ResourceManager.GetString("BadRequest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bank Transfer.
         /// </summary>
         public static string BankTransfer {
@@ -543,6 +561,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string CancelledVisitCannotBeReopened {
             get {
                 return ResourceManager.GetString("CancelledVisitCannotBeReopened", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot delete a critical system role (e.g., Admin or SuperAdmin)..
+        /// </summary>
+        public static string CannotDeleteCriticalRole {
+            get {
+                return ResourceManager.GetString("CannotDeleteCriticalRole", resourceCulture);
             }
         }
         
@@ -2320,6 +2347,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Arabic Name.
         /// </summary>
         public static string NameAr {
@@ -2352,6 +2388,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string NameEnExists {
             get {
                 return ResourceManager.GetString("NameEnExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This role name already exists. Please choose a different name..
+        /// </summary>
+        public static string NameExists {
+            get {
+                return ResourceManager.GetString("NameExists", resourceCulture);
             }
         }
         
@@ -2554,7 +2599,7 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Record not found.
+        ///   Looks up a localized string similar to The requested role was not found..
         /// </summary>
         public static string NotFound {
             get {
@@ -2793,6 +2838,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string PartyType {
             get {
                 return ResourceManager.GetString("PartyType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
             }
         }
         
@@ -3517,6 +3571,24 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Role.
+        /// </summary>
+        public static string Role {
+            get {
+                return ResourceManager.GetString("Role", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roles.
+        /// </summary>
+        public static string Roles {
+            get {
+                return ResourceManager.GetString("Roles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Route.
         /// </summary>
         public static string Route {
@@ -3868,7 +3940,7 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to An unexpected error occurred..
+        ///   Looks up a localized string similar to An unexpected error occurred. Please try again later..
         /// </summary>
         public static string UnexpectedError {
             get {
@@ -3936,6 +4008,24 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string Urgent {
             get {
                 return ResourceManager.GetString("Urgent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User.
+        /// </summary>
+        public static string User {
+            get {
+                return ResourceManager.GetString("User", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Users.
+        /// </summary>
+        public static string Users {
+            get {
+                return ResourceManager.GetString("Users", resourceCulture);
             }
         }
         
