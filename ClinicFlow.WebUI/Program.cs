@@ -1,6 +1,10 @@
 using Microsoft.AspNetCore.Localization;
 using System.Globalization;
 using ClinicFlow.Infrastructure;
+using Microsoft.AspNetCore.Identity;
+using ClinicFlow.Infrastructure.Identity;
+using Microsoft.EntityFrameworkCore;
+using ClinicFlow.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +38,17 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 
 builder.Services.AddInfrastructure(builder.Configuration);
 
+// Configure Identity
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+{
+    options.Password.RequiredLength = 8;
+    options.Password.RequireDigit = true;
+    options.Password.RequireUppercase = true;
+    options.User.RequireUniqueEmail = true;
+})
+.AddEntityFrameworkStores<AppDbContext>()
+.AddDefaultTokenProviders();
+
 var app = builder.Build();
 
 var localizationOptions = app.Services
@@ -55,10 +70,18 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
+
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+// Safely seed default roles using a scoped service provider to avoid DI lifetime conflicts.
+using (var scope = app.Services.CreateScope())
+{
+    await IdentitySeeder.SeedRolesAsync(scope.ServiceProvider);
+}
 
 app.Run();

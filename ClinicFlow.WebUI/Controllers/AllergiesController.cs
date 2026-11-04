@@ -3,11 +3,13 @@ using ClinicFlow.Domain.DTOs.Allergy;
 using ClinicFlow.Domain.Resources.Shared;
 using ClinicFlow.Domain.Utilities;
 using ClinicFlow.WebUI.ViewModels.Allergy;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 
 namespace ClinicFlow.WebUI.Controllers
 {
+    [Authorize(Roles = "Admin,Manager")]
     public class AllergiesController : BaseController
     {
 

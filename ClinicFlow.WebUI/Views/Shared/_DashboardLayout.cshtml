@@ -390,8 +390,58 @@
 							</a>
 						}
 
+						
 					</li>
 				}
+
+				@* --- IDENTITY / AUTH SECTION --- *@
+				@if (User.Identity?.IsAuthenticated == true)
+				{
+					<li class="menu-item mt-auto">
+						@* Added mt-auto to push logout to the bottom if using flexbox *@
+						<form asp-controller="Account" asp-action="Logout" method="POST">
+							@* CRITICAL: Prevents CSRF attacks on the POST request *@
+							@Html.AntiForgeryToken()
+
+							<button class="btn btn-danger w-100" type="submit">
+								<span class="left">
+									<span class="icon">
+										<i class="fa-solid fa-right-from-bracket"></i>
+									</span>
+									<span class="text">
+										Logout
+									</span>
+								</span>
+							</button>
+						</form>
+					</li>
+				}
+				else
+				{
+					@* Wrapped in <li> assuming this block is inside the main <ul> menu *@
+					<li>
+						<a asp-controller="Account" asp-action="Login">
+							<span class="icon">
+								<i class="fa-solid fa-right-to-bracket"></i>
+							</span>
+							<span class="text">
+								Login
+							</span>
+						</a>
+					</li>
+
+					<li>
+						<a asp-controller="Account" asp-action="Register">
+							<span class="icon">
+								<i class="fa-solid fa-user-plus"></i>
+							</span>
+							<span class="text">
+								Register
+							</span>
+						</a>
+					</li>
+				}
+
 
 			</ul>
 		</nav>

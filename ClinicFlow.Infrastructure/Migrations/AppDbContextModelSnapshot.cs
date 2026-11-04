@@ -94,7 +94,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 106, DateTimeKind.Utc).AddTicks(1393),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 345, DateTimeKind.Utc).AddTicks(6190),
                             DescriptionAr = "حساسية تجاه المضادات الحيوية من نوع البنسلين",
                             DescriptionEn = "Allergy to penicillin antibiotics",
                             IsActive = true,
@@ -105,7 +105,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 106, DateTimeKind.Utc).AddTicks(1400),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 345, DateTimeKind.Utc).AddTicks(6193),
                             DescriptionAr = "حساسية تجاه الأسبرين",
                             DescriptionEn = "Allergy to aspirin",
                             IsActive = true,
@@ -116,7 +116,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 106, DateTimeKind.Utc).AddTicks(1404),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 345, DateTimeKind.Utc).AddTicks(6195),
                             DescriptionAr = "حساسية تجاه الإيبوبروفين",
                             DescriptionEn = "Allergy to ibuprofen",
                             IsActive = true,
@@ -127,7 +127,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 106, DateTimeKind.Utc).AddTicks(1408),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 345, DateTimeKind.Utc).AddTicks(6196),
                             DescriptionAr = "حساسية تجاه مادة اللاتكس",
                             DescriptionEn = "Allergy to latex",
                             IsActive = true,
@@ -138,7 +138,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 106, DateTimeKind.Utc).AddTicks(1412),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 345, DateTimeKind.Utc).AddTicks(6198),
                             DescriptionAr = "حساسية تجاه الفول السوداني",
                             DescriptionEn = "Allergy to peanuts",
                             IsActive = true,
@@ -149,7 +149,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 106, DateTimeKind.Utc).AddTicks(1419),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 345, DateTimeKind.Utc).AddTicks(6200),
                             DescriptionAr = "حساسية تجاه الحليب أو منتجات الألبان",
                             DescriptionEn = "Allergy to milk or dairy products",
                             IsActive = true,
@@ -160,7 +160,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 106, DateTimeKind.Utc).AddTicks(1422),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 345, DateTimeKind.Utc).AddTicks(6202),
                             DescriptionAr = "حساسية تجاه البيض",
                             DescriptionEn = "Allergy to eggs",
                             IsActive = true,
@@ -171,7 +171,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 106, DateTimeKind.Utc).AddTicks(1426),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 345, DateTimeKind.Utc).AddTicks(6203),
                             DescriptionAr = "حساسية تجاه المحار",
                             DescriptionEn = "Allergy to shellfish",
                             IsActive = true,
@@ -407,7 +407,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 110, DateTimeKind.Utc).AddTicks(2636),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 347, DateTimeKind.Utc).AddTicks(1486),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "قبض عام",
@@ -417,7 +417,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 110, DateTimeKind.Utc).AddTicks(2643),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 347, DateTimeKind.Utc).AddTicks(1489),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "مصروفات عامة",
@@ -427,7 +427,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 110, DateTimeKind.Utc).AddTicks(2647),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 347, DateTimeKind.Utc).AddTicks(1490),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "دفعة للمورد",
@@ -507,7 +507,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 113, DateTimeKind.Utc).AddTicks(964),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 348, DateTimeKind.Utc).AddTicks(3520),
                             DescriptionAr = "اضطراب أيضي يتميز بارتفاع مستوى سكر الدم",
                             DescriptionEn = "A metabolic disorder characterized by elevated blood glucose levels",
                             IsActive = true,
@@ -518,7 +518,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 113, DateTimeKind.Utc).AddTicks(972),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 348, DateTimeKind.Utc).AddTicks(3523),
                             DescriptionAr = "ارتفاع مستمر في ضغط الدم",
                             DescriptionEn = "Persistently elevated blood pressure",
                             IsActive = true,
@@ -529,7 +529,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 113, DateTimeKind.Utc).AddTicks(977),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 348, DateTimeKind.Utc).AddTicks(3525),
                             DescriptionAr = "حالة تنفسية مزمنة تؤثر على الشعب الهوائية",
                             DescriptionEn = "A chronic respiratory condition affecting the airways",
                             IsActive = true,
@@ -540,7 +540,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 113, DateTimeKind.Utc).AddTicks(980),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 348, DateTimeKind.Utc).AddTicks(3526),
                             DescriptionAr = "ضعف طويل الأمد في وظائف الكلى",
                             DescriptionEn = "Long-term impairment of kidney function",
                             IsActive = true,
@@ -551,7 +551,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 113, DateTimeKind.Utc).AddTicks(984),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 348, DateTimeKind.Utc).AddTicks(3528),
                             DescriptionAr = "حالة مزمنة تؤثر على القلب",
                             DescriptionEn = "A chronic condition affecting the heart",
                             IsActive = true,
@@ -562,7 +562,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 113, DateTimeKind.Utc).AddTicks(990),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 348, DateTimeKind.Utc).AddTicks(3530),
                             DescriptionAr = "اضطراب يؤثر على وظائف الغدة الدرقية",
                             DescriptionEn = "A disorder affecting thyroid function",
                             IsActive = true,
@@ -573,7 +573,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 113, DateTimeKind.Utc).AddTicks(994),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 348, DateTimeKind.Utc).AddTicks(3532),
                             DescriptionAr = "مرض رئوي مزمن يسبب محدودية تدفق الهواء",
                             DescriptionEn = "A chronic lung disease causing airflow limitation",
                             IsActive = true,
@@ -645,7 +645,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 114, DateTimeKind.Utc).AddTicks(4),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 348, DateTimeKind.Utc).AddTicks(7548),
                             DescriptionAr = "تشخيص وعلاج أمراض الباطنة لدى البالغين.",
                             DescriptionEn = "Diagnosis and treatment of adult internal medicine conditions.",
                             IsActive = true,
@@ -656,7 +656,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 114, DateTimeKind.Utc).AddTicks(103),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 348, DateTimeKind.Utc).AddTicks(7552),
                             DescriptionAr = "تشخيص وعلاج أمراض القلب والأوعية الدموية.",
                             DescriptionEn = "Diagnosis and treatment of cardiovascular diseases.",
                             IsActive = true,
@@ -667,7 +667,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 114, DateTimeKind.Utc).AddTicks(108),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 348, DateTimeKind.Utc).AddTicks(7586),
                             DescriptionAr = "الرعاية الطبية للرضع والأطفال والمراهقين.",
                             DescriptionEn = "Medical care for infants, children, and adolescents.",
                             IsActive = true,
@@ -678,7 +678,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 114, DateTimeKind.Utc).AddTicks(113),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 348, DateTimeKind.Utc).AddTicks(7588),
                             DescriptionAr = "تشخيص وعلاج أمراض الأسنان والفم.",
                             DescriptionEn = "Diagnosis and treatment of dental and oral conditions.",
                             IsActive = true,
@@ -689,7 +689,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 114, DateTimeKind.Utc).AddTicks(117),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 348, DateTimeKind.Utc).AddTicks(7590),
                             DescriptionAr = "تشخيص وعلاج أمراض الجلد والشعر والأظافر.",
                             DescriptionEn = "Diagnosis and treatment of skin, hair, and nail conditions.",
                             IsActive = true,
@@ -700,7 +700,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 114, DateTimeKind.Utc).AddTicks(125),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 348, DateTimeKind.Utc).AddTicks(7593),
                             DescriptionAr = "تشخيص وعلاج أمراض الأنف والأذن والحنجرة.",
                             DescriptionEn = "Diagnosis and treatment of ear, nose, and throat conditions.",
                             IsActive = true,
@@ -711,7 +711,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 114, DateTimeKind.Utc).AddTicks(150),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 348, DateTimeKind.Utc).AddTicks(7604),
                             DescriptionAr = "تشخيص وعلاج أمراض العيون ومشاكل النظر.",
                             DescriptionEn = "Diagnosis and treatment of eye and vision conditions.",
                             IsActive = true,
@@ -722,7 +722,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 114, DateTimeKind.Utc).AddTicks(155),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 348, DateTimeKind.Utc).AddTicks(7606),
                             DescriptionAr = "الرعاية الأولية للحالات الطبية الشائعة.",
                             DescriptionEn = "Primary care for common medical conditions.",
                             IsActive = true,
@@ -785,7 +785,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 1,
                             ClinicId = 1,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 115, DateTimeKind.Utc).AddTicks(8812),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 349, DateTimeKind.Utc).AddTicks(4944),
                             DoctorId = 1,
                             IsDeleted = false
                         },
@@ -793,7 +793,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 2,
                             ClinicId = 2,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 115, DateTimeKind.Utc).AddTicks(8818),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 349, DateTimeKind.Utc).AddTicks(4947),
                             DoctorId = 2,
                             IsDeleted = false
                         },
@@ -801,7 +801,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 3,
                             ClinicId = 3,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 115, DateTimeKind.Utc).AddTicks(8820),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 349, DateTimeKind.Utc).AddTicks(4948),
                             DoctorId = 3,
                             IsDeleted = false
                         },
@@ -809,7 +809,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 4,
                             ClinicId = 4,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 115, DateTimeKind.Utc).AddTicks(8823),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 349, DateTimeKind.Utc).AddTicks(4949),
                             DoctorId = 4,
                             IsDeleted = false
                         },
@@ -817,7 +817,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 5,
                             ClinicId = 5,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 115, DateTimeKind.Utc).AddTicks(8825),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 349, DateTimeKind.Utc).AddTicks(4950),
                             DoctorId = 5,
                             IsDeleted = false
                         },
@@ -825,7 +825,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 6,
                             ClinicId = 6,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 115, DateTimeKind.Utc).AddTicks(8831),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 349, DateTimeKind.Utc).AddTicks(4952),
                             DoctorId = 6,
                             IsDeleted = false
                         },
@@ -833,7 +833,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 7,
                             ClinicId = 8,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 115, DateTimeKind.Utc).AddTicks(8834),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 349, DateTimeKind.Utc).AddTicks(4953),
                             DoctorId = 1,
                             IsDeleted = false
                         },
@@ -841,7 +841,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 8,
                             ClinicId = 1,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 115, DateTimeKind.Utc).AddTicks(8836),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 349, DateTimeKind.Utc).AddTicks(4954),
                             DoctorId = 2,
                             IsDeleted = false
                         });
@@ -909,7 +909,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 116, DateTimeKind.Utc).AddTicks(7969),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 349, DateTimeKind.Utc).AddTicks(9250),
                             DescriptionAr = "ارتفاع ضغط الدم الأساسي دون سبب ثانوي محدد.",
                             DescriptionEn = "Primary hypertension without a specified secondary cause.",
                             IsActive = true,
@@ -920,7 +920,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 116, DateTimeKind.Utc).AddTicks(7976),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 349, DateTimeKind.Utc).AddTicks(9254),
                             DescriptionAr = "داء السكري من النوع الثاني دون مضاعفات مسجلة.",
                             DescriptionEn = "Type 2 diabetes mellitus without documented complications.",
                             IsActive = true,
@@ -931,7 +931,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 116, DateTimeKind.Utc).AddTicks(7980),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 349, DateTimeKind.Utc).AddTicks(9255),
                             DescriptionAr = "عدوى حادة في الجهاز التنفسي العلوي دون تحديد السبب.",
                             DescriptionEn = "Acute upper respiratory infection without a specified cause.",
                             IsActive = true,
@@ -942,7 +942,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 116, DateTimeKind.Utc).AddTicks(7984),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 349, DateTimeKind.Utc).AddTicks(9257),
                             DescriptionAr = "مرض الربو دون تحديد نوع أو تفاصيل إضافية.",
                             DescriptionEn = "Asthma without further specification.",
                             IsActive = true,
@@ -953,7 +953,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 116, DateTimeKind.Utc).AddTicks(7988),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 349, DateTimeKind.Utc).AddTicks(9258),
                             DescriptionAr = "ارتفاع مستوى الدهون في الدم دون تحديد إضافي.",
                             DescriptionEn = "Elevated blood lipids without further specification.",
                             IsActive = true,
@@ -964,7 +964,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 116, DateTimeKind.Utc).AddTicks(7994),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 349, DateTimeKind.Utc).AddTicks(9261),
                             DescriptionAr = "مرض الارتجاع المعدي المريئي دون التهاب في المريء.",
                             DescriptionEn = "Gastro-esophageal reflux disease without esophagitis.",
                             IsActive = true,
@@ -975,7 +975,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 116, DateTimeKind.Utc).AddTicks(7998),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 349, DateTimeKind.Utc).AddTicks(9262),
                             DescriptionAr = "ألم في منطقة أسفل الظهر.",
                             DescriptionEn = "Pain located in the lower back.",
                             IsActive = true,
@@ -986,7 +986,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 116, DateTimeKind.Utc).AddTicks(8001),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 349, DateTimeKind.Utc).AddTicks(9264),
                             DescriptionAr = "الصداع النصفي دون تحديد إضافي.",
                             DescriptionEn = "Migraine without further specification.",
                             IsActive = true,
@@ -997,7 +997,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 116, DateTimeKind.Utc).AddTicks(8005),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 349, DateTimeKind.Utc).AddTicks(9265),
                             DescriptionAr = "التهاب رئوي دون تحديد الكائن المسبب.",
                             DescriptionEn = "Pneumonia without identification of the causative organism.",
                             IsActive = true,
@@ -1008,7 +1008,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 116, DateTimeKind.Utc).AddTicks(8010),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 349, DateTimeKind.Utc).AddTicks(9267),
                             DescriptionAr = "التهاب في المسالك البولية دون تحديد الموقع.",
                             DescriptionEn = "Urinary tract infection without a specified site.",
                             IsActive = true,
@@ -1019,7 +1019,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 116, DateTimeKind.Utc).AddTicks(8013),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 349, DateTimeKind.Utc).AddTicks(9268),
                             DescriptionAr = "التهاب الجلد التأتبي دون تحديد إضافي.",
                             DescriptionEn = "Atopic dermatitis without further specification.",
                             IsActive = true,
@@ -1030,7 +1030,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 12,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 116, DateTimeKind.Utc).AddTicks(8017),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 349, DateTimeKind.Utc).AddTicks(9270),
                             DescriptionAr = "التهاب ملتحمة العين دون تحديد إضافي.",
                             DescriptionEn = "Inflammation of the conjunctiva without further specification.",
                             IsActive = true,
@@ -1041,7 +1041,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 13,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 116, DateTimeKind.Utc).AddTicks(8020),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 349, DateTimeKind.Utc).AddTicks(9271),
                             DescriptionAr = "التهاب بطانة المعدة دون تحديد إضافي.",
                             DescriptionEn = "Inflammation of the stomach lining without further specification.",
                             IsActive = true,
@@ -1052,7 +1052,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 14,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 116, DateTimeKind.Utc).AddTicks(8024),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 349, DateTimeKind.Utc).AddTicks(9272),
                             DescriptionAr = "فقر الدم دون تحديد نوعه.",
                             DescriptionEn = "Anemia without further specification.",
                             IsActive = true,
@@ -1063,7 +1063,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 15,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 116, DateTimeKind.Utc).AddTicks(8028),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 349, DateTimeKind.Utc).AddTicks(9274),
                             DescriptionAr = "قصور الغدة الدرقية دون تحديد إضافي.",
                             DescriptionEn = "Hypothyroidism without further specification.",
                             IsActive = true,
@@ -1135,7 +1135,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 1,
                             ConsultationFee = 50.00m,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 117, DateTimeKind.Utc).AddTicks(7078),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 350, DateTimeKind.Utc).AddTicks(2978),
                             Email = "ahmed.mohamed@clinic.com",
                             FullName = "Dr. Ahmed Mohamed",
                             IsActive = true,
@@ -1146,7 +1146,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 2,
                             ConsultationFee = 60.00m,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 117, DateTimeKind.Utc).AddTicks(7092),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 350, DateTimeKind.Utc).AddTicks(2984),
                             Email = "sara.ali@clinic.com",
                             FullName = "Dr. Sara Ali",
                             IsActive = true,
@@ -1157,7 +1157,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 3,
                             ConsultationFee = 45.00m,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 117, DateTimeKind.Utc).AddTicks(7097),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 350, DateTimeKind.Utc).AddTicks(2986),
                             Email = "mohamed.hassan@clinic.com",
                             FullName = "Dr. Mohamed Hassan",
                             IsActive = true,
@@ -1168,7 +1168,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 4,
                             ConsultationFee = 55.00m,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 117, DateTimeKind.Utc).AddTicks(7102),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 350, DateTimeKind.Utc).AddTicks(2987),
                             Email = "fatima.ahmed@clinic.com",
                             FullName = "Dr. Fatima Ahmed",
                             IsActive = true,
@@ -1179,7 +1179,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 5,
                             ConsultationFee = 50.00m,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 117, DateTimeKind.Utc).AddTicks(7107),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 350, DateTimeKind.Utc).AddTicks(2989),
                             Email = "khalid.osman@clinic.com",
                             FullName = "Dr. Khalid Osman",
                             IsActive = true,
@@ -1190,7 +1190,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 6,
                             ConsultationFee = 65.00m,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 117, DateTimeKind.Utc).AddTicks(7115),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 350, DateTimeKind.Utc).AddTicks(2992),
                             Email = "huda.ibrahim@clinic.com",
                             FullName = "Dr. Huda Ibrahim",
                             IsActive = true,
@@ -1201,7 +1201,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 7,
                             ConsultationFee = 50.00m,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 117, DateTimeKind.Utc).AddTicks(7315),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 350, DateTimeKind.Utc).AddTicks(2994),
                             Email = "yousif.omar@clinic.com",
                             FullName = "Dr. Yousif Omar",
                             IsActive = true,
@@ -1212,7 +1212,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 8,
                             ConsultationFee = 70.00m,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 117, DateTimeKind.Utc).AddTicks(7322),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 350, DateTimeKind.Utc).AddTicks(2996),
                             Email = "maryam.ibrahim@clinic.com",
                             FullName = "Dr. Maryam Ibrahim",
                             IsActive = true,
@@ -1273,7 +1273,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 119, DateTimeKind.Utc).AddTicks(4700),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 351, DateTimeKind.Utc).AddTicks(584),
                             DoctorId = 1,
                             IsDeleted = false,
                             SpecialtyId = 1
@@ -1281,7 +1281,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 119, DateTimeKind.Utc).AddTicks(4705),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 351, DateTimeKind.Utc).AddTicks(586),
                             DoctorId = 1,
                             IsDeleted = false,
                             SpecialtyId = 4
@@ -1289,7 +1289,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 119, DateTimeKind.Utc).AddTicks(4707),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 351, DateTimeKind.Utc).AddTicks(587),
                             DoctorId = 2,
                             IsDeleted = false,
                             SpecialtyId = 3
@@ -1297,7 +1297,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 119, DateTimeKind.Utc).AddTicks(4710),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 351, DateTimeKind.Utc).AddTicks(588),
                             DoctorId = 3,
                             IsDeleted = false,
                             SpecialtyId = 6
@@ -1305,7 +1305,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 119, DateTimeKind.Utc).AddTicks(4712),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 351, DateTimeKind.Utc).AddTicks(589),
                             DoctorId = 3,
                             IsDeleted = false,
                             SpecialtyId = 5
@@ -1313,7 +1313,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 119, DateTimeKind.Utc).AddTicks(4718),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 351, DateTimeKind.Utc).AddTicks(591),
                             DoctorId = 4,
                             IsDeleted = false,
                             SpecialtyId = 10
@@ -1321,7 +1321,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 119, DateTimeKind.Utc).AddTicks(4720),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 351, DateTimeKind.Utc).AddTicks(592),
                             DoctorId = 5,
                             IsDeleted = false,
                             SpecialtyId = 7
@@ -1329,7 +1329,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 119, DateTimeKind.Utc).AddTicks(4723),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 351, DateTimeKind.Utc).AddTicks(593),
                             DoctorId = 6,
                             IsDeleted = false,
                             SpecialtyId = 2
@@ -1337,7 +1337,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 119, DateTimeKind.Utc).AddTicks(4775),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 351, DateTimeKind.Utc).AddTicks(594),
                             DoctorId = 7,
                             IsDeleted = false,
                             SpecialtyId = 11
@@ -1345,7 +1345,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 119, DateTimeKind.Utc).AddTicks(4779),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 351, DateTimeKind.Utc).AddTicks(595),
                             DoctorId = 8,
                             IsDeleted = false,
                             SpecialtyId = 8
@@ -1625,7 +1625,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 126, DateTimeKind.Utc).AddTicks(5999),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 353, DateTimeKind.Utc).AddTicks(8193),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "أمراض الدم",
@@ -1634,7 +1634,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 126, DateTimeKind.Utc).AddTicks(6004),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 353, DateTimeKind.Utc).AddTicks(8196),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "الكيمياء الحيوية",
@@ -1643,7 +1643,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 126, DateTimeKind.Utc).AddTicks(6007),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 353, DateTimeKind.Utc).AddTicks(8198),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "المناعة",
@@ -1652,7 +1652,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 126, DateTimeKind.Utc).AddTicks(6010),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 353, DateTimeKind.Utc).AddTicks(8199),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "الأحياء الدقيقة",
@@ -1661,7 +1661,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 126, DateTimeKind.Utc).AddTicks(6014),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 353, DateTimeKind.Utc).AddTicks(8200),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "الهرمونات",
@@ -1670,7 +1670,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 126, DateTimeKind.Utc).AddTicks(6122),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 353, DateTimeKind.Utc).AddTicks(8278),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "تحليل البول",
@@ -1679,7 +1679,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 126, DateTimeKind.Utc).AddTicks(6125),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 353, DateTimeKind.Utc).AddTicks(8279),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "الأمصال",
@@ -1688,7 +1688,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 126, DateTimeKind.Utc).AddTicks(6127),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 353, DateTimeKind.Utc).AddTicks(8280),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "الطفيليات",
@@ -1980,7 +1980,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 133, DateTimeKind.Utc).AddTicks(915),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 356, DateTimeKind.Utc).AddTicks(7171),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "تعداد الدم الكامل",
@@ -1991,7 +1991,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 2,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 133, DateTimeKind.Utc).AddTicks(927),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 356, DateTimeKind.Utc).AddTicks(7176),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "سرعة ترسيب كريات الدم الحمراء",
@@ -2002,7 +2002,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 3,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 133, DateTimeKind.Utc).AddTicks(931),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 356, DateTimeKind.Utc).AddTicks(7177),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "الهيموغلوبين",
@@ -2013,7 +2013,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 4,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 133, DateTimeKind.Utc).AddTicks(934),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 356, DateTimeKind.Utc).AddTicks(7179),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "فصيلة الدم وعامل ريسوس",
@@ -2024,7 +2024,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 5,
                             CategoryId = 2,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 133, DateTimeKind.Utc).AddTicks(938),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 356, DateTimeKind.Utc).AddTicks(7180),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "وظائف الكبد",
@@ -2035,7 +2035,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 6,
                             CategoryId = 2,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 133, DateTimeKind.Utc).AddTicks(943),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 356, DateTimeKind.Utc).AddTicks(7183),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "وظائف الكلى",
@@ -2046,7 +2046,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 7,
                             CategoryId = 2,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 133, DateTimeKind.Utc).AddTicks(946),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 356, DateTimeKind.Utc).AddTicks(7185),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "سكر الدم الصائم",
@@ -2057,7 +2057,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 8,
                             CategoryId = 2,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 133, DateTimeKind.Utc).AddTicks(950),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 356, DateTimeKind.Utc).AddTicks(7186),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "سكر الدم العشوائي",
@@ -2068,7 +2068,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 9,
                             CategoryId = 2,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 133, DateTimeKind.Utc).AddTicks(953),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 356, DateTimeKind.Utc).AddTicks(7188),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "السكر التراكمي",
@@ -2079,7 +2079,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 10,
                             CategoryId = 2,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 133, DateTimeKind.Utc).AddTicks(957),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 356, DateTimeKind.Utc).AddTicks(7190),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "دهون الدم",
@@ -2090,7 +2090,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 11,
                             CategoryId = 2,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 133, DateTimeKind.Utc).AddTicks(961),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 356, DateTimeKind.Utc).AddTicks(7192),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "حمض اليوريك",
@@ -2101,7 +2101,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 12,
                             CategoryId = 5,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 133, DateTimeKind.Utc).AddTicks(964),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 356, DateTimeKind.Utc).AddTicks(7193),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "الهرمون المنبه للغدة الدرقية",
@@ -2112,7 +2112,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 13,
                             CategoryId = 5,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 133, DateTimeKind.Utc).AddTicks(968),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 356, DateTimeKind.Utc).AddTicks(7195),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "الثيروكسين الحر",
@@ -2123,7 +2123,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 14,
                             CategoryId = 5,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 133, DateTimeKind.Utc).AddTicks(971),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 356, DateTimeKind.Utc).AddTicks(7196),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "هرمون الحمل",
@@ -2134,7 +2134,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 15,
                             CategoryId = 6,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 133, DateTimeKind.Utc).AddTicks(974),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 356, DateTimeKind.Utc).AddTicks(7198),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "تحليل البول",
@@ -2145,7 +2145,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 16,
                             CategoryId = 7,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 133, DateTimeKind.Utc).AddTicks(1122),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 356, DateTimeKind.Utc).AddTicks(7199),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "اختبار فيدال",
@@ -2156,7 +2156,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 17,
                             CategoryId = 7,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 133, DateTimeKind.Utc).AddTicks(1126),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 356, DateTimeKind.Utc).AddTicks(7201),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "مستضد سطح التهاب الكبد B",
@@ -2167,7 +2167,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 18,
                             CategoryId = 7,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 133, DateTimeKind.Utc).AddTicks(1131),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 356, DateTimeKind.Utc).AddTicks(7203),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "الأجسام المضادة لالتهاب الكبد C",
@@ -2178,7 +2178,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 19,
                             CategoryId = 7,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 133, DateTimeKind.Utc).AddTicks(1134),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 356, DateTimeKind.Utc).AddTicks(7205),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "فحص فيروس نقص المناعة البشرية",
@@ -2189,7 +2189,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 20,
                             CategoryId = 8,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 133, DateTimeKind.Utc).AddTicks(1154),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 356, DateTimeKind.Utc).AddTicks(7242),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "فحص الملاريا",
@@ -2200,7 +2200,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 21,
                             CategoryId = 8,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 133, DateTimeKind.Utc).AddTicks(1158),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 356, DateTimeKind.Utc).AddTicks(7244),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "فحص البراز",
@@ -2281,7 +2281,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(1983),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2187),
                             DisplayOrder = 1,
                             IsActive = true,
                             IsDeleted = false,
@@ -2294,7 +2294,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(1990),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2192),
                             DisplayOrder = 2,
                             IsActive = true,
                             IsDeleted = false,
@@ -2307,7 +2307,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(1994),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2194),
                             DisplayOrder = 3,
                             IsActive = true,
                             IsDeleted = false,
@@ -2320,7 +2320,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(1997),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2195),
                             DisplayOrder = 4,
                             IsActive = true,
                             IsDeleted = false,
@@ -2333,7 +2333,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2000),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2197),
                             DisplayOrder = 5,
                             IsActive = true,
                             IsDeleted = false,
@@ -2346,7 +2346,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2007),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2200),
                             DisplayOrder = 6,
                             IsActive = true,
                             IsDeleted = false,
@@ -2359,7 +2359,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2010),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2201),
                             DisplayOrder = 7,
                             IsActive = true,
                             IsDeleted = false,
@@ -2372,7 +2372,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2013),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2203),
                             DisplayOrder = 8,
                             IsActive = true,
                             IsDeleted = false,
@@ -2385,7 +2385,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2016),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2204),
                             DisplayOrder = 9,
                             IsActive = true,
                             IsDeleted = false,
@@ -2398,7 +2398,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2020),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2206),
                             DisplayOrder = 10,
                             IsActive = true,
                             IsDeleted = false,
@@ -2411,7 +2411,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2023),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2207),
                             DisplayOrder = 1,
                             IsActive = true,
                             IsDeleted = false,
@@ -2424,7 +2424,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 12,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2026),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2209),
                             DisplayOrder = 1,
                             IsActive = true,
                             IsDeleted = false,
@@ -2437,7 +2437,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 13,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2029),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2210),
                             DisplayOrder = 1,
                             IsActive = true,
                             IsDeleted = false,
@@ -2449,7 +2449,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 14,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2033),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2211),
                             DisplayOrder = 2,
                             IsActive = true,
                             IsDeleted = false,
@@ -2461,7 +2461,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 15,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2036),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2213),
                             DisplayOrder = 1,
                             IsActive = true,
                             IsDeleted = false,
@@ -2474,7 +2474,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 16,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2039),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2214),
                             DisplayOrder = 2,
                             IsActive = true,
                             IsDeleted = false,
@@ -2487,7 +2487,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 17,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2042),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2215),
                             DisplayOrder = 3,
                             IsActive = true,
                             IsDeleted = false,
@@ -2500,7 +2500,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 18,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2047),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2218),
                             DisplayOrder = 4,
                             IsActive = true,
                             IsDeleted = false,
@@ -2513,7 +2513,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 19,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2050),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2219),
                             DisplayOrder = 5,
                             IsActive = true,
                             IsDeleted = false,
@@ -2526,7 +2526,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 20,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2053),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2220),
                             DisplayOrder = 6,
                             IsActive = true,
                             IsDeleted = false,
@@ -2539,7 +2539,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 21,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2117),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2222),
                             DisplayOrder = 1,
                             IsActive = true,
                             IsDeleted = false,
@@ -2552,7 +2552,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 22,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2121),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2223),
                             DisplayOrder = 2,
                             IsActive = true,
                             IsDeleted = false,
@@ -2565,7 +2565,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 23,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2124),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2225),
                             DisplayOrder = 1,
                             IsActive = true,
                             IsDeleted = false,
@@ -2578,7 +2578,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 24,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2128),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2226),
                             DisplayOrder = 1,
                             IsActive = true,
                             IsDeleted = false,
@@ -2591,7 +2591,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 25,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2131),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2227),
                             DisplayOrder = 1,
                             IsActive = true,
                             IsDeleted = false,
@@ -2604,7 +2604,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 26,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2134),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2229),
                             DisplayOrder = 1,
                             IsActive = true,
                             IsDeleted = false,
@@ -2617,7 +2617,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 27,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2137),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2230),
                             DisplayOrder = 2,
                             IsActive = true,
                             IsDeleted = false,
@@ -2630,7 +2630,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 28,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2140),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2231),
                             DisplayOrder = 3,
                             IsActive = true,
                             IsDeleted = false,
@@ -2643,7 +2643,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 29,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2143),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2233),
                             DisplayOrder = 4,
                             IsActive = true,
                             IsDeleted = false,
@@ -2656,7 +2656,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 30,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2147),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2234),
                             DisplayOrder = 1,
                             IsActive = true,
                             IsDeleted = false,
@@ -2669,7 +2669,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 31,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2150),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2236),
                             DisplayOrder = 1,
                             IsActive = true,
                             IsDeleted = false,
@@ -2682,7 +2682,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 32,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2153),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2237),
                             DisplayOrder = 1,
                             IsActive = true,
                             IsDeleted = false,
@@ -2695,7 +2695,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 33,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2156),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2238),
                             DisplayOrder = 1,
                             IsActive = true,
                             IsDeleted = false,
@@ -2708,7 +2708,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 34,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2161),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2269),
                             DisplayOrder = 1,
                             IsActive = true,
                             IsDeleted = false,
@@ -2720,7 +2720,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 35,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2164),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2270),
                             DisplayOrder = 2,
                             IsActive = true,
                             IsDeleted = false,
@@ -2732,7 +2732,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 36,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2167),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2272),
                             DisplayOrder = 3,
                             IsActive = true,
                             IsDeleted = false,
@@ -2744,7 +2744,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 37,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2171),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2273),
                             DisplayOrder = 4,
                             IsActive = true,
                             IsDeleted = false,
@@ -2756,7 +2756,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 38,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2174),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2274),
                             DisplayOrder = 5,
                             IsActive = true,
                             IsDeleted = false,
@@ -2768,7 +2768,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 39,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2177),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2276),
                             DisplayOrder = 6,
                             IsActive = true,
                             IsDeleted = false,
@@ -2780,7 +2780,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 40,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2180),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2277),
                             DisplayOrder = 7,
                             IsActive = true,
                             IsDeleted = false,
@@ -2792,7 +2792,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 41,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2183),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2278),
                             DisplayOrder = 8,
                             IsActive = true,
                             IsDeleted = false,
@@ -2805,7 +2805,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 42,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2186),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2280),
                             DisplayOrder = 9,
                             IsActive = true,
                             IsDeleted = false,
@@ -2818,7 +2818,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 43,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2189),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2281),
                             DisplayOrder = 1,
                             IsActive = true,
                             IsDeleted = false,
@@ -2830,7 +2830,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 44,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2193),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2283),
                             DisplayOrder = 2,
                             IsActive = true,
                             IsDeleted = false,
@@ -2842,7 +2842,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 45,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2196),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2284),
                             DisplayOrder = 1,
                             IsActive = true,
                             IsDeleted = false,
@@ -2854,7 +2854,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 46,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2199),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2285),
                             DisplayOrder = 1,
                             IsActive = true,
                             IsDeleted = false,
@@ -2866,7 +2866,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 47,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2202),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2287),
                             DisplayOrder = 1,
                             IsActive = true,
                             IsDeleted = false,
@@ -2878,7 +2878,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 48,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2205),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2288),
                             DisplayOrder = 1,
                             IsActive = true,
                             IsDeleted = false,
@@ -2890,7 +2890,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 49,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2208),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2289),
                             DisplayOrder = 1,
                             IsActive = true,
                             IsDeleted = false,
@@ -2902,7 +2902,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 50,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2211),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2291),
                             DisplayOrder = 2,
                             IsActive = true,
                             IsDeleted = false,
@@ -2914,7 +2914,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 51,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2214),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2292),
                             DisplayOrder = 3,
                             IsActive = true,
                             IsDeleted = false,
@@ -2926,7 +2926,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 52,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2217),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2293),
                             DisplayOrder = 4,
                             IsActive = true,
                             IsDeleted = false,
@@ -2938,7 +2938,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 53,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 134, DateTimeKind.Utc).AddTicks(2221),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(2295),
                             DisplayOrder = 5,
                             IsActive = true,
                             IsDeleted = false,
@@ -3031,7 +3031,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 135, DateTimeKind.Utc).AddTicks(666),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(6232),
                             DosageForm = "Tablet",
                             GenericNameAr = "باراسيتامول",
                             GenericNameEn = "Paracetamol",
@@ -3046,7 +3046,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 135, DateTimeKind.Utc).AddTicks(672),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(6237),
                             DosageForm = "Capsule",
                             GenericNameAr = "أموكسيسيلين",
                             GenericNameEn = "Amoxicillin",
@@ -3061,7 +3061,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 135, DateTimeKind.Utc).AddTicks(677),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(6239),
                             DosageForm = "Tablet",
                             GenericNameAr = "إيبوبروفين",
                             GenericNameEn = "Ibuprofen",
@@ -3076,7 +3076,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 135, DateTimeKind.Utc).AddTicks(682),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(6242),
                             DosageForm = "Capsule",
                             GenericNameAr = "أوميبرازول",
                             GenericNameEn = "Omeprazole",
@@ -3091,7 +3091,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 135, DateTimeKind.Utc).AddTicks(769),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(6244),
                             DosageForm = "Tablet",
                             GenericNameAr = "ميتفورمين",
                             GenericNameEn = "Metformin",
@@ -3106,7 +3106,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 135, DateTimeKind.Utc).AddTicks(776),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(6247),
                             DosageForm = "Tablet",
                             GenericNameAr = "أملوديبين",
                             GenericNameEn = "Amlodipine",
@@ -3121,7 +3121,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 135, DateTimeKind.Utc).AddTicks(782),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(6249),
                             DosageForm = "Tablet",
                             GenericNameAr = "سيتريزين",
                             GenericNameEn = "Cetirizine",
@@ -3136,7 +3136,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 135, DateTimeKind.Utc).AddTicks(787),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(6252),
                             DosageForm = "Inhaler",
                             GenericNameAr = "سالبوتامول",
                             GenericNameEn = "Salbutamol",
@@ -3151,7 +3151,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 135, DateTimeKind.Utc).AddTicks(792),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(6254),
                             DosageForm = "Tablet",
                             GenericNameAr = "ديكلوفيناك",
                             GenericNameEn = "Diclofenac",
@@ -3166,7 +3166,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 135, DateTimeKind.Utc).AddTicks(798),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(6257),
                             DosageForm = "Tablet",
                             GenericNameAr = "أزيثروميسين",
                             GenericNameEn = "Azithromycin",
@@ -3181,7 +3181,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 135, DateTimeKind.Utc).AddTicks(803),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(6259),
                             DosageForm = "Tablet",
                             GenericNameAr = "لوراتادين",
                             GenericNameEn = "Loratadine",
@@ -3196,7 +3196,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 12,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 135, DateTimeKind.Utc).AddTicks(809),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 357, DateTimeKind.Utc).AddTicks(6261),
                             DosageForm = "Cream",
                             GenericNameAr = "هيدروكورتيزون",
                             GenericNameEn = "Hydrocortisone",
@@ -3299,7 +3299,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                             Id = 1,
                             Address = "Khartoum",
                             BloodType = 7,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 138, DateTimeKind.Utc).AddTicks(9784),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 360, DateTimeKind.Utc).AddTicks(4517),
                             DateOfBirth = new DateTime(1985, 4, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "ahmed.hassan@example.com",
                             FullName = "Ahmed Hassan",
@@ -3314,7 +3314,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                             Id = 2,
                             Address = "Omdurman",
                             BloodType = 1,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 138, DateTimeKind.Utc).AddTicks(9798),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 360, DateTimeKind.Utc).AddTicks(4524),
                             DateOfBirth = new DateTime(1992, 8, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "sara.mohamed@example.com",
                             FullName = "Sara Mohamed",
@@ -3329,7 +3329,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                             Id = 3,
                             Address = "Bahri",
                             BloodType = 3,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 138, DateTimeKind.Utc).AddTicks(9805),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 360, DateTimeKind.Utc).AddTicks(4527),
                             DateOfBirth = new DateTime(1978, 11, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "mohamed.ali@example.com",
                             FullName = "Mohamed Ali",
@@ -3344,7 +3344,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                             Id = 4,
                             Address = "Khartoum",
                             BloodType = 6,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 138, DateTimeKind.Utc).AddTicks(9810),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 360, DateTimeKind.Utc).AddTicks(4530),
                             DateOfBirth = new DateTime(2000, 2, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "fatima.ahmed@example.com",
                             FullName = "Fatima Ahmed",
@@ -3359,7 +3359,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                             Id = 5,
                             Address = "Omdurman",
                             BloodType = 8,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 138, DateTimeKind.Utc).AddTicks(9816),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 360, DateTimeKind.Utc).AddTicks(4532),
                             DateOfBirth = new DateTime(1969, 7, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "omar.ibrahim@example.com",
                             FullName = "Omar Ibrahim",
@@ -3431,7 +3431,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 1,
                             AllergyId = 1,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 136, DateTimeKind.Utc).AddTicks(4373),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 359, DateTimeKind.Utc).AddTicks(1708),
                             IdentifiedAt = new DateTime(2020, 5, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             Notes = "Known penicillin allergy",
@@ -3441,7 +3441,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 2,
                             AllergyId = 4,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 136, DateTimeKind.Utc).AddTicks(4383),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 359, DateTimeKind.Utc).AddTicks(1719),
                             IdentifiedAt = new DateTime(2021, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             Notes = "Avoid latex products",
@@ -3451,7 +3451,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 3,
                             AllergyId = 2,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 136, DateTimeKind.Utc).AddTicks(4387),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 359, DateTimeKind.Utc).AddTicks(1721),
                             IdentifiedAt = new DateTime(2019, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             Notes = "Reported by patient",
@@ -3461,7 +3461,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 4,
                             AllergyId = 5,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 136, DateTimeKind.Utc).AddTicks(4391),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 359, DateTimeKind.Utc).AddTicks(1723),
                             IdentifiedAt = new DateTime(2018, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             Notes = "Food allergy",
@@ -3529,7 +3529,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 1,
                             ChronicConditionId = 1,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 137, DateTimeKind.Utc).AddTicks(9739),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 359, DateTimeKind.Utc).AddTicks(9373),
                             DiagnosedAt = new DateTime(2018, 4, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             Notes = "Type 2 diabetes",
@@ -3539,7 +3539,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 2,
                             ChronicConditionId = 2,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 137, DateTimeKind.Utc).AddTicks(9751),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 359, DateTimeKind.Utc).AddTicks(9380),
                             DiagnosedAt = new DateTime(2020, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             Notes = "Currently under treatment",
@@ -3549,7 +3549,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 3,
                             ChronicConditionId = 3,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 137, DateTimeKind.Utc).AddTicks(9757),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 359, DateTimeKind.Utc).AddTicks(9382),
                             DiagnosedAt = new DateTime(2016, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             Notes = "Intermittent asthma",
@@ -3559,7 +3559,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 4,
                             ChronicConditionId = 2,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 137, DateTimeKind.Utc).AddTicks(9761),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 359, DateTimeKind.Utc).AddTicks(9384),
                             DiagnosedAt = new DateTime(2019, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             Notes = "Regular blood pressure monitoring",
@@ -3569,7 +3569,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         {
                             Id = 5,
                             ChronicConditionId = 4,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 137, DateTimeKind.Utc).AddTicks(9765),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 359, DateTimeKind.Utc).AddTicks(9386),
                             DiagnosedAt = new DateTime(2022, 11, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             Notes = "Requires regular kidney function monitoring",
@@ -3634,7 +3634,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 139, DateTimeKind.Utc).AddTicks(7522),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 360, DateTimeKind.Utc).AddTicks(8661),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "نقداً",
@@ -3644,7 +3644,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 139, DateTimeKind.Utc).AddTicks(7526),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 360, DateTimeKind.Utc).AddTicks(8665),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "بنكك",
@@ -3654,7 +3654,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 139, DateTimeKind.Utc).AddTicks(7530),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 360, DateTimeKind.Utc).AddTicks(8666),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "فوري",
@@ -3664,7 +3664,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 139, DateTimeKind.Utc).AddTicks(7533),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 360, DateTimeKind.Utc).AddTicks(8667),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "ساهل",
@@ -3674,7 +3674,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 139, DateTimeKind.Utc).AddTicks(7536),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 360, DateTimeKind.Utc).AddTicks(8669),
                             IsActive = true,
                             IsDeleted = false,
                             NameAr = "أوكاش",
@@ -3878,7 +3878,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 143, DateTimeKind.Utc).AddTicks(5481),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 362, DateTimeKind.Utc).AddTicks(3040),
                             DescriptionAr = "تشخيص وعلاج أمراض القلب والأوعية الدموية",
                             DescriptionEn = "Diagnosis and treatment of heart and cardiovascular diseases",
                             IsActive = true,
@@ -3889,7 +3889,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 143, DateTimeKind.Utc).AddTicks(5488),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 362, DateTimeKind.Utc).AddTicks(3043),
                             DescriptionAr = "تشخيص وعلاج أمراض الجلد والشعر والأظافر",
                             DescriptionEn = "Diagnosis and treatment of skin, hair, and nail conditions",
                             IsActive = true,
@@ -3900,7 +3900,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 143, DateTimeKind.Utc).AddTicks(5491),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 362, DateTimeKind.Utc).AddTicks(3045),
                             DescriptionAr = "الرعاية الطبية للرضع والأطفال والمراهقين",
                             DescriptionEn = "Medical care for infants, children, and adolescents",
                             IsActive = true,
@@ -3911,7 +3911,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 143, DateTimeKind.Utc).AddTicks(5494),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 362, DateTimeKind.Utc).AddTicks(3046),
                             DescriptionAr = "تشخيص وعلاج الأمراض التي تصيب الأعضاء الداخلية",
                             DescriptionEn = "Diagnosis and treatment of diseases affecting internal organs",
                             IsActive = true,
@@ -3922,7 +3922,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 143, DateTimeKind.Utc).AddTicks(5497),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 362, DateTimeKind.Utc).AddTicks(3048),
                             DescriptionAr = "العلاج الجراحي لمجموعة واسعة من الحالات الطبية",
                             DescriptionEn = "Surgical treatment of a wide range of medical conditions",
                             IsActive = true,
@@ -3933,7 +3933,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 143, DateTimeKind.Utc).AddTicks(5502),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 362, DateTimeKind.Utc).AddTicks(3050),
                             DescriptionAr = "تشخيص وعلاج أمراض وإصابات الجهاز العضلي الهيكلي",
                             DescriptionEn = "Diagnosis and treatment of musculoskeletal conditions",
                             IsActive = true,
@@ -3944,7 +3944,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 143, DateTimeKind.Utc).AddTicks(5505),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 362, DateTimeKind.Utc).AddTicks(3052),
                             DescriptionAr = "تشخيص وعلاج اضطرابات الجهاز العصبي",
                             DescriptionEn = "Diagnosis and treatment of disorders of the nervous system",
                             IsActive = true,
@@ -3955,7 +3955,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 143, DateTimeKind.Utc).AddTicks(5508),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 362, DateTimeKind.Utc).AddTicks(3088),
                             DescriptionAr = "تشخيص وعلاج أمراض العيون واضطرابات الرؤية",
                             DescriptionEn = "Diagnosis and treatment of eye diseases and vision disorders",
                             IsActive = true,
@@ -3966,7 +3966,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 143, DateTimeKind.Utc).AddTicks(5511),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 362, DateTimeKind.Utc).AddTicks(3090),
                             DescriptionAr = "الوقاية وتشخيص وعلاج أمراض الأسنان والفم",
                             DescriptionEn = "Prevention, diagnosis, and treatment of dental conditions",
                             IsActive = true,
@@ -3977,7 +3977,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 143, DateTimeKind.Utc).AddTicks(5515),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 362, DateTimeKind.Utc).AddTicks(3092),
                             DescriptionAr = "الرعاية الطبية المتعلقة بالحمل والولادة وصحة المرأة الإنجابية",
                             DescriptionEn = "Medical care related to pregnancy, childbirth, and women's reproductive health",
                             IsActive = true,
@@ -3988,7 +3988,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 143, DateTimeKind.Utc).AddTicks(5518),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 362, DateTimeKind.Utc).AddTicks(3093),
                             DescriptionAr = "تشخيص وعلاج أمراض الأنف والأذن والحنجرة",
                             DescriptionEn = "Diagnosis and treatment of ear, nose, and throat conditions",
                             IsActive = true,
@@ -3999,7 +3999,7 @@ namespace ClinicFlow.Infrastructure.Migrations
                         new
                         {
                             Id = 12,
-                            CreatedAt = new DateTime(2026, 10, 6, 7, 27, 40, 143, DateTimeKind.Utc).AddTicks(5521),
+                            CreatedAt = new DateTime(2026, 11, 4, 12, 34, 12, 362, DateTimeKind.Utc).AddTicks(3095),
                             DescriptionAr = "تشخيص وعلاج اضطرابات الصحة النفسية",
                             DescriptionEn = "Diagnosis and treatment of mental health conditions",
                             IsActive = true,
@@ -4333,6 +4333,208 @@ namespace ClinicFlow.Infrastructure.Migrations
                         .HasFilter("[IsDeleted] = 0");
 
                     b.ToTable("WaitingQueues", (string)null);
+                });
+
+            modelBuilder.Entity("ClinicFlow.Infrastructure.Identity.ApplicationUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("RoleId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens", (string)null);
                 });
 
             modelBuilder.Entity("ClinicFlow.Domain.Entities.Appointment", b =>
@@ -4741,6 +4943,57 @@ namespace ClinicFlow.Infrastructure.Migrations
                     b.Navigation("Invoice");
 
                     b.Navigation("Patient");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.HasOne("ClinicFlow.Infrastructure.Identity.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.HasOne("ClinicFlow.Infrastructure.Identity.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ClinicFlow.Infrastructure.Identity.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.HasOne("ClinicFlow.Infrastructure.Identity.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("ClinicFlow.Domain.Entities.Allergy", b =>

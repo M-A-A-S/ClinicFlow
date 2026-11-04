@@ -4,6 +4,7 @@ using ClinicFlow.Domain.Entities;
 using ClinicFlow.Domain.Resources.Shared;
 using ClinicFlow.Domain.Utilities;
 using ClinicFlow.WebUI.ViewModels.Appointment;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Localization;
@@ -11,6 +12,7 @@ using System.Globalization;
 
 namespace ClinicFlow.WebUI.Controllers
 {
+    [Authorize]
     public class AppointmentsController : BaseController
     {
 

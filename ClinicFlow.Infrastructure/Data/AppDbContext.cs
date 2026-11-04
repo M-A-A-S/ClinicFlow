@@ -1,4 +1,6 @@
 ﻿using ClinicFlow.Domain.Entities;
+using ClinicFlow.Infrastructure.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using System;
@@ -10,7 +12,8 @@ using System.Threading.Tasks;
 
 namespace ClinicFlow.Infrastructure.Data
 {
-    public partial class AppDbContext : DbContext, IAppDbContext
+    //public partial class AppDbContext : DbContext, IAppDbContext
+    public partial class AppDbContext : IdentityDbContext<ApplicationUser>, IAppDbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {

@@ -3,11 +3,13 @@ using ClinicFlow.Domain.DTOs.BondCategory;
 using ClinicFlow.Domain.Resources.Shared;
 using ClinicFlow.Domain.Utilities;
 using ClinicFlow.WebUI.ViewModels.BondCategory;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 
 namespace ClinicFlow.WebUI.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class BondCategoriesController : BaseController
     {
         #region ========================= Fields & Properties =========================
