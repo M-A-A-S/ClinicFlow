@@ -574,6 +574,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cannot delete the last administrator account..
+        /// </summary>
+        public static string CannotDeleteLastAdmin {
+            get {
+                return ResourceManager.GetString("CannotDeleteLastAdmin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Capsule.
         /// </summary>
         public static string Capsule {
@@ -808,11 +817,29 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to  The operation failed because the data was modified by another operation.
+        /// </summary>
+        public static string ConcurrencyFailure {
+            get {
+                return ResourceManager.GetString("ConcurrencyFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirmed.
         /// </summary>
         public static string Confirmed {
             get {
                 return ResourceManager.GetString("Confirmed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm Password.
+        /// </summary>
+        public static string ConfirmPassword {
+            get {
+                return ResourceManager.GetString("ConfirmPassword", resourceCulture);
             }
         }
         
@@ -880,6 +907,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create New User.
+        /// </summary>
+        public static string CreateNewUser {
+            get {
+                return ResourceManager.GetString("CreateNewUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Critical.
         /// </summary>
         public static string Critical {
@@ -939,6 +975,24 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string DeletedSuccessfully {
             get {
                 return ResourceManager.GetString("DeletedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete User.
+        /// </summary>
+        public static string DeleteUser {
+            get {
+                return ResourceManager.GetString("DeleteUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete this user? This action cannot be undone..
+        /// </summary>
+        public static string DeleteUserConfirmation {
+            get {
+                return ResourceManager.GetString("DeleteUserConfirmation", resourceCulture);
             }
         }
         
@@ -1150,6 +1204,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This email address is already registered..
+        /// </summary>
+        public static string DuplicateEmail {
+            get {
+                return ResourceManager.GetString("DuplicateEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Duplicate parameter entries are not allowed.
         /// </summary>
         public static string DuplicateParameters {
@@ -1168,11 +1231,29 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This role already exists.
+        /// </summary>
+        public static string DuplicateRoleName {
+            get {
+                return ResourceManager.GetString("DuplicateRoleName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The same specialty has been selected more than once..
         /// </summary>
         public static string DuplicateSpecialty {
             get {
                 return ResourceManager.GetString("DuplicateSpecialty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This user name is already taken..
+        /// </summary>
+        public static string DuplicateUserName {
+            get {
+                return ResourceManager.GetString("DuplicateUserName", resourceCulture);
             }
         }
         
@@ -1204,6 +1285,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit User.
+        /// </summary>
+        public static string EditUser {
+            get {
+                return ResourceManager.GetString("EditUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string Email {
@@ -1222,11 +1312,29 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Email already exists..
+        ///   Looks up a localized string similar to This email address is already registered..
         /// </summary>
         public static string EmailExists {
             get {
                 return ResourceManager.GetString("EmailExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter a valid email address..
+        /// </summary>
+        public static string EmailInvalid {
+            get {
+                return ResourceManager.GetString("EmailInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email is required..
+        /// </summary>
+        public static string EmailRequired {
+            get {
+                return ResourceManager.GetString("EmailRequired", resourceCulture);
             }
         }
         
@@ -1281,6 +1389,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string EnterValue {
             get {
                 return ResourceManager.GetString("EnterValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Operation failed..
+        /// </summary>
+        public static string failure {
+            get {
+                return ResourceManager.GetString("failure", resourceCulture);
             }
         }
         
@@ -1425,6 +1542,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string IdentifiedAt {
             get {
                 return ResourceManager.GetString("IdentifiedAt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The operation failed. Please try again..
+        /// </summary>
+        public static string IdentityOperationFailed {
+            get {
+                return ResourceManager.GetString("IdentityOperationFailed", resourceCulture);
             }
         }
         
@@ -1618,6 +1744,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The email address is invalid.
+        /// </summary>
+        public static string InvalidEmail {
+            get {
+                return ResourceManager.GetString("InvalidEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The selected medicine is invalid..
         /// </summary>
         public static string InvalidMedicine {
@@ -1672,11 +1807,38 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The role name is invalid.
+        /// </summary>
+        public static string InvalidRoleName {
+            get {
+                return ResourceManager.GetString("InvalidRoleName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to One or more selected specialties are invalid..
         /// </summary>
         public static string InvalidSpecialty {
             get {
                 return ResourceManager.GetString("InvalidSpecialty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid security token..
+        /// </summary>
+        public static string InvalidToken {
+            get {
+                return ResourceManager.GetString("InvalidToken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User names may only contain letters or digits..
+        /// </summary>
+        public static string InvalidUserName {
+            get {
+                return ResourceManager.GetString("InvalidUserName", resourceCulture);
             }
         }
         
@@ -2230,11 +2392,29 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A user with this login already exists..
+        /// </summary>
+        public static string LoginAlreadyAssociated {
+            get {
+                return ResourceManager.GetString("LoginAlreadyAssociated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Male.
         /// </summary>
         public static string Male {
             get {
                 return ResourceManager.GetString("Male", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manage system users and their roles.
+        /// </summary>
+        public static string ManageSystemUsers {
+            get {
+                return ResourceManager.GetString("ManageSystemUsers", resourceCulture);
             }
         }
         
@@ -2428,6 +2608,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New Password.
+        /// </summary>
+        public static string NewPassword {
+            get {
+                return ResourceManager.GetString("NewPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Next.
         /// </summary>
         public static string Next {
@@ -2572,6 +2761,24 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No roles assigned.
+        /// </summary>
+        public static string NoRolesAssigned {
+            get {
+                return ResourceManager.GetString("NoRolesAssigned", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No roles available. Please create roles first..
+        /// </summary>
+        public static string NoRolesAvailable {
+            get {
+                return ResourceManager.GetString("NoRolesAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No Show.
         /// </summary>
         public static string NoShow {
@@ -2613,6 +2820,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string NotSpecified {
             get {
                 return ResourceManager.GetString("NotSpecified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No users found..
+        /// </summary>
+        public static string NoUsersFound {
+            get {
+                return ResourceManager.GetString("NoUsersFound", resourceCulture);
             }
         }
         
@@ -2851,6 +3067,114 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Password must be between {2} and {1} characters..
+        /// </summary>
+        public static string PasswordLength {
+            get {
+                return ResourceManager.GetString("PasswordLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password and confirmation do not match..
+        /// </summary>
+        public static string PasswordMismatch {
+            get {
+                return ResourceManager.GetString("PasswordMismatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password is required..
+        /// </summary>
+        public static string PasswordRequired {
+            get {
+                return ResourceManager.GetString("PasswordRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password must contain at least one uppercase letter, one lowercase letter, and one special character.
+        /// </summary>
+        public static string PasswordRequirements {
+            get {
+                return ResourceManager.GetString("PasswordRequirements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passwords must have at least one digit (&apos;0&apos;-&apos;9&apos;)..
+        /// </summary>
+        public static string PasswordRequiresDigit {
+            get {
+                return ResourceManager.GetString("PasswordRequiresDigit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passwords must have at least one lowercase letter (&apos;a&apos;-&apos;z&apos;)..
+        /// </summary>
+        public static string PasswordRequiresLower {
+            get {
+                return ResourceManager.GetString("PasswordRequiresLower", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passwords must have at least one non-alphanumeric character..
+        /// </summary>
+        public static string PasswordRequiresNonAlphanumeric {
+            get {
+                return ResourceManager.GetString("PasswordRequiresNonAlphanumeric", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passwords must use at least one different character..
+        /// </summary>
+        public static string PasswordRequiresUniqueChars {
+            get {
+                return ResourceManager.GetString("PasswordRequiresUniqueChars", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passwords must have at least one uppercase letter (&apos;A&apos;-&apos;Z&apos;)..
+        /// </summary>
+        public static string PasswordRequiresUpper {
+            get {
+                return ResourceManager.GetString("PasswordRequiresUpper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password reset failed. Please try again or contact support..
+        /// </summary>
+        public static string PasswordResetFailed {
+            get {
+                return ResourceManager.GetString("PasswordResetFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passwords do not match.
+        /// </summary>
+        public static string PasswordsDoNotMatch {
+            get {
+                return ResourceManager.GetString("PasswordsDoNotMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passwords must be at least 8 characters long..
+        /// </summary>
+        public static string PasswordTooShort {
+            get {
+                return ResourceManager.GetString("PasswordTooShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Patient.
         /// </summary>
         public static string Patient {
@@ -3054,6 +3378,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string Pending {
             get {
                 return ResourceManager.GetString("Pending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pending Confirmation.
+        /// </summary>
+        public static string PendingConfirmation {
+            get {
+                return ResourceManager.GetString("PendingConfirmation", resourceCulture);
             }
         }
         
@@ -3490,6 +3823,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Recovery code redemption failed..
+        /// </summary>
+        public static string RecoveryCodeRedemptionFailed {
+            get {
+                return ResourceManager.GetString("RecoveryCodeRedemptionFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reference ID.
         /// </summary>
         public static string ReferenceId {
@@ -3544,6 +3886,24 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reset Password.
+        /// </summary>
+        public static string ResetPassword {
+            get {
+                return ResourceManager.GetString("ResetPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are resetting the password for user: {0}.
+        /// </summary>
+        public static string ResetPasswordInfo {
+            get {
+                return ResourceManager.GetString("ResetPasswordInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Respiratory Rate.
         /// </summary>
         public static string RespiratoryRate {
@@ -3576,6 +3936,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         public static string Role {
             get {
                 return ResourceManager.GetString("Role", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The requested role was not found.
+        /// </summary>
+        public static string RoleNotFound {
+            get {
+                return ResourceManager.GetString("RoleNotFound", resourceCulture);
             }
         }
         
@@ -3832,6 +4201,15 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Operation completed successfully..
+        /// </summary>
+        public static string success {
+            get {
+                return ResourceManager.GetString("success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Summary.
         /// </summary>
         public static string Summary {
@@ -4021,11 +4399,65 @@ namespace ClinicFlow.Domain.Resources.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This user already has a password set..
+        /// </summary>
+        public static string UserAlreadyHasPassword {
+            get {
+                return ResourceManager.GetString("UserAlreadyHasPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The user already has this role.
+        /// </summary>
+        public static string UserAlreadyInRole {
+            get {
+                return ResourceManager.GetString("UserAlreadyInRole", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User Details.
+        /// </summary>
+        public static string UserDetails {
+            get {
+                return ResourceManager.GetString("UserDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Account lockout is not enabled for this user..
+        /// </summary>
+        public static string UserLockoutNotEnabled {
+            get {
+                return ResourceManager.GetString("UserLockoutNotEnabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The user does not have this role.
+        /// </summary>
+        public static string UserNotInRole {
+            get {
+                return ResourceManager.GetString("UserNotInRole", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Users.
         /// </summary>
         public static string Users {
             get {
                 return ResourceManager.GetString("Users", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Users Management.
+        /// </summary>
+        public static string UsersManagement {
+            get {
+                return ResourceManager.GetString("UsersManagement", resourceCulture);
             }
         }
         

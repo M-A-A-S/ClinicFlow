@@ -1,0 +1,91 @@
+﻿@using ClinicFlow.Domain.DTOs.Identity.Role
+@using ClinicFlow.Domain.DTOs.Identity.User
+@model UserDTO
+
+@{
+    var roles = ViewBag.Roles as IEnumerable<RoleDTO>
+            ?? Enumerable.Empty<RoleDTO>();
+}
+
+
+<div class="row g-3 mb-2">
+
+    @* ================= FullName ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="FullName" class="form-label"></label>
+        <input asp-for="FullName" class="form-control" />
+        <span asp-validation-for="FullName" class="text-danger"></span>
+    </div>
+
+    @* ================= Email ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    @* ================= PhoneNumber ================= *@
+    <div class="col-sm-6 col-md-4">
+        <label asp-for="PhoneNumber" class="form-label"></label>
+        <input asp-for="PhoneNumber" class="form-control" />
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+    </div>
+
+    @if (!Model.IsEditMode)
+    {
+        @* ================= Password ================= *@
+        <div class="row mb-3">
+
+            @* ================= Password ================= *@
+            <div class="col-md-6">
+                <label asp-for="Password" class="form-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            @* ================= ConfirmPassword ================= *@
+            <div class="col-md-6">
+                <label asp-for="ConfirmPassword" class="form-label"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+
+        </div>
+    } else
+    {
+        <div class="mb-3">
+            <a asp-controller="Users"
+               asp-action="ResetPassword"
+               asp-route-id="@Model.Id"
+               class="btn btn-warning btn-sm">
+                @Localizer["ResetPassword"]
+            </a>
+        </div>
+    }
+
+
+    <div class="mb-3">
+        <label class="form-label fw-semibold">@Localizer["Roles"]</label>
+        <div class="border rounded p-3">
+            @if (roles != null && roles?.Any() == true)
+            {
+                @foreach (var role in roles)
+                {
+                    var isChecked = Model?.Roles?.Contains(role.Name) == true;
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" 
+                            type="checkbox"
+                            name="Roles" 
+                            @* value="@role.Id"  *@
+                            value="@role.Name" 
+                            id="role_@role"
+                            checked="@isChecked" />
+                        <label class="form-check-label" for="role_@role">@role.Name</label>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+
+</div>

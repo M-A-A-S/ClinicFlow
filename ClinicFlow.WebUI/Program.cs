@@ -40,8 +40,10 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
     options.Password.RequiredLength = 8;
-    options.Password.RequireDigit = true;
+    options.Password.RequireNonAlphanumeric = true;
+    options.Password.RequireLowercase = true;
     options.Password.RequireUppercase = true;
+    options.Password.RequireDigit = false;
     options.User.RequireUniqueEmail = true;
 })
 .AddEntityFrameworkStores<AppDbContext>()

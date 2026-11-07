@@ -150,6 +150,34 @@ namespace ClinicFlow.Domain.Constants
 
         public const string CannotDeleteCriticalRole = "CannotDeleteCriticalRole";
 
+        public const string CannotDeleteLastAdmin = "CannotDeleteLastAdmin";
+        public const string EmailExists = "EmailExists";
+
+        public const string PasswordTooShort = "PasswordTooShort";
+        public const string PasswordRequiresNonAlphanumeric = "PasswordRequiresNonAlphanumeric";
+        public const string PasswordRequiresLower = "PasswordRequiresLower";
+        public const string PasswordRequiresUpper = "PasswordRequiresUpper";
+        public const string PasswordResetFailed = "PasswordResetFailed";
+
+        public const string DuplicateEmail = "DuplicateEmail";
+        public const string DuplicateUserName = "PasswordResetFailed";
+        public const string InvalidEmail = "InvalidEmail";
+        public const string DuplicateRoleName = "DuplicateRoleName";
+        public const string InvalidRoleName = "InvalidRoleName";
+        public const string RoleNotFound = "RoleNotFound";
+        public const string UserAlreadyInRole = "UserAlreadyInRole";
+        public const string UserNotInRole = "UserNotInRole";
+        public const string ConcurrencyFailure = "ConcurrencyFailure";
+        public const string IdentityOperationFailed = "IdentityOperationFailed";
+        public const string InvalidUserName = "InvalidUserName";
+        public const string PasswordRequiresDigit = "PasswordRequiresDigit";
+        public const string PasswordRequiresUniqueChars = "PasswordRequiresUniqueChars";
+        public const string LoginAlreadyAssociated = "LoginAlreadyAssociated";
+        public const string UserAlreadyHasPassword = "UserAlreadyHasPassword";
+        public const string UserLockoutNotEnabled = "UserLockoutNotEnabled";
+        public const string InvalidToken = "InvalidToken";
+        public const string RecoveryCodeRedemptionFailed = "RecoveryCodeRedemptionFailed";
+
 
     }
 }

@@ -1,0 +1,41 @@
+﻿@using ClinicFlow.Domain.DTOs.Identity.User
+@model UserDTO
+
+
+<div class="row">
+
+    @* ================= FullName ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["FullName"]</div>
+        <div>@Model.FullName</div>
+    </div>
+
+    @* ================= Email ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["Email"]</div>
+        <div>@Model.Email</div>
+    </div>
+
+    @* ================= PhoneNumber ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold">@Localizer["PhoneNumber"]</div>
+        <div>@Model.PhoneNumber</div>
+    </div>
+
+    @* ================= Roles ================= *@
+    <div class="col-sm-6 col-md-4">
+        <div class="fw-bold col-sm-4">@Localizer["Roles"]</div>
+        <div class="col-sm-8">
+            @if (Model.Roles.Any())
+            {
+                @foreach (var role in Model.Roles)
+                {
+                    <span class="badge bg-primary me-1">@role</span>
+                }
+            }
+        </div>
+    </div>
+
+</div>
+
+
